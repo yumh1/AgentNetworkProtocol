@@ -71,6 +71,7 @@ all方法的创建、解析、更新和撤销DID等操作全部使用https方法
 
 ## 3. DID文档设计
 当前版本的DID文档并没有用到W3C所有的字段，我们的DID文档目前是W3C规范的一个子集。  
+
 DID文档示例：
 ```json
 {
@@ -118,32 +119,54 @@ DID文档示例：
 
 ### 3.1 Id
 示例："did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443"
+
 - did：是DID前缀，表示去中心化标识符（Decentralized Identifier）；
+
 - all：是did方法，指定了DID的解析和操作规则；
+
 - 14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www：是唯一标识符，生成方式类似比特币地址生成。
+
 - @example.com:443：可选字段，表示这个为此DID提供文档托管服务的域名和端口。DID持有者可以选择自建服务、或者一个三方服务来托管文档，也可以不填写此字段，表示使用区块链中记录的三方服务。端口可选，如果端口不携带，则使用默认端口http与https端口。
 
 did唯一标识符根据公钥（即verificationMethod中的publicKeyHex）生成，可以保证文档不可篡改性。生成过程如下：
+
 1. 生成私钥
+
    使用安全的随机数生成器生成一个256位（32字节）的私钥。
+
 2. 生成公钥
+
    使用椭圆曲线数字签名算法（ECDSA）和Secp256r1曲线对私钥进行加密，生成公钥。公钥采用未压缩格式（前缀为0x04，后跟x和y坐标）。
+
 3. 计算公钥哈希
+
    对公钥进行以下两步哈希运算：
+
    - 使用SHA-256算法对公钥进行哈希，生成SHA-256哈希值。
+
    - 使用RIPEMD-160算法对SHA-256哈希值进行哈希，生成公钥哈希。
+
 4. 添加网络前缀
+
    在公钥哈希前面添加一个字节的版本号，表示地址类型。使用0x00。
+
 5. 计算校验和
+
    对上述结果进行以下两步SHA-256哈希运算，取前4个字节作为校验和。
+
 6. 生成id
+
    将版本号+公钥哈希+校验和连接起来，然后使用Base58Check编码生成最终的id。
 
 ### 3.2 verificationMethod
 verificationMethod包含用于验证签名的公钥信息，在W3C标准中，这个字段可以由多个，我们暂时只有一个，且controller字段就是自身。
+
 - id: 公钥的唯一标识符。
+
 - type: 公钥类型，这里使用的是EcdsaSecp256r1VerificationKey2019。暂时支持这一个方法。
+
 - controller: 控制该公钥的DID，目前填写DID文档的did。
+
 - publicKeyHex: 公钥的十六进制编码。
 
 ### 3.3 authentication
@@ -151,28 +174,46 @@ authentication表示鉴权使用的verificationMethod方法id，在我们的方�
 
 ### 3.4 service
 service在DID文档中用于表达与DID主体或关联实体进行通信的方式。服务可以是DID主体想要宣传的任何类型的服务，包括去中心化身份管理服务，以便进一步发现、身份验证、授权或交互。
+
 我们目前有两个核心的service定义：
+
 - messageService
+
   - 消息服务，如果另外一个用户想和这个用户通信，可以使用service中的serviceEndpoint发送消息。
+
   - serviceEndpoint目前是一个WSS链接，暂时不支持其他协议。WSS通信协议设计详细将端到端加密设计文档。
+
   - router是我们自定义的字段，它的值是一个DID。这个字段对于高并发系统非常重要，用于表示一个DID所属的router DID。当一个系统向一个三方消息服务发起WSS连接时，它有可能在这个连接上同时接受多个用户的消息，这个时候如果把所有用户一次注册，可能会导致整个过程耗时过长。这个时候可以指注册router，消息服务会自动将router对应的DID和WSS连接关联起来。
+
 - didDocumentService
+
   - 可选字段，表示这个DID文档所托管的服务端点，可以用多个。
+
   - 作用让DID验证者校验DID文档和DID服务商是否匹配，比如检测DID服务商是否通过非法手段获取未被授权的DID文档。
 
 ### 3.5 proof
 proof保存对DID文档的签名信息，用于进行DID文档完整性校验。
+
 - type: 签名类型，这里使用的是EcdsaSecp256r1Signature2019。
+
 - created: 签名的创建时间，ISO 8601格式的UTC时间字符串。
+
 - proofPurpose: 签名的用途，这里指定为assertionMethod。
+
 - verificationMethod: 用于验证签名的验证方法id，对应verificationMethod字段中的id。
+
 - proofValue: 签名值。
 
 签名值生成过程:
+
 - 构造DID文档的所有字段，proof中的proofValue字段除外。
+
 - 将待签名的DID文档转换为JSON字符串，使用逗号和冒号作为分隔符，并按键排序。
+
 - 将JSON字符串编码为UTF-8字节。
+
 - 使用椭圆曲线数字签名算法（EcdsaSecp256r1Signature2019）和SHA-256哈希算法，对字节数据进行签名。
+
 - 将生成的签名值 proofValue 添加到DID文档proof字典的proofValue字段中。
 ```python
 # 1. 创建DID文档的所有字段，排除proofValue字段
@@ -207,25 +248,34 @@ did_document["proof"]["proofValue"] = Base64.urlsafe_encode(signature)
 
 ## 4. DID文档验证
 根据DID文档生成过程，DID文档验证过程如下：
+
 1. 确认DID的正确性。
+
 2. 提取公钥：从DID文档中提取与verificationMethod字段匹配的公钥。目前仅有一个值。
+
 3. 根据DID生成过程，验证DID与公钥对应关系。
+
 4. 根据签名的生成过程，验证签名的正确性。  
 由此，只要DID正确，就可以校验DID文档是否完整，是否被篡改。
 
 ## 5. DID http接口
+
 ### 5.1 鉴权过程
 如果一个用户使用的是自己搭建的DID server，可以选择不对请求鉴权，否则调用者需要向多个平台申请API key。
 
 #### 5.1.1 HTTP 请求参数
 服务支持标准的 HTTP 调用。  
 请求头
+
 - Content-Type: application/json
+
 - Authorization: 支持 API Key 和 token 两种鉴权方式
 
 #### 5.1.2 HTTP 用户鉴权
 在调用接口时，支持两种鉴权方式：
+
 1. 传 API Key 进行认证
+
 2. 传鉴权 token 进行认证
 
 ##### 5.1.2.1 获取 API Key
@@ -333,7 +383,9 @@ curl --location 'https://open.bigmodel.cn/api/paas/v4/chat/completions' \
 
 ## 6. 异常流程
 DID文档对应的私钥至关重要，如果私钥发生泄漏，会导致DID文档不安全、伪造DID文档、端到端加密安全性降低等严重问题。虽然后面我们可以慢慢添加保护机制比如多重签名等，但是整个系统能够支持DID更新至关重要。
+
 如果用户发现did私钥发生泄漏，可以向DID服务商发送修改DID请求，将DID文档状态更改为废弃，并且设置新申请的DID。同时，通过DID消息服务，通知和此DID有关联的其他DID更新DID文档。
+
 同时，在下个版本我们计划增加多重签名机制，让DID文档安全性更加强大。
 
 ## 参考文献
