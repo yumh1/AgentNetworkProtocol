@@ -1,8 +1,8 @@
 # AgentNetworkProtocol技术白皮书：一种基于DID的跨平台身份认证和端到端加密通信技术
 
-<center>作者：常高伟，chgaowei@gmail.com</center>  
-<center>官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)</center>  
-<center>github：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)</center>  
+作者：常高伟，chgaowei@gmail.com  
+官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
+github：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)  
 
 备注：  
 如果你想快速了解我们技术概要，可以先看这篇文章： [技术通俗介绍](https://egp0uc2jnx.feishu.cn/wiki/NS9qwPzNeiIlmmkGAP7cIwN0nZg) 、[技术介绍精简版](https://egp0uc2jnx.feishu.cn/wiki/Qg3DwA0VuiHAC6k7ubicZGJHndd)。  
@@ -90,7 +90,7 @@ DID all方法设计规范：[02-did:all方法设计规范](02-did:all方法设�
 基于DID的跨平台身份认证方面，不需要使用者抛弃他们原有的身份系统，DID可以仅用作两个系统之间的身份认证，原有系统内部逻辑可以保持不变。比如，可以为一个用户申请一个或多个DID，绑定到原有的身份ID之上。  
 假设有两个用户，分别是A和B，他们分别注册在平台A和平台B，下面描述A和B如何找到对方的DID文档，获取消息服务并进行通信的过程：  
 
-![跨平台身份认证过程](../picture/cross-platform-authentication.png)
+![跨平台身份认证过程](../picture/cross-platform-identity-authentication-process.png)
 
 流程说明：  
 1. 用户A和B首先通过可靠途径交互DID，比如通过当面扫描、短信微信、公共查询等。  
@@ -105,7 +105,7 @@ DID all方法设计规范：[02-did:all方法设计规范](02-did:all方法设�
 我们基于WSS协议之上设计了一套基于DID的消息路由机制以及短期密钥协商机制，持有DID的双方可以使用DID文档中的公钥与自己的私钥，使用ECDHE（Elliptic Curve Diffie-Hellman Ephemeral）进行短期密钥协商，之后在密钥有效期内使用密钥加密消息实现安全通信。ECDHE能够保证消息即便经过三方消息代理等中间人转发，仍然无法被恶意解密。  
 三方的Message service可能不存在，用户可以使用自己的消息服务。  
 
-![端到端加密通信方案](../picture/end-to-end-encryption.png)
+![端到端加密通信方案](../picture/end-to-end-encryption-process.png)
 
 我们第一个版本基于WSS设计端到端加密方案，主要的考虑是WSS在互联网中应用非常广泛，有非常多可用的基础设施，能够降低用户的接入成本，这对方案的早期推广至关重要。  
 后面我们会推出传输层（基于TCP or UDP）的端到端加密方案，因为基于WSS的一个问题是消息可能会被加解密两次，WSS内部已经包含了一次TLS加解密。  
