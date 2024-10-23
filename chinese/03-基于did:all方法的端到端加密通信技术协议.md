@@ -1,5 +1,4 @@
 # 基于did:all方法的端到端加密通信技术协议
-# 基于did:all方法的端到端加密通信技术协议
 
 ## 1. 背景
 
@@ -65,7 +64,7 @@ Client (A)                                      Client (B)
 |                                                 |
 ```
 
-##4. 短期密钥协商过程
+## 4. 短期密钥协商过程
 
 短期密钥创建过程和TLS1.3中交换加密密钥过程基本类似，使用ECDHE（Elliptic Curve Diffie-Hellman Ephemeral），一种基于椭圆曲线的密钥交换协议，属于Diffie-Hellman密钥交换协议的一个变种。它结合了椭圆曲线密码学（ECC）和临时密钥（Ephemeral Key），用于在不安全的网络上安全地交换加密密钥，从而实现安全通信。
 
@@ -335,7 +334,9 @@ DestinationHello消息中的字段含义与SourceHello消息中的字段含义�
 ```
 
 ### 5.3 Finished消息
+
 在TLS1.3中，Finished消息的内容是之前所有握手消息的哈希值，再经过HMAC（基于哈希的消息认证码）处理，用来确保双方的握手消息没有被篡改，防止重放攻击。
+
 在我们的流程中，sourceHello和destinationHello两个消息都携带了签名，可以保证消息无法被篡改。finished消息在我们流程中主要的作用防止重攻击，具体的做法是将sourceHello和destinationHello两个消息中的随机数拼接起来，经过hash处理后，得到密钥id，然后再用密钥进行加密携带到finished中。这样可以通过解密消息，判断密钥ID是否相同，来防止重放攻击。
 
 消息示例
