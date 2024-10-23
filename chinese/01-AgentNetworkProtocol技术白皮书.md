@@ -1,12 +1,12 @@
 # AgentNetworkProtocol技术白皮书：一种基于DID的跨平台身份认证和端到端加密通信技术
 
-作者：常高伟，chgaowei@gmail.com  
-官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-github：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)  
+<center>作者：常高伟，chgaowei@gmail.com</center>  
+<center>官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)</center>  
+<center>github：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)</center>  
 
 备注：  
-如果你想快速了解我们技术概要，可以先看这篇文章： 技术介绍精简版 技术通俗介绍。  
-如果你想了解我们全面的文档，可以从这里进入： AgentConnect技术文档。  
+如果你想快速了解我们技术概要，可以先看这篇文章： [技术通俗介绍](https://egp0uc2jnx.feishu.cn/wiki/NS9qwPzNeiIlmmkGAP7cIwN0nZg) 、[技术介绍精简版](https://egp0uc2jnx.feishu.cn/wiki/Qg3DwA0VuiHAC6k7ubicZGJHndd)。  
+如果你想了解我们全面的文档，可以从这里进入： [AgentConnect技术文档](https://egp0uc2jnx.feishu.cn/wiki/BqYiwiblRiu81FkQNUfcfaIwniK)。  
 
 ## 摘要  
 本文提出了一种基于去中心化标识符（DID）和端到端加密通信技术，旨在解决当前智能体跨平台身份认证和安全通信的难题。通过结合W3C DID规范、区块链技术和TLS协议，本文设计了一种低成本、高效且安全的跨平台身份认证和加密通信方案。该方案引入了一种名为“all”的DID方法，使得智能体可以在不同平台间实现身份互操作性，并通过HTTPS等标准协议进行身份认证。文中详细描述了DID文档的生成与验证过程，以及基于DID的端到端加密通信机制，强调了高效、安全的短期密钥协商和加密通信流程。最后，本文探讨了智能体协作网络的未来发展方向和基于DID的身份系统的广泛应用前景。  
@@ -31,15 +31,18 @@ DID方法（DID Method）是去中心化标识符（Decentralized Identifier, DI
 ### 2.2 all方法的设计  
 all方法设计的核心是用密码学技术来保证DID文档的不可篡改性，用联盟节点来保证系统的分布式。  
 all方法的创建、解析、更新和撤销DID等操作全部使用https方法，核心流程如下：  
-暂时无法在飞书文档外展示此内容  
+
+![did:all方法核心流程](../picture/did-all-core-flow.png)
+
 1. 用户A首先从区块链等分布式存储中读取all方法三方服务域名列表，或者使用自建DID服务。  
 2. 创建DID和DID文档，选择其中一个或多个节点，发起HTTP请求，托管DID文档。  
 3. 用户B也从区块链等分布式存储中读取all方法服务域名列表。  
 4. 使用轮询或并发查询的方式，从服务域名节点中，查询DID文档。  
-DID all方法设计规范：DID all方法设计规范  
+
+DID all方法设计规范：[02-did:all方法设计规范](02-did:all方法设计规范.md)  
 
 ### 2.3 DID与DID文档  
-我们使用的DID文档示例如下（详细描述参见：DID all方法设计规范）： 
+我们使用的DID文档示例如下（详细描述参见：[02-did:all方法设计规范](02-did:all方法设计规范.md)）： 
 ```json
 {
   "@context": "https://www.w3.org/ns/did/v1",
@@ -75,7 +78,7 @@ DID all方法设计规范：DID all方法设计规范
 }
 ```
 
-其中，DID是“did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443:443”。  
+其中，DID是“did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443”。  
 在all方法中，唯一标识符是根据verificationMethod中的公钥生成的，生成过程参考了比特币地址的生成方式。这种方法的好处是，不需要第三方（比如CA机构）参与，就可以验证did文档中公钥是否与did对应。比如：  
 - 验证者读取一个did文档，首先判断did是否是正确（通过安全渠道获得）；  
 - 然后看根据公钥生成did是否与文档中的did相同，如果相同，则说明公钥是正确的；  
@@ -86,7 +89,9 @@ DID all方法设计规范：DID all方法设计规范
 ### 2.4 跨平台身份认证过程  
 基于DID的跨平台身份认证方面，不需要使用者抛弃他们原有的身份系统，DID可以仅用作两个系统之间的身份认证，原有系统内部逻辑可以保持不变。比如，可以为一个用户申请一个或多个DID，绑定到原有的身份ID之上。  
 假设有两个用户，分别是A和B，他们分别注册在平台A和平台B，下面描述A和B如何找到对方的DID文档，获取消息服务并进行通信的过程：  
-暂时无法在飞书文档外展示此内容  
+
+![跨平台身份认证过程](../picture/cross-platform-authentication.png)
+
 流程说明：  
 1. 用户A和B首先通过可靠途径交互DID，比如通过当面扫描、短信微信、公共查询等。  
 2. 用户A和B将对方的DID发送给各自服务端，服务端通过DID查询DID 文档。  
@@ -99,7 +104,9 @@ DID all方法设计规范：DID all方法设计规范
 该方案借鉴了TLS、区块链（比特币）等已经在实践中得到检验的高安全性技术，对这些技术进行组合，得出一个新基于DID的端到端加密通信方案。  
 我们基于WSS协议之上设计了一套基于DID的消息路由机制以及短期密钥协商机制，持有DID的双方可以使用DID文档中的公钥与自己的私钥，使用ECDHE（Elliptic Curve Diffie-Hellman Ephemeral）进行短期密钥协商，之后在密钥有效期内使用密钥加密消息实现安全通信。ECDHE能够保证消息即便经过三方消息代理等中间人转发，仍然无法被恶意解密。  
 三方的Message service可能不存在，用户可以使用自己的消息服务。  
-暂时无法在飞书文档外展示此内容  
+
+![端到端加密通信方案](../picture/end-to-end-encryption.png)
+
 我们第一个版本基于WSS设计端到端加密方案，主要的考虑是WSS在互联网中应用非常广泛，有非常多可用的基础设施，能够降低用户的接入成本，这对方案的早期推广至关重要。  
 后面我们会推出传输层（基于TCP or UDP）的端到端加密方案，因为基于WSS的一个问题是消息可能会被加解密两次，WSS内部已经包含了一次TLS加解密。  
 
@@ -170,7 +177,7 @@ Client (A)                                          Server (B)
    |                                                    |
 ```
 
-短期密钥协商过程：基于DID的端到端加密通信技术
+短期密钥协商过程：[03-基于did:all方法的端到端加密通信技术协议](03-基于did:all方法的端到端加密通信技术协议.md)
 
 ## 4. 展望
 ### 4.1 基于协议的智能协作
@@ -195,8 +202,12 @@ Client (A)                                          Server (B)
 本文介绍了一种创新的基于DID的跨平台身份认证和端到端加密通信方案，旨在应对智能体网络中身份验证和安全通信的挑战。通过引入DID的“all”方法，本文解决了不同平台间身份系统互操作性的问题，简化了身份验证过程。该方案利用HTTPS协议和区块链技术，保证了DID文档的不可篡改性和系统的分布式特性。同时，通过借鉴TLS和区块链的技术，设计了高效、安全的短期密钥协商机制，实现了端到端的加密通信，确保了数据的保密性和完整性。本文还提出了智能体网络协作的设想，探讨了未来基于DID的身份系统的潜在应用和发展方向。总的来说，本文提供了一种具有广泛应用前景的解决方案，为智能体网络的高效、安全运转奠定了基础。
 
 ## 参考文献
-[1] 比尔盖茨，AI is about to completely change how you use computers，https://www.gatesnotes.com/AI-agents
-[2] W3C DID(Decentralized Identifier)规范，https://www.w3.org/TR/did-core/
-[3] TLS(Transport Layer Security)1.3规范，https://www.rfc-editor.org/info/rfc8446
-[4] DID all方法设计规范，DID all方法设计规范
-[5] 基于DID的端到端加密通信技术，基于DID的端到端加密通信技术
+[1] 比尔盖茨，AI is about to completely change how you use computers，[https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
+
+[2] W3C DID(Decentralized Identifier)规范，[https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)
+
+[3] TLS(Transport Layer Security)1.3规范，[https://www.rfc-editor.org/info/rfc8446](https://www.rfc-editor.org/info/rfc8446)
+
+[4] DID all方法设计规范，[02-did:all方法设计规范](02-did:all方法设计规范.md)
+
+[5] 基于DID的端到端加密通信技术，[03-基于did:all方法的端到端加密通信技术协议](03-基于did:all方法的端到端加密通信技术协议.md)
