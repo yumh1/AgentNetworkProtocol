@@ -390,5 +390,7 @@ DID文档对应的私钥至关重要，如果私钥发生泄漏，会导致DID�
 
 ## 参考文献
 [1] W3C DID(Decentralized Identifier)规范，[https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)
+
 [2] TLS(Transport Layer Security)1.3规范，[https://www.rfc-editor.org/info/rfc8446](https://www.rfc-editor.org/info/rfc8446)
+
 [3] W3C DIDs：拆解权力结构的数字身份标准，[https://yurenju.blog/posts/2024-01-01_w3c-dids-redefining-identity-authority/](https://yurenju.blog/posts/2024-01-01_w3c-dids-redefining-identity-authority/)
