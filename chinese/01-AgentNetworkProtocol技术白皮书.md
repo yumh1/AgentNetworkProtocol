@@ -56,11 +56,11 @@ all方法的创建、解析、更新和撤销DID等操作全部使用https方法
 
 4. 使用轮询或并发查询的方式，从服务域名节点中，查询DID文档。  
 
-DID all方法设计规范：[02-did:all方法设计规范](02-did:all方法设计规范.md)  
+DID all方法设计规范：[02-did:all方法设计规范](02-did%3Aall方法设计规范.md)  
 
 ### 2.3 DID与DID文档  
 
-我们使用的DID文档示例如下（详细描述参见：[02-did:all方法设计规范](02-did:all方法设计规范.md)）： 
+我们使用的DID文档示例如下（详细描述参见：[02-did:all方法设计规范](02-did%3Aall方法设计规范.md)）： 
 
 ```json
 {
@@ -279,6 +279,6 @@ Client (A)                                          Server (B)
 
 [3] TLS(Transport Layer Security)1.3规范，[https://www.rfc-editor.org/info/rfc8446](https://www.rfc-editor.org/info/rfc8446)
 
-[4] DID all方法设计规范，[02-did:all方法设计规范](02-did:all方法设计规范.md)
+[4] DID all方法设计规范，[02-did:all方法设计规范](02-did%3Aall方法设计规范.md)
 
 [5] 基于DID的端到端加密通信技术，[03-基于did:all方法的端到端加密通信技术协议](03-基于did:all方法的端到端加密通信技术协议.md)
