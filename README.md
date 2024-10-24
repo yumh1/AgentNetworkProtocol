@@ -37,7 +37,7 @@ Rather than completely replacing existing technology, we've built a new agent ne
 
 Author: Gaowei Chang  
 Email: chgaowei@gmail.com  
-Discord: [https://discord.gg/CDYdTPXXMB](https://discord.gg/CDYdTPXXMB)  
+Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 

@@ -38,7 +38,7 @@ AgentNetworkProtocol 是一个基于W3C DID (去中心化标识符)的跨平台�
 
 作者：常高伟  
 邮箱：chgaowei@gmail.com  
-- Discord: [https://discord.gg/CDYdTPXXMB](https://discord.gg/CDYdTPXXMB)  
+- Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 
