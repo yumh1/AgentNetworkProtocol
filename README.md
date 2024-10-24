@@ -1,5 +1,7 @@
 # AgentNetworkProtocol
 
+[中文版](README.cn.md)
+
 AgentNetworkProtocol is a cross-platform identity authentication and end-to-end encrypted communication technology solution based on W3C DID (Decentralized Identifier).
 
 ## Project Vision
