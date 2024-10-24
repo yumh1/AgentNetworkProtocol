@@ -54,7 +54,7 @@ The all method's DID service adopts a more flexible approach. Firstly, to avoid 
 
 All operations of creating, resolving, updating, and revoking DIDs in the all method use HTTPS. The core processes are as follows:
 
-![Core Flow of the all Method](../images/did-all-core-flow.png)
+![Core Flow of the all Method](./images/did-all-core-flow.png)
 
 1. User A first reads the list of third-party service domain names for the all method from distributed storage like blockchain or uses a self-built DID service.
 2. Creates a DID and DID document, selects one or more nodes, and initiates an HTTP request to host the DID document.

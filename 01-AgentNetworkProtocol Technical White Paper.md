@@ -47,7 +47,7 @@ The core of the "all" method design is to use cryptographic techniques to ensure
 
 All operations for creating, resolving, updating, and deactivating DIDs in the "all" method use HTTPS. The core process is as follows:
 
-![Core Process of did:all Method](../images/did-all-core-flow.png)
+![Core Process of did:all Method](./images/did-all-core-flow.png)
 
 1. User A first retrieves the list of "all" method service domains from the blockchain or other distributed storage or uses a self-hosted DID service.
 
@@ -116,7 +116,7 @@ In cross-platform identity authentication based on DID, users do not need to aba
 
 Suppose there are two users, A and B, registered on Platform A and Platform B respectively. The following describes how A and B find each other's DID documents, obtain message services, and communicate:
 
-![Cross-Platform Identity Authentication Process](../images/cross-platform-identity-authentication-process.png)
+![Cross-Platform Identity Authentication Process](./images/cross-platform-identity-authentication-process.png)
 
 **Process Explanation:**
 
@@ -139,7 +139,7 @@ Our current scheme essentially uses application layer encryption to replace tran
 
 The overall process is as follows:
 
-![end-to-end-encryption](../images/end-to-end-encryption-process.png)
+![end-to-end-encryption](./images/end-to-end-encryption-process.png)
 
 Note: The third-party Message service may not exist, and users can use their own message service.
 

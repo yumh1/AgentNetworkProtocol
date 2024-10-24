@@ -8,7 +8,7 @@ In the article about cross-platform identity authentication and end-to-end encry
 
 The overall structure is shown in the following diagram:
 
-![DID-based Message Communication Architecture](../images/message-flow-architecture.png)
+![DID-based Message Communication Architecture](./images/message-flow-architecture.png)
 
 The above diagram shows the overall architecture of DID-based message communication, with three main participants:
 
@@ -30,7 +30,7 @@ One routing information can be bound to multiple WSS connections, with load bala
 
 The process of router registration, binding, and sending messages according to DID is as follows:
 
-![Router Registration, Binding, and DID-based Message Sending Process](../images/message-did-register-flow.png)
+![Router Registration, Binding, and DID-based Message Sending Process](./images/message-did-register-flow.png)
 
 ## 3. Message Proxy Authentication Mechanism
 
@@ -111,7 +111,7 @@ Service Proxies also need to connect with each other, especially when different 
 This section describes how user A can successfully send a message to user B using B's DID.
 The overall process is shown in the following diagram:
 
-![Message Sending and Receiving Process](../images/message-send-receive-flow.png)
+![Message Sending and Receiving Process](./images/message-send-receive-flow.png)
 
 Process description:
 1. User A obtains user B's DID through WeChat, SMS, offline, or other channels, and initiates a request to send a message to B through A's server.

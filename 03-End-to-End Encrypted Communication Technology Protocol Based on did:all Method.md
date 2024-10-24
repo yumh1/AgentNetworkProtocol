@@ -18,7 +18,7 @@ Our current solution essentially uses application-layer encryption to replace tr
 
 The overall process is illustrated in the following diagram:
 
-![end-to-end-encryption](../images/end-to-end-encryption-process.png)
+![end-to-end-encryption](./images/end-to-end-encryption-process.png)
 
 **Note:** The third-party Message service may not exist; users can use their own message services.
 
