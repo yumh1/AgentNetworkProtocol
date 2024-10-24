@@ -56,11 +56,11 @@ All operations for creating, resolving, updating, and deactivating DIDs in the "
 
 4. User B queries the DID document from service domain nodes using polling or concurrent queries.
 
-DID "all" method design specifications: [02-did:all Method Design Specification](02-did:all%20Method%20Design%20Specification.md)
+DID "all" method design specifications: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)
 
 ### 2.3 DID and DID Documents
 
-An example of a DID document we use is as follows (for detailed description, refer to: [02-did:all Method Design Specification](02-did:all%20Method%20Design%20Specification.md)):
+An example of a DID document we use is as follows (for detailed description, refer to: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)):
 
 ```json
 {
@@ -99,7 +99,7 @@ An example of a DID document we use is as follows (for detailed description, ref
 
 Here, the DID is "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443".
 
-In the "all" method, the unique identifier is generated based on the public key in the verificationMethod, following a process similar to Bitcoin address generation (for detailed description, refer to: [02-did:all Method Design Specification](02-did:all%20Method%20Design%20Specification.md)):
+In the "all" method, the unique identifier is generated based on the public key in the verificationMethod, following a process similar to Bitcoin address generation (for detailed description, refer to: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)):
 
 - The verifier reads a DID document and first verifies the correctness of the DID (obtained through a secure channel).
 - Then, it checks if the DID generated from the public key matches the DID in the document. If they match, the public key is correct.
@@ -185,7 +185,7 @@ Client (A)                                          Server (B)
    |                                                    |
 ```
 
-Short-term key negotiation process: [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did:all%20Method.md)
+Short-term key negotiation process: [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md)
 
 ## 4. Outlook
 
@@ -237,9 +237,9 @@ This paper introduces an innovative cross-platform identity authentication and e
 
 [3] TLS (Transport Layer Security) 1.3 Specification, [https://www.rfc-editor.org/info/rfc8446](https://www.rfc-editor.org/info/rfc8446)
 
-[4] DID "all" Method Design Specification, [02-did:all Method Design Specification](02-did:all%20Method%20Design%20Specification.md)
+[4] DID "all" Method Design Specification, [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)
 
-[5] End-to-End Encrypted Communication Technology Based on DID, [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did:all%20Method.md)
+[5] End-to-End Encrypted Communication Technology Based on DID, [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md)
 
 
 
