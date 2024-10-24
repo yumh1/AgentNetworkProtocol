@@ -7,7 +7,6 @@ github：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/
 
 备注：  
 如果你想快速了解我们技术概要，可以先看这篇文章： [技术通俗介绍](https://egp0uc2jnx.feishu.cn/wiki/NS9qwPzNeiIlmmkGAP7cIwN0nZg) 、[技术介绍精简版](https://egp0uc2jnx.feishu.cn/wiki/Qg3DwA0VuiHAC6k7ubicZGJHndd)。  
-如果你想了解我们全面的文档，可以从这里进入： [AgentConnect技术文档](https://egp0uc2jnx.feishu.cn/wiki/BqYiwiblRiu81FkQNUfcfaIwniK)。  
 
 ## 摘要  
 

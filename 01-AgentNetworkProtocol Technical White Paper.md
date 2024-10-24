@@ -1,13 +1,12 @@
 
 # AgentNetworkProtocol Technical White Paper: A Cross-Platform Identity Authentication and End-to-End Encrypted Communication Protocol Based on DID
 
-**Authors:** 常高伟，chgaowei@gmail.com  
+**Authors:** Gaowei Chang, chgaowei@gmail.com  
 **Website:** [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 **GitHub:** [https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)  
 
 **Note:**  
-If you want to quickly understand our technical overview, you can first read this article: [Technical Introduction for General Audience](https://egp0uc2jnx.feishu.cn/wiki/NS9qwPzNeiIlmmkGAP7cIwN0nZg) or [Simplified Technical Introduction](https://egp0uc2jnx.feishu.cn/wiki/Qg3DwA0VuiHAC6k7ubicZGJHndd).  
-For comprehensive documentation, you can access it here: [AgentConnect Technical Documentation](https://egp0uc2jnx.feishu.cn/wiki/BqYiwiblRiu81FkQNUfcfaIwniK).  
+If you want to quickly understand our technical overview, you can first read this article: [Technical Introduction for General Audience](https://egp0uc2jnx.feishu.cn/wiki/KFTpwYoAPiwwOjkf9jacVbTInYd?from=from_copylink) or [Simplified Technical Introduction](https://egp0uc2jnx.feishu.cn/wiki/MFVNwz4PpiqBJ8kkqEfcLJKUnhf?from=from_copylink).  
 
 ## Abstract
 
