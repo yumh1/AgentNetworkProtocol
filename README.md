@@ -30,9 +30,9 @@ Rather than completely replacing existing technology, we've built a new agent ne
 ## Technical Documentation
 
 - [AgentNetworkProtocol Technical White Paper](01-AgentNetworkProtocol%20Technical%20White%20Paper.md) - Overview of the technical solution
-- [did:all Method Design Specification](02-did:all%20Method%20Design%20Specification.md) - Detailed DID method design
-- [End-to-End Encrypted Communication Technology Protocol](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did:all%20Method.md) - Encrypted communication protocol description
-- [Message Service Protocol](04-Message%20Service%20Protocol%20Based%20on%20did:all%20Method.md) - Message service protocol description
+- [did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md) - Detailed DID method design
+- [End-to-End Encrypted Communication Technology Protocol](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md) - Encrypted communication protocol description
+- [Message Service Protocol](04-Message%20Service%20Protocol%20Based%20on%20did%3Aall%20Method.md) - Message service protocol description
 ## Contact Information
 
 Author: Gaowei Chang  
