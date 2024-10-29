@@ -46,7 +46,7 @@ all方法设计的核心是用密码学技术来保证DID文档的不可篡改�
 
 all方法的创建、解析、更新和撤销DID等操作全部使用https方法，核心流程如下：  
 
-![did:all方法核心流程](../images/did-all-core-flow.png)
+![did:all方法核心流程](/images/did-all-core-flow.png)
 
 1. 用户A首先从区块链等分布式存储中读取all方法三方服务域名列表，或者使用自建DID服务。  
 
@@ -117,7 +117,7 @@ DID all方法设计规范：[02-did:all方法设计规范](02-did%3Aall方法设
 
 假设有两个用户，分别是A和B，他们分别注册在平台A和平台B，下面描述A和B如何找到对方的DID文档，获取消息服务并进行通信的过程：  
 
-![跨平台身份认证过程](../images/cross-platform-identity-authentication-process.png)
+![跨平台身份认证过程](/images/cross-platform-identity-authentication-process.png)
 
 流程说明：  
 
@@ -143,7 +143,7 @@ DID all方法设计规范：[02-did:all方法设计规范](02-did%3Aall方法设
 
 整体流程如下图：
 
-![end-to-end-encryption](../images/end-to-end-encryption-process.png)
+![end-to-end-encryption](/images/end-to-end-encryption-process.png)
 
 备注：三方的Message service可能不存在，用户可以使用自己的消息服务。
 

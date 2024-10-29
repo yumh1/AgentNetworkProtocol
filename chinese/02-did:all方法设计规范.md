@@ -58,7 +58,7 @@ all方法的DID服务采用了一种更加灵活的方式。首先，为了避�
 ### 2.3 核心流程
 all方法的创建、解析、更新和撤销DID等操作全部使用https方法，核心流程如下：
 
-![all方法核心流程](../images/did-all-core-flow.png)
+![all方法核心流程](/images/did-all-core-flow.png)
 
 1. 用户A首先从区块链等分布式存储中读取all方法三方服务域名列表，或者使用自建DID服务。
 

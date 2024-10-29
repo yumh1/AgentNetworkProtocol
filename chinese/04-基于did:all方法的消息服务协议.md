@@ -8,7 +8,7 @@
 
 整体结构如下图：
 
-![基于DID的消息通信整体架构图](../images/message-flow-architecture.png)
+![基于DID的消息通信整体架构图](/images/message-flow-architecture.png)
 
 上图是基于DID的消息通信整体架构图，图中有三个主要参与方：
 
@@ -30,7 +30,7 @@ User Server连接到Message Proxy后，需要提供这个连接的路由信息�
 
 router注册、绑定、根据DID发送消息流程如下：
 
-![router注册、绑定、根据DID发送消息流程](../images/message-did-register-flow.png)
+![router注册、绑定、根据DID发送消息流程](/images/message-did-register-flow.png)
 
 ## 3. Message Proxy鉴权机制
 
@@ -101,7 +101,7 @@ def generate_token(apikey: str, exp_seconds: int):try:id, secret = apikey.split(
 本节描述的是，一个用户A怎么根据用户B的DID，成功的将消息发送给B。
 整体流程如下图所示：
 
-![消息发送与接收流程](../images/message-send-receive-flow.png)
+![消息发送与接收流程](/images/message-send-receive-flow.png)
 
 流程说明：
 1. 用户A通过微信、短信、线下等渠道获得用户B的DID，向B发送消息，首先向A的服务端发起请求。

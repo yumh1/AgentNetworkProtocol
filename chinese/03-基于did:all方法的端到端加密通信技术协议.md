@@ -18,7 +18,7 @@
 
 整体流程如下图：
 
-![end-to-end-encryption](../images/end-to-end-encryption-process.png)
+![end-to-end-encryption](/images/end-to-end-encryption-process.png)
 
 备注：三方的Message service可能不存在，用户可以使用自己的消息服务。
 
