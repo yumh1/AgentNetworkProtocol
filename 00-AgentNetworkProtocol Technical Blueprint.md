@@ -6,7 +6,7 @@ In the new era of rapid AI development, we are entering a new epoch of intellige
 
 Imagine the future: your personal assistant AI seamlessly communicates with the restaurant's intelligent system when ordering food; your smart home system collaborates with the energy management AI to optimize electricity usage; your investment advisor AI exchanges real-time information with global market analysis agents... This is the forthcoming era of intelligent agent networks.
 
-The vision of the Agent Network Protocol (ANP) is to **define the connection method for the intelligent agent network era**, just as internet protocols have achieved in the information age. We believe that in the near future, billions of intelligent agents will build an unprecedented collaborative network through ANP, creating value greater than the existing internet. With the support of ANP, the intelligent agent network will eventually evolve into a self-organizing, self-negotiating efficient collaborative network, which is an exciting future.
+The vision of the Agent Network Protocol (ANP) is to **define the connection method for the intelligent agent network era**, just as internet protocols have achieved in the information age. We believe that in the near future, billions of intelligent agents will build an unprecedented collaborative network through ANP, creating value greater than the existing internet. With the support of ANP, the intelligent agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaborative network, which is an exciting future.
 
 ## Protocol Architecture
 
@@ -31,7 +31,7 @@ Detailed technical documentation: [GitHub](https://github.com/chgaowei/AgentNetw
 
 ### Meta-Protocol Layer
 
-With the support of the meta-protocol, the intelligent agent network may evolve into a self-organizing, self-negotiating efficient collaborative network, which is an exciting future.
+With the support of the meta-protocol, the intelligent agent network may evolve into a **self-organizing, self-negotiating** efficient collaborative network, which is an exciting future.
 
 The so-called meta-protocol is a protocol for negotiating the communication protocol to be used. In the Meta-Protocol Layer, we mainly refer to and draw from the [Agora Protocol](https://arxiv.org/html/2410.11905v1).
 
@@ -44,7 +44,7 @@ The combination of intelligent agents empowered by LLM and the meta-protocol is 
 - Agents conduct protocol joint debugging, using LLM to determine whether protocol messages comply with the negotiated specifications. If not, they resolve it through natural language interaction.
 - Finally, agents use the final protocol for communication.
 
-We believe that with the natural language understanding and code generation capabilities of LLM, and the promotion of meta-protocol technology, the intelligent agent network will eventually evolve into a self-organizing, self-negotiating efficient collaborative network. Many communication protocols will be agreed upon between agents, far exceeding the number of protocols formulated by humans.
+We believe that with the natural language understanding and code generation capabilities of LLM, and the promotion of meta-protocol technology, the intelligent agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaborative network. Many communication protocols will be agreed upon between agents, far exceeding the number of protocols formulated by humans.
 
 ### Application Protocol Layer
 

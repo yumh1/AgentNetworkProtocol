@@ -4,7 +4,7 @@
 
 在人工智能迅猛发展的新时代，我们正迈入智能体网络的崭新纪元。Agent Network Protocol (ANP) 将成为这一时代的核心技术，为数十亿智能体构建一个开放、安全、高效的协作网络。
 
-Agent Network Protocol(ANP)的愿景是定义智能体网络时代的连接方式，就像互联网协议成就了信息时代。我们相信，在不远的将来，数十亿智能体将通过ANP构建起前所未有的协作网络，创造出比现有互联网更大的价值。在ANP加持下，智能体网络最终会演化成一个自组织、自协商的高效协作网络，这是一个令人兴奋的未来。
+Agent Network Protocol(ANP)的愿景是**定义智能体网络时代的连接方式**，就像互联网协议成就了信息时代。我们相信，在不远的将来，数十亿智能体将通过ANP构建起前所未有的协作网络，创造出比现有互联网更大的价值。在ANP加持下，智能体网络最终会演化成一个**自组织、自协商**的高效协作网络，这是一个令人兴奋的未来。
 
 ## 协议架构
 
@@ -85,8 +85,8 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 作者：常高伟  
 邮箱：chgaowei@gmail.com  
 - Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
-官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
+- GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 
 ## 代码
 
