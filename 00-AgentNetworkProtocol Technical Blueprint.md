@@ -12,7 +12,9 @@ The vision of the Agent Network Protocol (ANP) is to **define the connection met
 
 The Agent Network Protocol (ANP) is designed as a three-layer architecture, from bottom to top: Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer, as shown in the figure below:
 
-![Protocol Layer Design](/images/protocol-layer-design.png)
+<p align="center">
+  <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
+</p>
 
 ### Identity and Encrypted Communication Layer
 
@@ -58,7 +60,9 @@ Agents can extend protocols based on their data or business characteristics on t
 
 We have open-sourced a project, AgentConnect (https://github.com/chgaowei/AgentConnect), to implement the functions of the Agent Network Protocol (ANP). The project architecture is shown in the figure below:
 
-![Project Architecture](/images/agent-connect-architecture.png)
+<p align="center">
+  <img src="/images/agent-connect-architecture.png" width="50%" alt="Project Architecture"/>
+</p>
 
 Corresponding to the three-layer architecture of the Agent Network Protocol, AgentConnect mainly includes the following parts:
 

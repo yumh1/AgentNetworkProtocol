@@ -12,7 +12,9 @@ Agent Network Protocol(ANP)的愿景是**定义智能体网络时代的连接方
 
 Agent Network Protocol(ANP)整体上设计为三层架构，从下到上依次是身份与加密通信层、元协议层、应用协议层，如下图所示：
 
-![协议分层图](/images/protocol-layer-design.png)
+<p align="center">
+  <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
+</p>
 
 ### 身份与加密通信层
 
@@ -58,7 +60,9 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 
 我们开源了一个项目，AgentConnect（https://github.com/chgaowei/AgentConnect），用来实现Agent Network Protocol(ANP)的功能，项目架构如下图：
 
-![项目架构图](/images/agent-connect-architecture.png)
+<p align="center">
+  <img src="/images/agent-connect-architecture.png" width="50%" alt="项目架构图"/>
+</p>
 
 对应Agent Network Protocol的三层架构，AgentConnect主要包括以下几个部分：
 
