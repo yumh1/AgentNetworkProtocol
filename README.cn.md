@@ -11,6 +11,7 @@ Agent Network Protocol(ANP)的愿景是**定义智能体网络时代的连接方
 Agent Network Protocol(ANP)整体上设计为三层架构，从下到上依次是身份与加密通信层、元协议层、应用协议层，如下图所示：
 
 ![协议分层图](/images/protocol-layer-design.png)
+<img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
 
 ### 身份与加密通信层
 
