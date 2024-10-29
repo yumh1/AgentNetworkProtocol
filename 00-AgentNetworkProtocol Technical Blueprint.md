@@ -90,6 +90,8 @@ Whether it is the protocol or the open-source code implementation, we are advanc
 
 In addition, we will follow the principle of overall first, then details. In the early stages, we will focus on building the overall architecture, constructing an overall outline for each major module, and getting it running quickly, rather than building individual exquisite but non-functional modules.
 
+To promote the Agent Network Protocol (ANP) as an industry standard, we will establish an ANP Standardization Committee at an appropriate time, dedicated to promoting ANP as an industry standard recognized by international standardization organizations such as W3C.
+
 Finally, during the design process, we gradually realized that blockchain might be a more suitable network infrastructure for intelligent agents. In the future, we may actively explore and experiment in this direction.
 
 ## Why Choose Agent Network Protocol (ANP)?
@@ -99,3 +101,14 @@ Finally, during the design process, we gradually realized that blockchain might 
 - **Efficient Implementation**: Based on existing web infrastructure, it achieves low-cost, rapid deployment, helping the ecosystem develop quickly.
 - **Future-Oriented**: Builds infrastructure for the intelligent agent network era, driving the evolution and innovation of self-organizing collaborative networks.
 - **Professional Team**: The core team consists of experienced engineers and researchers with rich experience in distributed systems, protocol design, and artificial intelligence.
+
+## How to Contribute to Agent Network Protocol (ANP)
+
+Whether you are a developer, researcher, enterprise, or simply interested in the Agent Network Protocol (ANP), we welcome you to join us and contribute to the development of ANP.
+
+Our contact information:
+
+- Author: Gaowei Chang, chgaowei@gmail.com  
+- Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
+- Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
+- GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)

@@ -76,6 +76,8 @@ Whether it is the protocol or the open-source code implementation, we are advanc
 
 In addition, we will follow the principle of overall first, then details. In the early stages, we will focus on building the overall architecture, constructing an overall outline for each major module, and getting it running quickly, rather than building individual exquisite but non-functional modules.
 
+To promote the Agent Network Protocol (ANP) as an industry standard, we will establish an ANP Standardization Committee at an appropriate time, dedicated to promoting ANP as an industry standard recognized by international standardization organizations such as W3C.
+
 Finally, during the design process, we gradually realized that blockchain might be a more suitable infrastructure for the agent network. In the future, we may make some active attempts and explorations in this direction.
 
 ## Why Choose Agent Network Protocol (ANP)?

@@ -90,6 +90,8 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 
 除此之外，我们还会遵循先整体，后细节的原则。早期我们会致力于整体架构的搭建，为每一个主要的模块构建一个整体的轮廓，让它快速的运行起来，而不是构建一个个精美但无法运行的模块。
 
+为了推动Agent Network Protocol(ANP)成为行业的标准，我们将会在合适的时间组建ANP标准化委员会，致力于推动ANP成为W3C等国际标准化组织认可的行业标准。
+
 最后，在设计方案的过程中，我们逐渐的感受到，也许区块链是更适合智能体的网络基础设施，未来我们可能会在这个方向做一些积极的尝试和探索。
 
 ## 为什么选择Agent Network Protocol(ANP)？
@@ -99,3 +101,14 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 - **高效落地**：立足现有 Web 基础设施，实现低成本、快速部署，助力生态快速发展。
 - **面向未来**：为智能体网络时代打造基础设施，驱动自组织协作网络的演进与创新。
 - **专业团队**：由资深工程师和研究人员组成的核心团队，拥有丰富的分布式系统、协议设计和人工智能领域经验。
+
+## 如何为Agent Network Protocol(ANP)贡献力量
+
+无论你是开发者、研究人员、企业，还是对Agent Network Protocol(ANP)感兴趣的朋友，我们都欢迎你加入我们，一起为Agent Network Protocol(ANP)的发展贡献力量。
+
+我们的联系方式：
+
+- 作者：常高伟，chgaowei@gmail.com  
+- Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
+- 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
+- GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
