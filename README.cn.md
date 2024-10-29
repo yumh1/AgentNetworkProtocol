@@ -27,8 +27,6 @@ Agent Network Protocol(ANP)整体上设计为三层架构，从下到上依次�
 
 W3C DID 是Agent Network Protocol(ANP)的身份和加密通信层的核心基石，它的去中心化、互操作性等特性成就了ANP协议的开发性，让任意两个智能体都能够通过它建立连接，让我们能够构建一个开放的智能体协作网络。
 
-详细技术文档：[GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
-
 ### 元协议层
 
 在元协议加持下，智能体网络有可能会演进成一个自组织、自协商的高效协作网络，这是一个令人兴奋的未来。
@@ -97,7 +95,7 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 
 ## 贡献
 
-我们欢迎任何形式的贡献，请参考 [CONTRIBUTING.md](CONTRIBUTING.md) 文件。
+我们欢迎任何形式的贡献，请参考 [CONTRIBUTING.cn.md](CONTRIBUTING.cn.md) 文件。
 
 ## 许可证
 
