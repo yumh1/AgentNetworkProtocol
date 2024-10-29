@@ -110,6 +110,7 @@ This project is open-source under the MIT License. For details, please refer to 
 ## Acknowledgements
 
 Thanks to everyone who has contributed to the Agent Network Protocol (ANP).
+
 Thanks to the authors of the [Agora Protocol](https://agoraprotocol.org/) paper, whose research on agent meta-protocols has greatly helped us.
 
 
