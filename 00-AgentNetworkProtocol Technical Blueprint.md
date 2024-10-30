@@ -2,15 +2,23 @@
 
 ## Vision
 
-In the new era of rapid AI development, we are entering a new epoch of intelligent agent networks. The Agent Network Protocol (ANP) will become the core technology of this era, building an open, secure, and efficient collaborative network for billions of intelligent agents.
+In this new era of rapid artificial intelligence development, we are entering a new epoch of agent networks. Imagine the future: your personal assistant agent seamlessly communicates with restaurant agents when ordering meals; your smart home agent collaborates with energy management agents to optimize power usage; your investment advisor agent exchanges real-time information with global market analysis agents... This is the upcoming era of agent networks.
 
-Imagine the future: your personal assistant AI seamlessly communicates with the restaurant's intelligent system when ordering food; your smart home system collaborates with the energy management AI to optimize electricity usage; your investment advisor AI exchanges real-time information with global market analysis agents... This is the forthcoming era of intelligent agent networks.
+However, as Bill Gates mentioned in [a blog post](https://www.gatesnotes.com/AI-agents), there is currently no standard protocol that allows agents to communicate with each other. This is the problem that Agent Network Protocol (ANP) aims to solve.
 
-The vision of the Agent Network Protocol (ANP) is to **define the connection method for the intelligent agent network era**, just as internet protocols have achieved in the information age. We believe that in the near future, billions of intelligent agents will build an unprecedented collaborative network through ANP, creating value greater than the existing internet. With the support of ANP, the intelligent agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaborative network, which is an exciting future.
+The vision of Agent Network Protocol (ANP) is to **define how agents connect with each other and build an open, secure, and efficient collaboration network for billions of agents**. Just as the development of Internet standard protocols has enabled the information age over the past three decades, we believe that in the near future, billions of agents will build unprecedented collaboration networks through ANP, creating greater value than the existing Internet. Empowered by AI technology and ANP, the agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaboration network - an incredibly exciting future.
+
+## Challenges
+
+Agent Network Protocol (ANP) aims to address three major challenges in connectivity:
+
+- How agents authenticate and establish end-to-end encrypted communication
+- How agents negotiate protocols to evolve into a self-organizing, self-negotiating network
+- How to uniformly manage consensus protocols reached in the agent network to accelerate protocol negotiation between agents
 
 ## Protocol Architecture
 
-The Agent Network Protocol (ANP) is designed as a three-layer architecture, from bottom to top: Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer, as shown in the figure below:
+To address these three major challenges, Agent Network Protocol (ANP) is designed as a three-layer architecture, consisting of Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer from bottom to top, as shown below:
 
 <p align="center">
   <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
@@ -18,97 +26,97 @@ The Agent Network Protocol (ANP) is designed as a three-layer architecture, from
 
 ### Identity and Encrypted Communication Layer
 
-This is the most fundamental part of the entire protocol, mainly addressing two major challenges in intelligent agent communication: how agents authenticate each other and how to achieve end-to-end encrypted communication.
+This is the most fundamental part of the protocol, addressing two major challenges in agent communication: how agents authenticate each other and how to establish end-to-end encrypted communication.
 
-Based on the W3C DID (Decentralized Identifiers) specification, combined with blockchain technology and end-to-end encryption technology, the Agent Network Protocol (ANP) provides a groundbreaking solution:
+Based on the W3C DID (Decentralized Identifiers) specification, integrating blockchain technology and end-to-end encryption, Agent Network Protocol (ANP) provides a breakthrough solution:
 
-- **Fully Decentralized**: Agents can fully control their own identity without being restricted by any platform.
-- **Seamless Connection**: Supports identity authentication between agents on any platform, breaking down barriers between platforms.
-- **Ultimate Security**: End-to-end encryption ensures communication security, and intermediate nodes cannot decrypt the content.
-- **Low Cost and High Efficiency**: Quickly deployable based on existing web infrastructure, with very low costs.
+- **Fully Decentralized**: Agents have complete control over their identities without being restricted by any platform
+- **Barrier-free Connection**: Supports agent authentication across any platforms, breaking down platform barriers
+- **Ultimate Security**: End-to-end encryption ensures communication security, preventing intermediate nodes from decrypting content
+- **Cost-effective and Efficient**: Based on existing Web infrastructure for rapid deployment at minimal cost
 
-The W3C DID is the cornerstone of the Identity and Encrypted Communication Layer of the Agent Network Protocol (ANP). Its decentralization and interoperability features enable the development of the ANP protocol, allowing any two agents to establish a connection through it, enabling us to build an open intelligent agent collaborative network.
+W3C DID is the cornerstone of ANP's identity and encrypted communication layer. Its decentralized nature and interoperability enable ANP's openness, allowing any two agents to establish connections and build an open agent collaboration network.
 
 Detailed technical documentation: [GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
 
 ### Meta-Protocol Layer
 
-With the support of the meta-protocol, the intelligent agent network may evolve into a **self-organizing, self-negotiating** efficient collaborative network, which is an exciting future.
+With the empowerment of meta-protocols, the agent network has the potential to evolve into a **self-organizing, self-negotiating** efficient collaboration network - an exciting future.
 
-The so-called meta-protocol is a protocol for negotiating the communication protocol to be used. In the Meta-Protocol Layer, we mainly refer to and draw from the [Agora Protocol](https://arxiv.org/html/2410.11905v1).
+Meta-protocol refers to the protocol for negotiating communication protocols. In the meta-protocol layer, we primarily reference and draw inspiration from the [Agora Protocol](https://arxiv.org/html/2410.11905v1).
 
-In the current digital world, there are huge data silos, with data flow concentrated within the silos and only a small amount of data flowing between silos. This result is due to commercial reasons and significant technical limitations: heterogeneous networks (different architectures, functions, designs) often incur huge costs to interoperate through protocols. The fundamental reason lies in the "impossible triangle" of heterogeneous network communication proposed in the Agora Protocol paper (Versatility, Efficiency, Portability).
+In today's digital world, there exist massive data silos where data flow is concentrated within silos with limited flow between them. Besides business reasons, technical limitations are a major factor: enabling communication between heterogeneous networks (different architectures, functions, designs) through protocols often incurs enormous costs. The fundamental reason lies in the impossible triangle of heterogeneous network communication (Versatility, Efficiency, Portability) proposed in the Agora Protocol paper.
 
-The combination of intelligent agents empowered by LLM and the meta-protocol is a good solution to this problem:
+LLM-empowered agents combined with meta-protocols offer an excellent solution:
 
-- Agents first use natural language to communicate their capabilities, data exchange formats, and protocols used, determining the protocol details for communication between agents.
-- Based on the negotiation results, agents use LLM to construct and process protocol messages or use agents to generate code to handle protocol messages.
-- Agents conduct protocol joint debugging, using LLM to determine whether protocol messages comply with the negotiated specifications. If not, they resolve it through natural language interaction.
-- Finally, agents use the final protocol for communication.
+- Agents first communicate in natural language about their capabilities, data exchange formats, protocols used, etc., to determine protocol details for communication.
+- Based on negotiation results, agents use LLMs to construct and process protocol messages, or generate code to handle protocols.
+- Agents conduct protocol debugging, using LLMs to verify if protocol messages comply with negotiated specifications, resolving issues through natural language interaction if they don't.
+- Finally, agents communicate using the finalized protocol.
 
-We believe that with the natural language understanding and code generation capabilities of LLM, and the promotion of meta-protocol technology, the intelligent agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaborative network. Many communication protocols will be agreed upon between agents, far exceeding the number of protocols formulated by humans.
+We believe that driven by LLMs' natural language understanding and code generation capabilities, along with meta-protocol technology, the agent network will eventually evolve into a self-organizing, self-negotiating efficient collaboration network. This will give birth to numerous consensus communication protocols between agents, far exceeding the number of human-defined protocols.
 
 ### Application Protocol Layer
 
-Application layer protocols are divided into two categories: existing industry standards, such as email protocols, RTC-related standards, W3C existing standards, and consensus protocols automatically negotiated by the intelligent agent network. Their goal is to enable agents to collaborate to complete a specific business.
+Application layer protocols fall into two categories: existing industry standards like email protocols, RTC specifications, W3C existing specifications, and consensus protocols automatically negotiated by the agent network. They all aim to enable agents to collaborate on specific business tasks.
 
-In terms of data types transmitted by protocols, they can be roughly divided into three categories: text, files, and real-time multimedia data streams. These three types can cover almost all current business types.
+In terms of data types transmitted by protocols, they can be broadly classified into three categories: text, files, and real-time multimedia streams. These three types can essentially cover all current business scenarios.
 
-Agents can extend protocols based on their data or business characteristics on top of the basic protocol. The role of standard specifications in the intelligent agent network is mainly to reduce the complexity of negotiation rather than enforce standards. We believe that agents can negotiate the most suitable personalized protocol for their business scenarios.
+Agents can extend basic protocols based on their data or business characteristics. The role of standard specifications in the agent network is mainly to reduce negotiation complexity rather than enforce regulations. We believe that pairs of agents can negotiate personalized protocols best suited to their business scenarios.
 
-## AgentConnect: The Open Source Implementation of Agent Network Protocol (ANP)
+## AgentConnect: Open Source Implementation of Agent Network Protocol (ANP)
 
-We have open-sourced a project, AgentConnect (https://github.com/chgaowei/AgentConnect), to implement the functions of the Agent Network Protocol (ANP). The project architecture is shown in the figure below:
+We have open-sourced a project, AgentConnect (https://github.com/chgaowei/AgentConnect), to implement Agent Network Protocol (ANP) functionality. The project architecture is shown below:
 
 <p align="center">
   <img src="/images/agent-connect-architecture.png" width="50%" alt="Project Architecture"/>
 </p>
 
-Corresponding to the three-layer architecture of the Agent Network Protocol, AgentConnect mainly includes the following parts:
+Corresponding to ANP's three-layer architecture, AgentConnect primarily includes the following components:
 
-1. **Identity Authentication Module and End-to-End Encryption Module**
-   Mainly implements identity authentication and end-to-end encrypted communication based on W3C DID, including the generation, verification, and retrieval of DID documents, as well as the implementation of end-to-end encrypted communication schemes based on DID and ECDHE (Elliptic Curve Diffie-Hellman Ephemeral).
+1. **Authentication Module and End-to-End Encryption Module**
+   Implements W3C DID-based authentication and end-to-end encrypted communication, including DID document generation, verification, retrieval, and implementation of end-to-end encryption based on DID and ECDHE (Elliptic Curve Diffie-Hellman Ephemeral).
 
 2. **Meta-Protocol Module**
-   The Meta-Protocol Module needs to be implemented based on LLM (Large Language Model) and the meta-protocol. The main functions include application protocol negotiation based on the meta-protocol, protocol code implementation, protocol joint debugging, and protocol processing.
+   Based on LLM (Large Language Model) and meta-protocol implementation, including application protocol negotiation, protocol code implementation, protocol debugging, and protocol processing.
 
-3. **Application Layer Protocol Integration Framework**
-   The main purpose is to manage the protocol specification documents and protocol codes for communication with other agents, including application protocol loading, application protocol unloading, application protocol configuration, and application protocol processing. Using this framework, agents can conveniently and on-demand load the required existing protocols, speeding up the agent protocol negotiation process.
+3. **Application Protocol Integration Framework**
+   Manages protocol specifications and code for communication with other agents, including protocol loading, unloading, configuration, and processing. Using this framework, agents can conveniently load and run needed protocols on demand, accelerating protocol negotiation.
 
-In addition to the above functions, AgentConnect will also focus on performance and multi-platform support in the future:
+Beyond these features, AgentConnect will also focus on performance and multi-platform support:
 
-- **Performance**: As a fundamental codebase, we hope to provide extreme performance. In the future, we will rewrite the core parts of the code in Rust.
-- **Multi-Platform**: Currently supports macOS, Linux, and Windows. In the future, it will support mobile and browser platforms.
+- **Performance**: As a fundamental codebase, we aim to provide ultimate performance and plan to rewrite core components in Rust.
+- **Multi-platform**: Currently supporting macOS, Linux, Windows, with future support for mobile platforms and browsers.
 
 ## Milestones
 
-Whether it is the protocol or the open-source code implementation, we are advancing step by step in the following order:
+For both protocol and open-source implementation, we are progressing step by step according to the following sequence:
 
-- Build the identity authentication and end-to-end encrypted communication protocol and implementation. This is the foundation and core of our entire project. The current protocol design and code are basically complete.
-- Design and implement the meta-protocol and meta-protocol code. This will help the intelligent agent network evolve into a self-organizing, self-negotiating efficient collaborative network. This is what we are currently working on, and it will be an exciting feature. We expect to release the first version soon.
-- Develop the application layer protocol integration framework. This will help the Agent Network Protocol (ANP) provide services for agents in various scenarios.
+- Build authentication and end-to-end encrypted communication protocol and implementation. This is our project's foundation and core, with current protocol design and code basically complete.
+- Meta-protocol design and implementation. This will help the agent network evolve into a self-organizing, self-negotiating efficient collaboration network. This exciting feature is currently under development, with the first version expected to be released soon.
+- Application protocol integration framework development. This will help Agent Network Protocol (ANP) serve agents in various scenarios.
 
-In addition, we will follow the principle of overall first, then details. In the early stages, we will focus on building the overall architecture, constructing an overall outline for each major module, and getting it running quickly, rather than building individual exquisite but non-functional modules.
+Additionally, we follow the principle of prioritizing overall structure over details. In early stages, we focus on building the overall architecture, creating a complete outline for each major module to get it running quickly, rather than building perfect but non-functional modules.
 
-To promote the Agent Network Protocol (ANP) as an industry standard, we will establish an ANP Standardization Committee at an appropriate time, dedicated to promoting ANP as an industry standard recognized by international standardization organizations such as W3C.
+To promote Agent Network Protocol (ANP) as an industry standard, we will establish an ANP standardization committee at an appropriate time, dedicated to promoting ANP as an industry standard recognized by international standardization organizations like W3C.
 
-Finally, during the design process, we gradually realized that blockchain might be a more suitable network infrastructure for intelligent agents. In the future, we may actively explore and experiment in this direction.
+Finally, during the design process, we've increasingly felt that blockchain might be a more suitable network infrastructure for agents, and we may actively explore this direction in the future.
 
 ## Why Choose Agent Network Protocol (ANP)?
 
-- **Open Connectivity**: Decentralized identity authentication based on W3C DID allows agents to break platform restrictions and achieve free and secure connections.
-- **Technological Innovation**: By integrating blockchain and DID technology, it innovatively solves the problem of cross-platform agent authentication.
-- **Efficient Implementation**: Based on existing web infrastructure, it achieves low-cost, rapid deployment, helping the ecosystem develop quickly.
-- **Future-Oriented**: Builds infrastructure for the intelligent agent network era, driving the evolution and innovation of self-organizing collaborative networks.
-- **Professional Team**: The core team consists of experienced engineers and researchers with rich experience in distributed systems, protocol design, and artificial intelligence.
+- **Open Interconnection**: Decentralized authentication based on W3C DID enables agents to break through platform limitations and achieve free, secure connections.
+- **Technical Innovation**: Pioneering solution to cross-platform agent authentication through integration of blockchain and DID technologies.
+- **Efficient Implementation**: Based on existing Web infrastructure for low-cost, rapid deployment, accelerating ecosystem development.
+- **Future-oriented**: Building infrastructure for the agent network era, driving the evolution and innovation of self-organizing collaboration networks.
+- **Professional Team**: Core team composed of senior engineers and researchers with rich experience in distributed systems, protocol design, and artificial intelligence.
 
 ## How to Contribute to Agent Network Protocol (ANP)
 
-Whether you are a developer, researcher, enterprise, or simply interested in the Agent Network Protocol (ANP), we welcome you to join us and contribute to the development of ANP.
+Whether you're a developer, researcher, enterprise, or anyone interested in Agent Network Protocol (ANP), we welcome you to join us and contribute to the development of ANP.
 
-Our contact information:
+Contact us:
 
-- Author: Gaowei Chang, chgaowei@gmail.com  
+- Author: Chang Gaowei, chgaowei@gmail.com  
 - Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 - Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 - GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)

@@ -4,13 +4,23 @@
 
 ## Vision
 
-In the new era of rapid development in artificial intelligence, we are stepping into a new epoch of agent networks. The Agent Network Protocol (ANP) will become the core technology of this era, building an open, secure, and efficient collaborative network for billions of agents.
+In this new era of rapid artificial intelligence development, we are entering a new epoch of agent networks. Imagine the future: your personal assistant agent seamlessly communicates with restaurant agents when ordering meals; your smart home agent collaborates with energy management agents to optimize power usage; your investment advisor agent exchanges real-time information with global market analysis agents... This is the upcoming era of agent networks.
 
-The vision of the Agent Network Protocol (ANP) is to **define the way of connection in the era of agent networks**, just as internet protocols have achieved in the information age. We believe that in the near future, billions of agents will build an unprecedented collaborative network through ANP, creating value greater than the existing internet. With the support of ANP, the agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaborative network, which is an exciting future.
+However, as Bill Gates mentioned in [a blog post](https://www.gatesnotes.com/AI-agents), there is currently no standard protocol that allows agents to communicate with each other. This is the problem that Agent Network Protocol (ANP) aims to solve.
+
+The vision of Agent Network Protocol (ANP) is to **define how agents connect with each other and build an open, secure, and efficient collaboration network for billions of agents**. Just as the development of Internet standard protocols has enabled the information age over the past three decades, we believe that in the near future, billions of agents will build unprecedented collaboration networks through ANP, creating greater value than the existing Internet. Empowered by AI technology and ANP, the agent network will eventually evolve into a **self-organizing, self-negotiating** efficient collaboration network - an incredibly exciting future.
+
+## Challenges
+
+Agent Network Protocol (ANP) aims to address three major challenges in connectivity:
+
+- How agents authenticate and establish end-to-end encrypted communication
+- How agents negotiate protocols to evolve into a self-organizing, self-negotiating network
+- How to uniformly manage consensus protocols reached in the agent network to accelerate protocol negotiation between agents
 
 ## Protocol Architecture
 
-The Agent Network Protocol (ANP) is designed as a three-layer architecture, from bottom to top: Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer, as shown in the figure below:
+To address these three major challenges, Agent Network Protocol (ANP) is designed as a three-layer architecture, consisting of Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer from bottom to top, as shown below:
 
 <p align="center">
   <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
