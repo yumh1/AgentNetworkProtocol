@@ -493,20 +493,22 @@ def generate_16_char_from_random_num(random_num1: str, random_num2: str):
   3. 生成握手流量密钥：
     1. 生成源端和目的端的握手密钥。这些密钥结合了提取密钥、特定标签（“s ap traffic”和“d ap traffic”）以及源端端和目的端的随机字符串拼接。
 
-    def derive_secret(secret: bytes, label: bytes, messages: bytes) -> bytes:
-        hkdf_expand = HKDFExpand(
-            algorithm=hash_algorithm,
-            length=hash_algorithm.digest_size,
-            info=hkdf_label(hash_algorithm.digest_size, label, messages),
-            backend=backend
-        )
-        return hkdf_expand.derive(secret)
+```python
+def derive_secret(secret: bytes, label: bytes, messages: bytes) -> bytes:
+    hkdf_expand = HKDFExpand(
+        algorithm=hash_algorithm,
+        length=hash_algorithm.digest_size,
+        info=hkdf_label(hash_algorithm.digest_size, label, messages),
+        backend=backend
+    )
+    return hkdf_expand.derive(secret)
 
-    # Generate handshake traffic secrets
-    source_data_traffic_secret = derive_secret(extracted_key, b"s ap traffic", source_hello_random + destination_hello_random)
-    destination_data_traffic_secret = derive_secret(extracted_key, b"d ap traffic", source_hello_random + destination_hello_random)
+# Generate handshake traffic secrets
+source_data_traffic_secret = derive_secret(extracted_key, b"s ap traffic", source_hello_random + destination_hello_random)
+destination_data_traffic_secret = derive_secret(extracted_key, b"d ap traffic", source_hello_random + destination_hello_random)
+```
 
-  4. 扩展生成实际加密密钥：
+4. 扩展生成实际加密密钥：
     1. 使用HKDF扩展阶段，从握手流量密钥进一步派生出实际的加密密钥。这个过程使用了HKDF标签（“key”）和派生密钥长度。
 
 ```python

@@ -62,13 +62,24 @@ Users need to import corresponding JWT-related utility classes and assemble the 
 
 1. Header Example
 
-{"alg": "HS256","sign_type": "SIGN"}
+```json
+{
+  "alg": "HS256",
+  "sign_type": "SIGN"
+}
+```
 - alg: Attribute indicates the algorithm used for signing, default is HMAC SHA256 (written as HS256).
 - sign_type: Attribute indicates the token type, uniformly written as SIGN for JWT tokens.
 
 2. Payload Example
 
-{"api_key": "{ApiKey.id}","exp": 1682503829130,"timestamp": 1682503820130}
+```json
+{
+  "api_key": "{ApiKey.id}",
+  "exp": 1682503829130,
+  "timestamp": 1682503820130
+}
+```
 - api_key: Attribute indicates the user identifier id, which is the {id} part of the user's API Key.
 - exp: Attribute indicates the expiration time of the generated JWT, controlled by the client, in milliseconds.
 - timestamp: Attribute indicates the current timestamp in milliseconds.

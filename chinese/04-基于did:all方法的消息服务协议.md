@@ -62,13 +62,23 @@ Message Proxy使用API key对User Server进行鉴权。整体过程和User Serve
 
 1. header 示例
 
-{"alg": "HS256","sign_type": "SIGN"}
+```
+{
+  "alg": "HS256",
+  "sign_type": "SIGN"
+}
 - alg: 属性表示签名使用的算法，默认为 HMAC SHA256（写为HS256）。
 - sign_type: 属性表示令牌的类型，JWT 令牌统一写为 SIGN 。
 
 2. payload 示例
 
-{"api_key": "{ApiKey.id}","exp": 1682503829130,"timestamp": 1682503820130}
+
+```
+{
+  "api_key": "{ApiKey.id}",
+  "exp": 1682503829130,
+  "timestamp": 1682503820130
+}
 - api_key: 属性表示用户标识 id，即用户API Key的 {id} 部分。
 - exp: 属性表示生成的JWT的过期时间，客户端控制，单位为毫秒。
 - timestamp: 属性表示当前时间戳，单位为毫秒。
@@ -229,6 +239,7 @@ B发送给A消息是可以建立新的WSS连接，不用之前A连接B的消息�
 心跳消息由接入方主动发起。服务端会定期（60秒）清理没有保活消息的连接。
 
 示例：
+```json
 {
   "version": "1.0",
   "type": "heartbeat",
@@ -236,6 +247,7 @@ B发送给A消息是可以建立新的WSS连接，不用之前A连接B的消息�
   "messageId": "randomstring",
   "message": "ping"
 }
+```
 
 #### 6.3.1 字段说明
 
@@ -250,6 +262,7 @@ B发送给A消息是可以建立新的WSS连接，不用之前A连接B的消息�
 两个用户通过DID协商完短期加密密钥后，可以通过message消息发送加密后的消息。
 
 示例：
+```json
 {
   "version": "1.0",
   "type": "message",
@@ -264,6 +277,7 @@ B发送给A消息是可以建立新的WSS连接，不用之前A连接B的消息�
     "ciphertext": "ciphertext_encoded_base64"
   }
 }
+```
 
 #### 6.4.1 协议字段
 
