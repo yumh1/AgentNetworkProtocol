@@ -3,80 +3,474 @@
 备注：
 - 本章节内容为草稿阶段，后续可能会根据实际情况进行大幅调整。
 
-## 元协议的作用
+## 背景
 
-所谓的元协议，即协商通信使用协议的协议。在元协议层，我们主要参考和借鉴的是Agora Protocol（https://arxiv.org/html/2410.11905v1）。
-当前的互联网世界，存在着巨大的数据孤岛现象，数据的流动集中在孤岛内容，而孤岛和孤岛之间则只有少量数据流动。
-这一结果的出现，一个原因是因为互联网巨头为了最大化商业价值，另外一个是技术上的原因，互联网业务的复杂性，导致异构系统通过协议互通要付出巨大的成本。所以传统的互联网世界，只有email这一种类型的业务算得上是真正开放的业务。这里面的根本原因在于Agora Protocol论文中提出的异构网络通信的不可能三角：
-- Versatility（多功能性）：支持各种应用类型的消息
-- Efficiency（效率）：网络运行效率最高、成本最低
-- Portability（可移植性）：支持协议修改代码最少
+**元协议（Meta-Protocol）**，即协商通信使用协议的协议，具体来说是一种定义协议如何操作、解析、组合和交互的协议。它提供协议的规则和模式，帮助设计通用、扩展性强的通信机制。元协议通常不处理具体的数据传输，而是定义通信框架和协议运行的基本约束。
 
-## 当前协议是如何协商的
-
-一个系统如果对外提供的开发的API，一般会给出API调用示例，示例中会包含API的调用参数、返回值、使用的协议等。这个过程，就是协议协商的过程。
-
-这个过程的缺点：
-- 需要人工设计协议
-- 协议的修改需要重新修改代码
-- 多个系统使用api不同，需要分别进行协商和对接
-
-使用元协议，在一定的协议基础之上，智能体网络可以通过自协商的方式，选出整个网络最优的协议，这个协议是整个网络的共识协议，大家都以此为基础，进行协作。——智能体如何选出整个网络的共识协议？
-
-
-- ## 元协议的实现
-
-LLM加持的智能体结合元协议是解决这一问题的良方：
-- 智能体之间首先使用自然语言，互相沟通各自的能力、数据交换格式、使用的协议等，确定智能体之间通信的协议细节。
-- 根据协商结果，智能体使用LLM构造和处理协议消息，或者使用智能体生成处理协议的代码，来构造和处理协议消息。
-- 智能体之间进行协议联调，使用LLM判断协议消息是否符合协商规范，如果不符合，则通过自然语言交换进行解决。
-- 最后，智能体使用最终的协议进行通信。
-有了元协议的加持，智能体网络有可能会演进成一个自组织、自协商的高效协作网络，并且会诞生非常多智能体之间达成共识的通信协议，这些协议的数量将会大大超过人类制定协议的数量。
-
-
-## 为什么需要协议协商
-
+元协议能够极大的提高智能体之间的通信效率，降低智能体之间通信成本。智能体之间如果采用自然语言传递数据，在智能体内部需要使用LLM对数据进出处理，信息处理效率低，成本高。使用元协议，结合AI生成代码处理协议的代码，可以：
 - 提高数据传输效率：在数据进入LLM之前，先进行协议协商，可以减少LLM处理的数据量，提高数据传输效率。
 - 提高数据理解的准确性：通过数据源对数据结构化，而非直接让LLM处理非结构化的数据，可以提高数据理解的准确性。
-- 降低数据处理复杂度：特定领域数据复杂度高，当前行业已经有大量协议规范，比如音视频流程中的数据。
+- 降低数据处理复杂度：特定领域数据复杂度高，当前行业已经有大量协议规范，无法使用自然语言传递，比如音视频数据。
 
+同时，在人工智能加持下的元协议，能够让智能体网络变成一个自组织、自协商的协作网络。自组织、自协商是指智能体网络中的各个智能体能够自主地进行相互连接、协议协商、协议共识达成。通过自然语言和元协议，智能体可以互相沟通各自的能力、数据格式和使用的协议，最终选出最优的通信协议，确保整个网络的高效协作和信息传递。
 
-## 协议协商的流程
+在元协议层，我们主要参考和借鉴了Agora Protocol（https://arxiv.org/html/2410.11905v1）的思路，结合协议在具体场景中的最佳实践与挑战，设计了AgentNetworkProtocol的元协议规范。
 
-并非所有的流程要进行协商，有些标准流程可以免协商，直接使用。
+## 元协议协商流程
 
+### 当前协议是如何协商的
 
-### 消息定义
+在现在的软件系统中，如果对外提供的开发的API，一般会给出API调用方法，包含API的调用参数、返回值、使用的协议等。这个过程本质上就是协议协商的过程。它有以下缺点：
+- 需要人工设计协议，并且编写协议处理代码。如果没有相应的协议，则无法进行通信。
+- 协议的对接需要大量的人工参与，中间需要进行多次的沟通和确认。
+- 如果行业没有标准规范，多个系统使用不同的定义，调用者需要分别进行协商和对接
 
-协商消息基于加密消息的encryptedData进行扩展，属于加密消息的上层消息：
-示例：
-```json
-{
-  "version": "1.0",
-  "type": "message",
-  "timestamp": "2024-06-04T12:34:56.123Z",
-  "messageId": "randomstring",
-  "sourceDid": "did:example:987654321abcdefghi",
-  "destinationDid": "did:example:123456789abcdefghi",
-  "secretKeyId": "abc123session",
-  "encryptedData": {
-    "iv": "iv_encoded_base64",
-    "tag": "tag_encoded_base64",
-    "ciphertext": "ciphertext_encoded_base64"
-  },
-}
+### 元协议协商流程
+
+LLM加持的智能体结合元协议可以有限的解决现有软件系统协议协商的问题，它的主要流程如下：
+
+```plaintext
+  Agent (A)                                       Agent (B)
+    |                                                 |
+    | -- Initiate Protocol Negotiation Process -->    |
+    |                                                 |
+    |      (Exchange Capabilities and Data Formats)   |
+    |                                                 |
+    | <---- Capabilities and Formats Exchanged ----   |
+    |                                                 |
+    |       (Determine Protocol details)              |
+    |                                                 |
+    |                   ......                        |
+    |      (Multiple negotiations may occur)          |
+    |                                                 |
+    |---------------                                  |
+    |              |                                  |
+    |   Protocol Code Generated                       |
+    |              |                                  |
+    | <-------------                                  |
+    |                                                 |---------------  
+    |                                                 |              |
+    |                                                 |   Protocol Code Generated
+    |                                                 |              |
+    |                                                 | <-------------  
+    |                                                 |
+    |  <--------- Interoperability Test ----------->  |
+    |                                                 |
+    |           (Resolve Issues if Any)               |
+    |                                                 |
+    |  <----- Protocol Negotiation Completed ------>  |
+    |                                                 |
+    |                                                 |
+    |    (Start Communication Using Final Protocol)   |
+    |                                                 |
+    | ---- Communication Started ---->                |
+    |                                                 |
+    |      (Send and Receive Messages)                |
+    |                                                 |
+    | <---- Messages Exchanged ----                   |
+    |                                                 |
 ```
 
-为了提高效率，后面所有的did相关消息全部会更改为二进制格式，现在协商消息也将使用二进制格式进行传递，这样可以减少消息的体积，提高解析效率。
+如图所示，智能体A向智能体B发起协议协商过程如下：
+- 智能体A首先使用自然语言，向智能体B发起协议协商，携带A的需求、能力、期望协议规范等，可能有多个选项供B选择
+- 智能体B收到A的协商请求后，根据A提供的信息，使用自然语言，向A回复B的能力、确定的协议规范等
+- 智能体A和智能体B之间可能经过多轮协商，最终确定智能体之间通信使用的协议规范
+- 根据协商结果，智能体A和B使用AI生成处理协议的代码。为了安全考虑，生成的代码建议在沙盒中运行
+- 智能体之间进行协议互通测试，使用AI判断协议消息是否符合协商规范，如果不符合，则通过自然语言交互进行自动解决
+- 最后，确定最终使用协议，智能体A和B使用最终的协议进行通信
+
+通过以上的流程我们可以看到，智能体使用元协议进行协议协商，结合代码生成技术，可以极大的提高协议协商的效率，降低协议协商的成本。同时，也让智能体网络变成一个自组织、自协商的协作网络。
+
+### 流程消息格式定义
+
+协商消息基于[端到端加密](03-基于did%3Aall方法的端到端加密通信技术协议.md)消息的encryptedData进行扩展，属于加密消息的上层消息。
 
 加密消息encryptedData的ciphertext解密后的消息格式设计如下：
 
 ```plaintext
-----------------------------------------------------------------------------------
-| protocol_id (4 bytes) | protocol_version (16 bytes) |         content          |
-----------------------------------------------------------------------------------
+0               1               2               3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 0 ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|PT |  Reserved |              Protocol data                    | ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
 ```
+- PT: Protocol Type，2bit，表示协议类型
+    - 00：meta protocol，元协议
+    - 01：application protocol，应用协议
+    - 10：natural language protocol，自然语言协议
+    - 11：test protocol，测试协议
+- Reserved: 6bit，保留字段，暂未使用
+- Protocol Data: 变长，表示协议的具体内容
+
+所有的消息都有一个二进制的头，大小为1个字节，头中主要的信息是协议数据的协议类型：
+- 如果协议类型值为00，则表示此消息是元协议，用于进行协议的协商；
+- 如果协议类型值为01，则表示此消息是应用协议，用于进行实际的数据传输；
+- 如果协议类型值为10，则表示此消息是自然语言协议，直接使用自然语言进行数据传输；
+- 如果协议类型值为11，则表示此消息是测试协议，用于进行协商协议的测试，测试通过后，则使用此协议进行数据传输，测试协议并非真正的用户数据。
+
+当前二进制头是一个字节，如果后期一个字节无法满足需求，可以扩展为多个字节。通过在Hello消息中携带消息格式版本信息，可以保持前后兼容。
+
+#### 元协议协商消息定义
+
+当协议类型为00时，消息的Protocol Data定义携带元协议消息，用于协商两个智能体之间通信使用的协议。元协议的协商过程是预先定义的，不用进行协商。预定义的文档即为本文档。
+
+元协议消息我们定义为半结构化的格式，核心的协议协商部分使用自然语言，保持协商的灵活性，同时在流程控制上，使用结构化的json，保持协议协商过程可控。
+
+元协议协商消息分为几类：
+- 协议协商消息：用于协商协议内容
+- 代码生成消息：用于生成处理协议的代码
+- 调试协议消息：用于协商调试协议
+- 自然语言消息：用于协商双方使用自然语言进行协商
+
+##### 协议协商消息定义
+
+协议协商消息的json格式如下：
+```json
+{
+    "action": "negotiate",
+    "sequenceId": 0,
+    "candidateProtocols": "",
+    "modificationSummary": "",
+    "status": "negotiating"
+}
 ```
+
+字段说明：
+- action：固定为negotiate
+- sequenceId：协商序号，用于标识协商轮次。
+  - 从0开始，每次协商消息的sequenceId都需要在原有的基础上加1。
+  - 为了防止协商轮次过大，代码实现人员可以根据业务场景设定协商轮次上限。建议不超过10次。
+  - 同时在处理sequenceId的时候，需要判断对方返回的sequenceId是否按照规范递增。
+- candidateProtocols：候选协议
+  - 是一段自然语言文本，用于描述候选协议的目的、流程、数据格式、错误处理等。
+  - 这段文本一般会使用AI处理，建议使用markdown格式，保持清晰、简洁。
+  - 候选协议可以描述全部的协议内容，也可以基于已有的协议进行修改，携带已有协议的URI，以及修改的内容。
+  - 候选协议每次必须携带全量协议内容。
+- modificationSummary：协议修改摘要
+  - 是一段自然语言文本，用于描述在协商过程中，当前的候选协议相对上次的候选协议修改了哪些内容。
+  - 这段文本一般会使用AI处理，建议使用markdown格式，保持清晰、简洁。
+  - 首次发起协商时，可以不携带此字段。
+- status：协商状态，用于标识当前协商的状态，状态值如下：
+  - negotiating：协商中
+  - rejected：协商失败
+  - accepted：协商成功
+  - timeout：协商超时
+
+协商双方在协商轮次超出最大限制前，可以反复协商，直到任意一方判定对方给出的协议满足自己的需求，则协商成功，否则协商失败，可以反馈给人类工程师，介入协商过程。
+
+###### candidateProtocols示例
+
+- candidateProtocols携带全量协议描述示例如下：
+
+```plaintext
+# 需求
+获取商品信息
+
+# 流程描述
+请求者携带商品id或名字，发送给商品提供者，商品提供者根据商品id或名字，返回商品详细信息。
+异常处理：
+- 错误码使用HTTP的错误码
+- 错误信息使用自然语言描述
+- 15秒内没有返回，则认为超时
+
+# 数据格式描述
+请求和响应均采用json格式，使用规范https://tools.ietf.org/html/rfc8259。
+
+## 请求消息
+请求json schema定义如下：
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProductInfoRequest",
+  "type": "object",
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "description": "A random string identifier for the message"
+    },
+    "type": {
+      "type": "string",
+      "description": "Indicates whether the message is a REQUEST or RESPONSE"
+    },
+    "action": {
+      "type": "string",
+      "description": "The action to be performed"
+    },
+    "productId": {
+      "type": "string",
+      "description": "The unique identifier for a product"
+    },
+    "productName": {
+      "type": "string",
+      "description": "The name of the product"
+    }
+  },
+  "required": ["messageId", "type", "action", "productId"]
+}
+
+## 响应消息
+响应json schema定义如下：
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProductInfoResponse",
+  "type": "object",
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "description": "The messageId from the request json"
+    },
+    "type": {
+      "type": "string",
+      "description": "Indicates whether the message is a REQUEST or RESPONSE"
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "HTTP status code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Status message"
+        }
+      },
+      "required": ["code", "message"]
+    },
+    "productInfo": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "description": "The unique identifier for a product"
+        },
+        "productName": {
+          "type": "string",
+          "description": "The name of the product"
+        },
+        "productDescription": {
+          "type": "string",
+          "description": "A detailed description of the product"
+        },
+        "price": {
+          "type": "number",
+          "description": "The price of the product"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency of the price"
+        }
+      },
+      "required": ["productId", "productName", "productDescription", "price", "currency"]
+    }
+  },
+  "required": ["messageId", "type", "status", "productInfo"]
+}
+
+```
+
+- candidateProtocols基于已有协议进行修改示例如下：
+
+```plaintext
+# 需求
+获取商品信息
+
+# 流程描述
+该流程基于已有协议（URI: https://agent-network-protocol.com/protocols/product-info-0-1-1）实现。
+
+# 修改内容
+- 在响应消息中增加自定义错误码
+  - 100001：商品缺货中
+  - 100002：商品下架中
+  - 100003：商品价格未知
+
+```
+
+###### modificationSummary示例
+
+modificationSummary也是自然文本，示例如下：
+
+```plaintext
+
+修改点：
+- 响应中增加字段：productImageUrl, productVideoUrl, productTags
+- 明显响应超时时间：15秒。15秒内没有返回，则认为超时
+
+```
+
+##### 代码生成消息定义
+
+协商完成协议后，智能体需要准备处理协议的代码，代码可能是AI生成或从网络加载。在代码就绪之前，如果收到用户的消息，可能会导致协议处理失败。
+
+因此，协商完成后，智能体双方都需要回复对方代码生成消息，通知对方代码已生成，可以进行消息处理。
+
+如果长时间没有收到代码生成消息，则认为代码生成失败，通信终止。建议超时时长15秒。
+
+```json
+{
+    "action": "codeGeneration",
+    "status": "generated"
+}
+```
+
+字段说明：
+- action：固定为codeGeneration
+- status：状态
+  - generated，表示代码已生成
+  - error，表示代码生成失败，通信终止
+
+##### 调试协议消息定义
+
+协议协商完成、代码完成后，两个智能体是否能够基于此正常通信，可能需要一个测试过程。调试协议消息主要为此设计，用来让两个智能体协商测试用例，并通知对方进行测试。
+
+备注：调试协议消息并发流程中的必须过程，如果智能体或者人类工程师认为协议无效调试，可以跳过此步骤，直接进行后面的通信过程。
+
+调试协议消息的json格式如下：
+
+```json
+{
+    "action": "debugProtocol",
+    "testCases": "",
+    "modificationSummary": "",
+    "status": "negotiating"
+}
+```
+
+字段说明：
+- action：固定为debugProtocol
+- testCases：测试用例集，一段自然语言文本，用于描述测试用例集的内容，包括多个测试用例，每个测试用例包含测试请求数据、测试响应数据、测试预期结果。
+- modificationSummary：测试用例修改摘要，一段自然语言文本，用于描述在协商过程中，当前的测试用例集相对上次的测试用例集修改了哪些内容。
+- status：协商状态，用于标识当前协商的状态，状态值如下：
+  - negotiating：协商中
+  - rejected：协商失败
+  - accepted：协商成功
+
+testCases示例：
+
+```plaintext
+ # 测试用例1
+
+ - **测试请求数据**：
+ {
+   "messageId": "msg001",
+   "type": "REQUEST",
+   "action": "getProductInfo",
+   "productId": "P12345"
+ }
+
+ - **测试响应数据**：
+ {
+   "messageId": "msg001",
+   "type": "RESPONSE",
+   "status": {
+     "code": 200,
+     "message": "成功"
+   },
+   "productInfo": {
+     "productId": "P12345",
+     "productName": "高性能笔记本电脑",
+     "productDescription": "配备最新处理器和大容量内存的高性能笔记本电脑。",
+     "price": 1299.99,
+     "currency": "USD"
+   }
+ }
+
+ - **测试预期结果**：
+ 成功获取产品信息，状态码为200。
+
+ # 测试用例2
+
+ - **测试请求数据**：
+ {
+   "messageId": "msg002",
+   "type": "REQUEST",
+   "action": "getProductInfo",
+   "productId": "P99999"
+ }
+
+ - **测试响应数据**：
+ {
+   "messageId": "msg002",
+   "type": "RESPONSE",
+   "status": {
+     "code": 404,
+     "message": "产品未找到"
+   },
+   "productInfo": null
+ }
+
+ - **测试预期结果**：
+ 请求的产品不存在，返回状态码404，产品信息为空。
+
+```
+
+##### 修复错误消息定义
+
+```json
+{
+    "action": "fixError",
+    "errorDescription": "",
+    "status": "negotiating"
+}
+```
+
+```json
+{
+    "action": "fixError",
+    "errorDescription": "",
+    "status": "negotiating"
+}
+```
+
+
+### 自然语言交互
+```json
+{
+    "action": "naturalLanguage",
+    "message": ""
+}
+```
+
+```json
+{
+    "action": "naturalLanguage",
+    "message": ""
+}
+```
+
+
+
+问题
+- 是否要结构化，还是完全自然语言--部分结构化，主体部分用自然语言。
+- 我希望元协议是一个自描述的json，有几个固定的字段，但是可以添加新的字段，新的字段需要携带描述信息。
+- json中要携带元协议本身的schema URI。
+- 元协议的json并不是一个固定schema，而是可以自定义的。
+- 为什么不用纯自然语言：主要是协商效率的问题，即便是基于LLM，我们也希望能够快速的提取出有效信息，让LLM快速的理解对方的需求。
+- 所有协商出的协议、后面都可以训练到LLM中，这样就不用每次在提示词中携带了。
+- 协商一个测试集，对流程进行测试
+- 如果在协议交互中发生错误，是否可以通过元协议进行错误处理：对方可以告知错误信息，让错误方知道原因，并进行bugfix。
+- 如何提高协议的扩展性：可以利用自然语言做更多的事情。如果我设计了一个固定的元协议schema，则无法利用自然语言进行扩展。我是否应该以自然语言为主，来设计元协议。
+  - 使用半结构化，主体部分使用自然语言，保持扩展性，关键过程使用结构化，防止LLM流程无法控制。
+  - 自然语言：处理协商部分；结构化语言：处理流程部分，比如，协商阶段、代码生成阶段、联调阶段。
+- 增加异常处理机制，防止无限期的协商下去。比如最多协商10次，如果10次后，仍然无法协商成功，则认为协商失败，或者一方妥协。
+
+
+
+## 0RTT设计
+
+基于标准协议进行协商
+
+基于共识协议进行协商
+
+基于上次协商结果进行协商
+- 在公开的地方获取智能体支持的协议类型，比如三方索引服务、或者DID文档等
+
+并非所有的流程要进行协商，有些标准流程可以免协商，直接使用。
+
+如果使用标准或共识协议能够完成，则直接使用标准或共识协议，不再进行协商。如果对方回复不支持，则启动协商。
+
+在Hello的时候携带加密并且符合协议的数据，early data。
+
 
 初稿：
 - hello消息中，可以携带期望的协议类型、协议URL、协议版本，进行协商
@@ -104,7 +498,8 @@ ToDo：
 现在最大的问题是，protocol id怎么设计，这个id是否需要全网唯一，还是两个did之间唯一
 
 
- 
+智能体可以将对外公开支持协议类型，这样在请求的时候直接使用，不用再协商。如果遇到不支持具体场景的协议，再对我协商。这个协议应该是人们定义的，或者是智能体网络通过共识算法选择的协议。
+这个可以做成一个云端的服务。
 
 
 ## 未来
@@ -112,4 +507,12 @@ ToDo：
 未来是否所有的协议都是自然语言，所有消息的处理都使用LLM？
 
 如果是这样的话，元协议是否还有存在的必要？
+
+
+有了元协议的加持，智能体网络有可能会演进成一个自组织、自协商的高效协作网络，并且会诞生非常多智能体之间达成共识的通信协议，这些协议的数量将会大大超过人类制定协议的数量。
+
+怎么设计激励机制，让智能体能够上报他们协商的共识协议？协商后，记录下来这个协议，并且可以在其他类似的通信中使用。
+
+
+
 
