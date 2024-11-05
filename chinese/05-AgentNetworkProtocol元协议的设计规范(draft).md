@@ -32,42 +32,37 @@ LLM加持的智能体结合元协议可以有限的解决现有软件系统协�
 ```plaintext
   Agent (A)                                       Agent (B)
     |                                                 |
-    | -- Initiate Protocol Negotiation Process -->    |
+    | ------------- Protocol Negotiation -----------> |
     |                                                 |
-    |      (Exchange Capabilities and Data Formats)   |
+    |         (Multiple negotiations may occur)       |
     |                                                 |
-    | <---- Capabilities and Formats Exchanged ----   |
-    |                                                 |
-    |       (Determine Protocol details)              |
-    |                                                 |
-    |                   ......                        |
-    |      (Multiple negotiations may occur)          |
+    | <------------- Protocol Negotiation ----------- |
     |                                                 |
     |---------------                                  |
     |              |                                  |
     |   Protocol Code Generated                       |
     |              |                                  |
     | <-------------                                  |
+    | --------------- Code Generation --------------> |
     |                                                 |---------------  
     |                                                 |              |
     |                                                 |   Protocol Code Generated
     |                                                 |              |
     |                                                 | <-------------  
+    | <-------------- Code Generation --------------- |
     |                                                 |
-    |  <--------- Interoperability Test ----------->  |
     |                                                 |
-    |           (Resolve Issues if Any)               |
+    | ------------ Test Cases Negotiation ----------> |
+    |                  (Optional)                     |
+    |         (Multiple negotiations may occur)       |
     |                                                 |
-    |  <----- Protocol Negotiation Completed ------>  |
+    | <----------- Test Cases Negotiation ----------- |
     |                                                 |
     |                                                 |
     |    (Start Communication Using Final Protocol)   |
     |                                                 |
-    | ---- Communication Started ---->                |
+    | <------- Application Protocol Message --------> |
     |                                                 |
-    |      (Send and Receive Messages)                |
-    |                                                 |
-    | <---- Messages Exchanged ----                   |
     |                                                 |
 ```
 
