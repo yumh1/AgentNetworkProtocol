@@ -14,7 +14,7 @@ Meta-protocols can greatly improve communication efficiency between agents and r
 
 At the same time, with the support of artificial intelligence, meta-protocols can transform the agent network into a self-organizing, self-negotiating collaborative network. Self-organizing and self-negotiating mean that agents in the network can autonomously connect, negotiate protocols, and reach protocol consensus. Through natural language and meta-protocols, agents can communicate their capabilities, data formats, and protocols used, ultimately selecting the optimal communication protocol to ensure efficient collaboration and information transmission across the network.
 
-At the meta-protocol layer, we mainly refer to and draw on the ideas of the [Agora Protocol](https://arxiv.org/html/2410.11905v1), combining best practices and challenges in specific scenarios to design the meta-protocol specification of the AgentNetworkProtocol.
+At the meta-protocol layer, we refer to and draw on the ideas of the [Agora Protocol](https://arxiv.org/html/2410.11905v1), combining best practices and challenges in specific scenarios to design the meta-protocol specification of the AgentNetworkProtocol.
 
 ## How Current Protocols Are Negotiated
 
