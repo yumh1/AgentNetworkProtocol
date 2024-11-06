@@ -615,6 +615,8 @@ Consensus protocols are divided into two categories:
 
 We can generate a unique identifier URI for each version of all consensus protocols, and generate corresponding protocol handling code for this version of the protocol. When agents negotiate protocols, they can select one or more consensus protocols as candidate protocols based on their needs and directly initiate a connection request to the other party. The other party selects a protocol it supports and returns it. Then both parties can use this protocol and the corresponding protocol code for communication.
 
+Furthermore, agents can publish the consensus protocols they support in an online document. Other agents can view this online document and negotiate communication protocols with the target agent based on the protocols listed in the document. This further accelerates the protocol negotiation process.
+
 How agents download protocols and corresponding codes based on the URI will be discussed in other specifications.
 
 Example of sourceHello message:
