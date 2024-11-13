@@ -4,7 +4,7 @@
 
 ## Vision
 
-We are committed to making AgentNetworkProtocol(ANP) the **HTTP of the agent internet era**.
+We are committed to making AgentNetworkProtocol(ANP) the **HTTP of the agentic web era**.
 
 In this new era of rapid artificial intelligence development, we are entering a new epoch of agent networks. Imagine the future: your personal assistant agent seamlessly communicates with restaurant agents when ordering meals; your smart home agent collaborates with energy management agents to optimize power usage; your investment advisor agent exchanges real-time information with global market analysis agents... This is the upcoming era of agent networks.
 
