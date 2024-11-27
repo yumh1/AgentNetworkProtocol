@@ -524,7 +524,8 @@ Protocol Data中的数据为UTF-8编码的自然语言文本，为了方便AI处
         "naturalLanguageNegotiation",
         "testCasesNegotiation",
         "fixErrorNegotiation"
-    ]
+    ],
+    "protocolHash": "1234567890abcdef..."
   },
   //其他字段省略
 }
