@@ -6,3 +6,14 @@ Web 的开放性和可访问性为其在全球范围内的采用做出了巨大�
 
 
 
+did web方法
+https://w3c-ccg.github.io/did-method-web/
+
+
+
+
+W3C DID(Decentralized Identifier)规范
+https://www.w3.org/TR/did-core/
+
+webagents工作组
+https://www.w3.org/community/webagents/
