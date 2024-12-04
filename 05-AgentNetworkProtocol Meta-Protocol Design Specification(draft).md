@@ -74,7 +74,7 @@ Through the above process, we can see that intelligent agents using meta-protoco
 
 ## Message Format Definition
 
-Negotiation messages are based on the encryptedData of [end-to-end encryption](03-基于did%3Aall方法的端到端加密通信技术协议.md) messages, which are upper-layer messages of encrypted messages.
+Negotiation messages are based on the encryptedData of [end-to-end encryption](03-基于did的端到端加密通信技术协议.md) messages, which are upper-layer messages of encrypted messages.
 
 The message format of the decrypted ciphertext of the encrypted message encryptedData is designed as follows:
 

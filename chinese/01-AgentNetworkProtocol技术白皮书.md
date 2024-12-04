@@ -153,7 +153,7 @@ DID 方法定义了如何创建、解析、更新和停用 DID 与 DID 文档，
 
 ## 参考文献
 
-[^1]: 比尔盖茨，AI is about to completely change how you use computers，[https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
+[^1]: Bill Gates, AI is about to completely change how you use computers, [https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
 
 [^2]: The OAuth 2.0 Authorization Framework, [https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)
 

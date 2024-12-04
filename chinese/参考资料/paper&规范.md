@@ -1,4 +1,6 @@
 
+下面所有的DID相关的规范，大部分都是草案。
+
 
 did web方法
 https://w3c-ccg.github.io/did-method-web/
@@ -21,5 +23,30 @@ https://www.w3.org/TR/did-core/
 https://www.w3.org/TR/did-use-cases/
 
 
+用于记录扩展的github仓库：
+https://github.com/w3c/did-extensions
+
 扩展：
 https://github.com/w3c/did-extensions
+
+
+这个文档有关于每个字段的说明，对每个字段可以找到规范说明：
+https://www.w3.org/ns/did/v1
+
+
+controller文档，这里很多关于身份验证、使用服务的方法：
+https://www.w3.org/TR/controller-document/
+
+
+所有DID的扩展，包括方法，字段：
+https://www.w3.org/TR/did-extensions/
+
+字段扩展，有所有的字段的定义：
+https://www.w3.org/TR/did-extensions-properties/
+
+方法扩展，有所有的方法的定义：
+https://www.w3.org/TR/did-extensions-methods/
+
+所有解决方案的扩展，包括URL解析：
+https://www.w3.org/TR/did-extensions-resolution
+
