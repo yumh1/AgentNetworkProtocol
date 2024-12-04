@@ -1,249 +1,152 @@
 
-# AgentNetworkProtocol Technical White Paper: A Cross-Platform Identity Authentication and End-to-End Encrypted Communication Protocol Based on DID
-
-**Authors:** Gaowei Chang, chgaowei@gmail.com  
-**Website:** [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-**GitHub:** [https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)  
-
-**Note:**  
-If you want to quickly understand our technical overview, you can first read this article: [Technical Introduction for General Audience](https://egp0uc2jnx.feishu.cn/wiki/KFTpwYoAPiwwOjkf9jacVbTInYd?from=from_copylink) or [Simplified Technical Introduction](https://egp0uc2jnx.feishu.cn/wiki/MFVNwz4PpiqBJ8kkqEfcLJKUnhf?from=from_copylink).  
+# Agent Network Protocol Framework: A Protocol Framework for Agent Communication
 
 ## Abstract
 
-This paper presents a decentralized identifier (DID) and end-to-end encrypted communication technology-based protocol designed to address the challenges of cross-platform identity authentication and secure communication among intelligent agents. By integrating the W3C DID specifications, blockchain technology, and the TLS protocol, this paper designs a low-cost, efficient, and secure cross-platform identity authentication and encrypted communication solution. The protocol introduces a DID method named "all," enabling intelligent agents to achieve identity interoperability across different platforms and perform identity authentication through standard protocols like HTTPS. The document details the generation and verification processes of DID documents, as well as the DID-based end-to-end encrypted communication mechanism, emphasizing efficient and secure short-term key negotiation and encryption communication flows. Finally, the paper explores future directions for intelligent agent collaboration networks and the broad application prospects of DID-based identity systems.
+While current internet infrastructure is quite advanced, it lacks standardized communication and network connection solutions tailored to the specific needs of agent networks. To fully harness the potential of artificial intelligence, this paper proposes a protocol framework for agent communication—the Agent Network Protocol Framework. This framework aims to eliminate information silos, enabling seamless, decentralized identity authentication and efficient collaboration among agents. It consists of three layers: the Identity and Encrypted Communication Layer, the Meta-Protocol Layer, and the Application Protocol Layer. The Identity and Encrypted Communication Layer, based on the W3C DID standard, provides decentralized identity authentication and end-to-end encrypted communication, ensuring secure connections between agents. The Meta-Protocol Layer enhances collaboration flexibility and efficiency through natural language negotiation and AI code generation, reducing communication costs. The Application Protocol Layer simplifies agent interactions through standardized protocol descriptions and management. This paper focuses on the overall design of this protocol framework, offering an innovative solution for agent communication.
 
 ## 1. Introduction
 
-Intelligent agents are poised to become the next significant platform following Android and iOS. In the future, individuals, organizations, and enterprises will each possess an intelligent agent to provide services. An intelligent agent cannot exist independently; it needs to collaborate with other intelligent agents to meet human needs. For example, a personal assistant is an intelligent agent that requires life-related intelligent agents such as those for clothing, food, and housing to provide life services. Similarly, an intelligent agent for a clothing store needs to closely collaborate with upstream and downstream agents like production, design, and distribution. A collaborative network composed of intelligent agents will be a crucial component of the next-generation internet, capable of providing more intelligent services to people.
+With the rapid development of agent technology, it is gradually becoming the next significant platform following Android and iOS[^1]. However, there is still a lack of standardized solutions for communication and network connections between agents. Although internet infrastructure is quite mature, existing technologies cannot fully meet the unique needs of agent networks, primarily due to the following reasons:
 
-The efficient operation of an intelligent agent network requires intelligent agents to establish connections, locate each other, perform identity authentication, conduct secure encrypted communication, and use standard protocols for efficient collaboration.
+Firstly, agents typically require comprehensive access to user information to make accurate decisions. However, the data silo effect in the current internet disperses user information across different platforms, limiting the functionality of agents. Secondly, current internet applications are primarily designed for human users, relying on graphical interfaces, whereas agents are more adept at directly processing underlying data through protocols or APIs. Graphical interfaces not only increase development costs but also reduce processing efficiency. Lastly, agents have the capability to use natural language for network connections and negotiations, enabling self-organization and self-collaboration for more personalized and efficient communication.
 
-Currently, most intelligent agents rely on platform-specific identity IDs, making it impossible to interconnect identity systems across different platforms, thereby preventing low-cost cross-platform connections between intelligent agents. Additionally, existing secure communication solutions (such as TLS) are mostly used for client-server communications and depend on Certificate Authority (CA) issued certificates. There is currently no ideal solution that allows intelligent agents to perform low-cost, efficient, and secure encrypted communications.
+Therefore, there is an urgent need for a new protocol framework that can break down data barriers and enable seamless connections and communication between agents. This framework should have the following characteristics: eliminate information silos, allowing agents to make decisions in a complete context; provide AI-friendly data interfaces to reduce information processing costs; and support autonomous connection, negotiation, and collaboration among agents. To this end, this paper proposes a three-layer protocol framework, including the Identity and Encrypted Communication Layer, the Meta-Protocol Layer, and the Application Protocol Layer, aimed at addressing the challenges in agent communication.
 
-To address this, by combining W3C DID (Decentralized Identifier) specifications, blockchain technology, and TLS (Transport Layer Security) technology, this paper proposes a low-cost solution to bridge different platform identity IDs and a method that enables intelligent agents to perform low-cost, efficient, and secure encrypted communications. It also presents a vision for intelligent agents collaborating based on protocols.
+## 2. Three-Layer Protocol Architecture
 
-## 2. Cross-Platform Identity Authentication Based on DID
+To address issues such as identity authentication, protocol negotiation, and application interaction in agent networks, we have designed a three-layer protocol architecture, as illustrated below:
 
-W3C DID (Decentralized Identifier) is a new type of identifier standard designed to address issues in traditional centralized identity management systems, such as centralized dependency, privacy and data control, interoperability, and security.
+![Three-Layer Protocol Architecture](/images/protocol-layer-design.png)
 
-Based on the W3C DID specifications, we propose an identity authentication scheme by designing a new DID method. This method leverages DID's advantages in interoperability to simplify the identity verification process, solving the lack of interoperability and the complexity and redundancy of identity verification between different centralized systems.
+- **Identity and Encrypted Communication Layer**: This layer defines a set of standards aimed at solving identity authentication issues between agents, particularly cross-platform authentication. We have designed a decentralized identity authentication scheme based on the W3C DID[^3], providing end-to-end encrypted communication to ensure secure identity authentication between agents on any platform.
 
-### 2.1 DID Method "all" (Alliance)
+- **Meta-Protocol Layer**: This layer defines how agents negotiate using natural language, including the negotiation and debugging of communication protocols. Through the flexibility of natural language, agents can dynamically adjust communication protocols to meet different interaction needs.
 
-A DID Method is an implementation of a Decentralized Identifier (DID) that specifies how to create, resolve, update, and deactivate a DID. Each DID method is associated with a specific blockchain or decentralized network and defines the concrete rules for interacting with that network.
+- **Application Protocol Layer**: This layer defines how agents describe their capabilities and supported protocols, as well as how to load and process protocol code. Through standardized protocol descriptions, agents can interact and collaborate more efficiently.
+### 2.1 Identity and Encrypted Communication Layer
 
-Most existing DID methods are blockchain-based, which are limited by the current stage of blockchain technology and face significant issues in scalability and commercialization. Web-based DID methods are deeply tied to domain names, requiring web service providers to support DID-related operations, adding complexity to web service providers.
+To achieve seamless connectivity among all agents, the primary task is to address the issue of identity authentication between agents. Currently, most internet applications use centralized identity technologies, making it difficult for systems to authenticate accounts across different implementations. Although OAuth2.0 technology has alleviated this issue to some extent[^2], it is not specifically designed for cross-system identity authentication, resulting in a relatively complex process and limitations in decentralization. Therefore, there is an urgent need for a convenient, cross-platform, and decentralized identity authentication technology.
 
-We propose a new DID method called "all" (Alliance), similar to a consortium blockchain. All service providers that support this method's standard can offer DID-related services externally. DID users can choose one or more providers based on factors like pricing, service levels, and reputation. All service providers supporting this method can register their service domains to a specific memory space on the blockchain to ensure that all users of the "all" method can access a complete list of service providers.
+While blockchain-based decentralized identity authentication schemes offer a potential solution, they face scalability challenges in large-scale applications and have not yet become the optimal solution.
 
-Additionally, DID creators can specify the hosting service domain for DID documents within the DID to inform DID resolvers to fetch the DID documents from specific service providers or user-hosted servers.
+To address these issues, we introduce the W3C Decentralized Identifier (DID) standard[^3]. DID is a new identifier standard designed to solve the dependency on traditional centralized identity management systems. It allows users to control their own identities and authenticate each other without relying on centralized systems. The core specification of DID does not mandate the use of specific computing infrastructure to construct decentralized identifiers, enabling us to leverage existing mature technologies and well-established web infrastructure to build DIDs. Additionally, various types of identifier systems can add support for DIDs, creating an interoperable bridge between centralized, federated, and decentralized identifier systems. This means that existing centralized identifier systems do not need to be completely restructured; they can achieve cross-system interoperability by creating DIDs on top of their existing infrastructure, significantly reducing the technical implementation difficulty.
 
-Finally, all operations of the "all" method use standard web protocols like HTTPS to leverage existing web infrastructure.
+![DID as an Identity Bridge Between Different Systems](/images/did-as-identity-bridge.png)
 
-### 2.2 Design of the "all" Method
+The core component of DID is the DID document, which contains key information related to a specific DID, used to verify the identity of the DID owner and manage operations, permissions, and access control related to the DID.
 
-The core of the "all" method design is to use cryptographic techniques to ensure the immutability of DID documents and utilize consortium nodes to maintain system distribution.
+![Overview of DID Architecture and Basic Component Relationships](/images/did-architecture.png)
 
-All operations for creating, resolving, updating, and deactivating DIDs in the "all" method use HTTPS. The core process is as follows:
+During the authentication process, the DID document contains methods for verifying user identity and corresponding public keys (private keys are kept by the user). When a user initiates a request to a service provider that requires identity verification, the service provider sends an authentication request (usually a challenge message) to the user. The user signs the challenge message with their private key and returns the signed result to the service provider. The service provider then verifies the signature using the user's public key to confirm the user's identity. The core of the entire process is that the verifier uses a trusted public key to verify the user's signed information, making the process simple and efficient.
 
-![Core Process of did:all Method](/images/did-all-core-flow.png)
+![Basic Process of DID Identity Authentication](/images/did-identity-authentication.png)
 
-1. User A first retrieves the list of "all" method service domains from the blockchain or other distributed storage or uses a self-hosted DID service.
+The DID method defines how to create, resolve, update, and deactivate DIDs and DID documents, as well as how to perform authentication and authorization. Among the existing DID method drafts, the `did:web` method[^5] is built on mature web technologies, allowing systems to use centralized technologies (such as cloud computing) to create, update, and deactivate DIDs and DID documents. Different systems achieve interoperability through the HTTP protocol, similar to how email services work on the internet, enabling large-scale deployment and convenient cross-platform identity authentication.
 
-2. User A creates a DID and DID document, selects one or more nodes, and initiates an HTTP request to host the DID document.
+Based on the `did:web` method, we have added cross-platform identity authentication processes and agent description services for agent communication scenarios, proposing a new DID method—`did:wba` (Web-Based Agent). The `did:wba` method inherits the advantages of `did:web`, further optimizing the identity authentication mechanism between agents and enhancing its applicability in agent networks.
 
-3. User B also retrieves the "all" method service domain list from the blockchain or other distributed storage.
+Additionally, users typically create one or more public-private key pairs for their DIDs, which are used not only for identity authentication but also for end-to-end encrypted communication. Based on the public-private key pairs of DIDs, we have designed an end-to-end encrypted communication scheme using the Elliptic Curve Diffie-Hellman Ephemeral (ECDHE) protocol[^6], achieving secure communication between two DIDs and ensuring that intermediate nodes cannot decrypt the communication content.
 
-4. User B queries the DID document from service domain nodes using polling or concurrent queries.
+### 2.2 Meta-Protocol Layer
 
-DID "all" method design specifications: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)
+The Meta-Protocol is a high-level protocol that defines the rules for operating, parsing, composing, and interacting with communication protocols. Essentially, it is a protocol for negotiating communication protocols, not directly handling specific data transmission but providing a flexible, general, and extensible communication framework.
 
-### 2.3 DID and DID Documents
+Currently, there are two main methods for communication between agents:
 
-An example of a DID document we use is as follows (for detailed description, refer to: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)):
+1. **Human Engineers Design Communication Protocols**: For example, common industry standards. Human engineers design communication protocols for agents, develop protocol code, and perform debugging, testing, and deployment. However, this method often faces high development costs, slow protocol updates, and difficulty adapting to new scenarios.
 
-```json
-{
-  "@context": "https://www.w3.org/ns/did/v1",
-  "id": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443",
-  "verificationMethod": [
-    {
-      "id": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443#keys-1",
-      "type": "EcdsaSecp256r1VerificationKey2019",
-      "controller": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443",
-      "publicKeyHex": "04b11e73474896ad9e4b1a2d5a1190d5b25a916eb62f3d1db155bb64dc046bfb3868457a1912c8f9fcd603ff5b1078f883f6bf6b9f0dee60bad9e57e7fec9b439d"
-    }
-  ],
-  "service": [
-    {
-      "id": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443#communication",
-      "type": "messageService",
-      "router": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443",
-      "serviceEndpoint": "wss://example.com/endpoint"
-    },
-    {
-      "id": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443#didservice",
-      "type": "didDocumentService",
-      "serviceEndpoint": "https://example.com/endpoint"
-    }
-  ],
-  "proof": {
-    "type": "EcdsaSecp256r1Signature2019",
-    "created": "2024-05-27T10:51:55Z",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443#keys-1",
-    "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
-  }
-}
-```
+2. **Agents Directly Use Natural Language Communication**: Agents use natural language for communication, internally utilizing large language models (LLMs) to process natural language data. However, this method has high data processing costs and low processing accuracy.
 
-Here, the DID is "did:all:14qQqsnEPZy2wcpRuLy2xeR737ptkE2Www@example.com:443".
+To solve these problems, we can use a combination of Meta-Protocol and AI code generation. By using Meta-Protocol and leveraging AI code generation technology, we can significantly improve communication efficiency between agents, reduce communication costs, and maintain flexibility and personalization in communication[^7].
 
-In the "all" method, the unique identifier is generated based on the public key in the verificationMethod, following a process similar to Bitcoin address generation (for detailed description, refer to: [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)):
+The basic process of using Meta-Protocol for communication is as follows:
 
-- The verifier reads a DID document and first verifies the correctness of the DID (obtained through a secure channel).
-- Then, it checks if the DID generated from the public key matches the DID in the document. If they match, the public key is correct.
-- Finally, it verifies the signature information in the proof section using the public key. If the verification succeeds, the DID document has not been tampered with.
+1. **Meta-Protocol Request**: Agent A first sends a Meta-Protocol request to Agent B. The request body uses natural language to describe its needs, inputs, expected outputs, and proposes candidate communication protocols. Candidate communication protocols generally include transport layer protocols, data formats, and data processing methods.
 
-This is an efficient and low-cost solution to prevent the DID document from being tampered with and to prevent DID document hosting services from privately modifying the DID document.
+2. **Protocol Negotiation**: After receiving the Meta-Protocol request, Agent B uses AI to process the natural language description in the request and, based on its own capabilities, determines whether to accept A's request and candidate protocol. If B's capabilities cannot meet A's request, it directly rejects it; if B does not accept A's candidate protocol, it can propose its own candidate protocol, entering the next round of negotiation. The negotiation process continues until both parties reach an agreement or the negotiation fails.
 
-If the user's private key corresponding to the public key is compromised, the user can trigger the corresponding DID revocation and DID update processes to notify relevant parties to update the DID.
+3. **Code Generation and Deployment**: Once an agreement is reached, both parties generate protocol handling code based on the negotiated protocol and deploy it.
 
-### 2.4 Cross-Platform Identity Authentication Process
+4. **Joint Debugging and Testing**: After code deployment, both parties conduct joint debugging and testing with test data to ensure the protocol and AI-generated protocol handling code work correctly.
 
-In cross-platform identity authentication based on DID, users do not need to abandon their existing identity systems. DIDs can be used solely for identity authentication between two systems, allowing the internal logic of the original systems to remain unchanged. For example, a user can apply for one or multiple DIDs and bind them to their existing identity IDs.
+5. **Formal Communication**: After joint debugging is completed, the protocol goes live. Agent A and Agent B then start communicating using the final negotiated protocol and process data with the AI-generated code.
 
-Suppose there are two users, A and B, registered on Platform A and Platform B respectively. The following describes how A and B find each other's DID documents, obtain message services, and communicate:
+6. **Handling Requirement Changes**: If requirements change, the above process is repeated until both parties reach a new agreement.
 
-![Cross-Platform Identity Authentication Process](/images/cross-platform-identity-authentication-process.png)
+![Basic Process of Meta-Protocol Communication](/images/meta-protocol-communication.png)
 
-**Process Explanation:**
+However, the Meta-Protocol negotiation process is time-consuming and relies on AI code generation capabilities. If every communication involves Meta-Protocol negotiation, it will result in significant cost consumption and poor interaction experience. Given that there are many similar communication processes between agents, agents can save the results of Meta-Protocol negotiations. When encountering similar needs in the future, they can directly use the previous negotiation results as the formal protocol for communication or as candidate protocols for negotiation. Additionally, agents can share negotiation results for other agents to query and use.
 
-1. Users A and B first exchange DIDs through reliable means, such as in-person scanning, SMS, WeChat, or public queries.
-2. Users A and B send each other's DIDs to their respective servers, which query the DID documents via DID.
-3. Based on the returned DID documents, they verify the ID, public key, and signature for correctness. If correct, it indicates that the DID document has not been tampered with. They then extract the message service endpoints and initiate the encrypted communication process.
+How to economically incentivize agents to actively upload negotiation results and select consensus protocols among agents is an issue that still requires in-depth research in the Meta-Protocol layer.
 
-## 3. End-to-End Encrypted Communication
+[^1]: https://arxiv.org/pdf/2410.11905
 
-This section describes how two parties holding DIDs can conduct secure and efficient end-to-end communication after mutually verifying each other's identities. Security is paramount in the communication process, ensuring data encryption, data integrity, forward secrecy, prevention of man-in-the-middle attacks, and replay attacks.
+### 2.3 Application Protocol Layer
 
-### 3.1 Overview of the Scheme
-This solution leverages high-security technologies that have been proven in practice, such as TLS and blockchain, and combines them to design an end-to-end encrypted communication scheme based on DID. This scheme can be used for secure encrypted communication between users on two different platforms.
+To reduce communication costs and improve interaction experience, agents should avoid negotiating communication protocols through Meta-Protocol in most communication scenarios. Therefore, in the Application Protocol Layer, we have designed a set of specifications, including **Agent Capability and Supported Protocol Description** and **Application Protocol Management Specifications**, to make communication between agents more convenient, efficient, and cost-effective.
 
-We have designed a DID-based message routing mechanism and short-term key negotiation mechanism on top of the websocket protocol. Both parties holding DIDs can use the public key in the DID document and their private key to perform short-term key negotiation using ECDHE (Elliptic Curve Diffie-Hellman Ephemeral). Afterward, they can use the key to encrypt messages within the key's validity period to achieve secure communication. ECDHE ensures that messages cannot be maliciously decrypted even if they are forwarded by third-party message agents or intermediaries.
+The **Agent Capability and Supported Protocol Description Specification** clarifies how agents describe their capabilities and supported protocols, as well as the protocol information required to invoke these capabilities. Agents can publish these description documents on the internet or specialized agent search services for other agents to query and invoke.
 
-We chose the websocket protocol because it is widely used on the internet and has a lot of available infrastructure, which is crucial for the early promotion of the scheme. Additionally, since we designed an end-to-end encryption scheme on top of websocket, there is no need to use the websocket secure protocol, thus avoiding the issue of redundant encryption and decryption.
+The **Application Protocol Management Specification** defines the document format, metadata (such as protocol version, release date, creator, etc.), and methods for querying and downloading application protocol documents. Application protocols should include the following content:
 
-Our current scheme essentially uses application layer encryption to replace transport layer encryption, thereby reducing the difficulty of protocol promotion while utilizing existing infrastructure.
+- **Protocol Version**: Indicates the iteration and update information of the protocol, ensuring both parties use compatible protocol versions.
+- **Function Description**: Details the protocol's functions, applicable scenarios, and expected outcomes.
+- **Input and Output Data Formats**: Defines the format, type, and constraints of data during interaction.
+- **Protocol Handling Process**: Describes the steps, sequence, and logical relationships of communication.
+- **Protocol Code Signed by Trusted DID**: Includes the code for the requester to initiate requests and the responder to handle requests, ensuring the security and trustworthiness of the code.
 
-The overall process is as follows:
+The sources of application protocols can be diverse:
 
-![end-to-end-encryption](/images/end-to-end-encryption-process.png)
+1. **Human-Defined Standard Protocols**: Developed by domain experts or industry organizations, with broad applicability and consistency.
+2. **Consensus Protocols Negotiated Between Agents**: Reached through Meta-Protocol negotiation, suitable for specific collaborative tasks.
+3. **Personalized Protocols Between Agents**: Customized protocols for specific needs or scenarios by agents.
 
-Note: The third-party Message service may not exist, and users can use their own message service.
+To facilitate the sharing and reuse of application protocols, a protocol service platform similar to PyPI can be established in the future to centrally manage application layer protocols. Agents can search, download, and use existing protocols and their code on this platform to provide services. When invoking other agents' services, they can load the corresponding protocol code based on the supported protocols and communicate accordingly.
 
-Currently, we only support the websocket protocol because it is a bidirectional protocol. In the future, we will consider supporting the HTTP protocol to expand more scenarios. Additionally, we will consider implementing our end-to-end encryption scheme at the transport layer in the future, allowing it to be used in more scenarios.
+The following is an example process of **Agent A Invoking Agent B's Service**:
 
-### 3.2 Encrypted Communication Process
+1. **Capability Discovery**: Agent A discovers that Agent B has the capability to meet its needs through search or query services.
+2. **Protocol Matching**: A reviews B's capability description document to determine the available communication protocols.
+3. **Protocol Loading**: A loads the corresponding protocol handling code through the protocol service platform.
+4. **Communication Execution**: A uses the loaded protocol code to communicate with B according to the specified process.
 
-Suppose there are two platform users, A (DID-A) and B (DID-B). Both A and B can obtain each other's DID documents from the DID SERVER, which include their respective public keys.
+![Agent A Invoking Agent B's Service](/images/agent-a-call-agent-b.png)
 
-To perform encrypted communication, A and B first need to initiate the creation of short-term keys. The process of creating short-term keys is similar to TLS's generation of temporary encryption keys. These keys have an expiration time, and before they expire, the creation process needs to be restarted to generate new keys and update them.
+In specific data exchanges, the data format of the protocol is not limited and can be chosen based on needs, such as JSON, OpenAPI, Protocol Buffers, etc., to meet the requirements of different application scenarios.
 
-Once A and B hold the negotiated short-term keys, if A wants to send a message to B, A can encrypt the message using the key and then send it to B through the messaging protocol via the message server. Upon receiving the message, B retrieves the corresponding key using the key ID, decrypts the message using the key. If the corresponding key is not found or has expired, B sends an error message to notify A to initiate the short-term key update process. After updating the short-term key, A can resend the message.
+## 3. Future Prospects
 
-### 3.3 Short-Term Key Negotiation Process
+While our proposed three-layer protocol architecture addresses key issues in agent network communication, several areas require further exploration.
 
-The short-term key creation process is fundamentally similar to the key exchange process in TLS 1.3, with the following differences:
+Firstly, the optimization of **cross-platform identity authentication technology** is a pressing issue. Although the W3C DID standard offers potential for decentralized identity authentication, its infrastructure remains underdeveloped as a newly recommended standard.
 
-- The entire process involves only three messages: SourceHello, DestinationHello, and Finished, corresponding to TLS's ClientHello, ServerHello, and Finished messages. Unlike TLS, which has distinct client and server roles, our process involves only source and destination.
-- Other messages such as EncryptedExtensions, Certificate, and CertificateVerify are not required. Specifically:
-  - EncryptedExtensions are omitted for now but may be added later to convey encryption extensions.
-  - Certificate and CertificateVerify are unnecessary because these messages primarily ensure the server's public key is secure. We use the DID address and public key correspondence to verify the correctness of the DID's public key, meaning each public key corresponds to only one DID, and each DID corresponds to only one public key.
-- The Finished messages no longer hash and encrypt handshake messages because the SourceHello and DestinationHello messages already include their respective signatures, ensuring message integrity.
-- Source and Destination can initiate multiple short-term key negotiations simultaneously, allowing multiple keys to exist concurrently for encrypting different types of messages.
+Secondly, the **suitability of underlying communication protocols** needs reevaluation. Our approach relies on existing web infrastructure, which simplifies technical implementation but may overlook the specific needs of agent communication. Is the current HTTP protocol still the best choice for agents? Are there alternative protocols better suited for agent data exchange and communication efficiency? These questions warrant further investigation.
 
-The overall process diagram is as follows:
+Lastly, the **application prospects of blockchain technology in agent networks** are promising. As blockchain technology matures, its inherent decentralization and emphasis on personal data sovereignty could provide an ideal foundation for building agent networks. Blockchain not only facilitates easier AI access to user data but also offers financial attributes that could address economic incentive challenges faced by agents during protocol negotiations.
 
-```plain
-Client (A)                                          Server (B)
-   |                                                    |
-   |  ---------------- SourceHello ---------------->    |
-   |                                                    |
-   |         (Include public key and signature)         |
-   |                                                    |
-   |                                                    |
-   |  <------------- DestinationHello ------------      |
-   |                                                    |
-   |         (Include public key and signature)         |
-   |                                                    |
-   |                                                    |
-   |  -------- Finished (Include verify_data) ------->  |
-   |                                                    |
-   |  <-------- Finished (Include verify_data) -------- |
-   |                                                    |
-   |                                                    |
-```
+Our research provides a foundational framework for agent network communication, yet significant work remains in areas such as identity authentication, communication protocols, and technology selection. Future research should focus on these critical issues to propose more innovative and practical solutions.
 
-Short-term key negotiation process: [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md)
+## 4. Conclusion
 
-## 4. Outlook
+This paper presents a three-layer protocol architecture for agent network communication, aiming to address the lack of standardized communication and network connection solutions among agents. Firstly, by introducing a decentralized identity authentication scheme based on W3C DID, we provide agents with cross-platform identity authentication capabilities and design an end-to-end encrypted communication mechanism to ensure communication security and trustworthiness. Secondly, at the meta-protocol layer, we leverage natural language negotiation and AI code generation capabilities to enhance communication efficiency and flexibility among agents, reducing the complexity and cost of protocol negotiation. Finally, the application protocol layer, through standardized protocol description and management, simplifies the interaction process between agents, reduces communication costs, and enhances interaction experience.
 
-### 4.1 Protocol-Based Intelligent Collaboration
+Despite significant progress in addressing agent communication issues, challenges remain. For instance, further optimization of cross-platform identity authentication technology to improve scalability and practicality; exploring more suitable underlying protocols for agent communication to enhance data exchange efficiency and reliability. Additionally, the potential application of blockchain technology in agent networks deserves in-depth research, particularly in decentralized identity management and economic incentive mechanisms.
 
-Although this paper does not discuss the specific design of communication protocols, such design is crucial for forming a network of intelligent agents.
+In summary, this study provides an innovative solution for agent network communication, laying a solid foundation. Future work will focus on refining this architecture, addressing existing issues, and advancing the development of agent technology.
 
-With the advancement of large language model technologies, software systems' understanding of natural language has significantly improved, greatly impacting human-computer interaction. It is widely anticipated that natural language could become an essential interface for human-computer interactions. Will natural language become an important communication language between software systems? We believe this is a very interesting topic.
+## 5. References
 
-Traditional software systems, such as those providing voice call services or internet applications, generally use strictly defined binary or text protocols for interaction. If one party does not strictly adhere to the standards, it can lead to interaction failures, often requiring programmers to manually fix bugs and redeploy code.
+[^1]: Bill Gates, AI is about to completely change how you use computers, [https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
 
-When AI can understand natural language and automatically generate code, can we define a more flexible interaction protocol with detailed descriptions of fields in natural language to enable AI to accurately understand the protocol? The initial integration and testing process between two systems could also be handled by AI, which could negotiate specific fields agreed upon by both parties, modify code to adapt to the negotiated protocol, automatically test, fix bugs, verify results, and ultimately achieve low-cost integration between the two systems.
+[^2]: The OAuth 2.0 Authorization Framework, [https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)
 
-### 4.2 Technical Implementation Recommendations
+[^3]: Decentralized Identifiers (DIDs) v1.0:Core architecture, data model, and representations[https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)
 
-Our proposed scheme fully considers users' autonomy, allowing them to choose between using third-party DID hosting services and message services or self-hosted services. Both options offer equivalent security.
+[^4]: Use Cases and Requirements for Decentralized Identifiers [https://www.w3.org/TR/did-use-cases/](https://www.w3.org/TR/did-use-cases/)
 
-If users opt to self-host services, they need to consider essential features such as disaster recovery, scalability, and security (e.g., protection against DoS and replay attacks).
+[^5]: did:web Method Specification, [https://w3c-ccg.github.io/did-method-web/](https://w3c-ccg.github.io/did-method-web/)
 
-Considering development and operational costs, we recommend that users, especially small to medium-sized ones, use professional third-party services.
+[^6]: The Transport Layer Security (TLS) Protocol Version 1.3，[https://www.rfc-editor.org/rfc/rfc8446.html](https://www.rfc-editor.org/rfc/rfc8446.html)
 
-### 4.3 DID-Native Identity Systems
-
-In this paper, we only utilize DIDs for cross-platform identity authentication. However, we believe that the future applications of DIDs extend far beyond this. We hope to see the emergence of DID-native identity systems that thoroughly solve issues related to centralized dependency, privacy and data control, interoperability, and security in traditional centralized identity management systems.
-
-### 4.4 Multimedia Format Support
-
-Currently, the protocol design only supports transmitting textual content. The internet hosts a vast amount of multimedia content, such as audio, video, and files, as well as real-time audio and video content like live streaming and RTC.
-
-We plan to support these multimedia formats in the future, enabling more comprehensive collaboration between intelligent agents.
-
-### 4.5 Decentralized Solutions Based on Blockchain
-
-The DIDs we designed are essentially equivalent to blockchain addresses and can also serve as wallet addresses for blockchains. This makes it an option to build a fully decentralized identity system based on blockchain. We can publish DID documents to the blockchain for public querying; create business-related tokens on the blockchain to facilitate DID-based transactions and settlements, making value transfer between intelligent agents more convenient; and utilize distributed computing power organized by the blockchain to form a decentralized intelligent agent message service network. There should be more possibilities in the future.
-
-### 4.6 Binary Communication Protocols
-
-Current communication protocols are primarily based on WSS+JSON, which inherently has efficiency disadvantages compared to binary protocols like TLS. Considering our goal to become future infrastructure, we plan to develop transport-layer binary protocols in the future.
-
-## 5. Conclusion
-
-This paper introduces an innovative cross-platform identity authentication and end-to-end encrypted communication solution based on DID, aiming to address the challenges of identity verification and secure communication in intelligent agent networks. By introducing the "all" method for DIDs, the paper solves interoperability issues between identity systems across different platforms and simplifies the identity verification process. The solution leverages HTTPS protocols and blockchain technology to ensure the immutability of DID documents and the distributed nature of the system. Additionally, by drawing from TLS and blockchain technologies, it designs an efficient and secure short-term key negotiation mechanism to achieve end-to-end encrypted communication, ensuring data confidentiality and integrity. The paper also presents a vision for intelligent agent network collaboration and explores the potential applications and future directions of DID-based identity systems. Overall, this paper provides a solution with broad application prospects, laying the foundation for the efficient and secure operation of intelligent agent networks.
-
-## References
-
-[1] Bill Gates, AI is about to completely change how you use computers, [https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
-
-[2] W3C DID (Decentralized Identifier) Specification, [https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)
-
-[3] TLS (Transport Layer Security) 1.3 Specification, [https://www.rfc-editor.org/info/rfc8446](https://www.rfc-editor.org/info/rfc8446)
-
-[4] DID "all" Method Design Specification, [02-did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md)
-
-[5] End-to-End Encrypted Communication Technology Based on DID, [03-End-to-End Encrypted Communication Protocol Based on did:all Method](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md)
-
-
-
-
-
-
-
+[^7]: A Scalable Communication Protocol for Networks of Large Language Models, [https://arxiv.org/pdf/2410.11905](https://arxiv.org/pdf/2410.11905)

@@ -1,5 +1,7 @@
 # Agent Network Protocol技术蓝图
 
+此文档已过时，请参考[Agent Network Protocol技术白皮书](01-AgentNetworkProtocol技术白皮书.md)。
+
 ## 愿景
 
 我们致力于将AgentNetworkProtocol(ANP)打造成**智能体网络时代的HTTP**。

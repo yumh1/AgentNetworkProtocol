@@ -1,5 +1,8 @@
 # Agent Network Protocol Technical Blueprint
 
+
+This document is outdated, please refer to [Agent Network Protocol Technical Whitepaper](01-AgentNetworkProtocol%20Technical%20White%20Paper.md).
+
 ## Vision
 
 We are committed to making AgentNetworkProtocol(ANP) the **HTTP of the agentic web era**.
