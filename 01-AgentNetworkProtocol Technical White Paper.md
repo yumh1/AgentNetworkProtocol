@@ -17,7 +17,9 @@ Therefore, there is an urgent need for a new protocol framework that can break d
 
 To address issues such as identity authentication, protocol negotiation, and application interaction in agent networks, we have designed a three-layer protocol architecture, as illustrated below:
 
-![Three-Layer Protocol Architecture](/images/protocol-layer-design.png)
+<p align="center">
+  <img src="/images/protocol-layer-design.png" width="50%" alt="Three-Layer Protocol Architecture"/>
+</p>
 
 - **Identity and Encrypted Communication Layer**: This layer defines a set of standards aimed at solving identity authentication issues between agents, particularly cross-platform authentication. We have designed a decentralized identity authentication scheme based on the W3C DID[^3], providing end-to-end encrypted communication to ensure secure identity authentication between agents on any platform.
 
@@ -32,15 +34,21 @@ While blockchain-based decentralized identity authentication schemes offer a pot
 
 To address these issues, we introduce the W3C Decentralized Identifier (DID) standard[^3]. DID is a new identifier standard designed to solve the dependency on traditional centralized identity management systems. It allows users to control their own identities and authenticate each other without relying on centralized systems. The core specification of DID does not mandate the use of specific computing infrastructure to construct decentralized identifiers, enabling us to leverage existing mature technologies and well-established web infrastructure to build DIDs. Additionally, various types of identifier systems can add support for DIDs, creating an interoperable bridge between centralized, federated, and decentralized identifier systems. This means that existing centralized identifier systems do not need to be completely restructured; they can achieve cross-system interoperability by creating DIDs on top of their existing infrastructure, significantly reducing the technical implementation difficulty.
 
-![DID as an Identity Bridge Between Different Systems](/images/did-as-identity-bridge.png)
+<p align="center">
+  <img src="/images/did-as-identity-bridge.png" width="50%" alt="DID 作为不同系统间的身份认证桥梁"/>
+</p>
 
 The core component of DID is the DID document, which contains key information related to a specific DID, used to verify the identity of the DID owner and manage operations, permissions, and access control related to the DID.
 
-![Overview of DID Architecture and Basic Component Relationships](/images/did-architecture.png)
+<p align="center">
+  <img src="/images/did-architecture.png" width="50%" alt="Overview of DID Architecture and Basic Component Relationships"/>
+</p>
 
 During the authentication process, the DID document contains methods for verifying user identity and corresponding public keys (private keys are kept by the user). When a user initiates a request to a service provider that requires identity verification, the service provider sends an authentication request (usually a challenge message) to the user. The user signs the challenge message with their private key and returns the signed result to the service provider. The service provider then verifies the signature using the user's public key to confirm the user's identity. The core of the entire process is that the verifier uses a trusted public key to verify the user's signed information, making the process simple and efficient.
 
-![Basic Process of DID Identity Authentication](/images/did-identity-authentication.png)
+<p align="center">
+  <img src="/images/did-identity-authentication.png" width="50%" alt="Basic Process of DID Identity Authentication"/>
+</p>
 
 The DID method defines how to create, resolve, update, and deactivate DIDs and DID documents, as well as how to perform authentication and authorization. Among the existing DID method drafts, the `did:web` method[^5] is built on mature web technologies, allowing systems to use centralized technologies (such as cloud computing) to create, update, and deactivate DIDs and DID documents. Different systems achieve interoperability through the HTTP protocol, similar to how email services work on the internet, enabling large-scale deployment and convenient cross-platform identity authentication.
 
@@ -74,7 +82,9 @@ The basic process of using Meta-Protocol for communication is as follows:
 
 6. **Handling Requirement Changes**: If requirements change, the above process is repeated until both parties reach a new agreement.
 
-![Basic Process of Meta-Protocol Communication](/images/meta-protocol-communication.png)
+<p align="center">
+  <img src="/images/meta-protocol-communication.png" width="50%" alt="Basic Process of Meta-Protocol Communication"/>
+</p>
 
 However, the Meta-Protocol negotiation process is time-consuming and relies on AI code generation capabilities. If every communication involves Meta-Protocol negotiation, it will result in significant cost consumption and poor interaction experience. Given that there are many similar communication processes between agents, agents can save the results of Meta-Protocol negotiations. When encountering similar needs in the future, they can directly use the previous negotiation results as the formal protocol for communication or as candidate protocols for negotiation. Additionally, agents can share negotiation results for other agents to query and use.
 
@@ -111,7 +121,9 @@ The following is an example process of **Agent A Invoking Agent B's Service**:
 3. **Protocol Loading**: A loads the corresponding protocol handling code through the protocol service platform.
 4. **Communication Execution**: A uses the loaded protocol code to communicate with B according to the specified process.
 
-![Agent A Invoking Agent B's Service](/images/agent-a-call-agent-b.png)
+<p align="center">
+  <img src="/images/agent-a-call-agent-b.png" width="50%" alt="Agent A Invoking Agent B's Service"/>
+</p>
 
 In specific data exchanges, the data format of the protocol is not limited and can be chosen based on needs, such as JSON, OpenAPI, Protocol Buffers, etc., to meet the requirements of different application scenarios.
 
