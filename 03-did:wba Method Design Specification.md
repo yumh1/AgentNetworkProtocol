@@ -389,7 +389,7 @@ Alice has stored a file on example.com and wants to access it through her intell
 
 Alice wants to call APIs of a third-party service named "example" through her intelligent assistant. First, Alice creates a did:wba-based DID on her intelligent assistant and uses it to subscribe to services on the example platform. The example service authenticates the DID, confirms Alice as the purchaser, and records her DID. After authentication, Alice can use her intelligent assistant to call example service APIs using this DID.
 
-Note that while client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
+> Note: While client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
 
 ## 5. Summary
 
