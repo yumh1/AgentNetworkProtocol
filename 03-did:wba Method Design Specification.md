@@ -365,6 +365,11 @@ Authorization: Bearer <token>
 4. **Service Verify Token**
 After receiving the client's request, the service extracts the token from the Authorization header and verifies it, including verifying the signature, verifying the expiration time, and verifying the fields in the payload. The verification method is based on [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
 
+## 4. Summary
+
+This specification builds upon the did:web method specification by adding DID document constraints, cross-platform authentication processes, and agent description services. It proposes a new method name did:wba (Web-Based Agent). We designed a cross-platform authentication process based on the did:wba method and HTTP protocol, and provided detailed implementation methods.
+
+In the future, we will further improve the did:wba method by adding agent capability and protocol description service endpoints, bidirectional authentication processes between agents, and more.
 
 ## References
 

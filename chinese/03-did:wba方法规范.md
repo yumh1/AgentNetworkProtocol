@@ -137,7 +137,6 @@ did:wba:example.com%3A3000
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
 
-
 ### 2.5 DID方法操作
 
 #### 2.5.1 创建(注册)
@@ -173,7 +172,6 @@ did:wba:example.com:user:alice
 did:wba:example.com%3A3000:user:alice
  -> https://example.com:3000/user/alice/did.json
 ```
-
 
 #### 2.5.2 读取(解析)
 
@@ -367,6 +365,11 @@ Authorization: Bearer <token>
 4. **服务端验证 Token**
 服务端收到客户端请求后，从 Authorization 头中提取 Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
+## 4. 总结
+
+本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。设计了基于did:wba方法和HTTP协议的跨平台身份认证流程，并给出了详细的实现方法。
+
+后面将会进一步完善did:wba方法，增加智能体能力与协议描述服务端点、智能体双向鉴权流程等。
 
 ## 参考文献
 
@@ -397,6 +400,5 @@ Authorization: Bearer <token>
 13. **DID Extension Methods**. Decentralized Identifier Extension Methods. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions-methods/](https://www.w3.org/TR/did-extensions-methods/)
 
 14. **DID Extension Resolution**. Decentralized Identifier Extension Resolution. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions-resolution/](https://www.w3.org/TR/did-extensions-resolution/)
-
 
 15. **Controller Document**. Controller Document. Manu Sporny; Markus Sabadello. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/controller-document/](https://www.w3.org/TR/controller-document/)
