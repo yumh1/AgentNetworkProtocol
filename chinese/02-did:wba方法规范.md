@@ -52,9 +52,9 @@ did:wba:example.com%3A3000
 
 1. 如果JSON文档根部存在@context，则应根据JSON-LD规则处理该文档。如果无法处理，或者文档处理失败，则应拒绝将其作为did:wba文档。
 
-2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文`https://www.w3.org/ns/did/v1`，则可以按照[[did-core](https://www.w3.org/TR/did-core/)]规范的6.3.2节进一步将其处理为DID文档。
+2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文`https://www.w3.org/ns/did/v1`，则可以按照[[did-core规范的6.3.2节](https://www.w3.org/TR/did-core/#consumption-0)]进一步将其处理为DID文档。
 
-3. 如果不存在@context，则应按照[[did-core](https://www.w3.org/TR/did-core/)]规范6.2.2节中指定的正常JSON规则进行DID处理。
+3. 如果不存在@context，则应按照[[did-core规范6.2.2节](https://www.w3.org/TR/did-core/#consumption)]中指定的正常JSON规则进行DID处理。
 
 4. 当did:wba文档中出现DID URL时，必须是绝对URL。
 
@@ -203,7 +203,7 @@ did:wba:example.com%3A3000:user:alice
 
 ### 2.6 安全和隐私注意事项
 
-安全与隐私注意事项参考[[did:web](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations)] 2.6节。
+安全与隐私注意事项参考[[did:web 方法规范2.6节](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations)]。
 
 ## 3. 基于did:wba方法和HTTP协议的跨平台身份认证
 
