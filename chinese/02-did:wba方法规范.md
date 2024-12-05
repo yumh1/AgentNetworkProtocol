@@ -3,42 +3,63 @@
 ## 摘要
 
 
+
 ## 1. 引言
 
-本规范在did:web方法规范([https://w3c-ccg.github.io/did-method-web](https://w3c-ccg.github.io/did-method-web))的基础上，添加了跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。
+### 1.1 前言
+wba DID方法规范符合去中心化标识符V1.0[(DID-CORE)[https://www.w3.org/TR/did-core/]]中指定的要求。
 
-考虑到did:web方法规范仍然是一个草案，未来可能会有不适宜智能体通信场景的改动，和原作者就规范修改达成共识也是一个长期过程，所以我们决定使用一个新的方法名。
+本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。
 
-未来不排除将did:wba规范合并到did:web规范中的可能。
+考虑到did:web方法规范仍然是一个草案，未来可能会有不适宜智能体通信场景的改动。另外，我们对规范做了部分修改，和原作者就规范修改达成共识也是一个长期过程，所以我们决定使用一个新的方法名。
+
+未来不排除将did:wba规范合并到did:web规范中的可能，我们会去推动这个目标的实现。
+
+did:wba方法参考的did:web方法规范地址为[https://w3c-ccg.github.io/did-method-web/#web-did-method-specification](https://w3c-ccg.github.io/did-method-web/#web-did-method-specification)，版本日期为2024年7月31日。为了方便管理，我们备份了一份did:wba当前使用的did:web方法规范文档：[did:web方法规范](/references/did_web%20Method%20Specification.html)。
+
+### 1.2 
 
 ## 2. WBA DID 方法规范
 
-### 2.1 基本方法规范
+### 2.1 方法名称
+用于标识此DID方法的名称字符串是:wba。使用此方法的DID必须以以下前缀开头:did:wba。根据DID规范,此字符串必须是小写的。DID的其余部分(前缀之后)在下面指定。
 
-WBA DID基本方法规范全部继承自did:web方法规范，规范地址为[https://w3c-ccg.github.io/did-method-web/#web-did-method-specification](https://w3c-ccg.github.io/did-method-web/#web-did-method-specification)，版本日期为2024年7月31日。
+### 2.2 方法特定标识符
+方法特定标识符是由TLS/SSL证书保护的完全限定域名,可以选择包含DID文档的路径。描述有效域名语法的正式规则在[（RFC1035）](https://www.rfc-editor.org/rfc/rfc1035)、[（RFC1123）](https://www.rfc-editor.org/rfc/rfc1123)和[（RFC2181）](https://www.rfc-editor.org/rfc/rfc2181)中有说明。
 
-为了方便管理，我们备份了一份当前使用的did:web方法规范文档：[did:web方法规范](/references/did_web%20Method%20Specification.html)。
+方法特定标识符必须与SSL/TLS证书中使用的通用名称匹配,并且不得包含IP地址。可以包含端口号,但冒号必须进行百分比编码以防止与路径冲突。目录和子目录可以选择性地包含,使用冒号而不是斜杠作为分隔符。
 
-基本方法规范涉及以下方面：
-- (方法标识符规范)[https://w3c-ccg.github.io/did-method-web/#method-specific-identifier]
-- (加密材料和DID文档处理)[https://w3c-ccg.github.io/did-method-web/#key-material-and-document-handling]
-- (DID方法操作，包括创建、更新、停用、读取)[https://w3c-ccg.github.io/did-method-web/#did-method-operations]
-- （安全注意事项）[https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations]
+wba-did = "did:wba:" domain-name
+wba-did = "did:wba:" domain-name * (":" path)
 
-需要注意的是，在应用的时候，需要将方法名修改为“wba”。  
+```plaintext
+示例3: wba方法DID示例
+did:wba:example.com
 
+did:wba:example.com:user:alice
 
-TODO: 添加CURD的规范。
+did:wba:example.com%3A3000
+```
 
-添加安全注意事项
+### 2.4 密钥材料和文档处理
 
-添加DID生成的规则
+由于大多数Web服务器呈现内容的方式，特定的did:wba文档很可能会以application/json的媒体类型提供服务。如果检索到一个名为did.json的文档，应该遵循以下处理规则：
 
+1. 如果JSON文档根部存在@context，则应根据JSON-LD规则处理该文档。如果无法处理，或者文档处理失败，则应拒绝将其作为did:wba文档。
 
+2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文https://www.w3.org/ns/did/v1，则可以按照[(did-core)[https://www.w3.org/TR/did-core/]]规范的6.3.2节进一步将其处理为DID文档。
 
-### 2.2 did:wba DID文档示例
+3. 如果不存在@context，则应按照[(did-core)[https://www.w3.org/TR/did-core/]]规范6.2.2节中指定的正常JSON规则进行DID处理。
+
+4. 当did:wba文档中出现DID URL时，必须是绝对URL。
+
+> 注意：这包括嵌入的密钥材料和其他元数据中的URL，这可以防止密钥混淆攻击。
+
+### 2.5 DID文档说明
 
 除DID核心规范外，其他大部分规范尚处于草案阶段。本章节将展示一个用于身份验证的DID文档的子集。为了提高系统间的兼容性，所有标注为必须的字段，所有系统必须支持；标注为可选的字段，可以选择性支持。未列出的其他标准中定义的字段，可以选择性支持。
+
+**DID文档示例如下：**
 
 ```json
 {
@@ -111,11 +132,47 @@ TODO: 添加CURD的规范。
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
 
-## 3. 跨平台身份认证流程
 
-### 3.1 读取DID文档
+### 2.5 DID方法操作
 
-参考[did:web方法规范](https://w3c-ccg.github.io/did-method-web/#read-resolve)，使用HTTP协议读取DID文档。具体如下：
+#### 2.5.1 创建(注册)
+did:wba方法规范没有指定具体的HTTP API操作，而是将程序化注册和管理留给各个实现方根据其Web环境的要求自行定义。
+
+创建DID需要执行以下步骤：
+
+1. 向域名注册商申请使用域名
+2. 在DNS查询服务中存储托管服务的位置和IP地址
+3. 创建DID文档JSON-LD文件，包含合适的密钥对，并将did.json文件存储在well-known URL下以代表整个域名，或者如果在该域名下需要解析多个DID，则存储在指定路径下。
+
+例如，对于域名example.com，did.json将在以下URL下可用：
+
+```plaintext
+示例：创建DID
+did:wba:example.com
+ -> https://example.com/.well-known/did.json
+```
+
+如果指定了可选路径而不是裸域名，did.json 将在指定的路径下可用：
+
+```plaintext
+示例5：使用可选路径创建DID
+did:wba:example.com:user:alice
+ -> https://example.com/user/alice/did.json
+```
+
+如果在域名上指定了可选端口，则必须对主机和端口之间的冒号进行百分比编码，以防止与路径发生冲突。
+
+```plaintext
+示例6：使用可选路径和端口创建DID
+did:wba:example.com%3A3000:user:alice
+ -> https://example.com:3000/user/alice/did.json
+```
+
+
+#### 2.5.2 读取(解析)
+
+必须执行以下步骤来从Web DID解析DID文档:
+
 - 将方法特定标识符中的“:”替换为“/”以获得完全限定的域名和可选路径。
 - 如果域名包含端口，则对冒号进行百分比解码。
 - 通过在预期的DID文档位置前加上https://生成HTTPS URL。
@@ -125,21 +182,34 @@ TODO: 添加CURD的规范。
 - 验证解析的DID文档的ID是否与正在解析的Web DID匹配。
 - 在HTTP GET请求期间执行DNS解析时，客户端应使用[（RFC8484）[https://w3c-ccg.github.io/did-method-web/#bib-rfc8484]]以防止跟踪正在解析的身份。
 
-举例:
-- 解析”did:wba:example.com%3A8800:user:alice“的DID文档，转换后的URL为：https://example.com:8800/user/alice/did.json。
-- 解析“did:wba:example.com”的DID文档，转换后的URL为：https://example.com/.well-known/did.json。
+#### 2.5.3 更新
 
-### 3.2 基于HTTP的单方认证
+要更新 DID 文档，需要更新DID对应 did.json 文件。请注意，DID 本身将保持不变，但 DID 文档的内容可以更改，例如，添加新的验证密钥或服务端点。
+
+> 注意：
+> 使用诸如 git 之类的版本控制系统和诸如 GitHub Actions 之类的持续集成系统来管理 DID 文档的更新，可以为身份验证和审计历史提供支持。
+
+> 注意：HTTP API
+> 更新过程没有指定具体的 HTTP API，而是将程序化注册和管理留给各个实现方根据其需求自行定义。
+
+#### 2.5.4 停用（撤销）
+要删除DID文档，必须移除did.json文件，或者由于其他原因使其不再公开可用。
+
+### 2.6 安全和隐私注意事项
+
+安全与隐私注意事项参考[(did:web方法规范)[https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations]] 2.6节。
+
+## 3. 基于did:wba方法和HTTP协议的跨平台身份认证
 
 单方认证是指在客户端与服务端模式中，客户端可以通过服务端的域名验证服务端的身份，而服务端使用DID验证客户端的身份。比如，客户端使用HTTP请求访问资源服务器，资源服务器使用DID文档中的验证方法验证客户端的身份。
 
 ！！！！todo：添加http only的包含？？？？
 
-#### 3.2.1 初始请求
+### 3.1 初始请求
 
 当前客户端首次向服务端发起HTTP请求时，需要按照以下方法进行身份认证。
 
-##### 3.2.1.1 请求头部格式
+#### 3.1.1 请求头部格式
 
 客户端将以下信息通过 `Authorization` 头字段发送到服务端：
 - **DID**：请求中包含客户端的 DID 标识符，用于身份验证。
@@ -153,11 +223,12 @@ TODO: 添加CURD的规范。
   - `did`（客户端的 DID）
 
 客户端请求示例：
-```
+
+```plaintext
 Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64(signature_of_nonce_timestamp_service_did)>
 ```
 
-##### 3.2.1.2 签名生成流程
+#### 3.1.2 签名生成流程
 
 1. 客户端生成包含以下信息的字符串：
 
@@ -178,9 +249,9 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 5. 将 `Authorization` 头部构建成上述格式，发送到服务端。
 
-#### 3.2.1.3 服务端验证
+### 3.2 服务端验证
 
-##### 3.2.1.3.1 验证请求头部
+#### 3.2.1 验证请求头部
 
 服务端收到客户端请求后，进行以下验证：
 
@@ -191,6 +262,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 3. **验证DID权限**：验证请求中的DID是否具备访问服务端资源的权限。如果没有权限，则返回 `403 Forbidden`。
 
 4. **验证签名**：
+
 - 根据客户端的DID，读取DID文档。
 - 根据请求中的 `VerificationMethod`，在DID文档中找到对应的验证方法。
 - 使用验证方法中的公钥对请求中的签名进行验证。
@@ -198,20 +270,20 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 5. **验证结果**：如果签名验证成功，则请求通过验证；否则，返回 `401 Unauthorized`，并附加挑战信息。
 
 
-##### 3.2.1.3.2 验证签名过程
+#### 3.2.2 验证签名过程
 
 1. **提取信息**：从 `Authorization` 头部提取 `nonce`、`timestamp`、`service`、`did`、`VerificationMethod` 和 `Signature`。
 
 2. **构建验证字符串**：使用提取的信息构建与客户端相同的JSON字符串：
 
-   ```json
-   { 
-     "nonce": "abc123", 
-     "timestamp": "2024-12-05T12:34:56Z", 
-     "service": "example.com", 
-     "did": "did:wba:example.com:user:alice" 
-   }
-   ```
+```json
+{ 
+    "nonce": "abc123", 
+    "timestamp": "2024-12-05T12:34:56Z", 
+    "service": "example.com", 
+    "did": "did:wba:example.com:user:alice" 
+}
+```
 
 3. **规范化字符串**：使用(JCS(JSON Canonicalization Scheme))[https://www.rfc-editor.org/rfc/rfc8785]对JSON字符串进行规范化，生成规范化字符串。
 
@@ -221,18 +293,20 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 6. **验证签名**：使用获取的公钥对 `Signature` 进行验证，确保签名是由对应的私钥生成的。
 
-##### 3.2.1.3.3 401响应
+#### 3.2.3 401响应
 
 当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应，并附加挑战信息。挑战信息中必须包含 `nonce` 字段。
 
 同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
 
 挑战信息通过 `WWW-Authenticate` 头字段返回，示例如下：
-```
+
+```plaintext
 WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has already been used. Please provide a new nonce.", nonce="xyz987"
 ```
 
 挑战信息包含以下字段：
+
 - **nonce**：必须字段，服务端生成的随机字符串，用于防止重放攻击。
 - **error**：必须字段，错误类型。
 - **error_description**：可选字段，错误描述。
@@ -241,7 +315,7 @@ WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has alr
 
 需要注意的是，客户端和服务端在各自的实现上，需要对重试次数进行限制，防止进入死循环。
 
-##### 3.2.1.3.4 认证成功返回JWT
+#### 3.2.4 认证成功返回token
 
 服务端验证成功后，可以在响应中返回token，token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
 
@@ -267,46 +341,50 @@ payload中可以包含以下字段（其他字段根据需要添加）：
 2. **返回 Token**
 将生成的 header、payload 和 signature 通过 Base64 编码拼接，形成最终的 Token。然后通过 Authorization 头返回给客户端：
 
-```
+```plaintext
 Authorization: Bearer <token>
 ```
 
 3. **客户端发送 Token**
 客户端在后续请求中将该 Token 通过 Authorization 头字段发送到服务端：
 
-```
+```plaintext
 Authorization: Bearer <token>
 ```
 
 4. **服务端验证 Token**
 服务端收到客户端请求后，从 Authorization 头中提取 Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
-### 3.3 基于HTTP的双方认证
-
-使用一个http请求专门进行双方的认证
-
-
-
-
-
-## 智能体描述
 
 ## 用例
 
 跨平台访问文件。通过在资源服务器提前配置信任DID列表，资源服务器可以识别出请求的客户端是否可信。 
 
-双向认证用例？？
 
 ## 总结
 
+
 安全性依赖域名。
 
-
-
-
-
+双向认证用例
 
 
 ## 参考文献
 
 [1]JSON Canonicalization Scheme (JCS), https://www.rfc-editor.org/rfc/rfc8785
+
+
+[DID-CORE]
+Decentralized Identifiers (DIDs) v1.0. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed. W3C. 19 July 2022. W3C Recommendation. URL: https://www.w3.org/TR/did-core/
+[RFC1035]
+Domain names - implementation and specification. P. Mockapetris. IETF. November 1987. Internet Standard. URL: https://www.rfc-editor.org/rfc/rfc1035
+[RFC1123]
+Requirements for Internet Hosts - Application and Support. R. Braden, Ed. IETF. October 1989. Internet Standard. URL: https://www.rfc-editor.org/rfc/rfc1123
+[RFC2119]
+Key words for use in RFCs to Indicate Requirement Levels. S. Bradner. IETF. March 1997. Best Current Practice. URL: https://www.rfc-editor.org/rfc/rfc2119
+[RFC2181]
+Clarifications to the DNS Specification. R. Elz; R. Bush. IETF. July 1997. Proposed Standard. URL: https://www.rfc-editor.org/rfc/rfc2181
+[RFC8174]
+Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words. B. Leiba. IETF. May 2017. Best Current Practice. URL: https://www.rfc-editor.org/rfc/rfc8174
+[RFC8484]
+DNS Queries over HTTPS (DoH). P. Hoffman; P. McManus. IETF. October 2018. Proposed Standard. URL: https://www.rfc-editor.org/rfc/rfc8484
