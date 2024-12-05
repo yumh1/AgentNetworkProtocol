@@ -2,11 +2,12 @@
 
 ## 摘要
 
-
+wba DID方法是一种基于Web的去中心化标识符（DID）规范，旨在满足跨平台身份认证和智能体通信的需求。此方法在did:web基础上进行扩展和优化，命名为did:wba，保留其兼容性并增强针对智能体场景的适配性。在本规范中，我们设计了一个基于did:wba方法和HTTP协议的流程，在不增加交互次数的情况下，让服务端可以快速验证其他平台客户端的身份。
 
 ## 1. 引言
 
 ### 1.1 前言
+
 wba DID方法规范符合去中心化标识符V1.0[(DID-CORE)[https://www.w3.org/TR/did-core/]]中指定的要求。
 
 本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。
@@ -17,7 +18,11 @@ wba DID方法规范符合去中心化标识符V1.0[(DID-CORE)[https://www.w3.org
 
 did:wba方法参考的did:web方法规范地址为[https://w3c-ccg.github.io/did-method-web/#web-did-method-specification](https://w3c-ccg.github.io/did-method-web/#web-did-method-specification)，版本日期为2024年7月31日。为了方便管理，我们备份了一份did:wba当前使用的did:web方法规范文档：[did:web方法规范](/references/did_web%20Method%20Specification.html)。
 
-### 1.2 
+### 1.2 设计原则
+
+设计did:wba方法时，我们的核心原则是即可以充分利用现有的成熟技术和完善的 Web 基础设施，又可以实现去中心化。使用did:wba，可以实现类似email特点，各个平台以中心化的方式实现自己的账户体系，同时，各个平台之间可以互联互通。
+
+此外，各种类型的标识符系统都可以添加对 DID 的支持，从而在集中式、联合式和去中心化标识符系统之间架起互操作的桥梁。这意味着现有的中心化标识符系统无需彻底重构，只需在其基础上创建 DID，即可实现跨系统互操作，从而大大降低了技术实施的难度。
 
 ## 2. WBA DID 方法规范
 
@@ -47,9 +52,9 @@ did:wba:example.com%3A3000
 
 1. 如果JSON文档根部存在@context，则应根据JSON-LD规则处理该文档。如果无法处理，或者文档处理失败，则应拒绝将其作为did:wba文档。
 
-2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文https://www.w3.org/ns/did/v1，则可以按照[(did-core)[https://www.w3.org/TR/did-core/]]规范的6.3.2节进一步将其处理为DID文档。
+2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文https://www.w3.org/ns/did/v1，则可以按照[[did-core](https://www.w3.org/TR/did-core/)]规范的6.3.2节进一步将其处理为DID文档。
 
-3. 如果不存在@context，则应按照[(did-core)[https://www.w3.org/TR/did-core/]]规范6.2.2节中指定的正常JSON规则进行DID处理。
+3. 如果不存在@context，则应按照[[did-core](https://www.w3.org/TR/did-core/)]规范6.2.2节中指定的正常JSON规则进行DID处理。
 
 4. 当did:wba文档中出现DID URL时，必须是绝对URL。
 
@@ -136,6 +141,7 @@ did:wba:example.com%3A3000
 ### 2.5 DID方法操作
 
 #### 2.5.1 创建(注册)
+
 did:wba方法规范没有指定具体的HTTP API操作，而是将程序化注册和管理留给各个实现方根据其Web环境的要求自行定义。
 
 创建DID需要执行以下步骤：
@@ -178,9 +184,9 @@ did:wba:example.com%3A3000:user:alice
 - 通过在预期的DID文档位置前加上https://生成HTTPS URL。
 - 如果URL中未指定路径，则附加/.well-known。
 - 附加/did.json以完成URL。
-- 使用能够成功协商安全HTTPS连接的代理执行对URL的HTTP GET请求，该代理强制执行(2.6节安全和隐私注意事项中)[https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations]描述的安全要求。
+- 使用能够成功协商安全HTTPS连接的代理执行对URL的HTTP GET请求，该代理强制执行[2.6节安全和隐私注意事项](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations)描述的安全要求。
 - 验证解析的DID文档的ID是否与正在解析的Web DID匹配。
-- 在HTTP GET请求期间执行DNS解析时，客户端应使用[（RFC8484）[https://w3c-ccg.github.io/did-method-web/#bib-rfc8484]]以防止跟踪正在解析的身份。
+- 在HTTP GET请求期间执行DNS解析时，客户端应使用[[RFC8484](https://w3c-ccg.github.io/did-method-web/#bib-rfc8484)]以防止跟踪正在解析的身份。
 
 #### 2.5.3 更新
 
@@ -197,13 +203,17 @@ did:wba:example.com%3A3000:user:alice
 
 ### 2.6 安全和隐私注意事项
 
-安全与隐私注意事项参考[(did:web方法规范)[https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations]] 2.6节。
+安全与隐私注意事项参考[[did:web](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations)] 2.6节。
 
 ## 3. 基于did:wba方法和HTTP协议的跨平台身份认证
 
-单方认证是指在客户端与服务端模式中，客户端可以通过服务端的域名验证服务端的身份，而服务端使用DID验证客户端的身份。比如，客户端使用HTTP请求访问资源服务器，资源服务器使用DID文档中的验证方法验证客户端的身份。
+当客户端向不同平台的服务端发起请求时，客户端可以使用域名结合TLS对服务端进行身份认证，而服务端则根据客户端DID文档中的验证方法验证客户端的身份。
 
-！！！！todo：添加http only的包含？？？？
+客户端可以在首次HTTP请求时，在HTTP头中携带DID和签名。在不增加交互次数的情况下，服务端可以快速验证客户端的身份。首次验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
+
+<p align="center">
+  <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
+</p>
 
 ### 3.1 初始请求
 
@@ -241,7 +251,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 }
 ```
 
-2. 使用(JCS(JSON Canonicalization Scheme))[https://www.rfc-editor.org/rfc/rfc8785]对上面的json字符串进行规范化，生成规范化字符串。
+2. 使用[JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785)对上面的json字符串进行规范化，生成规范化字符串。
 
 3. 使用SHA-256算法对规范化字符串进行哈希，生成hash值。
 
@@ -285,7 +295,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 }
 ```
 
-3. **规范化字符串**：使用(JCS(JSON Canonicalization Scheme))[https://www.rfc-editor.org/rfc/rfc8785]对JSON字符串进行规范化，生成规范化字符串。
+3. **规范化字符串**：使用[JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785)对JSON字符串进行规范化，生成规范化字符串。
 
 4. **生成哈希值**：使用SHA-256算法对规范化字符串进行哈希，生成hash值。
 
@@ -338,6 +348,8 @@ payload中可以包含以下字段（其他字段根据需要添加）：
 }
 ```
 
+实现者可以根据需要，在payload中添加其他的安全措施，比如使用scope、绑定IP地址等。
+
 2. **返回 Token**
 将生成的 header、payload 和 signature 通过 Base64 编码拼接，形成最终的 Token。然后通过 Authorization 头返回给客户端：
 
@@ -355,36 +367,39 @@ Authorization: Bearer <token>
 4. **服务端验证 Token**
 服务端收到客户端请求后，从 Authorization 头中提取 Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
+## 4. 总结
 
-## 用例
-
-跨平台访问文件。通过在资源服务器提前配置信任DID列表，资源服务器可以识别出请求的客户端是否可信。 
-
-
-## 总结
-
-
-安全性依赖域名。
-
-双向认证用例
 
 
 ## 参考文献
 
-[1]JSON Canonicalization Scheme (JCS), https://www.rfc-editor.org/rfc/rfc8785
+1. **DID-CORE**. Decentralized Identifiers (DIDs) v1.0. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed. W3C. 19 July 2022. W3C Recommendation. Retrieved from [https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)
+
+2. **did:web**. Retrieved from [https://w3c-ccg.github.io/did-method-web/](https://w3c-ccg.github.io/did-method-web/)
+
+3. **JSON Canonicalization Scheme (JCS)**. Retrieved from [https://www.rfc-editor.org/rfc/rfc8785](https://www.rfc-editor.org/rfc/rfc8785)
+
+4. **RFC 1035**. Domain names - implementation and specification. P. Mockapetris. IETF. November 1987. Internet Standard. Retrieved from [https://www.rfc-editor.org/rfc/rfc1035](https://www.rfc-editor.org/rfc/rfc1035)
+
+5. **RFC 1123**. Requirements for Internet Hosts - Application and Support. R. Braden, Ed. IETF. October 1989. Internet Standard. Retrieved from [https://www.rfc-editor.org/rfc/rfc1123](https://www.rfc-editor.org/rfc/rfc1123)
+
+6. **RFC 2119**. Key words for use in RFCs to Indicate Requirement Levels. S. Bradner. IETF. March 1997. Best Current Practice. Retrieved from [https://www.rfc-editor.org/rfc/rfc2119](https://www.rfc-editor.org/rfc/rfc2119)
+
+7. **RFC 2181**. Clarifications to the DNS Specification. R. Elz; R. Bush. IETF. July 1997. Proposed Standard. Retrieved from [https://www.rfc-editor.org/rfc/rfc2181](https://www.rfc-editor.org/rfc/rfc2181)
+
+8. **RFC 8174**. Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words. B. Leiba. IETF. May 2017. Best Current Practice. Retrieved from [https://www.rfc-editor.org/rfc/rfc8174](https://www.rfc-editor.org/rfc/rfc8174)
+
+9. **RFC 8484**. DNS Queries over HTTPS (DoH). P. Hoffman; P. McManus. IETF. October 2018. Proposed Standard. Retrieved from [https://www.rfc-editor.org/rfc/rfc8484](https://www.rfc-editor.org/rfc/rfc8484)
+
+10. **DID Use Cases**. Decentralized Identifier Use Cases. Joe Andrieu; Kim Hamilton Duffy; Ryan Grant; Adrian Gropper. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-use-cases/](https://www.w3.org/TR/did-use-cases/)
+
+11. **DID Extensions**. Decentralized Identifier Extensions. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions/](https://www.w3.org/TR/did-extensions/)
+
+12. **DID Extension Properties**. Decentralized Identifier Extension Properties. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions-properties/](https://www.w3.org/TR/did-extensions-properties/)
+
+13. **DID Extension Methods**. Decentralized Identifier Extension Methods. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions-methods/](https://www.w3.org/TR/did-extensions-methods/)
+
+14. **DID Extension Resolution**. Decentralized Identifier Extension Resolution. Orie Steele; Manu Sporny. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/did-extensions-resolution/](https://www.w3.org/TR/did-extensions-resolution/)
 
 
-[DID-CORE]
-Decentralized Identifiers (DIDs) v1.0. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed. W3C. 19 July 2022. W3C Recommendation. URL: https://www.w3.org/TR/did-core/
-[RFC1035]
-Domain names - implementation and specification. P. Mockapetris. IETF. November 1987. Internet Standard. URL: https://www.rfc-editor.org/rfc/rfc1035
-[RFC1123]
-Requirements for Internet Hosts - Application and Support. R. Braden, Ed. IETF. October 1989. Internet Standard. URL: https://www.rfc-editor.org/rfc/rfc1123
-[RFC2119]
-Key words for use in RFCs to Indicate Requirement Levels. S. Bradner. IETF. March 1997. Best Current Practice. URL: https://www.rfc-editor.org/rfc/rfc2119
-[RFC2181]
-Clarifications to the DNS Specification. R. Elz; R. Bush. IETF. July 1997. Proposed Standard. URL: https://www.rfc-editor.org/rfc/rfc2181
-[RFC8174]
-Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words. B. Leiba. IETF. May 2017. Best Current Practice. URL: https://www.rfc-editor.org/rfc/rfc8174
-[RFC8484]
-DNS Queries over HTTPS (DoH). P. Hoffman; P. McManus. IETF. October 2018. Proposed Standard. URL: https://www.rfc-editor.org/rfc/rfc8484
+15. **Controller Document**. Controller Document. Manu Sporny; Markus Sabadello. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/controller-document/](https://www.w3.org/TR/controller-document/)
