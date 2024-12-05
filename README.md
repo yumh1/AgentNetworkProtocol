@@ -75,8 +75,11 @@ Agents can extend the protocol based on their data or business characteristics o
 - [AgentNetworkProtocol Technical Blueprint](00-AgentNetworkProtocol%20Technical%20Blueprint.md) - Technical blueprint, overall solution introduction
 - [AgentNetworkProtocol Technical White Paper](01-AgentNetworkProtocol%20Technical%20White%20Paper.md) - Overview of the technical solution
 - [did:all Method Design Specification](02-did%3Aall%20Method%20Design%20Specification.md) - Detailed DID method design
-- [End-to-End Encrypted Communication Technology Protocol](03-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did%3Aall%20Method.md) - Encrypted communication protocol description
-- [Message Service Protocol](04-Message%20Service%20Protocol%20Based%20on%20did%3Aall%20Method.md) - Message service protocol description
+- [did:wba Method Design Specification](03-did:wba%20Method%20Design%20Specification.md) - Detailed DID method design
+- [End-to-End Encrypted Communication Technology Protocol](04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md) - Encrypted communication protocol description
+- [Message Service Protocol](05-Message%20Service%20Protocol%20Based%20on%20did.md) - Message service protocol description
+- [AgentNetworkProtocol Meta-Protocol Design Specification](06-AgentNetworkProtocol%20Meta-Protocol%20Design%20Specification(draft).md) - Meta-protocol design
+
 
 ## Milestones
 

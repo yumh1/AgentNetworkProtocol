@@ -68,9 +68,11 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 
 - [AgentNetworkProtocol 技术蓝图](chinese/00-AgentNetworkProtocol技术蓝图.md) - 技术蓝图，方案整体介绍
 - [AgentNetworkProtocol 技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md) - 技术白皮书，方案整体介绍
-- [did:all 方法设计规范](chinese/02-did%3Aall方法规范.md) - DID 方法详细设计规范
-- [端到端加密通信技术协议](chinese/03-基于did的端到端加密通信技术协议.md) - 端到端加密通信协议说明
-- [消息服务协议](chinese/04-基于did的消息服务协议.md) - 消息服务协议说明
+- [did:all 方法设计规范](chinese/02-did%3Aall方法规范.md) - did:all 方法详细设计规范
+- [did:wba 方法设计规范](chinese/03-did:wba方法规范.md) - did:wba 方法详细设计规范
+- [端到端加密通信技术协议](chinese/04-基于did的端到端加密通信技术协议.md) - 端到端加密通信协议说明
+- [消息服务协议](chinese/05-基于did的消息服务协议.md) - 消息服务协议说明
+- [AgentNetworkProtocol 元协议设计规范](chinese/06-AgentNetworkProtocol元协议设计规范(draft).md) - 元协议设计规范
 
 ## 里程碑
 
