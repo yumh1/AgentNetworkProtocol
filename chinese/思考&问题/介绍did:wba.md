@@ -11,7 +11,7 @@ did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不
 did:wba可以和HTTP协议结合使用，在一个HTTP请求中，完成身份认证、权限认证、数据交换等操作。不增加额外的交互次数。下面是did:wba和HTTP协议结合的交互流程：
 
 <p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
+  <img src="https://github.com/chgaowei/AgentNetworkProtocol/blob/main/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
 </p>
 
 - 前置条件：用户创建DID，并且将DID文档保存在Agent A 的DID server上。同时将DID配置到Agent B server中，并设置权限。
@@ -49,7 +49,7 @@ Similar to email, did:wba allows platforms to maintain their centralized account
 did:wba can be integrated with HTTP protocol to complete identity authentication, permission verification, and data exchange in a single HTTP request without additional interactions. Below is the interaction flow of did:wba with HTTP protocol:
 
 <p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="Cross-platform Authentication Flow"/>
+  <img src="https://github.com/chgaowei/AgentNetworkProtocol/blob/main/images/cross-platform-authentication.png" width="50%" alt="Cross-platform Authentication Flow"/>
 </p>
 
 - Prerequisites: User creates a DID and stores the DID document on Agent A's DID server. The DID is also configured on Agent B's server with appropriate permissions.
