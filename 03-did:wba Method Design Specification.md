@@ -365,7 +365,33 @@ Authorization: Bearer <token>
 4. **Service Verify Token**
 After receiving the client's request, the service extracts the token from the Authorization header and verifies it, including verifying the signature, verifying the expiration time, and verifying the fields in the payload. The verification method is based on [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
 
-## 4. Summary
+
+### 3.3 Security Recommendations
+
+Implementers should consider the following security aspects:
+
+- Private keys corresponding to DIDs must be securely stored and protected from leakage. Additionally, establish a mechanism for regular key rotation.
+- The server must track request nonces to prevent replay attacks.
+- The server must validate request timestamps to prevent time rollback attacks. Generally, the server's nonce caching duration should be longer than the timestamp expiration period.
+- Transport protocol must use HTTPS, and clients must strictly validate server certificates.
+- Both client and server must securely store tokens and set appropriate expiration times.
+- It is recommended to include additional security information in tokens, such as client IP binding and User-Agent binding, to prevent token abuse.
+- Users can generate multiple DIDs with different roles and permissions, using different key pairs to implement fine-grained access control.
+
+
+## 4. Use Cases
+
+1. Use Case 1: User Accessing Files on Other Websites via Intelligent Assistant
+
+Alice has stored a file on example.com and wants to access it through her intelligent assistant. First, Alice creates a did:wba-based DID on her intelligent assistant, logs into example.com, associates this DID with her account, and grants file access permissions to the DID. After setup, the intelligent assistant can log into example.com using this DID. Upon successful authentication, example.com allows the intelligent assistant to access Alice's stored files. This DID can also be configured on other websites to enable the intelligent assistant to access files across different platforms.
+
+2. Use Case 2: User Calling Third-party Service APIs via Intelligent Assistant
+
+Alice wants to call APIs of a third-party service named "example" through her intelligent assistant. First, Alice creates a did:wba-based DID on her intelligent assistant and uses it to subscribe to services on the example platform. The example service authenticates the DID, confirms Alice as the purchaser, and records her DID. After authentication, Alice can use her intelligent assistant to call example service APIs using this DID.
+
+Note that while client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
+
+## 5. Summary
 
 This specification builds upon the did:web method specification by adding DID document constraints, cross-platform authentication processes, and agent description services. It proposes a new method name did:wba (Web-Based Agent). We designed a cross-platform authentication process based on the did:wba method and HTTP protocol, and provided detailed implementation methods.
 
