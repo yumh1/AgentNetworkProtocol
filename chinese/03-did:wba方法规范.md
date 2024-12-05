@@ -367,9 +367,6 @@ Authorization: Bearer <token>
 4. **服务端验证 Token**
 服务端收到客户端请求后，从 Authorization 头中提取 Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
-## 4. 总结
-
-
 
 ## 参考文献
 

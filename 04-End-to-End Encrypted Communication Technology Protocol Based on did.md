@@ -1,4 +1,4 @@
-# End-to-End Encrypted Communication Technology Protocol Based on did:all Method
+# End-to-End Encrypted Communication Technology Protocol Based on did
 
 ## 1. Background
 
