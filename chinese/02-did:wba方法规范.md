@@ -8,7 +8,7 @@ wba DID方法是一种基于Web的去中心化标识符（DID）规范，旨在�
 
 ### 1.1 前言
 
-wba DID方法规范符合去中心化标识符V1.0[(DID-CORE)[https://www.w3.org/TR/did-core/]]中指定的要求。
+wba DID方法规范符合去中心化标识符V1.0[[DID-CORE](https://www.w3.org/TR/did-core/)]中指定的要求。
 
 本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。
 
@@ -16,7 +16,7 @@ wba DID方法规范符合去中心化标识符V1.0[(DID-CORE)[https://www.w3.org
 
 未来不排除将did:wba规范合并到did:web规范中的可能，我们会去推动这个目标的实现。
 
-did:wba方法参考的did:web方法规范地址为[https://w3c-ccg.github.io/did-method-web/#web-did-method-specification](https://w3c-ccg.github.io/did-method-web/#web-did-method-specification)，版本日期为2024年7月31日。为了方便管理，我们备份了一份did:wba当前使用的did:web方法规范文档：[did:web方法规范](/references/did_web%20Method%20Specification.html)。
+did:wba方法参考的did:web方法规范地址为[https://w3c-ccg.github.io/did-method-web](https://w3c-ccg.github.io/did-method-web)，版本日期为2024年7月31日。为了方便管理，我们备份了一份did:wba当前使用的did:web方法规范文档：[did:web方法规范](/references/did_web%20Method%20Specification.html)。
 
 ### 1.2 设计原则
 
@@ -52,7 +52,7 @@ did:wba:example.com%3A3000
 
 1. 如果JSON文档根部存在@context，则应根据JSON-LD规则处理该文档。如果无法处理，或者文档处理失败，则应拒绝将其作为did:wba文档。
 
-2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文https://www.w3.org/ns/did/v1，则可以按照[[did-core](https://www.w3.org/TR/did-core/)]规范的6.3.2节进一步将其处理为DID文档。
+2. 如果JSON文档根部存在@context，且通过JSON-LD处理，并且包含上下文`https://www.w3.org/ns/did/v1`，则可以按照[[did-core](https://www.w3.org/TR/did-core/)]规范的6.3.2节进一步将其处理为DID文档。
 
 3. 如果不存在@context，则应按照[[did-core](https://www.w3.org/TR/did-core/)]规范6.2.2节中指定的正常JSON规则进行DID处理。
 
@@ -112,7 +112,7 @@ did:wba:example.com%3A3000
 
 **字段解释**：
 
-- **@context**: 必须字段，JSON-LD 上下文定义了DID文档中使用的语义和数据模型，确保文档的可理解性和互操作性。"https://www.w3.org/ns/did/v1"是必须的。其他根据需要添加。
+- **@context**: 必须字段，JSON-LD 上下文定义了DID文档中使用的语义和数据模型，确保文档的可理解性和互操作性。`https://www.w3.org/ns/did/v1` 是必须的。其他根据需要添加。
 
 - **id**: 必须字段，不可以携带IP，但是可以携带端口，携带端口时，冒号需要编码为%3A。后面使用冒号进行路径分割。
 
@@ -181,9 +181,9 @@ did:wba:example.com%3A3000:user:alice
 
 - 将方法特定标识符中的“:”替换为“/”以获得完全限定的域名和可选路径。
 - 如果域名包含端口，则对冒号进行百分比解码。
-- 通过在预期的DID文档位置前加上https://生成HTTPS URL。
-- 如果URL中未指定路径，则附加/.well-known。
-- 附加/did.json以完成URL。
+- 通过在预期的DID文档位置前加上`https://` 生成HTTPS URL。
+- 如果URL中未指定路径，则附加`/.well-known`。
+- 附加`/did.json`以完成URL。
 - 使用能够成功协商安全HTTPS连接的代理执行对URL的HTTP GET请求，该代理强制执行[2.6节安全和隐私注意事项](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations)描述的安全要求。
 - 验证解析的DID文档的ID是否与正在解析的Web DID匹配。
 - 在HTTP GET请求期间执行DNS解析时，客户端应使用[[RFC8484](https://w3c-ccg.github.io/did-method-web/#bib-rfc8484)]以防止跟踪正在解析的身份。
