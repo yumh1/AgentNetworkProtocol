@@ -34,3 +34,15 @@ Alice希望通过智能助理调用一个名为example的第三方服务API。�
 
 > 当前用例中并未列举客户端对服务端的身份认证，事实上这个流程也是可以工作的。
 
+
+### 4. 代码
+
+我们目前正在开发中，预计下周完成。
+
+### 5. 参考文献
+
+[did:wba Method Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
+
+[DID-CORE](https://www.w3.org/TR/did-core/)
+
+[AgentNetworkProtocol Technical White Paper](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/01-AgentNetworkProtocol%20Technical%20White%20Paper.md)
