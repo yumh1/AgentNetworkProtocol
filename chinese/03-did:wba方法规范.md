@@ -137,6 +137,10 @@ did:wba:example.com%3A3000
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
 
+> 注意：
+> 1. 公钥信息目前支持两种格式，publicKeyJwk和publicKeyMultibase。详细见[https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties)。
+> 2. 验证方法类型定义见[https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types)。目前支持的类型有：EcdsaSecp256k1VerificationKey2019、Ed25519VerificationKey2020、Ed25519VerificationKey2018、JsonWebKey2020、X25519KeyAgreementKey2019。
+
 ### 2.5 DID方法操作
 
 #### 2.5.1 创建(注册)
@@ -233,7 +237,7 @@ did:wba:example.com%3A3000:user:alice
 客户端请求示例：
 
 ```plaintext
-Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64(signature_of_nonce_timestamp_service_did)>
+Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 
 #### 3.1.2 签名生成流程
@@ -253,7 +257,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 3. 使用SHA-256算法对规范化字符串进行哈希，生成hash值。
 
-4. 使用客户端的私钥对hash值进行签名，生成签名值 `signature`，并进行Base64编码。
+4. 使用客户端的私钥对hash值进行签名，生成签名值 `signature`，并进行URL 安全的Base64编码。
 
 5. 将 `Authorization` 头部构建成上述格式，发送到服务端。
 
@@ -349,7 +353,7 @@ payload中可以包含以下字段（其他字段根据需要添加）：
 实现者可以根据需要，在payload中添加其他的安全措施，比如使用scope、绑定IP地址等。
 
 2. **返回 Token**
-将生成的 header、payload 和 signature 通过 Base64 编码拼接，形成最终的 Token。然后通过 Authorization 头返回给客户端：
+将生成的 header、payload 和 signature 通过 URL 安全的Base64 编码拼接，形成最终的 Token。然后通过 Authorization 头返回给客户端：
 
 ```plaintext
 Authorization: Bearer <token>

@@ -137,6 +137,11 @@ Apart from the DID Core specification, most other specifications are still in dr
     - **controller**: DID that controls this key agreement method
     - **publicKeyMultibase**: Public key information in Multibase format
 
+> Note:
+> 1. Public key information currently supports two formats: publicKeyJwk and publicKeyMultibase. For details, see [https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties).
+> 2. The definition of verification method types can be found at [https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types). The currently supported types are: EcdsaSecp256k1VerificationKey2019, Ed25519VerificationKey2020, Ed25519VerificationKey2018, JsonWebKey2020, X25519KeyAgreementKey2019.
+
+
 ### 2.5 DID Method Operations
 
 #### 2.5.1 Create (Register)
@@ -234,7 +239,7 @@ The client sends the following information through the `Authorization` header fi
 Client request example:
 
 ```plaintext
-Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64(signature_of_nonce_timestamp_service_did)>
+Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 
 #### 3.1.2 Signature Generation Process
@@ -254,7 +259,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 3. Use the SHA-256 algorithm to hash the normalized string, generating a hash value.
 
-4. Use the client's private key to sign the hash value, generating a signature value `signature`, and encode it in Base64.
+4. Use the client's private key to sign the hash value, generating a signature value `signature`, and encode it in URL-safe Base64.
 
 5. Construct the `Authorization` header in the above format and send it to the service.
 
@@ -349,7 +354,7 @@ The payload can include the following fields (other fields can be added as neede
 Implementers can add other security measures in the payload, such as using scope or binding IP addresses.
 
 2. **Return Token**
-The generated header, payload, and signature are concatenated and Base64 encoded to form the final token. Then, the token is returned through the Authorization header:
+The generated header, payload, and signature are concatenated and URL-safe Base64 encoded to form the final token. Then, the token is returned through the Authorization header:
 
 ```plaintext
 Authorization: Bearer <token>
