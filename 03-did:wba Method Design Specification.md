@@ -139,7 +139,7 @@ Apart from the DID Core specification, most other specifications are still in dr
 
 > Note:
 > 1. Public key information currently supports two formats: publicKeyJwk and publicKeyMultibase. For details, see [https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties).
-> 2. The definition of verification method types can be found at [https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types). The currently supported types are: EcdsaSecp256k1VerificationKey2019, Ed25519VerificationKey2020, Ed25519VerificationKey2018, JsonWebKey2020, X25519KeyAgreementKey2019.
+> 2. The definitions of verification method types can be found at [https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types). The currently supported types are: EcdsaSecp256k1VerificationKey2019, Ed25519VerificationKey2018, X25519KeyAgreementKey2019. (Ed25519VerificationKey2020, JsonWebKey2020, etc. are not currently supported.)
 
 
 ### 2.5 DID Method Operations
@@ -230,7 +230,7 @@ The client sends the following information through the `Authorization` header fi
 - **Nonce**: A randomly generated string used to prevent replay attacks. It must be unique for each request. We recommend using a 16-byte random string.
 - **Timestamp**: The time when the request is initiated, usually in UTC format using ISO 8601, accurate to seconds.
 - **VerificationMethod**: Identifies the verification method used in the signature, which is the DID fragment of the verification method in the DID document. For example, for the verification method "did:wba:example.com%3A8800:user:alice#key-1", the verification method's DID fragment is "key-1".
-- **Signature**: Signs the `nonce`, `timestamp`, service domain name, and client DID. The signature should be signed with the client's private key and include the following fields:
+- **Signature**: Sign the `nonce`, `timestamp`, service domain, and client DID. For ECDSA signatures, use the R|S format. It includes the following fields:
   - `nonce`
   - `timestamp`
   - `service` (the domain name of the service)

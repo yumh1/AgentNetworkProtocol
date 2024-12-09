@@ -139,7 +139,7 @@ did:wba:example.com%3A3000
 
 > 注意：
 > 1. 公钥信息目前支持两种格式，publicKeyJwk和publicKeyMultibase。详细见[https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties)。
-> 2. 验证方法类型定义见[https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types)。目前支持的类型有：EcdsaSecp256k1VerificationKey2019、Ed25519VerificationKey2020、Ed25519VerificationKey2018、JsonWebKey2020、X25519KeyAgreementKey2019。
+> 2. 验证方法类型定义见[https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types)。目前支持的类型有：EcdsaSecp256k1VerificationKey2019、Ed25519VerificationKey2018、X25519KeyAgreementKey2019。（Ed25519VerificationKey2020、JsonWebKey2020等暂不支持）
 
 ### 2.5 DID方法操作
 
@@ -228,7 +228,7 @@ did:wba:example.com%3A3000:user:alice
 - **Nonce**：一个随机生成的字符串，用于防止重放攻击。每次请求必须唯一。推荐使用16字节随机字符串。
 - **时间戳（Timestamp）**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
 - **验证方法（VerificationMethod）**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
-- **签名（Signature）**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。签名应使用客户端的私钥，并包括以下字段：
+- **签名（Signature）**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
   - `nonce`
   - `timestamp`
   - `service`（服务的域名）
@@ -251,7 +251,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
   "service": "example.com", 
   "did": "did:wba:example.com:user:alice" 
 }
-```
+``` 
 
 2. 使用[JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785)对上面的json字符串进行规范化，生成规范化字符串。
 

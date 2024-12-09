@@ -273,7 +273,7 @@ LLM加持的智能体结合元协议可以有限的解决现有软件系统协�
 获取商品信息
 
 # 流程描述
-该流程基于已有协议（URI: https://pi-unlimited.com/protocols/product-info-0-1-1）实现。
+该流程基于已有协议（URI: https://agent-network-protocol.com/protocols/product-info-0-1-1）实现。
 
 # 修改内容
 - 在响应消息中增加自定义错误码
