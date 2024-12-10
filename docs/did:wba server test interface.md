@@ -2,6 +2,8 @@
 
 To facilitate testing of did:wba, we have developed a test server with multiple HTTP endpoints for uploading, retrieving, and testing DID functionality.
 
+The test server's domain is `pi-unlimited.com` (it will be changed to `agent-network-protocol.com` in the future).
+
 You can generate DID documents locally and upload them to our server to create a usable DID.
 
 For example, if you upload to the path `https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`, your generated DID will be `did:wba:pi-unlimited.com:wba:user:2i3dg4dtf908cde0`.

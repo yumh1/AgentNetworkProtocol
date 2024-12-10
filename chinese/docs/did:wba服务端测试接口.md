@@ -3,6 +3,8 @@
 
 未来方便进行did:wba的测试，我们开发了一个用于测试的服务端，设计了多个http接口，用于上传、获取，以及DID功能测试。
 
+服务端的测试域名是：`pi-unlimited.com`（后面会改成`agent-network-protocol.com`）。
+
 你可以自己在本地生成DID文档，然后上传到我们的服务器，这样就可以生成一个可以使用的DID。
 
 比如，你上传的路径是`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`，那么你生成的DID就是`did:wba:pi-unlimited.com:wba:user:2i3dg4dtf908cde0`。
