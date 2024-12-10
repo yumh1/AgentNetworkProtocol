@@ -266,7 +266,7 @@ The response JSON schema is defined as follows：
 Retrieve product information
 
 # Process Description
-This process is implemented based on the existing protocol (URI: https://agent-network-protocol.com/protocols/product-info-0-1-1).
+This process is implemented based on the existing protocol (URI: https://pi-unlimited.com/protocols/product-info-0-1-1).
 
 # Modifications
 - Add custom error codes in the response message

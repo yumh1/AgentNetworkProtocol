@@ -4,12 +4,12 @@ To facilitate testing of did:wba, we have developed a test server with multiple 
 
 You can generate DID documents locally and upload them to our server to create a usable DID.
 
-For example, if you upload to the path `https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`, your generated DID will be `did:wba:agent-network-protocol.com:wba:user:2i3dg4dtf908cde0`.
+For example, if you upload to the path `https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`, your generated DID will be `did:wba:pi-unlimited.com:wba:user:2i3dg4dtf908cde0`.
 
 ## 1. Upload JSON File (PUT Request)
 
 ### Request Path
-`https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`
+`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`
 
 Notes:
 - "2i3dg4dtf908cde0" is a unique identifier. To prevent conflicts, it's recommended to use a 16-character random string.
@@ -19,7 +19,7 @@ Notes:
 ### Request Format Example
 ```plaintext
 PUT /wba/user/2i3dg4dtf908cde0/did.json HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Content-Type: application/json
 Content-Length: <file_length>
 
@@ -29,12 +29,12 @@ Content-Length: <file_length>
 ## 2. Retrieve JSON File (GET Request)
 
 ### Request Path
-`https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`
+`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`
 
 ### Request Format Example
 ```plaintext
 GET /wba/user/2i3dg4dtf908cde0/did.json HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 ```
 
 ### Response Format Example
@@ -54,12 +54,12 @@ Content-Length: <file_length>
 A server test endpoint is provided to verify if the user's did:wba authentication is functioning correctly.
 
 ### Request Path
-`https://agent-network-protocol.com/wba/test`
+`https://pi-unlimited.com/wba/test`
 
 ### Request Format Example
 ```plaintext
 GET /wba/test HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 
@@ -90,12 +90,12 @@ In the initial request, the Authorization field contains the token for subsequen
 A server test endpoint is provided to test if the client can properly handle 401 responses from the server during did:wba authentication.
 
 ### Request Path
-`https://agent-network-protocol.com/wba/test401`
+`https://pi-unlimited.com/wba/test401`
 
 ### Request Format Example
 ```plaintext
 GET /wba/test401 HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 

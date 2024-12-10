@@ -5,12 +5,12 @@
 
 你可以自己在本地生成DID文档，然后上传到我们的服务器，这样就可以生成一个可以使用的DID。
 
-比如，你上传的路径是`https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`，那么你生成的DID就是`did:wba:agent-network-protocol.com:wba:user:2i3dg4dtf908cde0`。
+比如，你上传的路径是`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`，那么你生成的DID就是`did:wba:pi-unlimited.com:wba:user:2i3dg4dtf908cde0`。
 
 ## 1. 上传 JSON 文件（PUT 请求）
 
 ### 请求路径
-`https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`
+`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`
 
 注意：
 - "2i3dg4dtf908cde0" 是一个唯一标识，未来防止冲突，建议使用16为随机字符串。
@@ -20,7 +20,7 @@
 ### 请求格式示例
 ```plaintext
 PUT /wba/user/2i3dg4dtf908cde0/did.json HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Content-Type: application/json
 Content-Length: <文件长度>
 
@@ -30,12 +30,12 @@ Content-Length: <文件长度>
 ## 2. 获取 JSON 文件（GET 请求）
 
 ### 请求路径
-`https://agent-network-protocol.com/wba/user/2i3dg4dtf908cde0/did.json`
+`https://pi-unlimited.com/wba/user/2i3dg4dtf908cde0/did.json`
 
 ### 请求格式示例
 ```plaintext
 GET /wba/user/2i3dg4dtf908cde0/did.json HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 ```
 
 ### 响应格式示例
@@ -55,12 +55,12 @@ Content-Length: <文件长度>
 提供了一个服务端测试接口，用于测试用户的did:wba身份验证是否正常。
 
 ### 请求路径
-`https://agent-network-protocol.com/wba/test`
+`https://pi-unlimited.com/wba/test`
 
 ### 请求格式示例
 ```plaintext
 GET /wba/test HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 
@@ -93,12 +93,12 @@ OK
 提供了一个服务端测试接口，用于测试用户的did:wba身份验证在服务端返回401的时候，客户端是否能够正常处理。
 
 ### 请求路径
-`https://agent-network-protocol.com/wba/test401`
+`https://pi-unlimited.com/wba/test401`
 
 ### 请求格式示例
 ```plaintext
 GET /wba/test401 HTTP/1.1
-Host: agent-network-protocol.com
+Host: pi-unlimited.com
 Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
 ```
 
