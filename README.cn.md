@@ -28,7 +28,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
   <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
 </p>
 
-- 🔒 **身份与加密通信层**：基于W3C DID（Decentralized Identifiers，去中心化标识符）规范，在现有Web基础设施上，构建一个去中心化的身份认证方案和端到端加密通信方案。
+- 🔒 **身份与加密通信层**：基于W3C DID（Decentralized Identifiers，去中心化标识符）规范，在现有成熟的Web基础设施上，构建一个去中心化的身份认证方案和端到端加密通信方案。它可以让任意平台之间的智能体进行身份认证，而不依赖于任何中心化系统。
 - 🌍 **元协议层**：元协议即协商智能体之间通信协议的协议。是智能体网络演进为自组织、自协商的高效协作网络的关键。
 - 📡 **应用协议层**：基于语义网相关规范，让智能体能够描述其他能力与支持的应用协议，并且高效的管理这些协议。
 
@@ -42,6 +42,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 如果你想了解我们整体的设计思路和理念，可以查看我们的技术白皮书：[AgentNetworkProtocol技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)
 - 我们设计了一个去中心化的身份验证方案，既可以利用当前成熟的web基础设施，又兼具去中心化特点。我们认为这是当前智能体身份认证的最佳方案：[did:wba身份证方案](chinese/03-did:wba方法规范.md)
+  - 这是我们设计的一个did:wba服务端接口，可以用了测试你自己的did:wba客户端和服务端：[did:wba服务端接口](chinese/docs/did:wba服务端测试接口.md)
 - 基于DID我们设计了一个用于智能体之间的端到端加密通信协议，不同于TLS，中间转发节点无法解密：[基于did的端到端加密通信](chinese/04-基于did的端到端加密通信技术协议.md)
 - 我们设计了一个用于智能体之间协商通信协议的元协议，它能够让智能体之间自己协商他们之间的通信协议：[元协议设计规范](chinese/06-AgentNetworkProtocol元协议设计规范(draft).md)
 - 还有一些规范我们正在设计和完善中。

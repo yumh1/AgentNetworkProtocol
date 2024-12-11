@@ -29,9 +29,9 @@ While current internet infrastructure is well-established, there's still a lack 
   <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
 </p>
 
-- 🔒 **Identity and Encrypted Communication Layer**: Built on W3C DID (Decentralized Identifiers) specifications, establishing a decentralized authentication scheme and end-to-end encrypted communication solution on existing web infrastructure.
-- 🌍 **Meta-Protocol Layer**: A protocol for negotiating communication protocols between agents, crucial for evolving the agent network into a self-organizing, self-negotiating efficient collaboration network.
-- 📡 **Application Protocol Layer**: Based on semantic web specifications, enabling agents to describe their capabilities and supported application protocols, and manage these protocols efficiently.
+- 🔒 **Identity and Encrypted Communication Layer**: Based on W3C DID (Decentralized Identifiers) specification, we build a decentralized authentication scheme and end-to-end encrypted communication solution on existing mature web infrastructure. This enables agents across any platforms to authenticate each other without relying on centralized systems.
+- 🌍 **Meta-Protocol Layer**: The meta-protocol is a protocol for negotiating communication protocols between agents. It is key to evolving agent networks into self-organizing, self-negotiating efficient collaboration networks.
+- 📡 **Application Protocol Layer**: Based on semantic web specifications, this layer enables agents to describe their capabilities and supported application protocols, and efficiently manage these protocols.
 
 ### Code Implementation
 
@@ -43,6 +43,7 @@ For further understanding, you can refer to these documents:
 
 - For our overall design philosophy and concepts, see our technical white paper: [AgentNetworkProtocol Technical White Paper](01-AgentNetworkProtocol%20Technical%20White%20Paper.md)
 - We've designed a decentralized authentication scheme that leverages existing web infrastructure while maintaining decentralization. We believe this is currently the optimal solution for agent authentication: [did:wba Method Specification](03-did:wba%20Method%20Design%20Specification.md)
+  - This is our did:wba service side interface, which can be used to test your own did:wba client and service side: [did:wba service side interface](docs/did:wba%20server%20test%20interface.md)
 - Based on DID, we've designed an end-to-end encrypted communication protocol for agents, distinct from TLS as intermediate relay nodes cannot decrypt the content: [DID-based End-to-End Encrypted Communication](04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md)
 - We've designed a meta-protocol for negotiating communication protocols between agents, enabling them to autonomously negotiate their communication protocols: [Meta-Protocol Design Specification](06-AgentNetworkProtocol%20Meta-Protocol%20Design%20Specification(draft).md)
 - Additional specifications are currently under development.
