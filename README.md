@@ -1,11 +1,8 @@
-<details>
-<summary>语言 / Language</summary>
-<br/>
+<div align="right">
+  
+[English](README.md) | [中文](README.cn.md)
 
-- [English](README.md)
-- [中文](README.cn.md)
-
-</details>
+</div>
 
 ### AgentNetworkProtocol(ANP)
 
