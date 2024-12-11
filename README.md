@@ -1,10 +1,12 @@
 ### AgentNetworkProtocol(ANP)
 
 <div align="right">
-  <a href="#chinese-version">中文</a> | <a href="#english-version">English</a>
+  <a href="#chinese" onclick="toggleLanguage('chinese', 'english')">中文</a> | 
+  <a href="#english" onclick="toggleLanguage('english', 'chinese')">English</a>
 </div>
 
-<a name="english-version"></a>
+
+<div id="english" style="display:block;">
 
 ## English Version
 
@@ -18,7 +20,7 @@ Installation instructions...
 
 ---
 
-<a name="chinese-version"></a>
+<div id="chinese" style="display:none;">
 
 ## 中文版本
 
