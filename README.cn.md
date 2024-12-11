@@ -67,7 +67,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 - Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 - 官网：[https://pi-unlimited.com/](https://pi-unlimited.com/)  
 - GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
-微信：flow10240
+- 微信：flow10240
 
 ### 贡献
 

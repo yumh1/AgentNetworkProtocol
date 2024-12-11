@@ -68,7 +68,7 @@ Email: chgaowei@gmail.com
 - Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 - Website: [https://pi-unlimited.com/](https://pi-unlimited.com/)  
 - GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
-WeChat: flow10240
+- WeChat: flow10240
 
 ### Contributing
 
