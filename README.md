@@ -20,6 +20,8 @@ Installation instructions...
 
 ---
 
+</div>
+
 <div id="chinese" style="display:none;">
 
 ## 中文版本
@@ -96,3 +98,13 @@ We welcome contributions of any form. Please refer to [CONTRIBUTING.md](CONTRIBU
 #### License
 
 This project is open-sourced under the MIT License. See [LICENSE](LICENSE) file for details.
+
+
+</div>
+
+<script>
+function toggleLanguage(showLang, hideLang) {
+  document.getElementById(showLang).style.display = 'block';
+  document.getElementById(hideLang).style.display = 'none';
+}
+</script>
