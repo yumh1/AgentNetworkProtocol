@@ -94,7 +94,7 @@ How to economically incentivize agents to actively upload negotiation results an
 
 ### 2.3 Application Protocol Layer
 
-To reduce communication costs and improve interaction experience, agents should avoid negotiating communication protocols through Meta-Protocol in most communication scenarios. Therefore, in the Application Protocol Layer, we have designed a set of specifications, including **Agent Capability and Supported Protocol Description** and **Application Protocol Management Specifications**, to make communication between agents more convenient, efficient, and cost-effective.
+To reduce communication costs and improve interaction experience, agents should avoid negotiating communication protocols through meta-protocols in most communication scenarios. Therefore, at the application protocol layer, we will design a series of specifications based on semantic web standards, including **Agent Capability and Supported Protocol Description** and **Application Protocol Management Specification**, making communication between agents more convenient, efficient and cost-effective.
 
 The **Agent Capability and Supported Protocol Description Specification** clarifies how agents describe their capabilities and supported protocols, as well as the protocol information required to invoke these capabilities. Agents can publish these description documents on the internet or specialized agent search services for other agents to query and invoke.
 
