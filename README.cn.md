@@ -1,12 +1,12 @@
-<div align="right">
+<div align="center">
   
 [English](README.md) | [中文](README.cn.md)
 
 </div>
 
-### AgentNetworkProtocol(ANP)
+## AgentNetworkProtocol(ANP)
 
-#### 愿景
+### 愿景
 
 AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**。
 
@@ -14,11 +14,11 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 当前互联网基础设施虽已相当完善，但针对智能体网络的特殊需求，当下仍缺乏最适合的通信和连接方案。我们致力于解决智能体网络面临的三大挑战：
 
-- **互联互通**：让所有的智能体相互之间都能够进行通信，打破数据孤岛，让AI能够获得完整的上下文信息。
-- **原生接口**：AI无需模仿人类访问互联网，AI应该用它最擅长的方式（API或通信协议）与数字世界交互。
-- **高效协作**：利用AI，智能体之间可以自组织、自协商，构建比现有互联网更低成本、更高效率的协作网络。
+- 🌐 **互联互通**：让所有的智能体相互之间都能够进行通信，打破数据孤岛，让AI能够获得完整的上下文信息。
+- 🖥️ **原生接口**：AI无需模仿人类访问互联网，AI应该用它最擅长的方式（API或通信协议）与数字世界交互。
+- 🤝 **高效协作**：利用AI，智能体之间可以自组织、自协商，构建比现有互联网更低成本、更高效率的协作网络。
 
-#### 协议架构
+### 协议架构
 
 <p align="center">
   <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
@@ -28,11 +28,11 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 - **元协议层**：元协议即协商智能体之间通信协议的协议。是智能体网络演进为自组织、自协商的高效协作网络的关键。
 - **应用协议层**：基于语义网相关规范，让智能体能够描述其他能力与支持的应用协议，并且高效的管理这些协议。
 
-#### 代码实现
+### 代码实现
 
 我们正在开发一个开源的 AgentNetworkProtocol 实现，仓库地址：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)
 
-#### 文档地图
+### 文档地图
 
 如果你想进一步了解，可以查看相关的文档：
 
@@ -46,7 +46,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 这是一个did:wba的简要介绍：[did:wba-基于web的去中心化身份标识符](blogs/did:wba-基于web的去中心化身份标识符.md)
 
-#### 里程碑
+### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：
 
@@ -56,7 +56,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 为了推动Agent Network Protocol(ANP)成为行业的标准，我们将会在合适的时间组建ANP标准化委员会，致力于推动ANP成为W3C等国际标准化组织认可的行业标准。
 
-#### 联系我们
+### 联系我们
 
 作者：常高伟  
 邮箱：chgaowei@gmail.com  
@@ -65,10 +65,10 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 - GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 微信：flow10240
 
-#### 贡献
+### 贡献
 
 我们欢迎任何形式的贡献，请参考 [CONTRIBUTING.cn.md](CONTRIBUTING.cn.md) 文件。
 
-#### 许可证
+### 许可证
 
 本项目基于 MIT 许可证开源，详情请参考 [LICENSE](LICENSE) 文件。
