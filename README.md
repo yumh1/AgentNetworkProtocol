@@ -1,38 +1,13 @@
+<details>
+<summary>语言 / Language</summary>
+<br/>
+
+- [English](README.md)
+- [中文](README.cn.md)
+
+</details>
+
 ### AgentNetworkProtocol(ANP)
-
-
-<div align="right">
-  <a href="#" onclick="toggleLanguage('chinese', 'english'); return false;">中文</a> | 
-  <a href="#" onclick="toggleLanguage('english', 'chinese'); return false;">English</a>
-</div>
-
-
-
-<div id="english" style="display:block;">
-
-## English Version
-
-Project description and details in English...
-
-Features:
-- Feature 1
-- Feature 2
-
-Installation instructions...
-
----
-
-</div>
-
-<div id="chinese" style="display:none;">
-
-## 中文版本
-
-项目描述和详细信息（中文）...
-
-特点：
-- 特点1
-- 特点2
 
 #### Vision
 
@@ -101,12 +76,3 @@ We welcome contributions of any form. Please refer to [CONTRIBUTING.md](CONTRIBU
 
 This project is open-sourced under the MIT License. See [LICENSE](LICENSE) file for details.
 
-
-</div>
-
-<script>
-function toggleLanguage(showLang, hideLang) {
-  document.getElementById(showLang).style.display = 'block';
-  document.getElementById(hideLang).style.display = 'none';
-}
-</script>
