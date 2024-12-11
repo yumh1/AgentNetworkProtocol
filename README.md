@@ -25,9 +25,9 @@ While current internet infrastructure is well-established, there's still a lack 
   <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
 </p>
 
-- **Identity and Encrypted Communication Layer**: Built on W3C DID (Decentralized Identifiers) specifications, establishing a decentralized authentication scheme and end-to-end encrypted communication solution on existing web infrastructure.
-- **Meta-Protocol Layer**: A protocol for negotiating communication protocols between agents, crucial for evolving the agent network into a self-organizing, self-negotiating efficient collaboration network.
-- **Application Protocol Layer**: Based on semantic web specifications, enabling agents to describe their capabilities and supported application protocols, and manage these protocols efficiently.
+- 🔒 **Identity and Encrypted Communication Layer**: Built on W3C DID (Decentralized Identifiers) specifications, establishing a decentralized authentication scheme and end-to-end encrypted communication solution on existing web infrastructure.
+- 🌍 **Meta-Protocol Layer**: A protocol for negotiating communication protocols between agents, crucial for evolving the agent network into a self-organizing, self-negotiating efficient collaboration network.
+- 📡 **Application Protocol Layer**: Based on semantic web specifications, enabling agents to describe their capabilities and supported application protocols, and manage these protocols efficiently.
 
 ### Code Implementation
 
