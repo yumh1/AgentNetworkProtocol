@@ -1,9 +1,11 @@
 ### AgentNetworkProtocol(ANP)
 
+
 <div align="right">
-  <a href="#chinese" onclick="toggleLanguage('chinese', 'english')">中文</a> | 
-  <a href="#english" onclick="toggleLanguage('english', 'chinese')">English</a>
+  <a href="#" onclick="toggleLanguage('chinese', 'english'); return false;">中文</a> | 
+  <a href="#" onclick="toggleLanguage('english', 'chinese'); return false;">English</a>
 </div>
+
 
 
 <div id="english" style="display:block;">
