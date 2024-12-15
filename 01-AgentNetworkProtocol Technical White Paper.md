@@ -58,11 +58,11 @@ sequenceDiagram
     Agent B Server->>Agent A DID Sever: Get DID Document
     Agent A DID Sever->>Agent B Server: DID Document
 
-    Note over Agent A Client: Authentication
+    Note over Agent B Server: Authentication
 
     Agent B Server->>Agent A Client: HTTP Response: token
 
-    Note over Agent B Server: Subsequent Requests
+    Note over Agent A Client, Agent B Server: Subsequent Requests
 
     Agent A Client->>Agent B Server: HTTP Request: token
     Agent B Server->>Agent A Client: HTTP Response
