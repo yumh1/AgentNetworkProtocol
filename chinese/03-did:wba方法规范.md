@@ -213,6 +213,28 @@ did:wba:example.com%3A3000:user:alice
 
 客户端可以在首次HTTP请求时，在HTTP头中携带DID和签名。在不增加交互次数的情况下，服务端可以快速验证客户端的身份。首次验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
 
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server-->>Agent A Client: HTTP Response: token
+
+    Note over Agent A Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server-->>Agent A Client: HTTP Response
+```
+
 <p align="center">
   <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
 </p>
