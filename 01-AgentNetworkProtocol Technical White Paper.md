@@ -46,9 +46,28 @@ The core component of DID is the DID document, which contains key information re
 
 During the authentication process, the DID document contains methods and corresponding public keys for verifying user identity (private keys are kept by users). The client can include DID and signature in HTTP headers during the initial HTTP request. Without increasing the number of interactions, the server can quickly verify the client's identity using the public key from the DID document. After initial verification, the server returns a token, which the client carries in subsequent requests. The server then only needs to verify the token instead of authenticating the client's identity each time. The core of this process lies in the verifier using trusted public keys to validate user signatures, enabling identity authentication, permission verification, and data exchange to be completed in a single request, making the process both concise and efficient.
 
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="Basic Process of DID Identity Authentication"/>
-</p>
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server->>Agent A Client: HTTP Response: token
+
+    Note over Agent B Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server->>Agent A Client: HTTP Response
+```
+
 
 The DID method defines how to create, resolve, update, and deactivate DIDs and DID documents, as well as how to perform authentication and authorization. Among the existing DID method drafts, the `did:web` method[^5] is built on mature web technologies, allowing systems to use centralized technologies (such as cloud computing) to create, update, and deactivate DIDs and DID documents. Different systems achieve interoperability through the HTTP protocol, similar to how email services work on the internet, enabling large-scale deployment and convenient cross-platform identity authentication.
 

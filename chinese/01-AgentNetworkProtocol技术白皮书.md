@@ -48,9 +48,28 @@ DID 的核心组件是 DID 文档，其中包含与特定 DID 相关的关键信
 
 在身份验证过程中，DID 文档包含用于验证用户身份的方法和相应的公钥（私钥由用户自行保管）。客户端可以在首次HTTP请求时，在HTTP头中携带DID和签名。在不增加交互次数的情况下，服务端可以使用DID文档中的公钥快速验证客户端的身份。首次验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。整个过程的核心在于验证者使用可信的公钥对用户签名信息进行验证，并且能够在一次请求中完成身份认证、权限认证、数据交换等操作，流程简洁高效。
 
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="DID 身份验证基本过程"/>
-</p>
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server->>Agent A Client: HTTP Response: token
+
+    Note over Agent B Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server->>Agent A Client: HTTP Response
+```
+
 
 DID 方法定义了如何创建、解析、更新和停用 DID 与 DID 文档，以及如何进行身份验证和授权。在现有的 DID 方法草案中，`did:web` 方法[^5] 基于成熟的 Web 技术构建，允许系统使用中心化技术（如云计算）来创建、更新、停用 DID 和 DID 文档。不同系统之间通过 HTTP 协议实现互操作，其效果类似于互联网的emai服务，各个平台以中心化的方式实现自己的账户体系，同时，各个平台之间可以互联互通。
 

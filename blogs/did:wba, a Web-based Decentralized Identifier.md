@@ -12,9 +12,28 @@ Similar to email, did:wba allows platforms to maintain their centralized account
 
 did:wba can be integrated with HTTP protocol to complete identity authentication, permission verification, and data exchange in a single HTTP request without additional interactions. Below is the interaction flow of did:wba with HTTP protocol:
 
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="Cross-platform Authentication Flow"/>
-</p>
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server->>Agent A Client: HTTP Response: token
+
+    Note over Agent B Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server->>Agent A Client: HTTP Response
+```
+
 
 - Prerequisites: User creates a DID and stores the DID document on Agent A's DID server. The DID is also configured on Agent B's server with appropriate permissions.
 - Agent A, as the client, initiates an HTTP request containing the DID and signature along with the request data.

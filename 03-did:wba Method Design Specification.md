@@ -215,9 +215,28 @@ When a client makes a request to a service on different platforms, the client ca
 
 The client can include the DID and signature in the HTTP header during the first HTTP request. Without increasing the number of interactions, the service can quickly verify the identity of the client. After the initial verification is successful, the service can return a token to the client. The client can then carry the token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the token.
 
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
-</p>
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server->>Agent A Client: HTTP Response: token
+
+    Note over Agent B Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server->>Agent A Client: HTTP Response
+```
+
 
 ### 3.1 Initial Request
 

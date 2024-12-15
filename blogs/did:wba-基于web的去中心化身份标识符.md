@@ -10,9 +10,28 @@ did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不
 
 did:wba可以和HTTP协议结合使用，在一个HTTP请求中，完成身份认证、权限认证、数据交换等操作。不增加额外的交互次数。下面是did:wba和HTTP协议结合的交互流程：
 
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
-</p>
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: First Request
+
+    Agent A Client->>Agent B Server: HTTP Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent A Client: Authentication
+
+    Agent B Server->>Agent A Client: HTTP Response: token
+
+    Note over Agent B Client,Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent B Server->>Agent A Client: HTTP Response
+```
+
 
 - 前置条件：用户创建DID，并且将DID文档保存在Agent A 的DID server上。同时将DID配置到Agent B server中，并设置权限。
 - Agent A作为客户端发起HTTP请求，请求中除了请求数据外，还携带DID和签名。

@@ -227,17 +227,13 @@ sequenceDiagram
 
     Note over Agent A Client: Authentication
 
-    Agent B Server-->>Agent A Client: HTTP Response: token
+    Agent B Server->>Agent A Client: HTTP Response: token
 
-    Note over Agent A Client,Agent B Server: Subsequent Requests
+    Note over Agent B Client,Agent B Server: Subsequent Requests
 
     Agent A Client->>Agent B Server: HTTP Request: token
-    Agent B Server-->>Agent A Client: HTTP Response
+    Agent B Server->>Agent A Client: HTTP Response
 ```
-
-<p align="center">
-  <img src="/images/cross-platform-authentication.png" width="50%" alt="跨平台身份认证流程"/>
-</p>
 
 ### 3.1 初始请求
 
