@@ -399,8 +399,124 @@ Authorization: Bearer <token>
 - 建议在Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Token被滥用。
 - 用户可以生成多个DID，每个DID具有不同的角色和权限，使用不同的密钥对，实现细粒度的权限控制。
 
+## 4. 基于did:wba方法和json格式数据的跨平台身份认证流程
 
-## 4. 用例
+在上一章中，我们介绍了基于did:wba方法和HTTP协议的跨平台身份认证流程。然而，使用did:wba方法进行身份认证，是传输协议无关的。这里我们制定了基于did:wba方法和json格式数据的跨平台身份认证流程，可以用于使用json格式进行通信的场景。
+
+理论上，基于其他数据格式的协议也可以添加对did:wba方法的支持。
+
+整体流程如下：
+
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: Authentication Request
+
+    Agent A Client->>Agent B Server: Authentication Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent B Server: Authentication
+
+    Agent B Server->>Agent A Client: Authentication Response: token
+
+    Note over Agent A Client, Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: Request: token
+    Agent B Server->>Agent A Client: Response
+```
+
+### 4.1 身份验证请求
+
+当前客户端首次向服务端发起请求时，需要按照以下方法进行身份认证。
+
+#### 4.1.1 请求数据格式
+
+客户端需要将以下信息发送到服务端：
+- **did**：请求中包含客户端的 DID 标识符，用于身份验证。
+- **nonce**：一个随机生成的字符串，用于防止重放攻击。每次请求必须唯一。推荐使用16字节随机字符串。
+- **timestamp**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
+- **verificationMethod**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
+- **signature**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
+  - `nonce`
+  - `timestamp`
+  - `service`（服务的域名）
+  - `did`（客户端的 DID）
+
+客户端请求示例：
+
+```json
+{
+  "did": "did:wba:example.com%3A8800:user:alice",
+  "nonce": "abc123",
+  "timestamp": "2024-12-05T12:34:56Z",
+  "verificationMethod": "key-1",
+  "signature": "base64url(signature_of_nonce_timestamp_service_did)"
+}
+```
+
+#### 4.1.2 签名生成流程
+
+同[3.1.2 签名生成流程](#312-签名生成流程)。
+
+### 4.2 服务端验证
+
+#### 4.2.1 验证身份请求
+
+验证过程同[3.2.1 验证请求头部](#321-验证请求头部)。不一样的是，did、nonce、timestamp、verificationMethod、signature字段需要从请求数据中提取。
+
+验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
+
+token的生成方法同[3.2.4 认证成功返回token](#324-认证成功返回token)。
+
+返回json示例：
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+字段说明：
+- **code**：状态码，使用HTTP状态码。
+- **message**：状态描述。
+- **auth_token**：认证成功后返回的token。
+
+当客户端收到200响应后，可以携带token进行后续请求。
+
+后续请求示例：
+
+```json
+{
+  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+#### 4.2.2 401响应
+
+当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应，并附加挑战信息。挑战信息中必须包含 `nonce` 字段。
+
+同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
+
+401响应示例：
+
+```json
+{
+  "code": 401,
+  "message": "Unauthorized",
+  "nonce": "1234567890"
+}
+```
+
+客户端收到401响应后，需要使用服务端的Nonce重新生成签名，并且重新发起请求，携带新的Nonce。服务端收到新的请求后，需要验证新的Nonce与签名。
+
+
+## 5. 用例
 
 1. 用例 1：用户通过智能助理访问其他网站上的文件
 
@@ -412,7 +528,7 @@ Alice希望通过智能助理调用一个名为example的第三方服务API。�
 
 > 当前用例中并未列举客户端对服务端的身份认证，事实上这个流程也是可以工作的。
 
-## 5. 总结
+## 6. 总结
 
 本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。设计了基于did:wba方法和HTTP协议的跨平台身份认证流程，并给出了详细的实现方法。
 

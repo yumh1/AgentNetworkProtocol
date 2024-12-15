@@ -404,8 +404,124 @@ Implementers should consider the following security aspects:
 - It is recommended to include additional security information in tokens, such as client IP binding and User-Agent binding, to prevent token abuse.
 - Users can generate multiple DIDs with different roles and permissions, using different key pairs to implement fine-grained access control.
 
+## 4. Cross-Platform Identity Authentication Process Based on did:wba Method and JSON Format Data
 
-## 4. Use Cases
+In the previous chapter, we introduced the cross-platform identity authentication process based on the did:wba method and HTTP protocol. However, identity authentication using the did:wba method is transport protocol agnostic. Here we define a cross-platform identity authentication process based on the did:wba method and JSON format data, which can be used in scenarios where JSON format is used for communication.
+
+Theoretically, protocols based on other data formats can also add support for the did:wba method.
+
+The overall process is as follows:
+
+```mermaid
+sequenceDiagram
+    participant Agent A Client
+    participant Agent B Server 
+    participant Agent A DID Sever
+
+    Note over Agent A Client,Agent B Server: Authentication Request
+
+    Agent A Client->>Agent B Server: Authentication Request: DID,Signature
+    Agent B Server->>Agent A DID Sever: Get DID Document
+    Agent A DID Sever->>Agent B Server: DID Document
+
+    Note over Agent B Server: Authentication
+
+    Agent B Server->>Agent A Client: Authentication Response: token
+
+    Note over Agent A Client, Agent B Server: Subsequent Requests
+
+    Agent A Client->>Agent B Server: Request: token
+    Agent B Server->>Agent A Client: Response
+```
+
+### 4.1 Authentication Request
+
+When the client first initiates a request to the server, authentication needs to be performed according to the following method.
+
+#### 4.1.1 Request Data Format
+
+The client needs to send the following information to the server:
+- **did**: The client's DID identifier in the request, used for identity verification.
+- **nonce**: A randomly generated string used to prevent replay attacks. Must be unique for each request. A 16-byte random string is recommended.
+- **timestamp**: The time when the request is initiated, typically in ISO 8601 UTC format, accurate to seconds.
+- **verificationMethod**: Identifies the verification method used in the signature, which is the DID fragment of the verification method in the DID document. For example, for the verification method ID "did:wba:example.com%3A8800:user:alice#key-1", the verification method's DID fragment is "key-1".
+- **signature**: Signs the `nonce`, `timestamp`, server domain, and client DID. For ECDSA signatures, uses R|S format. Includes the following fields:
+  - `nonce`
+  - `timestamp`
+  - `service` (the server's domain name)
+  - `did` (the client's DID)
+
+Client request example:
+
+```json
+{
+  "did": "did:wba:example.com%3A8800:user:alice",
+  "nonce": "abc123",
+  "timestamp": "2024-12-05T12:34:56Z",
+  "verificationMethod": "key-1",
+  "signature": "base64url(signature_of_nonce_timestamp_service_did)"
+}
+```
+
+#### 4.1.2 Signature Generation Process
+
+Same as [Section 3.1.2 Signature Generation Process](#312-signature-generation-process).
+
+### 4.2 Server Verification
+
+#### 4.2.1 Verify Authentication Request
+
+The verification process is the same as [Section 3.2.1 Verify Request Header](#321-verify-request-header). The difference is that the did, nonce, timestamp, verificationMethod, and signature fields need to be extracted from the request data.
+
+After verification passes, the server can return a token, and the client carries the token in subsequent requests. The server doesn't need to verify the client's identity each time but only needs to verify the token.
+
+The token generation method is the same as [Section 3.2.4 Return Token After Successful Authentication](#324-authentication-success-return-token).
+
+Response JSON example:
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+Field descriptions:
+- **code**: Status code, using HTTP status codes.
+- **message**: Status description.
+- **auth_token**: Token returned after successful authentication.
+
+When the client receives a 200 response, it can carry the token in subsequent requests.
+
+Subsequent request example:
+
+```json
+{
+  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+#### 4.2.2 401 Response
+
+When the server fails to verify the signature and requires the client to reinitiate the request, it can return a 401 response with an authentication challenge. The authentication challenge must contain the `nonce` field.
+
+Additionally, if the server doesn't support recording the client's request Nonce or requires the client to use the server-generated Nonce for signing each time, it can return a 401 response with an authentication challenge for each initial request. However, this increases the number of client requests, and implementers can choose whether to use this option.
+
+401 response example:
+
+```json
+{
+  "code": 401,
+  "message": "Unauthorized",
+  "nonce": "1234567890"
+}
+```
+
+After receiving a 401 response, the client needs to use the server's Nonce to generate a new signature and reinitiate the request, carrying the new Nonce. When the server receives the new request, it needs to verify the new Nonce and signature.
+
+
+## 5. Use Cases
 
 1. Use Case 1: User Accessing Files on Other Websites via Intelligent Assistant
 
@@ -417,7 +533,7 @@ Alice wants to call APIs of a third-party service named "example" through her in
 
 > Note: While client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
 
-## 5. Summary
+## 6. Summary
 
 This specification builds upon the did:web method specification by adding DID document constraints, cross-platform authentication processes, and agent description services. It proposes a new method name did:wba (Web-Based Agent). We designed a cross-platform authentication process based on the did:wba method and HTTP protocol, and provided detailed implementation methods.
 
