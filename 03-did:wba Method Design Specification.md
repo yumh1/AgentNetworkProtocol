@@ -332,6 +332,8 @@ Note that both the client and the service need to limit the number of retry atte
 
 After the service successfully verifies the client's identity, it can return a token in the response. The token is recommended to be in JWT (JSON Web Token) format. The client can then carry the token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the token.
 
+The following generation process is not required by the specification, but is provided for reference. Implementers can define and implement it as needed.
+
 JWT generation method reference [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
 
 1. **Generate Token**

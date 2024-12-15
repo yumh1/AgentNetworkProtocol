@@ -329,7 +329,7 @@ WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has alr
 
 #### 3.2.4 认证成功返回token
 
-服务端验证成功后，可以在响应中返回token，token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
+服务端验证成功后，可以在响应中返回token，token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。以下的生成过程非规范必需，仅供参考，实现者可以根据需要自行定义并实现。
 
 JWT生成方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
