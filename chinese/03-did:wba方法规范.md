@@ -229,7 +229,7 @@ sequenceDiagram
 
     Agent B Server->>Agent A Client: HTTP Response: token
 
-    Note over Agent B Client,Agent B Server: Subsequent Requests
+    Note over Agent B Server: Subsequent Requests
 
     Agent A Client->>Agent B Server: HTTP Request: token
     Agent B Server->>Agent A Client: HTTP Response
