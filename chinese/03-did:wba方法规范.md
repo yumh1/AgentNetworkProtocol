@@ -413,15 +413,15 @@ sequenceDiagram
     participant Agent B Server 
     participant Agent A DID Sever
 
-    Note over Agent A Client,Agent B Server: Authentication Request
+    Note over Agent A Client,Agent B Server: Initial Request
 
-    Agent A Client->>Agent B Server: Authentication Request: DID,Signature
+    Agent A Client->>Agent B Server: Authentication Request Info: DID,Signature
     Agent B Server->>Agent A DID Sever: Get DID Document
     Agent A DID Sever->>Agent B Server: DID Document
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: Authentication Response: token
+    Agent B Server->>Agent A Client: Authentication Response Info: token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
@@ -429,11 +429,11 @@ sequenceDiagram
     Agent B Server->>Agent A Client: Response
 ```
 
-### 4.1 身份验证请求
+### 4.1 初始请求
 
 当前客户端首次向服务端发起请求时，需要按照以下方法进行身份认证。
 
-#### 4.1.1 请求数据格式
+#### 4.1.1 身份验证信息数据格式
 
 客户端需要将以下信息发送到服务端：
 - **did**：请求中包含客户端的 DID 标识符，用于身份验证。
@@ -457,6 +457,8 @@ sequenceDiagram
   "signature": "base64url(signature_of_nonce_timestamp_service_did)"
 }
 ```
+
+身份验证信息可以放到单独的请求中发送，也可以和业务请求数据一起发送。
 
 #### 4.1.2 签名生成流程
 

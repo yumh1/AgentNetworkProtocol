@@ -418,15 +418,15 @@ sequenceDiagram
     participant Agent B Server 
     participant Agent A DID Sever
 
-    Note over Agent A Client,Agent B Server: Authentication Request
+    Note over Agent A Client,Agent B Server: Initial Request
 
-    Agent A Client->>Agent B Server: Authentication Request: DID,Signature
+    Agent A Client->>Agent B Server: Authentication Request Info: DID,Signature
     Agent B Server->>Agent A DID Sever: Get DID Document
     Agent A DID Sever->>Agent B Server: DID Document
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: Authentication Response: token
+    Agent B Server->>Agent A Client: Authentication Response Info: token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
@@ -434,11 +434,11 @@ sequenceDiagram
     Agent B Server->>Agent A Client: Response
 ```
 
-### 4.1 Authentication Request
+### 4.1 Initial Request
 
 When the client first initiates a request to the server, authentication needs to be performed according to the following method.
 
-#### 4.1.1 Request Data Format
+#### 4.1.1 Authentication Information Data Format
 
 The client needs to send the following information to the server:
 - **did**: The client's DID identifier in the request, used for identity verification.
@@ -462,6 +462,8 @@ Client request example:
   "signature": "base64url(signature_of_nonce_timestamp_service_did)"
 }
 ```
+
+The authentication information can be sent in a separate request or together with the business request data.
 
 #### 4.1.2 Signature Generation Process
 
