@@ -213,7 +213,7 @@ Security and privacy considerations are based on [[did:web method specification 
 
 When a client makes a request to a service on different platforms, the client can use the domain name combined with TLS to authenticate the service. The service then verifies the identity of the client based on the verification methods in the client's DID document.
 
-The client can include the DID and signature in the HTTP header during the first HTTP request. Without increasing the number of interactions, the service can quickly verify the identity of the client. After the initial verification is successful, the service can return a token to the client. The client can then carry the token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the token.
+The client can include the DID and signature in the HTTP header during the first HTTP request. Without increasing the number of interactions, the service can quickly verify the identity of the client. After the initial verification is successful, the service can return a access token to the client. The client can then carry the access token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the access token.
 
 ```mermaid
 sequenceDiagram
@@ -229,11 +229,11 @@ sequenceDiagram
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: HTTP Response: token
+    Agent B Server->>Agent A Client: HTTP Response: access token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
-    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent A Client->>Agent B Server: HTTP Request: access token
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
@@ -347,17 +347,17 @@ After receiving a 401 response, the client needs to use the service's nonce to g
 
 Note that both the client and the service need to limit the number of retry attempts to prevent entering a dead loop.
 
-#### 3.2.4 Authentication Success Return Token
+#### 3.2.4 Authentication Success Return Access Token
 
-After the service successfully verifies the client's identity, it can return a token in the response. The token is recommended to be in JWT (JSON Web Token) format. The client can then carry the token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the token.
+After the service successfully verifies the client's identity, it can return a access token in the response. The access token is recommended to be in JWT (JSON Web Token) format. The client can then carry the access token in subsequent requests, and the service does not need to verify the client's identity each time, but only needs to verify the access token.
 
 The following generation process is not required by the specification, but is provided for reference. Implementers can define and implement it as needed.
 
 JWT generation method reference [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
 
-1. **Generate Token**
+1. **Generate Access Token**
 
-Assuming the service uses **JWT (JSON Web Token)** as the token format, JWT typically contains the following fields:
+Assuming the service uses **JWT (JSON Web Token)** as the access token format, JWT typically contains the following fields:
 
 - **header**: Specifies the signing algorithm
 - **payload**: Stores user-related information
@@ -374,22 +374,22 @@ The payload can include the following fields (other fields can be added as neede
 
 Implementers can add other security measures in the payload, such as using scope or binding IP addresses.
 
-2. **Return Token**
-The generated header, payload, and signature are concatenated and URL-safe Base64 encoded to form the final token. Then, the token is returned through the Authorization header:
+2. **Return Access Token**
+The generated header, payload, and signature are concatenated and URL-safe Base64 encoded to form the final access token. Then, the access token is returned through the Authorization header:
 
 ```plaintext
-Authorization: Bearer <token>
+Authorization: Bearer <access_token>
 ```
 
-3. **Client Send Token**
-The client sends the token through the Authorization header field to the service:
+3. **Client Send Access Token**
+The client sends the access token through the Authorization header field to the service:
 
 ```plaintext
-Authorization: Bearer <token>
+Authorization: Bearer <access_token>
 ```
 
-4. **Service Verify Token**
-After receiving the client's request, the service extracts the token from the Authorization header and verifies it, including verifying the signature, verifying the expiration time, and verifying the fields in the payload. The verification method is based on [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
+4. **Service Verify Access Token**
+After receiving the client's request, the service extracts the access token from the Authorization header and verifies it, including verifying the signature, verifying the expiration time, and verifying the fields in the payload. The verification method is based on [RFC7519](https://www.rfc-editor.org/rfc/rfc7519).
 
 
 ### 3.3 Security Recommendations
@@ -400,8 +400,8 @@ Implementers should consider the following security aspects:
 - The server must track request nonces to prevent replay attacks.
 - The server must validate request timestamps to prevent time rollback attacks. Generally, the server's nonce caching duration should be longer than the timestamp expiration period.
 - Transport protocol must use HTTPS, and clients must strictly validate server certificates.
-- Both client and server must securely store tokens and set appropriate expiration times.
-- It is recommended to include additional security information in tokens, such as client IP binding and User-Agent binding, to prevent token abuse.
+- Both client and server must securely store access tokens and set appropriate expiration times.
+- It is recommended to include additional security information in access tokens, such as client IP binding and User-Agent binding, to prevent access token abuse.
 - Users can generate multiple DIDs with different roles and permissions, using different key pairs to implement fine-grained access control.
 
 ## 4. Cross-Platform Identity Authentication Process Based on did:wba Method and JSON Format Data
@@ -426,11 +426,11 @@ sequenceDiagram
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: Authentication Response Info: token
+    Agent B Server->>Agent A Client: Authentication Response Info: access token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
-    Agent A Client->>Agent B Server: Request: token
+    Agent A Client->>Agent B Server: Request: access token
     Agent B Server->>Agent A Client: Response
 ```
 
@@ -475,9 +475,9 @@ Same as [Section 3.1.2 Signature Generation Process](#312-signature-generation-p
 
 The verification process is the same as [Section 3.2.1 Verify Request Header](#321-verify-request-header). The difference is that the did, nonce, timestamp, verificationMethod, and signature fields need to be extracted from the request data.
 
-After verification passes, the server can return a token, and the client carries the token in subsequent requests. The server doesn't need to verify the client's identity each time but only needs to verify the token.
+After verification passes, the server can return a access token, and the client carries the access token in subsequent requests. The server doesn't need to verify the client's identity each time but only needs to verify the access token.
 
-The token generation method is the same as [Section 3.2.4 Return Token After Successful Authentication](#324-authentication-success-return-token).
+The access token generation method is the same as [Section 3.2.4 Return Access Token After Successful Authentication](#324-authentication-success-return-access-token).
 
 Response JSON example:
 
@@ -485,22 +485,22 @@ Response JSON example:
 {
   "code": 200,
   "message": "success",
-  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
 Field descriptions:
 - **code**: Status code, using HTTP status codes.
 - **message**: Status description.
-- **auth_token**: Token returned after successful authentication.
+- **access_token**: Access token returned after successful authentication.
 
-When the client receives a 200 response, it can carry the token in subsequent requests.
+When the client receives a 200 response, it can carry the access token in subsequent requests.
 
 Subsequent request example:
 
 ```json
 {
-  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 

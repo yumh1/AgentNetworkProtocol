@@ -211,7 +211,7 @@ did:wba:example.com%3A3000:user:alice
 
 当客户端向不同平台的服务端发起请求时，客户端可以使用域名结合TLS对服务端进行身份认证，而服务端则根据客户端DID文档中的验证方法验证客户端的身份。
 
-客户端可以在首次HTTP请求时，在HTTP头中携带DID和签名。在不增加交互次数的情况下，服务端可以快速验证客户端的身份。首次验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
+客户端可以在首次HTTP请求时，在HTTP头中携带DID和签名。在不增加交互次数的情况下，服务端可以快速验证客户端的身份。首次验证通过后，服务端可以返回access token，客户端后续请求中携带access token，服务端不用每次验证客户端的身份，而只要验证access token即可。
 
 ```mermaid
 sequenceDiagram
@@ -227,11 +227,11 @@ sequenceDiagram
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: HTTP Response: token
+    Agent B Server->>Agent A Client: HTTP Response: access token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
-    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent A Client->>Agent B Server: HTTP Request: access token
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
@@ -345,15 +345,15 @@ WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has alr
 
 需要注意的是，客户端和服务端在各自的实现上，需要对重试次数进行限制，防止进入死循环。
 
-#### 3.2.4 认证成功返回token
+#### 3.2.4 认证成功返回access token
 
-服务端验证成功后，可以在响应中返回token，token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。以下的生成过程非规范必需，仅供参考，实现者可以根据需要自行定义并实现。
+服务端验证成功后，可以在响应中返回access token，access token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带access token，服务端不用每次验证客户端的身份，而只要验证access token即可。以下的生成过程非规范必需，仅供参考，实现者可以根据需要自行定义并实现。
 
 JWT生成方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
-1. **生成 Token**
+1. **生成 Access Token**
 
-假设服务端采用 **JWT (JSON Web Token)** 作为 Token 格式，JWT 通常包含以下字段：
+假设服务端采用 **JWT (JSON Web Token)** 作为 Access Token 格式，JWT 通常包含以下字段：
 
 - **header**：指定签名算法
 - **payload**：存放用户的相关信息
@@ -370,22 +370,22 @@ payload中可以包含以下字段（其他字段根据需要添加）：
 
 实现者可以根据需要，在payload中添加其他的安全措施，比如使用scope、绑定IP地址等。
 
-2. **返回 Token**
-将生成的 header、payload 和 signature 通过 URL 安全的Base64 编码拼接，形成最终的 Token。然后通过 Authorization 头返回给客户端：
+2. **返回 Access Token**
+将生成的 header、payload 和 signature 通过 URL 安全的Base64 编码拼接，形成最终的 Access Token。然后通过 Authorization 头返回给客户端：
 
 ```plaintext
-Authorization: Bearer <token>
+Authorization: Bearer <access_token>
 ```
 
-3. **客户端发送 Token**
-客户端在后续请求中将该 Token 通过 Authorization 头字段发送到服务端：
+3. **客户端发送 Access Token**
+客户端在后续请求中将该 Access Token 通过 Authorization 头字段发送到服务端：
 
 ```plaintext
-Authorization: Bearer <token>
+Authorization: Bearer <access_token>
 ```
 
-4. **服务端验证 Token**
-服务端收到客户端请求后，从 Authorization 头中提取 Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
+4. **服务端验证 Access Token**
+服务端收到客户端请求后，从 Authorization 头中提取 Access Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
 ### 3.3 安全性建议
 
@@ -395,8 +395,8 @@ Authorization: Bearer <token>
 - 服务端需要对请求中的Nonce进行记录，防止重放攻击。
 - 服务端需要判断请求中的时间戳，防止时间回滚攻击。一般情况下，服务端对nonce缓存的时间长度应该大于时间戳过期时间长度。
 - 传输协议必须要使用HTTPS，并且客户端要严格判断服务端证书是否可信。
-- 客户端和服务端需要对Token进行妥善保管，并且设置合理的过期时间。
-- 建议在Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Token被滥用。
+- 客户端和服务端需要对Access Token进行妥善保管，并且设置合理的过期时间。
+- 建议在Access Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Access Token被滥用。
 - 用户可以生成多个DID，每个DID具有不同的角色和权限，使用不同的密钥对，实现细粒度的权限控制。
 
 ## 4. 基于did:wba方法和json格式数据的跨平台身份认证流程
@@ -421,11 +421,11 @@ sequenceDiagram
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: Authentication Response Info: token
+    Agent B Server->>Agent A Client: Authentication Response Info: access token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
-    Agent A Client->>Agent B Server: Request: token
+    Agent A Client->>Agent B Server: Request: access token
     Agent B Server->>Agent A Client: Response
 ```
 
@@ -470,9 +470,9 @@ sequenceDiagram
 
 验证过程同[3.2.1 验证请求头部](#321-验证请求头部)。不一样的是，did、nonce、timestamp、verificationMethod、signature字段需要从请求数据中提取。
 
-验证通过后，服务端可以返回token，客户端后续请求中携带token，服务端不用每次验证客户端的身份，而只要验证token即可。
+验证通过后，服务端可以返回access token，客户端后续请求中携带access token，服务端不用每次验证客户端的身份，而只要验证access token即可。
 
-token的生成方法同[3.2.4 认证成功返回token](#324-认证成功返回token)。
+access token的生成方法同[3.2.4 认证成功返回access token](#324-认证成功返回access token)。
 
 返回json示例：
 
@@ -480,22 +480,22 @@ token的生成方法同[3.2.4 认证成功返回token](#324-认证成功返回to
 {
   "code": 200,
   "message": "success",
-  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
 字段说明：
 - **code**：状态码，使用HTTP状态码。
 - **message**：状态描述。
-- **auth_token**：认证成功后返回的token。
+- **access_token**：认证成功后返回的access token。
 
-当客户端收到200响应后，可以携带token进行后续请求。
+当客户端收到200响应后，可以携带access token进行后续请求。
 
 后续请求示例：
 
 ```json
 {
-  "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
