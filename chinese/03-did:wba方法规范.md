@@ -323,29 +323,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 6. **验证签名**：使用获取的公钥对 `Signature` 进行验证，确保签名是由对应的私钥生成的。
 
-#### 3.2.3 401响应
-
-当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应，并附加挑战信息。挑战信息中必须包含 `nonce` 字段。
-
-同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
-
-挑战信息通过 `WWW-Authenticate` 头字段返回，示例如下：
-
-```plaintext
-WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has already been used. Please provide a new nonce.", nonce="xyz987"
-```
-
-挑战信息包含以下字段：
-
-- **nonce**：必须字段，服务端生成的随机字符串，用于防止重放攻击。
-- **error**：必须字段，错误类型。
-- **error_description**：可选字段，错误描述。
-
-客户端收到401响应后，需要使用服务端的Nonce重新生成签名，并且重新发起请求，携带新的Nonce。服务端收到新的请求后，需要验证新的Nonce与签名。
-
-需要注意的是，客户端和服务端在各自的实现上，需要对重试次数进行限制，防止进入死循环。
-
-#### 3.2.4 认证成功返回access token
+#### 3.2.3 认证成功返回access token
 
 服务端验证成功后，可以在响应中返回access token，access token建议采用JWT（JSON Web Token）格式。客户端后续请求中携带access token，服务端不用每次验证客户端的身份，而只要验证access token即可。以下的生成过程非规范必需，仅供参考，实现者可以根据需要自行定义并实现。
 
@@ -387,21 +365,44 @@ Authorization: Bearer <access_token>
 4. **服务端验证 Access Token**
 服务端收到客户端请求后，从 Authorization 头中提取 Access Token，进行验证，包括验证签名、验证过期时间、验证payload中的字段等。验证方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 
-### 3.3 安全性建议
+#### 3.2.4 错误处理
 
-实现者在实现的时候，需要考虑以下几个方面的安全性问题：
+#### 3.2.4.1 401响应
 
-- DID对应的私钥需要妥善保管，不能泄露。另外，需要建立私钥定期刷新机制。
-- 服务端需要对请求中的Nonce进行记录，防止重放攻击。
-- 服务端需要判断请求中的时间戳，防止时间回滚攻击。一般情况下，服务端对nonce缓存的时间长度应该大于时间戳过期时间长度。
-- 传输协议必须要使用HTTPS，并且客户端要严格判断服务端证书是否可信。
-- 客户端和服务端需要对Access Token进行妥善保管，并且设置合理的过期时间。
-- 建议在Access Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Access Token被滥用。
-- 用户可以生成多个DID，每个DID具有不同的角色和权限，使用不同的密钥对，实现细粒度的权限控制。
+当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应。
+
+同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息，挑战信息中包含Nonce。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
+
+错误信息通过 `WWW-Authenticate` 头字段返回，示例如下：
+
+```plaintext
+WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has already been used. Please provide a new nonce.", nonce="xyz987"
+```
+
+包含以下字段：
+- **error**：必须字段，错误类型，包含以下字符串值：
+  - **invalid_request**：请求格式错误，缺少必需字段，或者包含不支持的参数。
+  - **invalid_nonce**：Nonce已使用。
+  - **invalid_timestamp**：时间戳超出范围。
+  - **invalid_did**：DID格式错误，或者无法根据DID找到对应的DID文档。
+  - **invalid_signature**：签名验证失败。
+  - **invalid_verification_method**：无法根据验证方法找到对应的公钥。
+  - **invalid_access_token**：access token验证失败。
+  - **forbidden_did**：DID不具备访问服务端资源的权限。
+- **error_description**：可选字段，错误描述。
+- **nonce**：可选字段，服务端生成的随机字符串，如果携带，则客户端需要使用该Nonce重新生成签名，并且重新发起请求。
+
+客户端收到401响应后，如果响应中携带Nonce，则需要使用服务端的Nonce重新生成签名，并且重新发起请求。如果响应中不携带Nonce，则需要使用客户端生成的Nonce重新生成签名，并且重新发起请求。
+
+需要注意的是，客户端和服务端在各自的实现上，需要对重试次数进行限制，防止进入死循环。
+
+##### 3.2.4.2 403响应
+
+当服务端身份验证成功，但是DID不具备访问服务端资源的权限时，可以返回403响应。
 
 ## 4. 基于did:wba方法和json格式数据的跨平台身份认证流程
 
-在上一章中，我们介绍了基于did:wba方法和HTTP协议的跨平台身份认证流程。然而，使用did:wba方法进行身份认证，是传输协议无关的。这里我们制定了基于did:wba方法和json格式数据的跨平台身份认证流程，可以用于使用json格式进行通信的场景。
+在上一章中，我们介绍了基于did:wba方法和HTTP协议的跨平台身份认证流程。然而，使用did:wba方法进行身份认证，是传输协议无关的。这里我们制定了基于did:wba方法和json格式数据的跨平台身份认证流程，可以用于使用json格式进行通信的场景。本规范只描述使用json进行身份认证的流程，如何传递json由实现者自行决定。
 
 理论上，基于其他数据格式的协议也可以添加对did:wba方法的支持。
 
@@ -479,14 +480,12 @@ access token的生成方法同[3.2.4 认证成功返回access token](#324-认证
 ```json
 {
   "code": 200,
-  "message": "success",
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
 字段说明：
 - **code**：状态码，使用HTTP状态码。
-- **message**：状态描述。
 - **access_token**：认证成功后返回的access token。
 
 当客户端收到200响应后，可以携带access token进行后续请求。
@@ -499,26 +498,45 @@ access token的生成方法同[3.2.4 认证成功返回access token](#324-认证
 }
 ```
 
-#### 4.2.2 401响应
+#### 4.2.2 错误处理
 
-当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应，并附加挑战信息。挑战信息中必须包含 `nonce` 字段。
+错误处理同[3.2.4 错误处理](#324-错误处理)。
 
-同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
-
-401响应示例：
+使用json格式返回401响应示例：
 
 ```json
 {
   "code": 401,
-  "message": "Unauthorized",
+  "error": "invalid_nonce",
+  "error_description": "Nonce has already been used. Please provide a new nonce.",
   "nonce": "1234567890"
 }
 ```
 
-客户端收到401响应后，需要使用服务端的Nonce重新生成签名，并且重新发起请求，携带新的Nonce。服务端收到新的请求后，需要验证新的Nonce与签名。
+使用json格式返回403响应示例：
 
+```json
+{
+  "code": 403,
+  "error": "forbidden_did",
+  "error_description": "did not have permission to access the resource."
+}
+```
 
-## 5. 用例
+## 5 安全性建议
+
+实现者在实现的时候，需要考虑以下几个方面的安全性问题：
+
+- DID对应的私钥需要妥善保管，不能泄露。另外，需要建立私钥定期刷新机制。
+- 服务端需要对请求中的Nonce进行记录，防止重放攻击。
+- 服务端需要判断请求中的时间戳，防止时间回滚攻击。一般情况下，服务端对nonce缓存的时间长度应该大于时间戳过期时间长度。
+- 服务端在获取DID文档时，尽量使用DNS-over-HTTPS（DoH）协议，以提高安全性。
+- 传输协议必须要使用HTTPS，并且客户端要严格判断对方CA证书是否可信。
+- 客户端和服务端需要对Access Token进行妥善保管，并且设置合理的过期时间。
+- 建议在Access Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Access Token被滥用。
+- 用户可以生成多个DID，每个DID具有不同的角色和权限，使用不同的密钥对，实现细粒度的权限控制。
+
+## 6. 用例
 
 1. 用例 1：用户通过智能助理访问其他网站上的文件
 
@@ -530,7 +548,7 @@ Alice希望通过智能助理调用一个名为example的第三方服务API。�
 
 > 当前用例中并未列举客户端对服务端的身份认证，事实上这个流程也是可以工作的。
 
-## 6. 总结
+## 7. 总结
 
 本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。设计了基于did:wba方法和HTTP协议的跨平台身份认证流程，并给出了详细的实现方法。
 
