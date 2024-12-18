@@ -163,7 +163,8 @@ Content-Length: <文件长度>
 
 {
   "did_document": "<DID文档json>",
-  "private_key": "<私钥pem格式>"
+  "private_key": "<私钥pem格式>",
+  "auth_url": "<身份验证url>"
 }
 ```
 
@@ -176,7 +177,8 @@ Content-Length: <文件长度>
 {
   "authorization": "DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>",
   "auth_code": 200,
-  "error_message": null
+  "error_message": null,
+  "access_token": "<token>"
 }
 ```
 
@@ -194,7 +196,8 @@ Content-Length: <文件长度>
 
 {
   "did_document": "<DID文档json>",
-  "private_key": "<私钥pem格式>"
+  "private_key": "<私钥pem格式>",
+  "auth_url": "<身份验证url>"
 }
 ```
 
@@ -207,7 +210,8 @@ Content-Length: <文件长度>
 {
   "authorization": "DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>",
   "auth_code": 401,
-  "error_message": "Invalid credentials provided."
+  "error_message": "Invalid credentials provided.",
+  "access_token": "<token>"
 }
 ```
 

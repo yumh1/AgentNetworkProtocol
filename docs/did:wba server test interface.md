@@ -118,6 +118,102 @@ Content-Length: 0
 
 The WWW-Authenticate field contains the nonce for signing subsequent HTTP requests.
 
+## 5. Generate DID Document and Private Key Interface
+
+### Request Path
+`https://agent-network-protocol.com/wba/demo/generate`
+
+### Request Format Example
+```plaintext
+GET /wba/demo/generate HTTP/1.1
+Host: agent-network-protocol.com
+```
+
+### Response Format Example
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: <file_length>
+
+{
+  "did_document": "<DID_document_json>",
+  "private_key": "<private_key_pem_format>"
+}
+```
+
+### Notes
+- When handling DID documents and private keys, special characters may be included. To ensure data is correctly sent via JSON, it is recommended to escape special characters.
+- Special characters in JSON, such as double quotes (`"`) and backslashes (`\`), need to be escaped with a backslash.
+- If the DID document or private key contains newline characters (`\n`), they also need to be escaped.
+- For data containing non-text characters, it is recommended to use Base64 encoding to ensure data integrity.
+
+## 6. Authentication Interface
+
+### Request Path
+`https://agent-network-protocol.com/wba/demo/auth`
+
+### Request Format Example
+```plaintext
+POST /wba/demo/auth HTTP/1.1
+Host: agent-network-protocol.com
+Content-Type: application/json
+Content-Length: <file_length>
+
+{
+  "did_document": "<DID_document_json>",
+  "private_key": "<private_key_pem_format>",
+  "auth_url": "<authentication_url>"
+}
+```
+
+### Response Format Example
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: <file_length>
+
+{
+  "authorization": "DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>",
+  "auth_code": 200,
+  "error_message": null,
+  "access_token": "<token>"
+}
+```
+
+## 7. Authentication 401 Interface
+
+### Request Path
+`https://agent-network-protocol.com/wba/demo/auth401`
+
+### Request Format Example
+```plaintext
+POST /wba/demo/auth401 HTTP/1.1
+Host: agent-network-protocol.com
+Content-Type: application/json
+Content-Length: <file_length>
+
+{
+  "did_document": "<DID_document_json>",
+  "private_key": "<private_key_pem_format>",
+  "auth_url": "<authentication_url>"
+}
+```
+
+### Response Format Example
+```plaintext
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: <file_length>
+
+{
+  "authorization": "DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>",
+  "auth_code": 401,
+  "error_message": "Invalid credentials provided.",
+  "access_token": "<token>"
+}
+```
+
+
 
 
 
