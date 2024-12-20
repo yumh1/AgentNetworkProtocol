@@ -105,7 +105,7 @@ did:wba是[AgentNetworkProtocol（ANP）](https://github.com/chgaowei/AgentNetwo
 假设智能体A要订阅并调用智能体B的服务，身份验证以及请求流程如下：
 
 <p align="center">
-  <img src="/blogs/images/did:wba-flow.png" width="50%" alt="did:wba-flow"/>
+  <img src="/blogs/images/did:wba-flow.png" width="75%" alt="did:wba-flow"/>
 </p>
 
 - 前置流程
@@ -146,6 +146,7 @@ did:wba身份验证方案的优点：
 | 去中心化    | 是               | 否             | 是            |
 | 应用范围    | 有限             | 广泛           | 广泛          |
 
-从上面的对比我们可以看到，did:wba不但能够支持所有的智能体互联互通，并且具备OpenID Connect的安全性以及API keys的简单性。综合来看，did:wba是最适合智能体之间进行身份认证的方案。
+
+从上面的对比我们可以看到，did:wba不但能够支持所有的智能体互联互通，并且具备OpenID Connect的安全性以及API keys的简单性，同时也支持大规模用户使用。综合来看，did:wba是最适合智能体之间进行身份认证的方案。
 
 当然，OpenID Connect和API keys仍然有他们自己的作用。比如，智能体在和原有互联网系统对接的时候，可能仍然需要使用OpenID Connect和API keys。
