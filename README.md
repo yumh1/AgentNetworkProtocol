@@ -54,6 +54,8 @@ Here are some of our blogs:
 
 - We compared the differences between did:wba and technologies like OpenID Connect and API keys: [Comparison of did:wba with OpenID Connect and API keys](blogs/Comparison%20of%20did:wba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
+- We analyzed the security principles of did:wba: [Security Principles of did:wba](blogs/did:wba-security-principles.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
