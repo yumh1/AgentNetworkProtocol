@@ -42,7 +42,6 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 如果你想了解我们整体的设计思路和理念，可以查看我们的技术白皮书：[AgentNetworkProtocol技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)
 - 我们设计了一个去中心化的身份验证方案，既可以利用当前成熟的web基础设施，又兼具去中心化特点。我们认为这是当前智能体身份认证的最佳方案：[did:wba身份证方案](chinese/03-did:wba方法规范.md)
-  - 我们对比了did:wba与OpenID Connect、API keys等技术方案的区别：[did:wba对比OpenID Connect、API keys](blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)
   - 这是我们设计的一个did:wba服务端接口，可以用了测试你自己的did:wba客户端和服务端：[did:wba服务端接口](chinese/docs/did:wba服务端测试接口.md)
 - 基于DID我们设计了一个用于智能体之间的端到端加密通信协议，不同于TLS，中间转发节点无法解密：[基于did的端到端加密通信](chinese/04-基于did的端到端加密通信技术协议.md)
 - 我们设计了一个用于智能体之间协商通信协议的元协议，它能够让智能体之间自己协商他们之间的通信协议：[元协议设计规范](chinese/06-AgentNetworkProtocol元协议设计规范(draft).md)
@@ -51,6 +50,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 这里有一些我们的blogs：
 
 - 这是一个did:wba的简要介绍：[did:wba-基于web的去中心化身份标识符](blogs/did:wba-基于web的去中心化身份标识符.md)
+
+- 我们对比了did:wba与OpenID Connect、API keys等技术方案的区别：[did:wba对比OpenID Connect、API keys](blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)
 
 ### 里程碑
 
