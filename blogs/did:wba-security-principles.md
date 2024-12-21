@@ -95,31 +95,6 @@ Components include:
    - Signature integrity verification
    - Authorized key usage confirmation
    
-```mermaid
-sequenceDiagram
-    participant C as Client
-    participant S as Server
-    
-    Note over C,S: Initial Authentication Request
-    C->>S: GET /protected-resource
-    S-->>C: 401 Unauthorized<br/>WWW-Authenticate: Bearer nonce="xyz987"
-    
-    Note over C: Generate Signature:<br/>1. Get Timestamp<br/>2. Sign with Private Key
-    
-    C->>S: GET /protected-resource<br/>Authorization: DID <did> Nonce <nonce><br/>Timestamp <timestamp> VerificationMethod <key-id><br/>Signature <signature>
-    
-    Note over S: Verification Process:<br/>1. Check Nonce Usage<br/>2. Verify Timestamp<br/>3. Verify Signature
-    
-    alt Verification Successful
-        S-->>C: 200 OK + Access Token
-        Note over C,S: Subsequent Requests with Token
-        C->>S: GET /protected-resource<br/>Authorization: Bearer <token>
-        S-->>C: 200 OK + Resource
-    else Verification Failed
-        S-->>C: 401 Unauthorized
-    end
-```
-
 ## 4. Additional Security Considerations
 
 ### 4.1 Private Key Compromise
