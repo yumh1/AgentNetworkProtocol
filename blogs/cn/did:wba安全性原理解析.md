@@ -37,10 +37,15 @@ graph LR
         VerifySign --> Result
     end
 
-    style PrivateKey fill:#f9f,stroke:#333,stroke-width:2px
-    style PublicKey fill:#9ff,stroke:#333,stroke-width:2px
-    style Sign fill:#ff9,stroke:#333,stroke-width:2px
-    style Result fill:#9f9,stroke:#333,stroke-width:2px 
+    classDef privateKey fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef publicKey fill:#9ff,stroke:#333,stroke-width:2px;
+    classDef sign fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef result fill:#9f9,stroke:#333,stroke-width:2px;
+
+    class PrivateKey privateKey;
+    class PublicKey publicKey;
+    class Sign sign;
+    class Result result;
 ```
 
 这种加密机制确保了：

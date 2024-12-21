@@ -118,9 +118,6 @@ sequenceDiagram
     else Verification Failed
         S-->>C: 401 Unauthorized
     end
-
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style S fill:#9ff,stroke:#333,stroke-width:2px 
 ```
 
 ## 4. Additional Security Considerations
