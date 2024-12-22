@@ -50,6 +50,8 @@ For further understanding, you can refer to these documents:
 
 Here are some of our blogs:
 
+- This is our understanding of the agent network: [What's Different About the Agentic Web](blogs/What-Makes-Agentic-Web-Different.md)
+
 - A brief introduction to did:wba: [did:wba - Web-Based Decentralized Identifiers](blogs/did:wba,%20a%20Web-based%20Decentralized%20Identifier.md)
 
 - We compared the differences between did:wba and technologies like OpenID Connect and API keys: [Comparison of did:wba with OpenID Connect and API keys](blogs/Comparison%20of%20did:wba%20with%20OpenID%20Connect%20and%20API%20keys.md)
