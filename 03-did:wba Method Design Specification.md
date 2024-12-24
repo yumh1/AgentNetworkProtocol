@@ -530,17 +530,25 @@ Example of 403 response in JSON format:
 
 ## 5 Security Considerations
 
-Implementers should consider the following security aspects:
+Implementers need to consider the following security issues when implementing:
 
-- Private keys corresponding to DIDs must be securely stored and protected from exposure. Additionally, establish a mechanism for periodic key rotation.
-- Servers must track request nonces to prevent replay attacks.
-- Servers must validate request timestamps to prevent time rollback attacks. Generally, the server's nonce cache duration should exceed the timestamp expiration period.
-- When generating a Nonce, it is recommended to use a secure random number generator provided by the operating system, conforming to modern cryptographic security standards and norms. For instance, you can use the Python secrets module to generate secure random numbers.
-- Servers should use DNS-over-HTTPS (DoH) protocol when retrieving DID documents to enhance security.
-- Transport protocols must use HTTPS, and clients must strictly validate the server's CA certificate trustworthiness.
-- Both client and server must securely manage Access Tokens and set appropriate expiration times.
-- It is recommended to include additional security information in Access Tokens, such as client IP binding and User-Agent binding, to prevent token misuse.
-- Users can generate multiple DIDs, each with different roles and permissions using different key pairs, to implement fine-grained access control.
+1. Key Management
+- The private key corresponding to the DID **must** be properly kept and never leaked. Additionally, a regular refresh mechanism for private keys **should** be established.
+- Users **should** generate multiple DIDs, each with different roles and permissions, using different key pairs to achieve fine-grained access control.
+
+2. Anti-Attack Measures
+- The server **must** keep a record of the Nonce in requests to prevent replay attacks.
+- The server **must** check the timestamp in requests to prevent time rollback attacks. Generally, the server's nonce cache duration **should** be longer than the timestamp expiration duration.
+- When generating a Nonce, **must** use a secure random number generator provided by the operating system to meet modern cryptographic security standards and norms. For example, you can use a module like Python's `secrets` to generate secure random numbers.
+
+3. Transport Security
+- When retrieving DID documents, the server **should** use the DNS-over-HTTPS (DoH) protocol to enhance security.
+- The transport protocol **must** use HTTPS, and clients **must** strictly verify whether the CA certificate of the other party is trustworthy.
+
+4. Token Security
+- Both client and server **must** properly keep the Access Token and **must** set a reasonable expiration time.
+- **Should** include additional security information in the Access Token, such as client IP binding, User-Agent binding, etc., to prevent token abuse.
+
 
 ## 6. Use Cases
 
