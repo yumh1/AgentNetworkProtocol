@@ -1,4 +1,4 @@
-# did:wba方法规范
+# did:wba方法规范（V0.1）
 
 ## 摘要
 
@@ -32,7 +32,7 @@ did:wba方法参考的did:web方法规范地址为[https://w3c-ccg.github.io/did
 ### 2.2 方法特定标识符
 方法特定标识符是由TLS/SSL证书保护的完全限定域名,可以选择包含DID文档的路径。描述有效域名语法的正式规则在[（RFC1035）](https://www.rfc-editor.org/rfc/rfc1035)、[（RFC1123）](https://www.rfc-editor.org/rfc/rfc1123)和[（RFC2181）](https://www.rfc-editor.org/rfc/rfc2181)中有说明。
 
-方法特定标识符必须与SSL/TLS证书中使用的通用名称匹配,并且不得包含IP地址。可以包含端口号,但冒号必须进行百分比编码以防止与路径冲突。目录和子目录可以选择性地包含,使用冒号而不是斜杠作为分隔符。
+方法特定标识符必须与SSL/TLS证书中使用的通用名称匹配,并且不得包含IP地址。可以包含端口号,但冒号必须进行百分比编码以防止与路径发生冲突。目录和子目录可以选择性地包含,使用冒号而不是斜杠作为分隔符。
 
 wba-did = "did:wba:" domain-name
 wba-did = "did:wba:" domain-name * (":" path)
@@ -242,20 +242,20 @@ sequenceDiagram
 #### 3.1.1 请求头部格式
 
 客户端将以下信息通过 `Authorization` 头字段发送到服务端：
-- **DID**：请求中包含客户端的 DID 标识符，用于身份验证。
-- **Nonce**：一个随机生成的字符串，用于防止重放攻击。每次请求必须唯一。推荐使用16字节随机字符串。
-- **时间戳（Timestamp）**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
-- **验证方法（VerificationMethod）**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
-- **签名（Signature）**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
+- **DIDWba**：表示使用did:wba方法进行身份验证
+- **did**：请求中包含客户端的 DID 标识符，用于身份验证。
+- **nonce**：一个随机生成的字符串，用于防止重放攻击。每次请求必须唯一。推荐使用16字节随机字符串。
+- **timestamp**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
+- **verification_method**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
+- **signature**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
   - `nonce`
   - `timestamp`
   - `service`（服务的域名）
   - `did`（客户端的 DID）
-
 客户端请求示例：
 
 ```plaintext
-Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestamp <2024-12-05T12:34:56Z> VerificationMethod <key-1> Signature <base64url(signature_of_nonce_timestamp_service_did)>
+Authorization: DIDWba did="did:wba:example.com%3A8800:user:alice", nonce="abc123", timestamp="2024-12-05T12:34:56Z", verification_method="key-1", signature="base64url(signature_of_nonce_timestamp_service_did)"
 ```
 
 #### 3.1.2 签名生成流程
@@ -287,14 +287,14 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 1. **验证时间戳**：检查请求中的时间戳是否在合理的时间范围内，建议时间范围为1分钟。如果请求的时间戳超出范围，认为请求过期，返回 `401 Unauthorized`，并附加挑战信息。
 
-2. **验证Nonce**：检查请求中的 `nonce` 是否已被使用或存在重复。若 `nonce` 已存在，则认为是重放攻击，返回 `401 Unauthorized`，并附加挑战信息。
+2. **验证nonce**：检查请求中的 `nonce` 是否已被使用或不存在。若 `nonce` 已存在，则认为是重放攻击，返回 `401 Unauthorized`，并附加挑战信息。
 
 3. **验证DID权限**：验证请求中的DID是否具备访问服务端资源的权限。如果没有权限，则返回 `403 Forbidden`。
 
 4. **验证签名**：
 
 - 根据客户端的DID，读取DID文档。
-- 根据请求中的 `VerificationMethod`，在DID文档中找到对应的验证方法。
+- 根据请求中的 `verification_method`，在DID文档中找到对应的验证方法。
 - 使用验证方法中的公钥对请求中的签名进行验证。
 
 5. **验证结果**：如果签名验证成功，则请求通过验证；否则，返回 `401 Unauthorized`，并附加挑战信息。
@@ -302,7 +302,7 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 #### 3.2.2 验证签名过程
 
-1. **提取信息**：从 `Authorization` 头部提取 `nonce`、`timestamp`、`service`、`did`、`VerificationMethod` 和 `Signature`。
+1. **提取信息**：从 `Authorization` 头部提取 `nonce`、`timestamp`、`service`、`did`、`verification_method` 和 `signature`。
 
 2. **构建验证字符串**：使用提取的信息构建与客户端相同的JSON字符串：
 
@@ -319,9 +319,9 @@ Authorization: DID did:wba:example.com%3A8800:user:alice Nonce <abc123> Timestam
 
 4. **生成哈希值**：使用SHA-256算法对规范化字符串进行哈希，生成hash值。
 
-5. **获取公钥**：根据 `did` 和 `VerificationMethod`，从DID文档中获取对应的公钥。
+5. **获取公钥**：根据 `did` 和 `verification_method`，从DID文档中获取对应的公钥。
 
-6. **验证签名**：使用获取的公钥对 `Signature` 进行验证，确保签名是由对应的私钥生成的。
+6. **验证签名**：使用获取的公钥对 `signature` 进行验证，确保签名是由对应的私钥生成的。
 
 #### 3.2.3 认证成功返回access token
 
@@ -367,7 +367,7 @@ Authorization: Bearer <access_token>
 
 #### 3.2.4 错误处理
 
-#### 3.2.4.1 401响应
+##### 3.2.4.1 401响应
 
 当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应。
 
@@ -382,7 +382,7 @@ WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has alr
 包含以下字段：
 - **error**：必须字段，错误类型，包含以下字符串值：
   - **invalid_request**：请求格式错误，缺少必需字段，或者包含不支持的参数。
-  - **invalid_nonce**：Nonce已使用。
+  - **invalid_nonce**：Nonce已使用或不存在。
   - **invalid_timestamp**：时间戳超出范围。
   - **invalid_did**：DID格式错误，或者无法根据DID找到对应的DID文档。
   - **invalid_signature**：签名验证失败。
@@ -390,7 +390,7 @@ WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has alr
   - **invalid_access_token**：access token验证失败。
   - **forbidden_did**：DID不具备访问服务端资源的权限。
 - **error_description**：可选字段，错误描述。
-- **nonce**：可选字段，服务端生成的随机字符串，如果携带，则客户端需要使用该Nonce重新生成签名，并且重新发起请求。
+- **nonce**：可选字段，服务端生成的随机字符串。如果携带，则客户端需要使用该Nonce重新生成签名，并且重新发起请求。
 
 客户端收到401响应后，如果响应中携带Nonce，则需要使用服务端的Nonce重新生成签名，并且重新发起请求。如果响应中不携带Nonce，则需要使用客户端生成的Nonce重新生成签名，并且重新发起请求。
 
@@ -440,7 +440,7 @@ sequenceDiagram
 - **did**：请求中包含客户端的 DID 标识符，用于身份验证。
 - **nonce**：一个随机生成的字符串，用于防止重放攻击。每次请求必须唯一。推荐使用16字节随机字符串。
 - **timestamp**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
-- **verificationMethod**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
+- **verification_method**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
 - **signature**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
   - `nonce`
   - `timestamp`
@@ -454,7 +454,7 @@ sequenceDiagram
   "did": "did:wba:example.com%3A8800:user:alice",
   "nonce": "abc123",
   "timestamp": "2024-12-05T12:34:56Z",
-  "verificationMethod": "key-1",
+  "verification_method": "key-1",
   "signature": "base64url(signature_of_nonce_timestamp_service_did)"
 }
 ```
@@ -530,6 +530,7 @@ access token的生成方法同[3.2.4 认证成功返回access token](#324-认证
 - DID对应的私钥需要妥善保管，不能泄露。另外，需要建立私钥定期刷新机制。
 - 服务端需要对请求中的Nonce进行记录，防止重放攻击。
 - 服务端需要判断请求中的时间戳，防止时间回滚攻击。一般情况下，服务端对nonce缓存的时间长度应该大于时间戳过期时间长度。
+- 生成Nonce时，建议使用操作系统提供的安全随机数生成器，要符合现代密码学安全的规范和标准。比如可以使用类似Python secrets模块生成安全随机数。
 - 服务端在获取DID文档时，尽量使用DNS-over-HTTPS（DoH）协议，以提高安全性。
 - 传输协议必须要使用HTTPS，并且客户端要严格判断对方CA证书是否可信。
 - 客户端和服务端需要对Access Token进行妥善保管，并且设置合理的过期时间。
