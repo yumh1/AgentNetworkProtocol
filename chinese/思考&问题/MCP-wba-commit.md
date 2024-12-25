@@ -1,56 +1,44 @@
+[proposal]Support for authentication methods based on the W3C DID specification `did:wba`
 
+## Motivation and Context
 
-提及DID标准的状态
-提到DID标准已经被批准为W3C的推荐标准，并且被广泛使用（虽然没有OAuth 2.0那么流行）。
+We have added an experimental authentication scheme, `did:wba`, to MCP.  
 
-💱 我建议你解释在去中心化智能体网络中协商的根本必要性。你提出的改进解锁了一个能够不断演进的身份验证系统，这不仅尊重单个智能体的自主性，同时也提供了强大的安全性保障。
-你提出的改进开启了一个不断发展的身份验证系统，它尊重个体代理的自主权，同时提供强大的安全性。
+We believe `did:wba` can serve as an excellent complement to OAuth 2.0 for the following reasons:  
+1. `did:wba` provides security equivalent to OAuth 2.0.  
+2. `did:wba` supports decentralized identity authentication, offering better interoperability.  
+3. `did:wba` requires fewer interactions and has a simpler process.  
 
-优点：
-- 交互少，流程简单，同时安全性同Oauth2.0
-- 可以实现免注册
-- 
+The changes in this code are based on a branch that has not yet been merged into the main branch (PR link: [https://github.com/modelcontextprotocol/specification/pull/101](https://github.com/modelcontextprotocol/specification/pull/101)). We will update our code accordingly if there are any changes to this branch.
 
----------------------------------
+## How Has This Been Tested?
+This proposal has not yet been implemented in a client/server.
 
-安全性考虑的补充
+## Breaking Changes
+Users do not need to update their code or configuration. As an experimental scheme, the server or client can choose not to support it.
 
-    <!-- 建议特定的密钥长度和加密标准。 
-    提供关于安全随机数生成的指导。
-强调did:wba的优势 -->
-    <!-- 强调did:wba如何使智能体能够动态调整身份验证方法。 -->
+## Types of changes
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [x] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to change)
+- [ ] Documentation update
 
---看下当前的进展。
-<!-- 能力声明的格式
-    能力应该被表示为空对象，而不是布尔值。例如：
+## Checklist
+<!-- Go over all the following points, and put an `x` in all the boxes that apply. -->
+- [x] I have read the [MCP Documentation](https://modelcontextprotocol.io)
+- [x] My code follows the repository's style guidelines
+- [x] New and existing tests pass locally
+- [x] I have added appropriate error handling
+- [x] I have added or updated documentation as needed
 
-json
-复制代码
-{
-    "capabilities": {
-        "auth": {
-            "didwba": {}
-        }
-    }
-}
-说明：
-“对象中密钥的存在本身已经隐式地声明了启用的意图。”  -->
-<!-- 
-关于客户端声明支持的身份验证的必要性
-    整个问题似乎是：为什么客户端需要声明支持的身份验证？
+## Additional context
+<!-- Add any other context, implementation notes, or design decisions -->
 
-    客户端和服务器是否需要协商具体的能力？
-    如果确实需要协商，那么客户端发送能力是合理的。
-    如果不需要协商，只需由服务器发送支持的身份验证方法以及是否需要提示，客户端在不支持的情况下断开连接就足够了。 -->
-<!-- 
-建议
-💱 我建议你解释在去中心化智能体网络中协商的根本必要性。你提出的改进解锁了一个能够不断演进的身份验证系统，这不仅尊重单个智能体的自主性，同时也提供了强大的安全性保障。 -->
+Relevant documentation links:  
+1. [did:wba Method Design Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
 
-
-
-
-
-
-
-
+2. blogs：
+  - [did:wba - A Web-based Decentralized Identifier](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba%2C%20a%20Web-based%20Decentralized%20Identifier.md)
+  - [Security Principles of did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba-security-principles.md)
+  - [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API Keys, and did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 

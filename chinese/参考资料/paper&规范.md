@@ -50,3 +50,10 @@ https://www.w3.org/TR/did-extensions-methods/
 所有解决方案的扩展，包括URL解析：
 https://www.w3.org/TR/did-extensions-resolution
 
+可验证凭证规范：
+https://www.w3.org/TR/vc-data-model/#proofs-signatures
+
+ontrolled Identifier Document 1.0
+https://www.w3.org/TR/controller-document/#sotd
+
+
