@@ -1,14 +1,90 @@
 
+大纲：
+- 介绍did
+- 介绍didwba，说出特点，对比email
+- 介绍did:wba的流程，安全性保证是什么
+- 介绍怎么做身份验证
+- 介绍did的特点
+- 对比其他的方案
+- 介绍did:wba的用例
+- 介绍did:wba的代码
+
+
 ### 1. 介绍
-did:wba 是一种基于Web的去中心化标识符（DID）规范，旨在支持跨平台身份认证和智能体通信。
 
-did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不需要彻底重构现有系统的情况下，轻松实现去中心化身份认证。各平台可以使用中心化方式管理自己的账户体系，同时为每个用户申请did:wba DID，以此实现平台之间的互联互通。
+did:wba方法是W3C去中心化标识符(DIDs)标准下的一个草案方法规范。[W3C DIDs](https://www.w3.org/TR/did-core/)标准于2022年发布为W3C推荐标准，是一种支持可验证、去中心化数字身份的新型标识符。基于DIDs，可以让用户真正掌握自己的身份，也可以提高不同应用之间身份的互操作性。DIDs已被包括Bluesky在内的许多应用广泛采用。
 
-使用did:wba，可以实现类似email的特点，各个平台以中心化的方式实现自己的账户体系，同时，各个平台之间可以互联互通。
+DID 的核心组件是 DID 文档，其中包含与特定 DID 相关的关键信息，比如用于验证 DID 所有者身份的公钥。DID方法定义了如何创建、存储、更新、撤销 DID 文档。
 
-### 2. 跨平台身份认证
+我们设计了一个[did:wba方法](/chinese/03-did:wba方法规范.md)。did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不需要彻底重构现有系统的情况下，轻松实现去中心化身份认证。各平台可以使用中心化方式管理自己的账户体系，同时为每个用户创建did:wba DID，以此实现平台之间的互联互通。
 
-did:wba可以和HTTP协议结合使用，在一个HTTP请求中，完成身份认证、权限认证、数据交换等操作。不增加额外的交互次数。下面是did:wba和HTTP协议结合的交互流程：
+使用did:wba方法的身份系统，可以实现类似email的业务特点，各个平台以中心化的方式实现自己的账户体系，同时，各个平台之间可以互联互通。
+
+相对API keys，did:wba方法在安全性上更胜一筹；相对OpenID Connect，did:wba方法交互更加简单，更加的去中心化。他们之间的详细对比可以参考[did:wba对比OpenID Connect、API keys](/blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)。
+
+### 2. DID文档
+
+使用did:wba方法，一个最基本的DID文档如下：
+
+```json
+{
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/suites/jws-2020/v1",
+      "https://w3id.org/security/suites/secp256k1-2019/v1",
+      "https://w3id.org/security/suites/ed25519-2020/v1",
+      "https://w3id.org/security/suites/x25519-2019/v1"
+    ],
+    "id": "did:wba:example.com%3A8800:user:alice",
+    "verificationMethod": [
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "controller": "did:wba:example.com%3A8800:user:alice",
+        "publicKeyJwk": {
+          "crv": "secp256k1",
+          "x": "NtngWpJUr-rlNNbs0u-Aa8e16OwSJu6UiFf0Rdo1oJ4",
+          "y": "qN1jKupJlFsPFc1UkWinqljv4YE0mq_Ickwnjgasvmo",
+          "kty": "EC",
+          "kid": "WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q"
+        }
+      }
+    ],
+    "authentication": [
+      "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q",
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#key-1",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:wba:example.com%3A8800:user:alice",
+        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+      }
+    ],
+    "keyAgreement": [
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#key-2",
+        "type": "X25519KeyAgreementKey2019", 
+        "controller": "did:wba:example.com%3A8800:user:alice",
+        "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
+      }
+    ]
+}
+```
+
+其中，authentication中的公钥用于身份验证。也就是说，只要对方能够安全的获取正确的DID文档，就可以获得正确的公钥。然后就可以使用公钥对用户的签名进行验证，从而验证用户的身份。
+
+DID文档的创建、更新、撤销有用户自己决定，比如用户可以选择将DID文档保存在自己的服务器上，也可以选择保存在第三方服务器上。无论存储在哪里，都要保证用户对DID文档的控制权。
+
+同时，用户还需要提供一个HTTP方法，用于让其他人安全的获取自己的DID文档。而获取DID文档的HTTP地址可以从DID转换得来。也就是说，只要用户有了DID，就可以使用HTTP获得对应DID文档。转换方法如下：
+
+```plaintext
+示例：
+did:wba:example.com:user:alice
+ -> https://example.com/user/alice/did.json
+```
+
+### 2. 跨平台的身份认证过程
+
+did:wba可以和HTTP协议结合使用，在一个HTTP请求中，完成身份认证、权限认证、数据交换等操作。他不增加额外的交互次数。下面是did:wba和HTTP协议结合的交互流程：
 
 ```mermaid
 sequenceDiagram
@@ -24,13 +100,14 @@ sequenceDiagram
 
     Note over Agent B Server: Authentication
 
-    Agent B Server->>Agent A Client: HTTP Response: token
+    Agent B Server->>Agent A Client: HTTP Response: access token
 
     Note over Agent A Client, Agent B Server: Subsequent Requests
 
-    Agent A Client->>Agent B Server: HTTP Request: token
+    Agent A Client->>Agent B Server: HTTP Request: access token
     Agent B Server->>Agent A Client: HTTP Response
 ```
+
 
 
 - 前置条件：用户创建DID，并且将DID文档保存在Agent A 的DID server上。同时将DID配置到Agent B server中，并设置权限。
