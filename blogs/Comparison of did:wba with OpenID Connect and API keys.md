@@ -108,7 +108,7 @@ Suppose Agent A wants to subscribe to and call Agent B's services, the authentic
 </p>
 
 - Preliminary Process
-  - Agent A wants to subscribe to Agent B's service, first calls Agent B's service subscription interface with Agent A's DID and signature, letting B know the subscription is from Agent A.
+  - Agent A wants to subscribe to Agent B's service, first calls Agent B's service subscription interface with Agent A's DID and signature, letting B know the subscription is from Agent A. Using API subscription, it can remove the complex registration, login, and configuration processes, reducing the connection cost between two agents.
 - Authentication Process
   - Agent A includes its DID and signature in the HTTP header in the first HTTP request.
   - When Agent B receives the HTTP request, it extracts A's DID and signature from the HTTP header, then retrieves A's DID document from A's DID server using A's DID.

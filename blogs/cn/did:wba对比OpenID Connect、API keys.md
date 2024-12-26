@@ -109,7 +109,7 @@ did:wba是[AgentNetworkProtocol（ANP）](https://github.com/chgaowei/AgentNetwo
 </p>
 
 - 前置流程
-  - 智能体A要订阅智能体B的服务，首先调用智能体B的服务订阅接口，并且携带智能体A的DID和签名，让B知道是智能体A发起的订阅。
+  - 智能体A要订阅智能体B的服务，首先调用智能体B的服务订阅接口，并且携带智能体A的DID和签名，让B知道是智能体A发起的订阅。使用API订阅，可以去掉复杂的注册、登录、配置等强制流程，降低两个智能体之间的连接成本。
 - 身份验证流程
   - 智能体A在首次http请求中，在http头中携带A的DID和签名。
   - 智能体B收到http请求后，从http头中提取A的DID和签名，然后根据A的DID，去A的DID server获取A的DID文档。

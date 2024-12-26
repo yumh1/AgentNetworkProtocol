@@ -86,6 +86,8 @@ sequenceDiagram
 
     Note over Agent A Client,Agent B Server: Prerequisites
 
+    Agent A Client -->> Agent A DID Sever: Create DID Document
+
     alt Call B's subscription API
         Agent A Client-->>Agent B Server: Call B's subscription API
     else Log in and set up A's DID
@@ -108,9 +110,11 @@ sequenceDiagram
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
-1. 前置条件：需要让Agent B知道Agent A的DID，有两种方式可以实现，下面两种方式任选一种。
+1. 前置条件：
   - 用户A创建DID，并且将DID文档保存在Agent A 的DID server上。
-  - 用户A登录到Agent B的系统，并且设置A的DID。或者调用Agent B的订阅API，并设置订阅的DID为A的DID。
+  - 需要让Agent B知道Agent A的DID，有两种方式可以实现，下面两种方式任选一种:
+    - 用户A登录到Agent B的系统，并且设置A的DID。
+    - 或者调用Agent B的订阅API，并设置订阅的DID为A的DID。**这种方式可以极大的降低两个智能体之间连接的成本。**
 
 2. 身份验证流程：
   - Agent A作为客户端发起HTTP请求，请求中除了请求数据外，还携带DID、nonce、时间戳、签名等信息。

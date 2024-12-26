@@ -86,6 +86,8 @@ sequenceDiagram
 
     Note over Agent A Client,Agent B Server: Prerequisites
 
+    Agent A Client -->> Agent A DID Sever: Create DID Document
+
     alt Call B's subscription API
         Agent A Client-->>Agent B Server: Call B's subscription API
     else Log in and set up A's DID
@@ -108,9 +110,11 @@ sequenceDiagram
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
-1. Prerequisites: Agent B needs to know Agent A's DID, which can be achieved in two ways (choose one of the following):
+1. Prerequisites:
   - User A creates a DID and stores the DID document on Agent A's DID server.
-  - User A logs into Agent B's system and sets up A's DID, or calls Agent B's subscription API and sets the subscription DID as A's DID.
+  - Agent B needs to know Agent A's DID, which can be achieved in one of two ways:
+    - User A logs into Agent B's system and sets up A's DID.
+    - Or call Agent B's subscription API and set the subscription DID to A's DID. **This approach can greatly reduce the connection cost between two agents.**
 
 2. Identity Authentication Process:
   - Agent A, as the client, initiates an HTTP request containing DID, nonce, timestamp, signature, and other information in addition to the request data.
