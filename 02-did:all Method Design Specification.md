@@ -1,5 +1,7 @@
 # did:all Method Design Specification
 
+> !!!**Note:** This specification is no longer supported. Please use the latest DID method [did:wba](/03-did:wba%20Method%20Design%20Specification.md).
+
 ## Background
 In the article on a cross-platform identity authentication and end-to-end encrypted communication technology based on the DID standard, to solve the cross-platform identity authentication problem, we propose a new DID method called all (Alliance), similar to a consortium blockchain. This means that all service providers supporting this method's standard can provide DID-related services externally.
 
