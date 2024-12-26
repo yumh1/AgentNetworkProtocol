@@ -86,9 +86,11 @@ sequenceDiagram
 
     Note over Agent A Client,Agent B Server: Prerequisites
 
-    Agent A Client-->>Agent B Server: Log in and set up A's DID
-
-    Agent A Client-->>Agent B Server: Call B's subscription API
+    alt Call B's subscription API
+        Agent A Client-->>Agent B Server: Call B's subscription API
+    else Log in and set up A's DID
+        Agent A Client-->>Agent B Server: Log in and set up A's DID
+    end
 
     Note over Agent A Client,Agent B Server: First Request
 
