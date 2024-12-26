@@ -135,7 +135,7 @@ Alice在example.com网站上存储了一个文件，后来她希望通过智能�
 
 2. 用例 2：用户通过智能助理调用其他平台服务的API
 
-Alice希望通过智能助理调用一个名为example的第三方服务API。首先，Alice在智能助理上创建了一个基于did:wba方法的DID，并使用该DID订购了example平台的相关服务。example服务通过DID完成身份认证，确认购买者是Alice，并记录下她的DID。认证通过后，Alice便可以通过智能助理使用该DID调用example服务的API进行操作。
+Alice希望通过智能助理调用一个名为example的第三方服务API。首先，Alice在智能助理上创建了一个基于did:wba方法的DID，并使用该DID，调用API接口订购example平台的相关服务。example服务通过DID完成身份认证，确认购买者是Alice，并记录下她的DID。认证通过后，Alice便可以通过智能助理使用该DID调用example服务的API进行操作。
 
 > 当前用例中并未列举客户端对服务端的身份认证，事实上这个流程也是可以工作的。
 

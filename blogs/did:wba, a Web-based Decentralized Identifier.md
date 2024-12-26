@@ -135,7 +135,7 @@ Alice has stored a file on example.com, and later she wants to access it through
 
 2. Use Case 2: User Calling Third-Party Platform Service APIs Through an Intelligent Assistant
 
-Alice wants to call an API of a third-party service named "example" through an intelligent assistant. First, Alice creates a DID based on the did:wba method on the intelligent assistant and uses this DID to subscribe to relevant services on the example platform. The example service completes identity authentication through the DID, confirms that the purchaser is Alice, and records her DID. After authentication, Alice can use this DID through the intelligent assistant to call the example service's API for operations.
+Alice wants to call a third-party service API named "example" through an intelligent assistant. First, Alice creates a DID based on the did:wba method on the intelligent assistant and uses this DID to call the API interface to subscribe to relevant services on the example platform. The example service completes identity authentication through the DID, confirms that the purchaser is Alice, and records her DID. After authentication is complete, Alice can use this DID through the intelligent assistant to call example service's APIs for operations.
 
 > While client-to-server authentication is not illustrated in the current use case, this process can indeed work.
 
