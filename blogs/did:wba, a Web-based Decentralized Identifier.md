@@ -108,17 +108,18 @@ sequenceDiagram
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
-1. Prerequisites:
+1. Prerequisites: Agent B needs to know Agent A's DID, which can be achieved in two ways (choose one of the following):
   - User A creates a DID and stores the DID document on Agent A's DID server.
   - User A logs into Agent B's system and sets up A's DID, or calls Agent B's subscription API and sets the subscription DID as A's DID.
 
 2. Identity Authentication Process:
-- Agent A, as the client, initiates an HTTP request carrying DID, nonce, timestamp, signature, and other information in addition to the request data.
-- Agent B, as the server, receives the request and extracts the DID, nonce, timestamp, signature, and other information from the request header.
-- Agent B retrieves the DID document from Agent A's DID server using the DID.
-- Agent B uses the public key in the DID document to verify the client's signature.
-- After verification, Agent B processes the client's business request and returns both the business data and a token.
-- Agent A carries the token in subsequent requests, and Agent B completes client identity authentication by verifying the token.
+  - Agent A, as the client, initiates an HTTP request containing DID, nonce, timestamp, signature, and other information in addition to the request data.
+  - Agent B, as the server, receives the request and extracts the DID, nonce, timestamp, signature, and other information from the request header.
+  - Agent B retrieves the DID document from Agent A's DID server using the DID.
+  - Agent B verifies the client's signature using the public key from the DID document.
+  - After verification passes, Agent B processes the client's business request and returns both the business data and a token.
+  - Agent A includes the token in subsequent requests, and Agent B completes client authentication by verifying the token.
+
 
 From the entire process, we can see that using HTTP, did:wba can complete identity authentication without increasing the number of interactions. It also enables two agents (or applications) to directly call each other's subscription interfaces to subscribe to services during mutual communication, without requiring manual registration in each other's systems. This reduces the barriers to interconnection between agents.
 

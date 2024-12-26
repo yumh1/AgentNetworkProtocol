@@ -108,19 +108,17 @@ sequenceDiagram
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
-
-
-1. 前置条件：
+1. 前置条件：需要让Agent B知道Agent A的DID，有两种方式可以实现，下面两种方式任选一种。
   - 用户A创建DID，并且将DID文档保存在Agent A 的DID server上。
   - 用户A登录到Agent B的系统，并且设置A的DID。或者调用Agent B的订阅API，并设置订阅的DID为A的DID。
 
 2. 身份验证流程：
-- Agent A作为客户端发起HTTP请求，请求中除了请求数据外，还携带DID、nonce、时间戳、签名等信息。
-- Agent B作为server收到请求后，从请求头中提取DID、nonce、时间戳、签名等信息。
-- Agent B根据DID从Agent A的DID server中读取DID文档。
-- Agent B使用DID文档中的公钥对客户端的签名进行验证。
-- 验证通过后，Agent B处理客户端的业务请求，返回业务数据的同时，返回token。
-- Agent A在后续请求中携带token，Agent B通过对token的验证，完成对客户端的身份认证。
+  - Agent A作为客户端发起HTTP请求，请求中除了请求数据外，还携带DID、nonce、时间戳、签名等信息。
+  - Agent B作为server收到请求后，从请求头中提取DID、nonce、时间戳、签名等信息。
+  - Agent B根据DID从Agent A的DID server中读取DID文档。
+  - Agent B使用DID文档中的公钥对客户端的签名进行验证。
+  - 验证通过后，Agent B处理客户端的业务请求，返回业务数据的同时，返回token。
+  - Agent A在后续请求中携带token，Agent B通过对token的验证，完成对客户端的身份认证。
 
 从整个流程可以看出，使用HTTP，did:wba可以在不增加交互次数的情况下，完成身份认证。并且可以实现两个智能体（或应用）在互相通信的过程中，发起者直接调用对方的订阅接口订阅服务。而不用人工去对方系统注册。这降低了两个智能体之间互联互通的门槛。
 
