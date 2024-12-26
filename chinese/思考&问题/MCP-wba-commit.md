@@ -8,7 +8,9 @@ We believe `did:wba` can serve as an excellent complement to OAuth 2.0 for the f
 1. `did:wba` provides security equivalent to OAuth 2.0.  
 2. `did:wba` supports decentralized identity authentication, offering better interoperability.  
 3. `did:wba` requires fewer interactions and has a simpler process.  
--- did:wba可以做到用户使用MCP server，但是无需登录MCP server进行配置，大大降低使用MCP server的门槛。
+
+Using did:wba can lower the barrier for users to access MCP servers. Taking API services like exa as an example, if exa also supports did:wba and provides an API subscription interface, users won't need to log in to exa for registration, configuration, and subscription operations. The MCP client can directly use the API and the user's DID to subscribe to exa's services, then send requests with authentication information to exa's MCP server for identity verification and API calls. This makes it much more convenient for users to utilize various MCP servers.
+
 
 The changes in this code are based on a branch that has not yet been merged into the main branch (PR link: [https://github.com/modelcontextprotocol/specification/pull/101](https://github.com/modelcontextprotocol/specification/pull/101)). We will update our code accordingly if there are any changes to this branch.
 
