@@ -174,11 +174,24 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 
 ### 安全机制
 
-智能体描述协议使用did:wba方法作为其安全机制。did:wba方法是一种基于Web的去中心化标识符（DID）规范，旨在满足跨平台身份认证和智能体通信的需求。
+智能体描述协议当前使用did:wba方法作为其安全机制。did:wba方法是一种基于Web的去中心化标识符（DID）规范，旨在满足跨平台身份认证和智能体通信的需求。
+
+未来可以根据需求扩展其他的身份认证方案。
 
 #### DIDWBASecurityScheme（DID WBA安全方案）
 
-描述基于did:wba方法的安全机制配置的元数据。
+描述基于did:wba方法的安全机制配置的元数据。分配给scheme名称的值必须在智能体描述中包含的词汇表中定义。
+
+对于所有安全方案，任何密钥、密码或其他直接提供访问权限的敏感信息都不得存储在AD中，而应通过其他机制以带外方式共享和存储。AD的目的是描述如何访问智能体（如果消费者已经获得授权），而不是用于授予该授权。
+
+安全方案通常需要额外的认证参数，例如数字签名等。这些信息的位置由与name关联的值指示，通常与in的值结合使用。与in关联的值可以采用以下值之一：
+
+- header：参数将在协议提供的头部中给出，头部的名称由name的值提供。在did:wba方法中，身份验证信息通过Authorization头部传递。
+- query：参数将作为查询参数附加到URI，查询参数的名称由name提供。
+- body：参数将在请求负载的主体中提供，使用的数据模式元素由name提供。
+- cookie：参数存储在由name值标识的cookie中。
+- uri：参数嵌入在URI本身中，由相关交互中定义的URI模板变量（由name的值定义）进行编码。
+- auto：位置作为协议的一部分确定或协商。如果SecurityScheme的in字段设置为auto值，则不应设置name字段。
 
 表2：安全方案级别的词汇术语
 
@@ -186,8 +199,10 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 |---------|------|---------|------|
 | @type | JSON-LD关键字，用于为对象添加语义标签。 | 可选 | string或Array of string |
 | description | 基于默认语言提供额外的（人类可读）信息。 | 可选 | string |
-| scheme | 安全机制的标识，固定为"didwba"。 | 必需 | string |
+| scheme | 安全机制的标识 | 必需 | string |
 | did | 智能体的did:wba标识符。 | 必需 | string |
+| in | 认证参数的位置。 | 必需 | string |
+| name | 认证参数的名称。 | 必需 | string |
 
 以下是一个使用did:wba方法的安全配置示例：
 
@@ -196,7 +211,9 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
     "securityDefinitions": {
         "didwba_sc": {
             "scheme": "didwba",
-            "did": "did:wba:example.com:user:alice"
+            "did": "did:wba:example.com:user:alice",
+            "in": "header",
+            "name": "Authorization"
         }
     },
     "security": "didwba_sc"

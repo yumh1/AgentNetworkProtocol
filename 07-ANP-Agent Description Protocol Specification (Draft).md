@@ -172,20 +172,35 @@ Table 5: Interface Level Vocabulary Terms
 
 ### Security Mechanism
 
-The Agent Description Protocol uses the did:wba method as its security mechanism. The did:wba method is a Web-based Decentralized Identifier (DID) specification designed to meet the needs of cross-platform authentication and agent communication.
+The Agent Description Protocol currently uses the did:wba method as its security mechanism. The did:wba method is a Web-based Decentralized Identifier (DID) specification designed to meet the needs of cross-platform identity authentication and agent communication.
+
+Other authentication schemes may be extended in the future as needed.
 
 #### DIDWBASecurityScheme
 
-Describes metadata for security mechanism configuration based on the did:wba method.
+Metadata describing the configuration of a security mechanism based on the did:wba method. The value assigned to the scheme name must be defined in a vocabulary included in the agent description.
+
+For all security schemes, any keys, passwords, or other sensitive information directly providing access MUST NOT be stored in the AD and should instead be shared and stored out-of-band via other mechanisms. The purpose of an AD is to describe how to access an agent if and only if a Consumer already has authorization, and is not meant to be used to grant that authorization.
+
+Security schemes generally require additional authentication parameters, such as digital signatures. The location of this information is indicated by the value associated with name, often in combination with the value associated with in. The value associated with in can take one of the following values:
+
+- header: The parameter will be given in a header provided by the protocol, with the name of the header provided by the value of name. In the did:wba method, authentication information is passed through the Authorization header.
+- query: The parameter will be appended to the URI as a query parameter, with the name of the query parameter provided by name.
+- body: The parameter will be provided in the body of the request payload, with the data schema element used provided by name.
+- cookie: The parameter is stored in a cookie identified by the value of name.
+- uri: The parameter is embedded in the URI itself, which is encoded in the relevant interaction using a URI template variable defined by the value of name.
+- auto: The location is determined as part of the protocol, or negotiated. If a SecurityScheme's in field is set to auto, then the name field SHOULD NOT be set.
 
 Table 2: Security Scheme Level Vocabulary Terms
 
 | Vocabulary Term | Description | Required | Type |
 |----------------|-------------|----------|------|
-| @type | JSON-LD keyword for adding semantic tags to objects. | Optional | string or Array of string |
-| description | Provides additional (human-readable) information based on default language. | Optional | string |
-| scheme | Security mechanism identifier, fixed as "didwba". | Required | string |
+| @type | JSON-LD keyword to add semantic tags to objects. | Optional | string or Array of string |
+| description | Provides additional (human-readable) information based on the default language. | Optional | string |
+| scheme | Identifier of the security mechanism | Required | string |
 | did | The did:wba identifier of the agent. | Required | string |
+| in | Location of the authentication parameter. | Required | string |
+| name | Name of the authentication parameter. | Required | string |
 
 Here is an example of a security configuration using the did:wba method:
 
@@ -194,11 +209,13 @@ Here is an example of a security configuration using the did:wba method:
     "securityDefinitions": {
         "didwba_sc": {
             "scheme": "didwba",
-            "did": "did:wba:example.com:user:alice"
+            "did": "did:wba:example.com:user:alice",
+            "in": "header",
+            "name": "Authorization"
         }
     },
     "security": "didwba_sc"
 }
 ```
 
-Security configuration in AD is mandatory. A security definition must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent. Security definitions can also be activated at the form element level by including a security member in form objects, which overrides (i.e., completely replaces) the agent-level activation definition.
+Security configuration in AD is required. Security definitions must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent. Security definitions can also be activated at the form element level by including a security member in the form object, which will override (i.e., completely replace) the definitions activated at the agent level.
