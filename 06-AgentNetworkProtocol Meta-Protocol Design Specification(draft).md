@@ -1,4 +1,4 @@
-# 05-AgentNetworkProtocol Meta-Protocol Design Specification
+# AgentNetworkProtocol Meta-Protocol Design Specification
 
 Note:
 - This chapter is in the draft stage and may undergo significant adjustments based on actual conditions.
