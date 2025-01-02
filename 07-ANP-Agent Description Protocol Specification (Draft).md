@@ -233,6 +233,8 @@ Here is an example of a security configuration using the did:wba method:
 
 Security configuration in AD is required. Security definitions must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent.
 
+When security appears at the top level of the AD document, it means that all resources must be accessed using this security mechanism for authentication. When it appears within a specific resource, it means that the resource can only be accessed when this security mechanism is satisfied. If the security specified at the top level differs from that specified within the resource, the security specified within the resource takes precedence.
+
 ## Common Definition Standardization
 
 For a specific product or service, such as a cup of coffee or a toy, we can use a subset of schema.org's Product properties to define a specific type that clarifies how the product should be described. This way, all agents can use unified definitions when constructing product data, facilitating interoperability between different agents.
