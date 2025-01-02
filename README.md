@@ -45,7 +45,7 @@ For further understanding, you can refer to these documents:
 - We've designed a decentralized authentication scheme that leverages existing web infrastructure while maintaining decentralization. We believe this is currently the optimal solution for agent authentication: [did:wba Method Specification](03-did:wba%20Method%20Design%20Specification.md)
   - This is our did:wba service side interface, which can be used to test your own did:wba client and service side: [did:wba service side interface](docs/did:wba%20server%20test%20interface.md)
 - Based on DID, we've designed an end-to-end encrypted communication protocol for agents, distinct from TLS as intermediate relay nodes cannot decrypt the content: [DID-based End-to-End Encrypted Communication](04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md)
-- We've designed a meta-protocol for negotiating communication protocols between agents, enabling them to autonomously negotiate their communication protocols: [Meta-Protocol Design Specification](06-AgentNetworkProtocol%20Meta-Protocol%20Design%20Specification(draft).md)
+- We've designed a meta-protocol for negotiating communication protocols between agents, enabling them to autonomously negotiate their communication protocols: [Meta-Protocol Design Specification](06-ANP-Meta-Protocol%20Design%20Specification(draft).md)
 - Additional specifications are currently under development.
 
 Here are some of our blogs:
