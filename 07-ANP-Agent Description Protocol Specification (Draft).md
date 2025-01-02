@@ -49,6 +49,14 @@ Here is an example of an agent description document:
   "description": "SmartAssistant is an intelligent agent solution for individuals and enterprises, providing various natural language processing and cross-platform connectivity capabilities.",
   "version": "1.0.0",
   "created": "2024-12-31T12:00:00Z",
+  "securityDefinitions": {
+    "didwba_sc": {
+      "scheme": "didwba",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": "didwba_sc",
   "products": [
     {
       "@type": "Product",
@@ -71,10 +79,16 @@ Here is an example of an agent description document:
       "description": "A YAML file for interacting with the intelligent agent through natural language."
     },
     {
+      "@type": "ad:PurchaseInterface",
+      "protocol": "YAML",
+      "url": "https://agent-network-protocol.com/api/purchase-interface.yaml",
+      "description": "A YAML file for interacting with the intelligent agent through purchase."
+    },
+    {
       "@type": "ad:APIInterface",
       "protocol": "JSON-RPC 2.0",
       "url": "https://agent-network-protocol.com/api/api-interface.json",
-      "description": "A JSON-RPC 2.0 file for interacting with the intelligent agent through APIs."
+      "description": "A JSON-RPC 2.0 interface for programmatic interaction with the intelligent agent."
     }
   ]
 }
@@ -154,8 +168,9 @@ For @context, AD instances define the following rules:
 ##### Interface
 Interfaces define ways to interact with the agent. Basic interface types include:
 
-1. NaturalLanguageInterface: Natural language interface for interacting with the agent through natural language
-2. APIInterface: API interface for interacting with the agent through specific API protocols
+1. APIInterface: API interface for interacting with the agent through specific API protocols
+2. NaturalLanguageInterface: Natural language interface for interacting with the agent through natural language
+3. PurchaseInterface: Purchase interface for interacting with the agent through specific purchase protocols
 
 Table 5: Interface Level Vocabulary Terms
 
@@ -196,9 +211,8 @@ Table 2: Security Scheme Level Vocabulary Terms
 | Vocabulary Term | Description | Required | Type |
 |----------------|-------------|----------|------|
 | @type | JSON-LD keyword to add semantic tags to objects. | Optional | string or Array of string |
-| description | Provides additional (human-readable) information based on the default language. | Optional | string |
-| scheme | Identifier of the security mechanism | Required | string |
-| did | The did:wba identifier of the agent. | Required | string |
+| description | Provides additional (human-readable) information. | Optional | string |
+| scheme | Identifier of the security mechanism. | Required | string |
 | in | Location of the authentication parameter. | Required | string |
 | name | Name of the authentication parameter. | Required | string |
 
@@ -209,7 +223,6 @@ Here is an example of a security configuration using the did:wba method:
     "securityDefinitions": {
         "didwba_sc": {
             "scheme": "didwba",
-            "did": "did:wba:example.com:user:alice",
             "in": "header",
             "name": "Authorization"
         }
@@ -218,4 +231,10 @@ Here is an example of a security configuration using the did:wba method:
 }
 ```
 
-Security configuration in AD is required. Security definitions must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent. Security definitions can also be activated at the form element level by including a security member in the form object, which will override (i.e., completely replace) the definitions activated at the agent level.
+Security configuration in AD is required. Security definitions must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent.
+
+## Common Definition Standardization
+
+For a specific product or service, such as a cup of coffee or a toy, we can use a subset of schema.org's Product properties to define a specific type that clarifies how the product should be described. This way, all agents can use unified definitions when constructing product data, facilitating interoperability between different agents.
+
+A similar approach can be used for interfaces. For example, with product purchase interfaces, we can define a unified purchase interface specification that all agents can use, enabling interoperability between different agents.

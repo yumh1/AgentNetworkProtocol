@@ -49,6 +49,14 @@ JSON-LD也需要和其他协议配合使用。比如，接口描述协议可以�
   "description": "SmartAssistant is an intelligent agent solution for individuals and enterprises, providing various natural language processing and cross-platform connectivity capabilities.",
   "version": "1.0.0",
   "created": "2024-12-31T12:00:00Z",
+  "securityDefinitions": {
+    "didwba_sc": {
+      "scheme": "didwba",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": "didwba_sc",
   "products": [
     {
       "@type": "Product",
@@ -69,6 +77,12 @@ JSON-LD也需要和其他协议配合使用。比如，接口描述协议可以�
       "protocol": "YAML",
       "url": "https://agent-network-protocol.com/api/nl-interface.yaml",
       "description": "A YAML file for interacting with the intelligent agent through natural language."
+    },
+    {
+      "@type": "ad:PurchaseInterface",
+      "protocol": "YAML",
+      "url": "https://agent-network-protocol.com/api/purchase-interface.yaml",
+      "description": "A YAML file for interacting with the intelligent agent through purchase."
     },
     {
       "@type": "ad:APIInterface",
@@ -156,8 +170,10 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 ##### Interface（接口）
 接口定义了与智能体进行交互的方式。基本接口类型包括：
 
-1. NaturalLanguageInterface：自然语言接口，用于通过自然语言与智能体交互
-2. APIInterface：API接口，用于通过特定的API协议与智能体交互
+1. APIInterface：API接口，用于通过特定的API协议与智能体交互
+2. NaturalLanguageInterface：自然语言接口，用于通过自然语言与智能体交互
+3. PurchaseInterface: 购买接口，用于通过特定的购买协议与智能体交互
+
 
 表5：接口级别的词汇术语
 
@@ -200,7 +216,6 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 | @type | JSON-LD关键字，用于为对象添加语义标签。 | 可选 | string或Array of string |
 | description | 基于默认语言提供额外的（人类可读）信息。 | 可选 | string |
 | scheme | 安全机制的标识 | 必需 | string |
-| did | 智能体的did:wba标识符。 | 必需 | string |
 | in | 认证参数的位置。 | 必需 | string |
 | name | 认证参数的名称。 | 必需 | string |
 
@@ -211,7 +226,6 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
     "securityDefinitions": {
         "didwba_sc": {
             "scheme": "didwba",
-            "did": "did:wba:example.com:user:alice",
             "in": "header",
             "name": "Authorization"
         }
@@ -220,10 +234,15 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 }
 ```
 
-AD中的安全配置是必需的。必须通过智能体级别的security成员激活安全定义。此配置是与智能体交互所需的安全机制。安全定义也可以在form元素级别通过在form对象中包含security成员来激活，这将覆盖（即完全替换）智能体级别激活的定义。
+AD中的安全配置是必需的。必须通过智能体级别的security成员激活安全定义。此配置是与智能体交互所需的安全机制。
+
+## 常用定义规范化
+
+对于一个具体的产品或服务，比如一杯咖啡、一个玩具，可以使用schema.org的Product属性的子集，定义一个特定的类型，明确产品的描述方式。这样所有智能体在构造产品数据的时候，都可以使用统一的定义，以便在不同的智能体之间进行互操作。
+
+对于接口也可以使用类似的方式。比如产品购买接口，我们可以定义一个统一购买接口规范，所有的智能体都可以使用统一的购买接口，以便在不同的智能体之间进行互操作。
 
 
 
----  为商品、协议制定子类型。进一步降低智能体之间的理解成本，提高一致性。比如购买协议、比如咖啡的描述，比如其他商品的描述。
 
 
