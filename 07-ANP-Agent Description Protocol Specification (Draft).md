@@ -98,26 +98,98 @@ Here is an example of a product description:
 ```json
 {
   "@context": {
-    "@vocab": "https://schema.org/"
+    "@vocab": "https://schema.org/",
+    "ad": "https://agent-network-protocol.com/ad#"
   },
   "@type": "Product",
-  "@id": "https://agent-network-protocol.com/products/ai-assistant-pro",
-  "name": "AI Assistant Pro",
-  "description": "A high-end AI assistant offering advanced customization services.",
-  "version": "2.1.3",
+  "@id": "https://agent-network-protocol.com/agents/lkcoffe/roasted-coconut-latte/roasted-coconut-latte.json",
+  "identifier": "rl-29ab8cf9",
+  "name": "Roasted Coconut Latte",
+  "description": "Roasted at approximately 135°C for a unique coconut sugar flavor, suitable for winter consumption. This drink combines coconut pulp juice and roasted coconut granules, offering five 'zero' light enjoyment health options, using master-customized Espresso from IIAC gold award coffee beans.",
   "brand": {
     "@type": "Brand",
-    "name": "SmartTech"
+    "name": "Luckin Coffee"
   },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Feature",
+      "value": "Coconut pulp juice & roasted coconut granules blend, five 'zero' light enjoyment (0 lactose, 0 creamer, 0 sucrose solids, 0 trans fats, 0 added flavors), master-customized Espresso from IIAC gold award coffee beans"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Slogan",
+      "value": "Winter Special Drink Warm Return"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Additional Info",
+      "value": "Coconut flavor from memory"
+    }
+  ],
   "offers": {
     "@type": "Offer",
-    "price": "99.99",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://agent-network-protocol.com/store/ai-assistant-pro"
+    "price": "13",
+    "priceCurrency": "CNY",
+    "availability": "https://schema.org/InStock"
+  },
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "150",
+    "fatContent": "0g",
+    "sugarContent": "0g",
+    "proteinContent": "0g",
+    "cholesterolContent": "0mg",
+    "carbohydrateContent": "0g"
+  },
+  "ingredients": "Coconut milk, espresso, roasted coconut syrup",
+  "category": "Beverage",
+  "sku": "LK-COCONUT-LATTE",
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://agent-network-protocol.com/agents/lkcoffe/roasted-coconut-latte/instruction.jpg",
+      "caption": "Roasted Coconut Latte - Winter Special Drink Warm Return",
+      "description": "Using 135°C high-temperature roasting process, perfectly blending coconut pulp juice and roasted coconut granules, paired with Espresso made from IIAC gold award coffee beans, bringing a unique blend of roasted coconut aroma and coffee aroma"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://agent-network-protocol.com/agents/lkcoffe/roasted-coconut-latte/feature.jpg",
+      "caption": "Roasted Coconut Latte - Coconut flavor from memory",
+      "description": "Coconut flavor from memory"
+    }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Coffee Enthusiasts",
+    "geographicArea": "China"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Luckin Coffee",
+    "url": "https://luckincoffee.com"
+  },
+  "customizationOptions": {
+    "@type": "ad:CustomizationOptions",
+    "options": [
+      {
+        "@type": "PropertyValue",
+        "name": "Temperature",
+        "isRequired": true,
+        "value": ["Iced", "Hot"]
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Sugar Level",
+        "isRequired": true,
+        "value": ["Standard Sweet", "Less Sweet", "Slightly Sweet", "No Additional Sugar"]
+      }
+    ]
   }
 }
 ```
+
+Note: In the product description, the attributes in the image can be placed in an array to represent multiple values, which is also in accordance with the schema.org specification.
 
 ## Namespaces
 
