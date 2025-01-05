@@ -107,10 +107,13 @@ did:wba:example.com%3A3000
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
     ],
-    "agentDescription": {
-      "id": "did:wba:example.com%3A8800:user:alice#ad",
-      "url": "https://agent-network-protocol.com/agents/example/ad.json"
-    }
+    "service": [
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#ad",
+        "type": "AgentDescription",
+        "serviceEndpoint": "https://agent-network-protocol.com/agents/example/ad.json"
+      }
+    ]
 }
 ```
 
@@ -141,14 +144,15 @@ did:wba:example.com%3A3000
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
 
-- **agentDescription**: 可选字段，定义了与DID主体关联的智能体的描述信息，可以是字符串或对象。
-  - **id**: 智能体描述的唯一标识符。
-  - **url**: 智能体的描述文档的URL。文档遵循规范[ANP-智能体描述协议规范](/chinese/07-ANP-智能体描述协议规范.md)。
+- **service**: 可选字段，定义了与DID主体关联的服务列表。
+  - **id**: 服务的唯一标识符。
+  - **type**: 服务类型。对于智能体描述服务，使用"AgentDescription"。
+  - **serviceEndpoint**: 服务的端点URL。对于智能体描述服务，此URL指向遵循[ANP-智能体描述协议规范](/chinese/07-ANP-智能体描述协议规范.md)的文档。
 
 > 注意：
 > 1. 公钥信息目前支持两种格式，publicKeyJwk和publicKeyMultibase。详细见[https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties)。
 > 2. 验证方法类型定义见[https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types)。目前支持的类型有：EcdsaSecp256k1VerificationKey2019、Ed25519VerificationKey2018、X25519KeyAgreementKey2019。（Ed25519VerificationKey2020、JsonWebKey2020等暂不支持）
-> 3. agentDescription是针对智能体新增的字段，在原有的DID文档中是没有这个字段的。
+> 3. AgentDescription是一个新增的服务类型，用于支持智能体描述文档的发现。
 
 ### 2.5 DID方法操作
 
@@ -482,7 +486,7 @@ sequenceDiagram
 
 验证通过后，服务端可以返回access token，客户端后续请求中携带access token，服务端不用每次验证客户端的身份，而只要验证access token即可。
 
-access token的生成方法同[3.2.4 认证成功返回access token](#323-认证成功返回access_token)。
+access token的生成方法同[3.2.4 认证成功返回access_token](#323-认证成功返回access_token)。
 
 返回json示例：
 
