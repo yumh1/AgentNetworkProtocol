@@ -1,4 +1,4 @@
-# Agent Description Protocol Specification (Draft)
+# ANP-Agent Description Protocol Specification (Draft)
 
 ## Abstract
 
