@@ -106,7 +106,11 @@ Apart from the DID Core specification, most other specifications are still in dr
         "controller": "did:wba:example.com%3A8800:user:alice",
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
-    ]
+    ],
+    "agentDescription": {
+      "id": "did:wba:example.com%3A8800:user:alice#ad",
+      "url": "https://agent-network-protocol.com/agents/example/ad.json"
+    }
 }
 ```
 
@@ -137,10 +141,14 @@ Apart from the DID Core specification, most other specifications are still in dr
     - **controller**: DID that controls this key agreement method
     - **publicKeyMultibase**: Public key information in Multibase format
 
+- **agentDescription**: Optional field that defines the description information of the agent associated with the DID subject, which can be a string or object.
+  - **id**: Unique identifier for the agent description.
+  - **url**: URL of the agent's description document. The document follows the specification [ANP-Agent Description Protocol Specification](/07-ANP-Agent%20Description%20Protocol%20Specification.md).
+
 > Note:
 > 1. Public key information currently supports two formats: publicKeyJwk and publicKeyMultibase. For details, see [https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties).
 > 2. The definitions of verification method types can be found at [https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types). The currently supported types are: EcdsaSecp256k1VerificationKey2019, Ed25519VerificationKey2018, X25519KeyAgreementKey2019. (Ed25519VerificationKey2020, JsonWebKey2020, etc. are not currently supported.)
-
+> 3. agentDescription is a newly added field for agents and is not present in the original DID document.
 
 ### 2.5 DID Method Operations
 

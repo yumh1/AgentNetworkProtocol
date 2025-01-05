@@ -106,7 +106,11 @@ did:wba:example.com%3A3000
         "controller": "did:wba:example.com%3A8800:user:alice",
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
-    ]
+    ],
+    "agentDescription": {
+      "id": "did:wba:example.com%3A8800:user:alice#ad",
+      "url": "https://agent-network-protocol.com/agents/example/ad.json"
+    }
 }
 ```
 
@@ -137,9 +141,14 @@ did:wba:example.com%3A3000
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
 
+- **agentDescription**: 可选字段，定义了与DID主体关联的智能体的描述信息，可以是字符串或对象。
+  - **id**: 智能体描述的唯一标识符。
+  - **url**: 智能体的描述文档的URL。文档遵循规范[ANP-智能体描述协议规范](/chinese/07-ANP-智能体描述协议规范.md)。
+
 > 注意：
 > 1. 公钥信息目前支持两种格式，publicKeyJwk和publicKeyMultibase。详细见[https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties)。
 > 2. 验证方法类型定义见[https://www.w3.org/TR/did-extensions-properties/#verification-method-types](https://www.w3.org/TR/did-extensions-properties/#verification-method-types)。目前支持的类型有：EcdsaSecp256k1VerificationKey2019、Ed25519VerificationKey2018、X25519KeyAgreementKey2019。（Ed25519VerificationKey2020、JsonWebKey2020等暂不支持）
+> 3. agentDescription是针对智能体新增的字段，在原有的DID文档中是没有这个字段的。
 
 ### 2.5 DID方法操作
 
