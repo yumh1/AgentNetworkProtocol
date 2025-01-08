@@ -57,3 +57,5 @@ ontrolled Identifier Document 1.0
 https://www.w3.org/TR/controller-document/#sotd
 
 
+这里定义了proof的字段
+https://www.w3.org/TR/vc-data-integrity/#defn-domain

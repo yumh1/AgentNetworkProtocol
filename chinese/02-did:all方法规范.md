@@ -194,9 +194,9 @@ service在DID文档中用于表达与DID主体或关联实体进行通信的方�
   - 作用让DID验证者校验DID文档和DID服务商是否匹配，比如检测DID服务商是否通过非法手段获取未被授权的DID文档。
 
 ### 3.5 proof
-proof保存对DID文档的签名信息，用于进行DID文档完整性校验。
+proof保存对DID文档的签名信息，用于进行DID文档完整性校验。详细定义：https://www.w3.org/TR/vc-data-integrity/#defn-domain
 
-- type: 签名类型，这里使用的是EcdsaSecp256r1Signature2019。
+- type: 签名类型，这里使用的是EcdsaSecp256r1Signature2019。定义在文档 https://www.w3.org/TR/vc-data-model/ 中。
 
 - created: 签名的创建时间，ISO 8601格式的UTC时间字符串。
 

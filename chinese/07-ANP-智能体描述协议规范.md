@@ -90,7 +90,16 @@ JSON-LD也需要和其他协议配合使用。比如，接口描述协议可以�
       "url": "https://agent-network-protocol.com/api/api-interface.json",
       "description": "A JSON-RPC 2.0 file for interacting with the intelligent agent through APIs."
     }
-  ]
+  ],
+  "proof": {
+    "type": "EcdsaSecp256r1Signature2019",
+    "created": "2024-12-31T15:00:00Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:wba:example.com:user:alice#keys-1",
+    ""
+    "challenge": "1235abcd6789",
+    "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+  }
 }
 
 ```
@@ -213,7 +222,7 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 ##### Agent（智能体）
 智能体是一个物理或虚拟实体的抽象，其元数据和接口通过智能体描述（AD）文档进行描述。虚拟实体可以是一个或多个智能体的组合。
 
-表1：智能体级别的词汇术语
+表1：智能体级别的词汇术语。以下术语可以用于子文档中。
 
 | 词汇术语 | 描述 | 是否必需 | 类型 |
 |---------|------|---------|------|
@@ -232,6 +241,7 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 | interfaces | 智能体提供的所有接口定义。 | 可选 | Array of Interface |
 | security | 安全定义名称集合，从securityDefinitions中选择。访问资源时必须满足所有安全要求。 | 必需 | string或Array of string |
 | securityDefinitions | 命名安全配置集合（仅定义）。仅在security名称-值对中使用时才实际应用。 | 必需 | Map of SecurityScheme |
+| proof | 完整性校验信息，防止AD文档被篡改 | 可选 | Proof |
 
 对于@context，AD实例定义了以下规则：
 
@@ -310,6 +320,22 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 AD中的安全配置是必需的。必须通过智能体级别的security成员激活安全定义。此配置是与智能体交互所需的安全机制。
 
 当security出现在AD文档的顶层时，表示所有的资源在访问是必须使用此安全机制进行验证。出现在某个资源内部时，表示只有在满足此安全机制的情况下才能访问该资源。如果顶层指定的security和资源中指定的security不相同，以资源中指定的security为准。
+
+### Proof（完整性校验）
+
+为了防止AD文档被恶意篡改、假冒或重复使用，我们在AD文档中增加了校验信息Proof。Proof定义可以参考规范：[https://www.w3.org/TR/vc-data-integrity/#defn-domain](https://www.w3.org/TR/vc-data-integrity/#defn-domain)。
+
+其中：
+- domain: 定义了AD文档的存储的域名。使用者在获得文档后，必须要判断获得文档的域名是否与domain中定义的域名相同。如果不相同，则此文档可能是假冒的。
+- challenge: 定义了校验的挑战信息，用于防止篡改。在指定domain的时候，需要同时指定challenge。
+- verificationMethod：定义了校验的方法，当前使用的是did:wba文档中的验证方法。未来可以扩展更多的方法。
+- proofValue: 携带数字签名。生成规则如下：
+  - 生成不含有proofValue字段的网站的AD文档
+  - 使用[JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785)对上面的AD文档进行规范化，生成规范化字符串。
+  - 使用SHA-256算法对规范化字符串进行哈希，生成hash值。
+  - 使用客户端的私钥对hash值进行签名，生成签名值，并进行URL 安全的Base64编码。
+  - 签名校验过程是上面过程的反向操作。
+
 
 ## 常用定义规范化
 

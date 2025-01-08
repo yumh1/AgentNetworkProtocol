@@ -90,7 +90,16 @@ Here is an example of an agent description document:
       "url": "https://agent-network-protocol.com/api/api-interface.json",
       "description": "A JSON-RPC 2.0 interface for programmatic interaction with the intelligent agent."
     }
-  ]
+  ],  
+  "proof": {
+    "type": "EcdsaSecp256r1Signature2019",
+    "created": "2024-12-31T15:00:00Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:wba:example.com:user:alice#keys-1",
+    ""
+    "challenge": "1235abcd6789",
+    "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+  }
 }
 ```
 
@@ -229,6 +238,7 @@ Table 1: Agent Level Vocabulary Terms
 | interfaces | All interface definitions provided by the agent. | Optional | Array of Interface |
 | security | Collection of security definition names, selected from securityDefinitions. All security requirements must be met when accessing resources. | Required | string or Array of string |
 | securityDefinitions | Collection of named security configurations (definitions only). Only applied when used in security name-value pairs. | Required | Map of SecurityScheme |
+| proof | Integrity check information to prevent AD documents from being tampered with or reused. | Optional | Proof |
 
 For @context, AD instances define the following rules:
 
@@ -306,6 +316,21 @@ Here is an example of a security configuration using the did:wba method:
 Security configuration in AD is required. Security definitions must be activated through the security member at the agent level. This configuration is the security mechanism required for interacting with the agent.
 
 When security appears at the top level of the AD document, it means that all resources must be accessed using this security mechanism for authentication. When it appears within a specific resource, it means that the resource can only be accessed when this security mechanism is satisfied. If the security specified at the top level differs from that specified within the resource, the security specified within the resource takes precedence.
+
+### Proof (Integrity Check)
+
+To prevent malicious tampering, impersonation, or reuse of AD documents, we have added verification information Proof to AD documents. The Proof definition can refer to the specification: [https://www.w3.org/TR/vc-data-integrity/#defn-domain](https://www.w3.org/TR/vc-data-integrity/#defn-domain).
+
+Where:
+- domain: Defines the domain name where the AD document is stored. After obtaining the document, users must verify whether the domain name from which they obtained the document matches the domain name defined in the domain field. If they do not match, the document may be fraudulent.
+- challenge: Defines the challenge information for verification, used to prevent tampering. When specifying the domain, the challenge must also be specified.
+- verificationMethod: Defines the verification method, currently using the verification method from the did:wba document. More methods can be extended in the future.
+- proofValue: Carries the digital signature. The generation rules are as follows:
+  - Generate the website's AD document without the proofValue field
+  - Use [JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785) to canonicalize the above AD document, generating a canonicalized string.
+  - Use the SHA-256 algorithm to hash the canonicalized string, generating a hash value.
+  - Use the client's private key to sign the hash value, generate a signature value, and perform URL-safe Base64 encoding.
+  - The signature verification process is the reverse of the above process.
 
 ## Common Definition Standardization
 
