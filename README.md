@@ -65,7 +65,9 @@ Both protocol development and open-source implementation are progressing in the 
 
 - [x] Build identity authentication and end-to-end encrypted communication protocol and implementation. This foundational core is essentially complete in both protocol design and code.
 - [x] Meta-protocol design and implementation. Protocol design and code development are basically complete.
-- [ ] Application layer protocol design and development. Currently in progress.
+- [x] Application layer protocol design and development.
+  - [x] Support for agent description.
+  - [ ] Support for agent discovery.
 
 To establish Agent Network Protocol(ANP) as an industry standard, we plan to form an ANP Standardization Committee at an appropriate time, working towards recognition by international standardization organizations like W3C.
 
@@ -85,4 +87,3 @@ We welcome contributions of any form. Please refer to [CONTRIBUTING.md](CONTRIBU
 ### License
 
 This project is open-sourced under the MIT License. See [LICENSE](LICENSE) file for details.
-

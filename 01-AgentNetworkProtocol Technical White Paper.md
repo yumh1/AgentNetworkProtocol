@@ -117,6 +117,8 @@ To reduce communication costs and improve interaction experience, agents should 
 
 The **Agent Capability and Supported Protocol Description Specification** clarifies how agents describe their capabilities and supported protocols, as well as the protocol information required to invoke these capabilities. Agents can publish these description documents on the internet or specialized agent search services for other agents to query and invoke.
 
+In the design of agent description specifications, we have used many semantic web standards, including RDF (Resource Description Framework), JSON-LD (JSON Linked Data), schema.org, etc. Repeatedly utilizing these technologies can enhance the consistency of data understanding between two agents.
+
 The **Application Protocol Management Specification** defines the document format, metadata (such as protocol version, release date, creator, etc.), and methods for querying and downloading application protocol documents. Application protocols should include the following content:
 
 - **Protocol Version**: Indicates the iteration and update information of the protocol, ensuring both parties use compatible protocol versions.
