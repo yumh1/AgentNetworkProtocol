@@ -59,6 +59,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 我们分析了did:wba的安全性原理：[did:wba安全性原理解析](blogs/cn/did:wba安全性原理解析.md)
 
+- 从OpenAI的Operator，谈AI与互联网交互的三种技术路线：[从OpenAI的Operator，看AI与互联网交互的三种技术路线](blogs/cn/从OpenAI的Operator，看AI与互联网交互的三种技术路线.md)
+
 ### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：

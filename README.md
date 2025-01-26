@@ -59,6 +59,8 @@ Here are some of our blogs:
 
 - We analyzed the security principles of did:wba: [Security Principles of did:wba](blogs/did:wba-security-principles.md)
 
+- Three Technical Approaches to AI-Internet Interaction: [Three Technical Approaches to AI-Internet Interaction](blogs/Three_Technical_Approaches_to_AI_Internet_Interaction.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
