@@ -73,3 +73,7 @@ We are taking a somewhat different path from MCP, and whether or not we succeed,
 Finally, if you're also interested in our protocol, please contact us. Especially if you're involved in AI phones, AI assistants, or agent framework products or development, I'd love to discuss our vision for the future.
 
 Welcome to connect with me on WeChat: flow10240, email: chgaowei@gmail.com
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

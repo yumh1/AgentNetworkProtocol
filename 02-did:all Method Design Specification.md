@@ -412,3 +412,7 @@ Additionally, in the next version, we plan to add a multi-signature mechanism to
 
 [3] W3C DIDs: Redefining the Authority Structure of Digital Identity Standards, [https://yurenju.blog/posts/2024-01-01_w3c-dids-redefining-identity-authority/](https://yurenju.blog/posts/2024-01-01_w3c-dids-redefining-identity-authority/)
 
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

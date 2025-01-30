@@ -150,3 +150,7 @@ We have completed development and open-sourced it. For details, please refer to:
 [DID-CORE](https://www.w3.org/TR/did-core/)
 
 [AgentNetworkProtocol Technical White Paper](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/english/01-AgentNetworkProtocol-technical-white-paper.md)
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

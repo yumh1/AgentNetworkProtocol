@@ -110,3 +110,6 @@ Private keys should be rotated regularly to maintain security.
 did:wba's security is founded on modern cryptography, utilizing asymmetric encryption, secure DID Document storage and verification processes, and regular private key rotation to ensure reliable and secure identity verification.
 
 Its fundamental principle remains rooted in the robust security of asymmetric encryption. At the infrastructure level, it relies on existing mature systems like DNS, Public Key Infrastructure, and HTTPS protocols rather than introducing new infrastructure. 
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

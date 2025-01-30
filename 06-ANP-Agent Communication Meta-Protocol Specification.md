@@ -677,3 +677,7 @@ This specification mainly discusses the design of the meta-protocol and the desi
 At the same time, we believe that with the support of the meta-protocol, numerous communication protocols achieving consensus among agents will emerge on the agent network, far exceeding the number of protocols formulated by humans.
 
 However, how to design a reasonable protocol election consensus algorithm, how to incentivize agents to report their negotiated consensus protocols, and how to enable agents to easily obtain consensus protocols negotiated by other agents still require further discussion.
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

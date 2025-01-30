@@ -88,4 +88,8 @@ We welcome contributions of any form. Please refer to [CONTRIBUTING.md](CONTRIBU
 
 ### License
 
-This project is open-sourced under the MIT License. See [LICENSE](LICENSE) file for details.
+This project is open-sourced under the MIT License. For details, please refer to the [LICENSE](LICENSE) file. Copyright belongs to Gaowei Chang. Any user of this project must retain the original copyright notice and license file.
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

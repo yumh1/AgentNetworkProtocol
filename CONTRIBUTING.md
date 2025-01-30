@@ -36,3 +36,7 @@ If you have any questions, feel free to contact us through the following channel
 - Discord Community: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
 
 Thank you again for your attention and support for the project!
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

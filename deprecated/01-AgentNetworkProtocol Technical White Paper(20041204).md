@@ -247,3 +247,7 @@ This paper introduces an innovative cross-platform identity authentication and e
 
 
 
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

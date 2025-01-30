@@ -45,3 +45,7 @@ Relevant documentation links:
   - [Security Principles of did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba-security-principles.md)
   - [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API Keys, and did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
+
+## 版权声明  
+Copyright (c) 2024 GaoWei Chang  
+本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  

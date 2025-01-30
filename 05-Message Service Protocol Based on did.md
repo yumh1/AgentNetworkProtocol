@@ -345,3 +345,7 @@ For all WSS messages, there is a general response message, whose main purpose is
 When internal fields of DID are modified, or when the private key corresponding to DID is compromised and the original DID document needs to be deprecated, a DID notification message needs to be sent to notify other associated DIDs to query the DID document again in a timely manner.
 To resist potential malicious attacks, DID update notifications will be launched together with the multi-signature mechanism of DID documents, planned to be supported in the next version. This way, even if one key is compromised, we can still safely notify associated parties.
 
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

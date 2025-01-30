@@ -533,3 +533,7 @@ Although the current version is based on the WebSocket protocol to leverage exis
 
 Through this scheme, we aim to achieve secure and efficient encrypted communication between users on different platforms and provide a reliable technical foundation for decentralized identity authentication. Future work will include optimizing the existing protocol, adding more security features, and expanding to more application scenarios.
 
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

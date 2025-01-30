@@ -337,3 +337,7 @@ Where:
 For a specific product or service, such as a cup of coffee or a toy, we can use a subset of schema.org's Product properties to define a specific type that clarifies how the product should be described. This way, all agents can use unified definitions when constructing product data, facilitating interoperability between different agents.
 
 A similar approach can be used for interfaces. For example, with product purchase interfaces, we can define a unified purchase interface specification that all agents can use, enabling interoperability between different agents.
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

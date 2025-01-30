@@ -188,3 +188,7 @@ DID 方法定义了如何创建、解析、更新和停用 DID 与 DID 文档，
 
 [^7]: A Scalable Communication Protocol for Networks of Large Language Models, [https://arxiv.org/pdf/2410.11905](https://arxiv.org/pdf/2410.11905)
 
+
+## 版权声明  
+Copyright (c) 2024 GaoWei Chang  
+本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  
