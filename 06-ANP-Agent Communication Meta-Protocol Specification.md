@@ -2,6 +2,7 @@
 
 Note:
 - This chapter is in the draft stage and may undergo significant adjustments based on actual conditions.
+- The current protocol implementation focuses on end-to-end message encryption and will later be modified to a solution based on did:wba and HTTP.
 
 ## Background
 
