@@ -55,6 +55,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 这是一个did:wba的简要介绍：[did:wba-基于web的去中心化身份标识符](blogs/did:wba-基于web的去中心化身份标识符.md)
 
+- 这是Anthropic MCP与我们设计的ANP之间的区别： [MCP与ANP对比：智能体需要什么样的通信协议](blogs/cn/MCP与ANP对比：智能体需要什么样的通信协议.md)
+
 - 我们对比了did:wba与OpenID Connect、API keys等技术方案的区别：[did:wba对比OpenID Connect、API keys](blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)
 
 - 我们分析了did:wba的安全性原理：[did:wba安全性原理解析](blogs/cn/did:wba安全性原理解析.md)

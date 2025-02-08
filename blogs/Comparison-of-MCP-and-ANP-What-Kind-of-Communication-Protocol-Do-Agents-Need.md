@@ -32,7 +32,7 @@ Note: For why communication protocols are needed instead of "Computer Use," refe
 
 **AgentNetworkProtocol (ANP):** An open protocol framework designed for the Agentic Web. ANP implements decentralized identity authentication, allowing any two agents to connect. It also designs an agent description specification for more efficient data exchange and collaboration among agents. [ANP on GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
 
-In the current landscape of open-source projects for agent communication protocols, besides MCP, our designed ANP is likely the earliest released open-source communication protocol for agents. We initially released the code, with the protocol in Feishu documents, later migrated to GitHub.
+In the current landscape of agent communication protocols, ANP is possibly the first open-source communication protocol specifically designed for agents on the internet. We initially released the code first, with the protocol documentation in Feishu, which was later migrated to GitHub.
 
 If you know of other good open-source projects, feel free to introduce them to me.
 
@@ -206,5 +206,6 @@ Of course, MCP may also evolve and iterate, which we welcome. No organization or
 
 ## Common Questions
 
-Regarding the relationship with MCP, several questions are frequently asked:
-- Why develop ANP after MCP was released: Because we have different views on the future.
+Regarding the relationship with MCP, there are often a few questions:
+- Why create ANP after MCP already exists: When we started, MCP had not been released. Strictly speaking, we should be the first open-source communication protocol for agents, and we released earlier.
+- Why continue with ANP after MCP was released: Because we have a different vision for the future.

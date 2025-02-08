@@ -55,6 +55,8 @@ Here are some of our blogs:
 
 - A brief introduction to did:wba: [did:wba - Web-Based Decentralized Identifiers](blogs/did:wba,%20a%20Web-based%20Decentralized%20Identifier.md)
 
+- This is the difference between Anthropic MCP and our designed ANP: [Comparison of MCP and ANP: What Kind of Communication Protocol Do Agents Need](blogs/Comparison-of-MCP-and-ANP-What-Kind-of-Communication-Protocol-Do-Agents-Need.md)
+
 - We compared the differences between did:wba and technologies like OpenID Connect and API keys: [Comparison of did:wba with OpenID Connect and API keys](blogs/Comparison%20of%20did:wba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
 - We analyzed the security principles of did:wba: [Security Principles of did:wba](blogs/did:wba-security-principles.md)
