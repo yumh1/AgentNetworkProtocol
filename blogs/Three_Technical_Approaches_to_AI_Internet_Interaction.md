@@ -6,12 +6,13 @@ While there are numerous articles explaining what Operator is, you can also refe
 
 In essence, Operator can control your browser or computer to help complete various daily tasks. Its greatest significance lies in its ability to bridge AI with the current internet ecosystem.
 
-This article compares and summarizes three emerging technical approaches for AI-internet interaction. Here are the key points:
+This article compares and summarizes four emerging technical approaches for AI-internet interaction. Here are the key points:
 
-- The current technical approaches for AI-internet interaction include: Computer Use Agent, Headless Browser, and API/Protocol.
+- The current technical approaches for AI-internet interaction include: Computer Use Agent, Headless Browser, Client-side API, and Remote API/Protocol.
 - Computer Use Agent (CUA): Enables AI to quickly gain internet access capabilities without requiring modifications to existing applications. However, this technology has high operational costs and cannot achieve task asynchronization.
 - Headless Browser: Supports asynchronous task execution with lower operational costs but is limited to web applications and requires significant maintenance effort for web integration.
-- API/Protocol: This is AI's most efficient way to access the internet, supporting asynchronous execution, low operational costs, and automated authentication. However, it requires application upgrades and has high integration costs.
+- Client-side API: The mainstream solution for AI on mobile devices, where apps expose APIs to AI assistants (like Siri) on the phone. This approach enables asynchronous task execution and provides good user experience but is limited to mobile and app scenarios and depends on app openness.
+- Remote API/Protocol: This is AI's most efficient way to access the internet, supporting asynchronous execution, low operational costs, and automated authentication. However, it requires application upgrades and has high integration costs.
 - Short-term perspective: Despite various limitations, both CUA and headless browser technologies can quickly deliver business value in appropriate scenarios.
 - Long-term perspective: We strongly believe in the API/Protocol approach, as it offers the best user experience and lowest operational costs. While system modification costs are currently high, we expect them to decrease as AI programming capabilities improve. We also believe that standard protocols will emerge.
 - Additionally, we are actively exploring Protocol implementation possibilities and have made significant progress.
@@ -108,7 +109,53 @@ Another approach with headless browsers is feeding complete page data into LLMs 
 
 Mini-program platforms might be a good implementation scenario for headless browsers. Mini-programs are essentially web applications. If the platform can solve account interconnection issues, it could build an AI assistant that directly uses user accounts to interact with mini-programs through headless browsers without human intervention.
 
-## API/Protocol
+## Client-side API
+
+Client-side API technology enables AI to interact with the internet through standardized device capability interfaces exposed by the operating system, allowing direct access to sensors, application data, and hardware functions. Its core principle is establishing system-level intent interaction protocols that enable AI to interact precisely with applications without simulating human operations.
+
+**Technical Implementation Principles**
+
+1. Intent Registration Mechanism
+
+Applications declare "skill intents" (like "send message", "create schedule") to the operating system, defining parameter formats and permission scopes to form a global capability directory. iOS 18's App Intents framework already supports 200+ core function interface registrations.
+
+2. Semantic Mapping Engine
+
+The system's built-in Natural Language Understanding (NLU) module converts user instructions ("send the photo I just took to the work group") into structured API call chains, automatically linking Photo API, Contacts API, and Instant Messaging API.
+
+3. Security Sandbox Mechanism
+
+Cross-application data transfer is implemented through Trusted Execution Environment (TEE). After obtaining one-time user authorization, AI can combine multiple API calls (such as accessing location services and notes simultaneously), but raw data never leaves the device.
+
+**Advantages**
+
+1. Zero Interface Modification Cost
+
+Applications only need to register and implement standard interfaces without modifying existing UI; most changes are internal functionality modifications.
+
+2. True Asynchronous Task Processing
+
+AI can combine multiple API calls in the background (like booking flights, hotels, car rentals), and users can interrupt at any time.
+
+3. Lower Operational Costs Than Computer Use Agent
+
+No need for AI visual capabilities, resulting in lower operational costs compared to the Computer Use Agent approach.
+
+**Disadvantages**
+
+1. Severe Ecosystem Fragmentation
+
+Interface standards vary across platforms and manufacturers (Android vs iOS App Intents vs HarmonyOS Atomic Services).
+
+2. Application Openness Issues
+
+Applications have competitive relationships with phone manufacturers, making it difficult for apps to open core data to mobile platforms.
+
+3. Scenario Limitations
+
+Currently more applications are on mobile phones, and Chatbots without mobile platform access cannot use this approach.
+
+## Remote API/Protocol
 
 This approach allows AI to interact directly with the internet through APIs or protocols. For example, if a system provides external APIs, AI can use function calls or tools capabilities to retrieve information or perform interactive operations.
 
@@ -152,7 +199,7 @@ However, both international and domestic standardization organizations like W3C 
 
 ## Conclusion
 
-Looking at these three technical approaches holistically:
+Looking at these four technical approaches holistically:
 
 In the short term, despite various limitations, Computer Use Agent (CUA) and headless browser technologies can quickly deliver business value in appropriate scenarios.
 
