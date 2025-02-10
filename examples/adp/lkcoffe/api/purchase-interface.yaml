@@ -1,0 +1,22 @@
+# 购买接口配置
+interface:
+  type: Purchase
+  description: "购买指定的商品或服务"
+  version: "1.0"
+  endpoints:
+    - name: "purchase"
+      description: "购买操作"
+      method: "POST"
+      path: "/agents/lkcoffe/api/purchase"
+      parameters:
+        - name: "identifier"
+          type: "string"
+          required: true
+          description: "所购买商品或服务在描述文档中的identifier"
+        - name: "customizationOptions"
+          type: "object"
+          required: true
+          description: "用户选择的商品或服务的自定义选项"
+          additionalProperties:
+            type: "string"
+            description: "用户选择的选项值，键为选项名称，值为用户选择的值"

@@ -1,0 +1,19 @@
+# 自然语言接口配置
+interface:
+  type: NaturalLanguage
+  description: "用于通过自然语言与智能代理交互的接口。"
+  version: "1.0"
+  endpoints:
+    - name: "askQuestion"
+      description: "使用自然语言提问并获取自然语言回答，支持SSE返回。"
+      method: "POST"
+      path: "/agents/lkcoffe/api/ask"
+      parameters:
+        - name: "question"
+          type: "string"
+          required: true
+      response:
+        type: "string"
+        description: "自然语言回答，支持SSE返回。"
+      sseSupport: true
+      sseDescription: "此接口支持服务器发送事件（SSE），用于实时自然语言数据流。"

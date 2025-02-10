@@ -1,0 +1,15 @@
+# 购买接口配置
+interface:
+  type: Booking
+  description: "用于预订指定的商品或服务"
+  version: "1.0"
+  endpoints:
+    - name: "Booking"
+      description: "预订操作"
+      method: "POST"
+      path: "/agents/hotel/api/booking"
+      parameters:
+        - name: "identifier"
+          type: "string"
+          required: true
+          description: "指定商品或服务在描述文档中的identifier"

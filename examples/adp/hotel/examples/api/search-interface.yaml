@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  title: Hotel Room Search Interface
+  version: "1.0.0"
+  description: |
+    This API allows searching for available hotel rooms based on check-in and check-out dates.
+    The response can either contain a URL to a JSON-LD file or the JSON-LD data directly.
+
+paths:
+  /agents/hotel/api/search:
+    post:
+      summary: Search available hotel rooms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                checkInDate:
+                  type: string
+                  format: date
+                  description: Required. Check-in date in yyyy-MM-dd format
+                checkOutDate:
+                  type: string
+                  format: date
+                  description: Required. Check-out date in yyyy-MM-dd format
+              required:
+                - checkInDate
+                - checkOutDate
+      responses:
+        '200':
+          description: A successful response containing either a URL to hotel room details in JSON-LD format or the JSON-LD data itself.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonldUrls:
+                    type: array
+                    description: URLs to the JSON-LD files containing HotelRoom data as defined by schema.org
+                    items:
+                      type: string
+                      format: uri
+                  jsonldData:
+                    type: array
+                    description: JSON-LD formatted hotel room data
+                    items:
+                      $ref: '#/components/schemas/HotelRoom'
+                required:
+                  - jsonldUrls
+components:
+  schemas:
+    HotelRoom:
+      type: object
+      description: JSON-LD formatted hotel room data following schema.org's HotelRoom specification.
+      properties:
+        "@context":
+          type: object
+          description: JSON-LD context defining vocabulary.
+          example:
+            "@vocab": "https://schema.org/"
+            "ad": "https://service.agent-network-protocol.com/ad#"
+        "@type":
+          type: string
+          example: "HotelRoom"
+        "@id":
+          type: string
+          format: uri
+          example: "https://service.agent-network-protocol.com/agents/hotel/examples/hotel_room.json"
+        identifier:
+          type: string
+          example: "room-deluxe-001"
+        roomName:
+          type: string
+          example: "豪华海景房"
+        name:
+          type: string
+          example: "Deluxe Ocean View Room"
+        description:
+          type: string
+          example: "Spacious deluxe room with breathtaking ocean views, featuring modern amenities and elegant design."
+        useableArea:
+          type: string
+          example: "45 square meters"
+        capacity:
+          type: string
+          example: "3"
+        floor:
+          type: string
+          example: "15-20"
+        bedType:
+          type: string
+          example: "1 King Bed"
+        windowType:
+          type: string
+          example: "Floor-to-ceiling windows"
+        image:
+          type: array
+          items:
+            type: object
+            properties:
+              "@type":
+                type: string
+                example: "ImageObject"
+              url:
+                type: string
+                format: uri
+                example: "https://service.agent-network-protocol.com/agents/hotel/examples/deluxe-room-1.jpg"
+              caption:
+                type: string
+                example: "豪华海景房 - 全景"
+              description:
+                type: string
+                example: "Luxurious room featuring floor-to-ceiling windows with panoramic ocean views"
+        facilities:
+          type: array
+          items:
+            type: object
+            properties:
+              "@type":
+                type: string
+                example: "LocationFeatureSpecification"
+              name:
+                type: string
+                example: "空调"
+              value:
+                type: boolean
+                example: true
+        offers:
+          type: array
+          items:
+            type: object
+            properties:
+              "@type":
+                type: string
+                example: "Offer"
+              identifier:
+                type: string
+                example: "RP20250204001"
+              name:
+                type: string
+                example: "标准价"
+              priceSpecification:
+                type: object
+                properties:
+                  "@type":
+                    type: string
+                    example: "UnitPriceSpecification"
+                  price:
+                    type: number
+                    format: float
+                    example: 1280.00
+                  priceCurrency:
+                    type: string
+                    example: "CNY"
+                  unitCode:
+                    type: string
+                    example: "DAY"
+                  priceType:
+                    type: string
+                    example: "https://schema.org/InvoicePrice"
+                  valueAddedTaxIncluded:
+                    type: boolean
+                    example: true
+              priceValidUntil:
+                type: string
+                format: date
+                example: "2025-12-31"
+              seller:
+                type: object
+                properties:
+                  "@type":
+                    type: string
+                    example: "Hotel"
+                  name:
+                    type: string
+                    example: "Sheraton Chuzhou Hotel"
+      required:
+        - "@context"
+        - "@type"
+        - "@id"
+        - identifier
+        - name
+        - description
+        - offers
