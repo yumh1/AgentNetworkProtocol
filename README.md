@@ -13,7 +13,7 @@ AgentNetworkProtocol(ANP) aims to become **the HTTP of the Intelligent Agent Int
 Our vision is to **define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of intelligent agents**.
 
 <p align="center">
-  <img src="/images/agentic-web.png" width="50%" alt="Agentic Web"/>
+  <img src="/images/agentic-web2.png" width="50%" alt="Agentic Web"/>
 </p>
 
 While current internet infrastructure is well-established, there's still a lack of optimal communication and connection solutions for the specific needs of agent networks. We are committed to addressing three major challenges faced by agent networks:

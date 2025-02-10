@@ -8,36 +8,36 @@
   <!-- Node Positioning on Circumference -->
   <g>
     <!-- Large Tech Providers -->
-    <circle cx="680" cy="180" r="40" fill="#5A9" stroke="#2C3E50" stroke-width="2"/>
-    <text x="680" y="180" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">OpenAI</text>
+    <circle cx="680" cy="180" r="30" fill="#5A9" stroke="#2C3E50" stroke-width="2"/>
+    <text x="680" y="180" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
-    <circle cx="700" cy="420" r="40" fill="#4285F4" stroke="#2C3E50" stroke-width="2"/>
-    <text x="700" y="420" text-anchor="middle" dy="5" fill="white" font-weight="bold">Google</text>
+    <circle cx="700" cy="420" r="30" fill="#4285F4" stroke="#2C3E50" stroke-width="2"/>
+    <text x="700" y="420" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
 
-    <circle cx="120" cy="420" r="40" fill="#9370DB" stroke="#2C3E50" stroke-width="2"/>
-    <text x="120" y="420" text-anchor="middle" dy="5" fill="white" font-weight="bold">Anthropic</text>
+    <circle cx="120" cy="420" r="30" fill="#9370DB" stroke="#2C3E50" stroke-width="2"/>
+    <text x="120" y="420" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
 
-    <circle cx="100" cy="180" r="40" fill="#F0A500" stroke="#2C3E50" stroke-width="2"/>
-    <text x="100" y="180" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Microsoft</text>
+    <circle cx="100" cy="180" r="30" fill="#F0A500" stroke="#2C3E50" stroke-width="2"/>
+    <text x="100" y="180" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
     <!-- Startups -->
-    <circle cx="400" cy="560" r="40" fill="#FF6B6B" stroke="#2C3E50" stroke-width="2"/>
-    <text x="400" y="560" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="10">Amazon</text>
+    <circle cx="400" cy="560" r="30" fill="#FF6B6B" stroke="#2C3E50" stroke-width="2"/>
+    <text x="400" y="560" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
     <circle cx="400" cy="40" r="30" fill="#4ECDC4" stroke="#2C3E50" stroke-width="2"/>
-    <text x="400" y="40" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="10">Cohere</text>
+    <text x="400" y="40" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
-    <circle cx="220" cy="520" r="25" fill="#45B7D1" stroke="#2C3E50" stroke-width="2"/>
-    <text x="220" y="520" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="9">Mistral</text>
+    <circle cx="220" cy="520" r="30" fill="#45B7D1" stroke="#2C3E50" stroke-width="2"/>
+    <text x="220" y="520" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
-    <circle cx="580" cy="520" r="35" fill="#FDCB6E" stroke="#2C3E50" stroke-width="2"/>
-    <text x="580" y="520" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="9">X.ai</text>
+    <circle cx="580" cy="520" r="30" fill="#FDCB6E" stroke="#2C3E50" stroke-width="2"/>
+    <text x="580" y="520" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
 
-    <circle cx="220" cy="80" r="25" fill="#6C5CE7" stroke="#2C3E50" stroke-width="2"/>
-    <text x="220" y="80" text-anchor="middle" dy="5" fill="white" font-weight="bold" font-size="9">Jasper</text>
+    <circle cx="220" cy="80" r="30" fill="#6C5CE7" stroke="#2C3E50" stroke-width="2"/>
+    <text x="220" y="80" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
 
-    <circle cx="580" cy="80" r="25" fill="#FF8A5B" stroke="#2C3E50" stroke-width="2"/>
-    <text x="580" y="80" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="9">Scale AI</text>
+    <circle cx="580" cy="80" r="30" fill="#FF8A5B" stroke="#2C3E50" stroke-width="2"/>
+    <text x="580" y="80" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold">Agent</text>
   </g>
 
   <!-- Comprehensive Interconnection Lines -->
@@ -77,6 +77,6 @@
   <!-- Central Protocol Label -->
   <text x="400" y="300" text-anchor="middle" font-size="20" font-weight="bold" fill="#2C3E50">
     Agentic Web
-    <tspan x="400" dy="25" font-size="16">Interconnection Protocol</tspan>
+    <tspan x="400" dy="25" font-size="16">Agent Network Protocol</tspan>
   </text>
 </svg>

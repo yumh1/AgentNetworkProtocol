@@ -13,7 +13,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 我们的愿景是**定义智能体之间的连接方式，为数十亿智能体构建一个开放、安全、高效的协作网络**。
 
 <p align="center">
-  <img src="/images/agentic-web.png" width="50%" alt="Agentic Web"/>
+  <img src="/images/agentic-web2.png" width="50%" alt="Agentic Web"/>
 </p>
 
 当前互联网基础设施虽已相当完善，但针对智能体网络的特殊需求，当下仍缺乏最适合的通信和连接方案。我们致力于解决智能体网络面临的三大挑战：
