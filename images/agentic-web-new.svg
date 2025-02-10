@@ -11,36 +11,36 @@
   <!-- Node Positioning on Circumference -->
   <g>
     <!-- 0度 -->
-    <circle cx="650" cy="300" r="30" fill="#66B2FF"/>
-    <text x="650" y="300" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="12">Assistant</text>
+    <circle cx="650" cy="300" r="36" fill="#66B2FF"/>
+    <text x="650" y="300" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" >Assistant</text>
 
     <!-- 45度 -->
-    <circle cx="577" cy="123" r="30" fill="#0052CC"/>
-    <text x="577" y="123" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="577" cy="123" r="36" fill="#0052CC"/>
+    <text x="577" y="123" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
 
     <!-- 90度 -->
-    <circle cx="400" cy="50" r="30" fill="#0052CC"/>
-    <text x="400" y="50" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="400" cy="50" r="36" fill="#0052CC"/>
+    <text x="400" y="50" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
 
     <!-- 135度 -->
-    <circle cx="223" cy="123" r="30" fill="#0052CC"/>
-    <text x="223" y="123" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="223" cy="123" r="36" fill="#0052CC"/>
+    <text x="223" y="123" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
 
     <!-- 180度 -->
-    <circle cx="150" cy="300" r="30" fill="#66B2FF"/>
-    <text x="150" y="300" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" font-size="12">Assistant</text>
+    <circle cx="150" cy="300" r="36" fill="#66B2FF"/>
+    <text x="150" y="300" text-anchor="middle" dy="5" fill="#2C3E50" font-weight="bold" >Assistant</text>
 
     <!-- 225度 -->
-    <circle cx="223" cy="477" r="30" fill="#0052CC"/>
-    <text x="223" y="477" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="223" cy="477" r="36" fill="#0052CC"/>
+    <text x="223" y="477" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
 
     <!-- 270度 -->
-    <circle cx="400" cy="550" r="30" fill="#0052CC"/>
-    <text x="400" y="550" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="400" cy="550" r="36" fill="#0052CC"/>
+    <text x="400" y="550" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
 
     <!-- 315度 -->
-    <circle cx="577" cy="477" r="30" fill="#0052CC"/>
-    <text x="577" y="477" text-anchor="middle" dy="5" fill="white" font-weight="bold">Agent</text>
+    <circle cx="577" cy="477" r="36" fill="#0052CC"/>
+    <text x="577" y="477" text-anchor="middle" dy="5" fill="white" font-weight="bold" >Agent</text>
   </g>
 
   <!-- 连接线 -->
@@ -90,8 +90,8 @@
   </g>
 
   <!-- Central Protocol Label -->
-  <text x="400" y="300" text-anchor="middle" font-size="20" font-weight="bold" fill="#2C3E50">
+  <text x="400" y="300" text-anchor="middle" font-size="22" font-weight="bold" fill="#2C3E50">
     Agentic Web
-    <tspan x="400" dy="25" font-size="16">Agent Network Protocol</tspan>
+    <tspan x="400" dy="25" font-size="18">Agent Network Protocol</tspan>
   </text>
 </svg>
