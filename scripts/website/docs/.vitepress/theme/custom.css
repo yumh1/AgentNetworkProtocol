@@ -1,0 +1,105 @@
+:root {
+  /* 品牌颜色 */
+  --vp-c-brand: #3451B2;
+  --vp-c-brand-light: #445CD1;
+  --vp-c-brand-lighter: #5469E0;
+  --vp-c-brand-dark: #2A4099;
+  --vp-c-brand-darker: #1F2F70;
+
+  /* 标题渐变 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #3451B2 30%, #445CD1);
+
+  /* 代码块主题 */
+  --vp-code-block-bg: rgba(125,125,125,0.04);
+  
+  /* 字体设置 */
+  --vp-font-family-base: "Inter", "Chinese Quotes", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --vp-font-family-mono: "Fira Code", "Source Code Pro", monospace;
+}
+
+/* 暗色主题 */
+.dark {
+  --vp-code-block-bg: rgba(0,0,0,0.2);
+}
+
+/* 导航栏样式 */
+.VPNav {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .VPNav {
+  background-color: rgba(36, 36, 36, 0.7);
+}
+
+/* 侧边栏样式 */
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-divider);
+  padding: 1rem;
+}
+
+/* 文档内容样式 */
+.vp-doc h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--vp-c-divider);
+  padding-bottom: 0.5rem;
+}
+
+.vp-doc h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.3rem;
+}
+
+/* 代码块样式 */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* 表格样式 */
+.vp-doc table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* 移动端响应式优化 */
+@media (max-width: 768px) {
+  .vp-doc h1 {
+    font-size: 1.8rem;
+  }
+  
+  .vp-doc h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* 语言切换按钮样式 */
+.VPNavBarLocale {
+  border-radius: 6px;
+  padding: 0.2rem;
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* 搜索框样式 */
+.DocSearch-Button {
+  border-radius: 8px !important;
+  padding: 0 12px !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  background: var(--vp-c-bg-soft) !important;
+}
+
+/* 链接悬停效果 */
+.vp-doc a:hover {
+  text-decoration: none;
+  color: var(--vp-c-brand-light);
+  transition: color 0.2s ease;
+}
