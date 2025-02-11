@@ -31,7 +31,7 @@ While current internet infrastructure is well-established, there's still a lack 
 </p>
 
 - 🔒 **Identity and Encrypted Communication Layer**: Based on W3C DID (Decentralized Identifiers) specification, we build a decentralized authentication scheme and end-to-end encrypted communication solution on existing mature web infrastructure. This enables agents across any platforms to authenticate each other without relying on centralized systems.
-- 🌍 **Meta-Protocol Layer**: The meta-protocol is a protocol for negotiating communication protocols between agents. It is key to evolving agent networks into self-organizing, self-negotiating efficient collaboration networks.
+- 🌍 **Meta-Protocol Layer**: The meta-protocol is a protocol for negotiating communication protocols between agents. It is key to evolving agent networks into automatic-organizing, self-negotiating efficient collaboration networks.
 - 📡 **Application Protocol Layer**: Based on semantic web specifications, this layer enables agents to describe their capabilities and supported application protocols, and efficiently manage these protocols.
 
 ### Code Implementation
