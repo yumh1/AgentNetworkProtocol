@@ -8,7 +8,7 @@
 
 ### Vision
 
-AgentNetworkProtocol(ANP) aims to become **the HTTP of the Intelligent Agent Internet era**.
+AgentNetworkProtocol(ANP) aims to become **the HTTP of the Agentic Web era**.
 
 Our vision is to **define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of intelligent agents**.
 
@@ -20,7 +20,7 @@ While current internet infrastructure is well-established, there's still a lack 
 
 - 🌐 **Interconnectivity**: Enable communication between all agents, break down data silos, and ensure AI has access to complete contextual information.
 - 🖥️ **Native Interfaces**: AI shouldn't need to mimic human internet interaction; instead, it should interact with the digital world through its most proficient means (APIs or communication protocols).
-- 🤝 **Efficient Collaboration**: Leverage AI for self-organization and self-negotiation among agents, creating a more cost-effective and efficient collaboration network than the existing internet.
+- 🤝 **Efficient Collaboration**: Leverage AI for automatic-organization and automatic-negotiation among agents, creating a more cost-effective and efficient collaboration network than the existing internet.
 
 **Note**: This project has not issued any digital currency on any platform or blockchain.
 
