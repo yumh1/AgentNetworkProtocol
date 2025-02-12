@@ -26,12 +26,12 @@
   "ad:security": "didwba_sc",
   "ad:domainEntity": {
     "@type": "CafeOrCoffeeShop",
-    "name": "瑞幸咖啡",
+    "name": "Luckin Coffee",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "XX路XX号",
-      "addressLocality": "某市",
-      "addressRegion": "某省",
+      "streetAddress": "XX Road No.XX",
+      "addressLocality": "Some City",
+      "addressRegion": "Some Province",
       "postalCode": "123456",
       "addressCountry": "CN"
     },
@@ -46,20 +46,20 @@
     "ad:products": [
       {
         "@type": "Product",
-        "name": "丝绸拿铁",
-        "description": "采用高品质奶源，提供丝滑口感，适合追求健康和口感的消费者。",
+        "name": "Silk Latte",
+        "description": "Made with high-quality milk source, providing a silky smooth taste, suitable for consumers pursuing health and taste.",
         "@id": "https://service.agent-network-protocol.com/agents/lkcoffe/silk-latte/silk-latte.json"
       },
       {
         "@type": "Product",
-        "name": "橙C美式",
-        "description": "小众果香，搭配浓郁咖啡，适合追求新鲜感和独特口味的消费者。",
+        "name": "Orange C Americano",
+        "description": "Niche fruit aroma paired with rich coffee, suitable for consumers seeking freshness and unique flavors.",
         "@id": "https://service.agent-network-protocol.com/agents/lkcoffe/orange-americano/orange-americano.json"
       },
       {
         "@type": "Product",
-        "name": "烤椰拿铁",
-        "description": "135°C左右高温烘烤，独特椰子糖味道，适合冬季饮用。这款饮品结合了椰肉汁和烤椰粒，提供五个‘0’轻轻享的健康选择，使用大师级定制的Espresso，源自IIAC金奖咖啡豆。",
+        "name": "Roasted Coconut Latte",
+        "description": "Roasted at around 135°C, featuring unique coconut sugar flavor, perfect for winter consumption. This beverage combines coconut juice and roasted coconut bits, offering a healthy choice with five 'zero' features, using master-crafted Espresso from IIAC gold medal coffee beans.",
         "@id": "https://service.agent-network-protocol.com/agents/lkcoffe/roasted-coconut-latte/roasted-coconut-latte.json"
       }
     ]
