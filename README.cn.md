@@ -8,6 +8,8 @@
 
 ### 愿景
 
+AgentNetworkProtocol(ANP)是一个开源的智能体通信协议。
+
 AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**。
 
 我们的愿景是**定义智能体之间的连接方式，为数十亿智能体构建一个开放、安全、高效的协作网络**。

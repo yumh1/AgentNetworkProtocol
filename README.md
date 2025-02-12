@@ -8,6 +8,8 @@
 
 ### Vision
 
+AgentNetworkProtocol(ANP) is an open source protocol for agent communication.
+
 AgentNetworkProtocol(ANP) aims to become **the HTTP of the Agentic Web era**.
 
 Our vision is to **define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of intelligent agents**.
