@@ -11,6 +11,8 @@ The presentation was jointly delivered by Chang Gaowei and James Waugh. Below ar
 
 ## Presentation Content
 
+PDF document：[ANP-Presentation-at-W3C-WebAgents-cg.pdf](../ANP-Presentation-at-W3C-WebAgents-cg.pdf)
+
 ### Page 1
 
 ![Page 1](../images/anp-in-w3c-20250214/page1.jpg)

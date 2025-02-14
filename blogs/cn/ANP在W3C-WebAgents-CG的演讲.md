@@ -11,6 +11,8 @@ ANP的技术理念与WebAgents社区有很多一致的地方，并且同样看�
 
 ## 演讲内容
 
+PDF文档：[ANP-Presentation-at-W3C-WebAgents-cg](../ANP-Presentation-at-W3C-WebAgents-cg.pdf)
+
 ### Page 1 
 
 ![Page 1](../images/anp-in-w3c-20250214/page1.jpg)
