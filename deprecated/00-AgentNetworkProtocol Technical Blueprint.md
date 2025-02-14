@@ -122,7 +122,7 @@ Whether you're a developer, researcher, enterprise, or anyone interested in Agen
 Contact us:
 
 - Author: Chang Gaowei, chgaowei@gmail.com  
-- Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
+- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 - GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 ## Copyright Notice

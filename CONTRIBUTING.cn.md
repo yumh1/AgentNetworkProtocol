@@ -33,7 +33,7 @@
 
 如果您有任何问题，欢迎通过以下方式联系：
 - GitHub Issues：[https://github.com/chgaowei/AgentNetworkProtocol/issues](https://github.com/chgaowei/AgentNetworkProtocol/issues)
-- Discord 社区：[https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
+- Discord 社区：[https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 
 再次感谢您对项目的关注与支持！
 

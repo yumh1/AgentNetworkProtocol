@@ -2,7 +2,7 @@
 # AgentNetworkProtocol技术白皮书：一种基于DID的跨平台身份认证和端到端加密通信技术
 
 - 作者：常高伟，chgaowei@gmail.com  
-- Discord: [https://discord.gg/SuXb2pzqGy](https://discord.gg/SuXb2pzqGy)  
+- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 - GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
 
