@@ -38,12 +38,12 @@ Users do not need to update their code or configuration. As an experimental sche
 <!-- Add any other context, implementation notes, or design decisions -->
 
 Relevant documentation links:  
-1. [did:wba Method Design Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
+1. [did:wba Method Design Specification](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
 
 2. blogs：
-  - [did:wba - A Web-based Decentralized Identifier](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba%2C%20a%20Web-based%20Decentralized%20Identifier.md)
-  - [Security Principles of did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba-security-principles.md)
-  - [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API Keys, and did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
+  - [did:wba - A Web-based Decentralized Identifier](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/did%3Awba%2C%20a%20Web-based%20Decentralized%20Identifier.md)
+  - [Security Principles of did:wba](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/did%3Awba-security-principles.md)
+  - [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API Keys, and did:wba](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
 
 ## 版权声明  

@@ -25,7 +25,7 @@ Currently, there is a proposal under review for identity authentication using OA
 
 The best aspect of this proposal is that it treats OAuth 2.0 as a standard process while proposing a pluggable authentication scheme. This allows other authentication methods to be incorporated into the specification as experimental solutions, which greatly enhances the flexibility and openness of the specification.
 
-Based on this proposal, we have developed a W3C DID-based authentication scheme (https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md), waiting for the pluggable scheme to be merged before submitting a PR. For differences between W3C DID authentication and OAuth 2.0, you can refer to this article: [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API keys, and did:wba](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
+Based on this proposal, we have developed a W3C DID-based authentication scheme (https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md), waiting for the pluggable scheme to be merged before submitting a PR. For differences between W3C DID authentication and OAuth 2.0, you can refer to this article: [The Most Suitable Identity Authentication Technology for Agents: Comparing OpenID Connect, API keys, and did:wba](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
 The other two items for remote MCP support are:
 
@@ -60,7 +60,7 @@ Whether agents need a standard protocol for communication in the future seems no
 
 What remains uncertain is what kind of protocol we need for the future and how it will gain industry acceptance.
 
-Regarding the outline of future protocols, we have our thoughts ([What Makes Agentic Web Different](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/What-Makes-Agentic-Web-Different.md)). We are also designing our ideal agent communication protocol, AgentNetworkProtocol (ANP), based on our thinking: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol).
+Regarding the outline of future protocols, we have our thoughts ([What Makes Agentic Web Different](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/What-Makes-Agentic-Web-Different.md)). We are also designing our ideal agent communication protocol, AgentNetworkProtocol (ANP), based on our thinking: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
 We believe that future agents must be interconnected, communicate with the internet through underlying data (API or Protocol), and exist as equals. These are the core principles in our ANP design.
 

@@ -141,15 +141,15 @@ Alice wants to call a third-party service API named "example" through an intelli
 
 ## 5. Code
 
-We have completed development and open-sourced it. For details, please refer to: [https://github.com/chgaowei/AgentConnect/blob/master/README.md#decentralized-authentication-based-on-didwba-and-http](https://github.com/chgaowei/AgentConnect/blob/master/README.md#decentralized-authentication-based-on-didwba-and-http)
+We have completed development and open-sourced it. For details, please refer to: [https://github.com/agent-network-protocol/AgentConnect/blob/master/README.md#decentralized-authentication-based-on-didwba-and-http](https://github.com/agent-network-protocol/AgentConnect/blob/master/README.md#decentralized-authentication-based-on-didwba-and-http)
 
 ## 6. References
 
-[did:wba Method Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/english/03-did-wba-method-specification.md)
+[did:wba Method Specification](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/english/03-did-wba-method-specification.md)
 
 [DID-CORE](https://www.w3.org/TR/did-core/)
 
-[AgentNetworkProtocol Technical White Paper](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/english/01-AgentNetworkProtocol-technical-white-paper.md)
+[AgentNetworkProtocol Technical White Paper](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/english/01-AgentNetworkProtocol-technical-white-paper.md)
 
 ## Copyright Notice
 Copyright (c) 2024 GaoWei Chang  

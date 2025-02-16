@@ -278,7 +278,7 @@ ADP的设计基于三个核心原则。
 
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub：[https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 
 
 

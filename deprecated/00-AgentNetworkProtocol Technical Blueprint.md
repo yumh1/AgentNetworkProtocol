@@ -42,7 +42,7 @@ Based on the W3C DID (Decentralized Identifiers) specification, integrating bloc
 
 W3C DID is the cornerstone of ANP's identity and encrypted communication layer. Its decentralized nature and interoperability enable ANP's openness, allowing any two agents to establish connections and build an open agent collaboration network.
 
-Detailed technical documentation: [GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
+Detailed technical documentation: [GitHub](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 
 ### Meta-Protocol Layer
 
@@ -71,7 +71,7 @@ Agents can extend basic protocols based on their data or business characteristic
 
 ## AgentConnect: Open Source Implementation of Agent Network Protocol (ANP)
 
-We have open-sourced a project, AgentConnect (https://github.com/chgaowei/AgentConnect), to implement Agent Network Protocol (ANP) functionality. The project architecture is shown below:
+We have open-sourced a project, AgentConnect (https://github.com/agent-network-protocol/AgentConnect), to implement Agent Network Protocol (ANP) functionality. The project architecture is shown below:
 
 <p align="center">
   <img src="/images/agent-connect-architecture.png" width="50%" alt="Project Architecture"/>
@@ -124,7 +124,7 @@ Contact us:
 - Author: Chang Gaowei, chgaowei@gmail.com  
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 ## Copyright Notice
 Copyright (c) 2024 GaoWei Chang  
 This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.

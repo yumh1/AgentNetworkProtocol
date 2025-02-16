@@ -26,7 +26,7 @@ Anthropic MCP刚发布了2025上半年的Roadmap，地址：[https://modelcontex
 
 这个提案最好的一点是，它将Oauth2.0作为一个标准流程，同时提出了一种身份认证插件化的方案。允许其他的身份认证方案作为实验性的方案合入规范中。这对规范的灵活性和开放性非常的有帮助。
 
-我们也基于这个提案，开发了一个基于W3C DID的身份认证方案(https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)，正在等待插件化的方案合入后，提交PR。关于W3C DID的身份认证方案与Oauth2.0的区别，可以看这篇文章：[最适合智能体的身份认证技术：对比OpenID Connect、API keys、did:wba](https://mp.weixin.qq.com/s/LBQmw_azJkmQpXp8XmKYPw)
+我们也基于这个提案，开发了一个基于W3C DID的身份认证方案(https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)，正在等待插件化的方案合入后，提交PR。关于W3C DID的身份认证方案与Oauth2.0的区别，可以看这篇文章：[最适合智能体的身份认证技术：对比OpenID Connect、API keys、did:wba](https://mp.weixin.qq.com/s/LBQmw_azJkmQpXp8XmKYPw)
 
 远程MCP支持的另外两项：
 
@@ -61,7 +61,7 @@ MCP期望社区能够主导的标准的制定，虽然现在主要的维护者�
 
 现在可能还不怎么确定的是，未来我们需要怎么样的协议？以及它通过什么的路径让行业接受它。
 
-关于未来协议的轮廓，我们有我们的一些思考（[智能体互联网(Agentic Web)有什么不同之处](https://mp.weixin.qq.com/s/wBgelNViCLyXm5Ha6igzbw)）。我们也在根据我们的思考，设计我们理想中的智能体通信协议AgentNetworkProtocol（ANP）：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)。
+关于未来协议的轮廓，我们有我们的一些思考（[智能体互联网(Agentic Web)有什么不同之处](https://mp.weixin.qq.com/s/wBgelNViCLyXm5Ha6igzbw)）。我们也在根据我们的思考，设计我们理想中的智能体通信协议AgentNetworkProtocol（ANP）：[https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)。
 
 我们认为未来的智能体一定是互联互通的、一定是通过底层数据（API或Protocol）与互联网进行通信的、智能体之间是对等的存在。这是我们设计ANP的核心原则。
 

@@ -98,7 +98,7 @@ W3C DID（Decentralized Identifier，DID）是一种新的去中心化标识符�
 
 ### did:wba是什么
 
-did:wba是[AgentNetworkProtocol（ANP）](https://github.com/chgaowei/AgentNetworkProtocol)定义的一个did方法规范。它基于web基础设施，实现了去中心化的身份认证，专门针对agent之间的身份认证而设计。规范地址：[did:wba方法规范](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/chinese/03-did%3Awba%E6%96%B9%E6%B3%95%E8%A7%84%E8%8C%83.md)。
+did:wba是[AgentNetworkProtocol（ANP）](https://github.com/agent-network-protocol/AgentNetworkProtocol)定义的一个did方法规范。它基于web基础设施，实现了去中心化的身份认证，专门针对agent之间的身份认证而设计。规范地址：[did:wba方法规范](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/chinese/03-did%3Awba%E6%96%B9%E6%B3%95%E8%A7%84%E8%8C%83.md)。
 
 与did:wba非常类似的业务是email：各个平台有自己的账号，但是不同平台之间能够非常简单的进行身份认证与通信。同时他们都基于web基础设施，能够支持大规模用户的同时，实现去中心化。
 

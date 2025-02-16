@@ -38,7 +38,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 ### 代码实现
 
-我们正在开发一个开源的 AgentNetworkProtocol 实现，仓库地址：[https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)
+我们正在开发一个开源的 AgentNetworkProtocol 实现，仓库地址：[https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
 
 ### 文档地图
 
@@ -93,7 +93,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 邮箱：chgaowei@gmail.com  
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub：[https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 - 微信：flow10240
 
 ### 贡献

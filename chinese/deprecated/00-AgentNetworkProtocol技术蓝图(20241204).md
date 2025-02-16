@@ -41,7 +41,7 @@ Agent Network Protocol(ANP)致力于解决智能体连接中的三大挑战：
 
 W3C DID 是Agent Network Protocol(ANP)的身份和加密通信层的核心基石，它的去中心化、互操作性等特性成就了ANP协议的开发性，让任意两个智能体都能够通过它建立连接，让我们能够构建一个开放的智能体协作网络。
 
-详细技术文档：[GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
+详细技术文档：[GitHub](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 
 ### 元协议层
 
@@ -70,7 +70,7 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 
 ## AgentConnect：Agent Network Protocol(ANP)的开源实现
 
-我们开源了一个项目，AgentConnect（https://github.com/chgaowei/AgentConnect），用来实现Agent Network Protocol(ANP)的功能，项目架构如下图：
+我们开源了一个项目，AgentConnect（https://github.com/agent-network-protocol/AgentConnect），用来实现Agent Network Protocol(ANP)的功能，项目架构如下图：
 
 <p align="center">
   <img src="/images/agent-connect-architecture.png" width="50%" alt="项目架构图"/>
@@ -123,7 +123,7 @@ LLM加持的智能体结合元协议是解决这一问题的良方：
 - 作者：常高伟，chgaowei@gmail.com  
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub：[https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 ## 版权声明  
 Copyright (c) 2024 GaoWei Chang  
 本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  

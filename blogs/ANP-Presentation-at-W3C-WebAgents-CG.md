@@ -277,5 +277,5 @@ If you are interested in this topic, feel free to contact us:
 
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 

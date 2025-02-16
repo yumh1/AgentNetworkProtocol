@@ -3,7 +3,7 @@
 
 **Authors:** Gaowei Chang, chgaowei@gmail.com  
 **Website:** [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-**GitHub:** [https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)  
+**GitHub:** [https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)  
 
 **Note:**  
 If you want to quickly understand our technical overview, you can first read this article: [Technical Introduction for General Audience](https://egp0uc2jnx.feishu.cn/wiki/KFTpwYoAPiwwOjkf9jacVbTInYd?from=from_copylink) or [Simplified Technical Introduction](https://egp0uc2jnx.feishu.cn/wiki/MFVNwz4PpiqBJ8kkqEfcLJKUnhf?from=from_copylink).  

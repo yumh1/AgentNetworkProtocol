@@ -165,7 +165,7 @@ There are now some protocols specifically designed for AI or agents, such as Ant
 
 MCP (Model Context Protocol) aims to standardize communication between Large Language Models (LLMs) and external data sources and tools, helping AI systems more efficiently access and utilize context information to improve response quality and practicality.
 
-ANP (Agent Network Protocol), https://github.com/chgaowei/AgentNetworkProtocol, is the industry's first open-source communication protocol designed for agents. Unlike MCP, ANP is agent-centric, treating all agents as equals, aiming to build an efficient agent collaboration network.
+ANP (Agent Network Protocol), https://github.com/agent-network-protocol/AgentNetworkProtocol, is the industry's first open-source communication protocol designed for agents. Unlike MCP, ANP is agent-centric, treating all agents as equals, aiming to build an efficient agent collaboration network.
 
 **Advantages of this Approach**:
 
@@ -207,7 +207,7 @@ In the long term, we firmly believe in the API/Protocol approach, as it offers t
 
 ## About Us
 
-We are developing an open-source standard protocol for agent communication: **AgentNetworkProtocol (ANP)**, available at [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol).
+We are developing an open-source standard protocol for agent communication: **AgentNetworkProtocol (ANP)**, available at [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
 AgentNetworkProtocol aims to become the HTTP of the agent internet era. Our vision is to define how agents connect, building an open, secure, and efficient collaboration network for billions of agents.
 

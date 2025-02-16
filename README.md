@@ -38,7 +38,7 @@ While current internet infrastructure is well-established, there's still a lack 
 
 ### Code Implementation
 
-We are developing an open-source implementation of AgentNetworkProtocol at: [https://github.com/chgaowei/AgentConnect](https://github.com/chgaowei/AgentConnect)
+We are developing an open-source implementation of AgentNetworkProtocol at: [https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
 
 ### Documentation Map
 
@@ -92,7 +92,7 @@ Author: Gaowei Chang
 Email: chgaowei@gmail.com  
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - Website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
-- GitHub: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)
+- GitHub: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 - WeChat: flow10240
 
 ### Contributing

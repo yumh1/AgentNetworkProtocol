@@ -3,9 +3,9 @@
 did:wba, as a Web-based Decentralized Identifier method, has security at its core. This article delves into the security principles of did:wba and analyzes how it ensures reliable and secure identity verification.
 
 Related did:wba resources:
-- did:wba Specification: [did:wba Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
-- A brief introduction to did:wba: [did:wba - Web-based Decentralized Identifier](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/did%3Awba%2C%20a%20Web-based%20Decentralized%20Identifier.md)
-- Comparison between did:wba and other solutions: [did:wba vs OpenID Connect and API keys](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
+- did:wba Specification: [did:wba Specification](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md)
+- A brief introduction to did:wba: [did:wba - Web-based Decentralized Identifier](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/did%3Awba%2C%20a%20Web-based%20Decentralized%20Identifier.md)
+- Comparison between did:wba and other solutions: [did:wba vs OpenID Connect and API keys](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/blogs/Comparison%20of%20did%3Awba%20with%20OpenID%20Connect%20and%20API%20keys.md)
 
 ## 1. Foundation of Security: Asymmetric Encryption
 

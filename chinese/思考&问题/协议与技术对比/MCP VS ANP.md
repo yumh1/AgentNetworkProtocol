@@ -247,11 +247,11 @@ Relatedly, we would prefer to avoid a central trust authority. We want clients a
 这里是相关的资料：
 - W3C DID规范：（https://www.w3.org/TR/did-core/）[https://www.w3.org/TR/did-core/]
 
-- DID all方法设计规范：（https://github.com/chgaowei/AgentNetworkProtocol/blob/main/02-did%3Aall%20Method%20Design%20Specification.md）[https://github.com/chgaowei/AgentNetworkProtocol/blob/main/02-did%3Aall%20Method%20Design%20Specification.md]
+- DID all方法设计规范：（https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/02-did%3Aall%20Method%20Design%20Specification.md）[https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/02-did%3Aall%20Method%20Design%20Specification.md]
 
-- AgentNetworkProtocol（我们设计的用于智能体之间通信的协议）：（https://github.com/chgaowei/AgentNetworkProtocol）[https://github.com/chgaowei/AgentNetworkProtocol]
+- AgentNetworkProtocol（我们设计的用于智能体之间通信的协议）：（https://github.com/agent-network-protocol/AgentNetworkProtocol）[https://github.com/agent-network-protocol/AgentNetworkProtocol]
 
-- AgentConnect（协议的开源实现，已经支持DID all方法，以及端到端加密通信，元协议协商）：（https://github.com/chgaowei/AgentConnect）[https://github.com/chgaowei/AgentConnect]
+- AgentConnect（协议的开源实现，已经支持DID all方法，以及端到端加密通信，元协议协商）：（https://github.com/agent-network-protocol/AgentConnect）[https://github.com/agent-network-protocol/AgentConnect]
 
 
 
@@ -270,7 +270,7 @@ Relatedly, we would prefer to avoid a central trust authority. We want clients a
 
 3、但是长期来看，MCP的技术路线是没有问题的，我一直认为，之前Anthropic提出的Computer Use技术是一个临时的、过渡的技术路线，因为这是让AI去模仿人和互联网数字世界交互，而不是用AI擅长的方式去和互联网交互。MCP才是AI更擅长的方式。如果未来MCP之类的技术逐渐发展成熟，智能体之间都能够通过协议连接成网络，并且由于AI的加持，他们可以自己组网、自己协商通信协议、自己编写协议处理代码，那这个网络肯定是和现在的互联网是大不相同的。
 
-4、类似MCP的技术，现在开源社区、标准化组织也都有探索。比如我们提出的开源协议AgentNetworkProtocol（https://github.com/chgaowei/AgentNetworkProtocol），剑桥一个研究团队提出的agora Protocol(元协议方向)，AutoGpt相关团队开源的agent-Protocol，还有标准化组织比如W3C的webagents工作组，IEEE下面也有一个工作组也在做类似的研究。大家的侧重点各有不同，MCP偏应用层，我们目前重点在身份验证和加密通信，未来会做成一个协议栈。总之，这块的研究和探索慢慢的多了起来。
+4、类似MCP的技术，现在开源社区、标准化组织也都有探索。比如我们提出的开源协议AgentNetworkProtocol（https://github.com/agent-network-protocol/AgentNetworkProtocol），剑桥一个研究团队提出的agora Protocol(元协议方向)，AutoGpt相关团队开源的agent-Protocol，还有标准化组织比如W3C的webagents工作组，IEEE下面也有一个工作组也在做类似的研究。大家的侧重点各有不同，MCP偏应用层，我们目前重点在身份验证和加密通信，未来会做成一个协议栈。总之，这块的研究和探索慢慢的多了起来。
 
 5、协议的开放性最重要的，封闭的协议没有未来。在github上讨论MCP身份认证方案的时候，MCP技术同学提到过，他们希望MCP是一个开放的生态，他们更希望避免使用中央信任机构，更希望客户端和服务器能够根据用户同意来确定它们是否相互信任。在这一点上，MCP做的比较彻底，我们也非常的认同。
 

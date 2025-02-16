@@ -149,7 +149,7 @@ While we're not yet certain if the Agentic Web will emerge, we can be certain th
 
 We are not just dreamers.
 
-Based on our vision, we are developing an open standard protocol for agent communication: **AgentNetworkProtocol (ANP)**. Project address: [https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol).
+Based on our vision, we are developing an open standard protocol for agent communication: **AgentNetworkProtocol (ANP)**. Project address: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
 AgentNetworkProtocol aims to become the HTTP of the Agentic Web era. Our vision is to define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of agents.
 

@@ -30,7 +30,7 @@ Note: For why communication protocols are needed instead of "Computer Use," refe
 
 **MCP (Model Context Protocol):** An open protocol that enables LLM applications to seamlessly integrate with external data sources and tools. Whether building AI-driven IDEs, enhancing chat interfaces, or creating custom AI workflows, MCP provides a standardized way to connect LLMs with the necessary context. [MCP Specification](https://spec.modelcontextprotocol.io/)
 
-**AgentNetworkProtocol (ANP):** An open protocol framework designed for the Agentic Web. ANP implements decentralized identity authentication, allowing any two agents to connect. It also designs an agent description specification for more efficient data exchange and collaboration among agents. [ANP on GitHub](https://github.com/chgaowei/AgentNetworkProtocol)
+**AgentNetworkProtocol (ANP):** An open protocol framework designed for the Agentic Web. ANP implements decentralized identity authentication, allowing any two agents to connect. It also designs an agent description specification for more efficient data exchange and collaboration among agents. [ANP on GitHub](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 
 In the current landscape of agent communication protocols, ANP is possibly the first open-source communication protocol specifically designed for agents on the internet. We initially released the code first, with the protocol documentation in Feishu, which was later migrated to GitHub.
 

@@ -165,7 +165,7 @@ AI可在后台组合调用多个API（如同时预订机票、酒店、租车）
 
 MCP的全称是Model Context Protocol（模型上下文协议）。旨在标准化大型语言模型（LLMs）与外部数据源和工具之间的通信方式，帮助 AI 系统更高效地访问和利用上下文信息，从而提升模型的响应质量和实用性。
 
-ANP的全称是Agent Network Protocol，https://github.com/chgaowei/AgentNetworkProtocol，是行业首个开源的智能体通信协议。ANP与MCP的区别是，ANP以智能体为中心，每个智能体都具有同等地位，目标构建一个高效的智能体协作网络。
+ANP的全称是Agent Network Protocol，https://github.com/agent-network-protocol/AgentNetworkProtocol，是行业首个开源的智能体通信协议。ANP与MCP的区别是，ANP以智能体为中心，每个智能体都具有同等地位，目标构建一个高效的智能体协作网络。
 
 **这种方案的优点**：
 
@@ -211,7 +211,7 @@ AI收到一个任务后，可以在在后台通过API或协议进行处理，不
 
 ## 关于我们
 
-我们正在开发一个开源的智能体通信协议：**AgentNetworkProtocol(ANP)**，项目地址：[https://github.com/chgaowei/AgentNetworkProtocol](https://github.com/chgaowei/AgentNetworkProtocol)。
+我们正在开发一个开源的智能体通信协议：**AgentNetworkProtocol(ANP)**，项目地址：[https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)。
 
 AgentNetworkProtocol的目标是成为智能体互联网时代的HTTP。我们的愿景是定义智能体之间的连接方式，为数十亿智能体构建一个开放、安全、高效的协作网络。
 

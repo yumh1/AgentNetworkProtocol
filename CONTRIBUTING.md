@@ -32,7 +32,7 @@ Before you start writing documentation, we recommend that you:
 ## Contact Us
 
 If you have any questions, feel free to contact us through the following channels:
-- GitHub Issues: [https://github.com/chgaowei/AgentNetworkProtocol/issues](https://github.com/chgaowei/AgentNetworkProtocol/issues)
+- GitHub Issues: [https://github.com/agent-network-protocol/AgentNetworkProtocol/issues](https://github.com/agent-network-protocol/AgentNetworkProtocol/issues)
 - Discord Community: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 
 Thank you again for your attention and support for the project!

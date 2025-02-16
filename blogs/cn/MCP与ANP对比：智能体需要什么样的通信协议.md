@@ -30,7 +30,7 @@ Deep Research从本质上看，可以认为是面向知识工作者的个人助�
 
 MCP(Model Context Protocol )：模型上下文协议（MCP）是一个开放协议，使LLM应用能够与外部数据源和工具无缝集成。无论是构建AI驱动的IDE、增强聊天界面，还是创建自定义AI工作流，MCP都提供了一种标准化方式，将LLM与所需的上下文连接起来。https://spec.modelcontextprotocol.io/
 
-AgentNetworkProtocol（ANP）是为智能体网络（Agentic Web）设计的开放协议框架。ANP实现了去中心化的身份认证，能够让任意两个智能体进行连接。同时设计了一个智能体描述规范，让智能体之间能够进行更加高效的数据交换与协作。https://github.com/chgaowei/AgentNetworkProtocol
+AgentNetworkProtocol（ANP）是为智能体网络（Agentic Web）设计的开放协议框架。ANP实现了去中心化的身份认证，能够让任意两个智能体进行连接。同时设计了一个智能体描述规范，让智能体之间能够进行更加高效的数据交换与协作。https://github.com/agent-network-protocol/AgentNetworkProtocol
 
 在目前的智能体通信协议领域中，比较完备的开源项目，除了MCP，可能就是我们设计的ANP了。ANP可能是全网最早发布的面向智能体的开源通信协议。我们是先发布的代码，协议在飞书文档，后来协议迁移到了github。
 

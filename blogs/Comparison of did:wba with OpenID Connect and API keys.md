@@ -97,7 +97,7 @@ Many applications are currently using the W3C DID specification, with a notable 
 
 ### What is did:wba
 
-did:wba is a DID method specification defined by [AgentNetworkProtocol (ANP)](https://github.com/chgaowei/AgentNetworkProtocol). It implements decentralized authentication based on web infrastructure, specifically designed for authentication between agents. Specification: [did:wba Method Specification](https://github.com/chgaowei/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md).
+did:wba is a DID method specification defined by [AgentNetworkProtocol (ANP)](https://github.com/agent-network-protocol/AgentNetworkProtocol). It implements decentralized authentication based on web infrastructure, specifically designed for authentication between agents. Specification: [did:wba Method Specification](https://github.com/agent-network-protocol/AgentNetworkProtocol/blob/main/03-did%3Awba%20Method%20Design%20Specification.md).
 
 did:wba is very similar to email in functionality: different platforms have their own accounts, but can easily authenticate and communicate between different platforms. Both are based on web infrastructure, supporting large-scale users while achieving decentralization.
 
