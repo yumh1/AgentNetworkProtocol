@@ -568,7 +568,15 @@ Developers of user agents need to securely keep the private key of humanAuthoriz
 
 An agent can define the authorization type of the document or interface in the agent description document. By default, all ordinary authorizations are sufficient. If a request requires human manual authorization, it must be explicitly defined in the document (refer to the agent description specification for the definition method).
 
-## 6 Security Considerations
+## 6 Privacy Protection Strategy
+
+Privacy protection is crucial in decentralized networks. For instance, malicious software might use a user's DID to record and track their behavior, leading to privacy breaches.
+
+Therefore, we recommend that DID providers adopt a multi-DID strategy, where multiple DIDs are generated for a single user. Each DID has different roles and permissions, using different key pairs, to achieve privacy protection and fine-grained access control.
+
+For example, a main DID can be generated for the user, which generally remains unchanged and is used for maintaining social relationships. Additionally, a series of sub-DIDs can be generated for scenarios such as shopping, ordering takeout, and booking tickets. These sub-DIDs are subordinate to the main DID and can periodically deactivate expired DIDs and apply for new ones to enhance privacy and security protection.
+
+## 7 Security Considerations
 
 Implementers need to consider the following security issues when implementing:
 
@@ -590,7 +598,7 @@ Implementers need to consider the following security issues when implementing:
 - **Should** include additional security information in the Access Token, such as client IP binding, User-Agent binding, etc., to prevent token abuse.
 
 
-## 7. Use Cases
+## 8. Use Cases
 
 1. Use Case 1: User Accessing Files on Other Websites via Intelligent Assistant
 
@@ -602,7 +610,7 @@ Alice wants to call APIs of a third-party service named "example" through her in
 
 > Note: While client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
 
-## 8. Summary
+## 9. Summary
 
 This specification builds upon the did:web method specification by adding DID document constraints, cross-platform authentication processes, and agent description services. It proposes a new method name did:wba (Web-Based Agent). We designed a cross-platform authentication process based on the did:wba method and HTTP protocol, and provided detailed implementation methods.
 
