@@ -107,6 +107,15 @@ Apart from the DID Core specification, most other specifications are still in dr
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
     ],
+    "humanAuthorization": [
+      "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q",
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#key-3",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:wba:example.com%3A8800:user:alice",
+        "publicKeyMultibase": "z9XK2BVwLNv6gmMNbm4uVAjZpfkcJDwDwnZn6z3wweKLo"
+      }
+    ],    
     "service": [
       {
         "id": "did:wba:example.com%3A8800:user:alice#agent-description",
@@ -143,6 +152,13 @@ Apart from the DID Core specification, most other specifications are still in dr
     - **type**: Type of key agreement method
     - **controller**: DID that controls this key agreement method
     - **publicKeyMultibase**: Public key information in Multibase format
+
+- **humanAuthorization**: Optional field that defines the public key information used for human authorization. The corresponding private key is used only when human authorization is required, for critical identity verification scenarios.
+  - **Sub-fields**:
+    - **id**: Unique identifier for the human authorization method.
+    - **type**: Type of the human authorization method.
+    - **controller**: DID that controls this human authorization method.
+    - **publicKeyMultibase**: Public key information in Multibase format.
 
 - **service**: Optional field that defines a list of services associated with the DID subject.
   - **id**: Unique identifier for the service.
@@ -540,7 +556,19 @@ Example of 403 response in JSON format:
 }
 ```
 
-## 5 Security Considerations
+## 5 Distinguishing Between Human Authorization and Agent Automatic Authorization
+
+For requests that are not very important, the user agent can authorize automatically. For example, when accessing a hotel agent and reading hotel information, no human manual confirmation is needed, and the user agent can initiate the request on behalf of the human.
+
+For important requests, such as booking a hotel room, the hotel agent may require human manual confirmation. When the user agent initiates a booking request, it needs to sign using the method defined in humanAuthorization. At this time, the user agent needs to request authorization from a human for manual confirmation before proceeding with the booking request.
+
+The signature method is the same as [Section 3.1 Initial Request](#31-initial-request).
+
+Developers of user agents need to securely keep the private key of humanAuthorization and implement access control, such as allowing the use of humanAuthorization for signing only after biometric verification (fingerprint, facial recognition, etc.) of the user.
+
+An agent can define the authorization type of the document or interface in the agent description document. By default, all ordinary authorizations are sufficient. If a request requires human manual authorization, it must be explicitly defined in the document (refer to the agent description specification for the definition method).
+
+## 6 Security Considerations
 
 Implementers need to consider the following security issues when implementing:
 
@@ -562,7 +590,7 @@ Implementers need to consider the following security issues when implementing:
 - **Should** include additional security information in the Access Token, such as client IP binding, User-Agent binding, etc., to prevent token abuse.
 
 
-## 6. Use Cases
+## 7. Use Cases
 
 1. Use Case 1: User Accessing Files on Other Websites via Intelligent Assistant
 
@@ -574,7 +602,7 @@ Alice wants to call APIs of a third-party service named "example" through her in
 
 > Note: While client-to-server authentication is not illustrated in the current use cases, this process can still function effectively.
 
-## 7. Summary
+## 8. Summary
 
 This specification builds upon the did:web method specification by adding DID document constraints, cross-platform authentication processes, and agent description services. It proposes a new method name did:wba (Web-Based Agent). We designed a cross-platform authentication process based on the did:wba method and HTTP protocol, and provided detailed implementation methods.
 

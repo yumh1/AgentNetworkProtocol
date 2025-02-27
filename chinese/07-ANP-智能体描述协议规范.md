@@ -79,13 +79,14 @@ JSON-LD也需要和其他协议配合使用。比如，接口描述协议可以�
       "description": "A YAML file for interacting with the intelligent agent through natural language."
     },
     {
-      "@type": "ad:PurchaseInterface",
+      "@type": "ad:StructuredInterface",
       "protocol": "YAML",
+      "humanAuthorization": true,
       "url": "https://agent-network-protocol.com/api/purchase-interface.yaml",
       "description": "A YAML file for interacting with the intelligent agent through purchase."
     },
     {
-      "@type": "ad:APIInterface",
+      "@type": "ad:StructuredInterface",
       "protocol": "JSON-RPC 2.0",
       "url": "https://agent-network-protocol.com/api/api-interface.json",
       "description": "A JSON-RPC 2.0 file for interacting with the intelligent agent through APIs."
@@ -253,9 +254,8 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 ##### Interface（接口）
 接口定义了与智能体进行交互的方式。基本接口类型包括：
 
-1. APIInterface：API接口，用于通过特定的API协议与智能体交互
+1. StructuredInterface：结构化接口，用于通过特定的API协议与智能体交互
 2. NaturalLanguageInterface：自然语言接口，用于通过自然语言与智能体交互
-3. PurchaseInterface: 购买接口，用于通过特定的购买协议与智能体交互
 
 
 表5：接口级别的词汇术语
@@ -270,6 +270,7 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 | url | 接口定义文档的URL。 | 必需 | anyURI |
 | version | 接口版本信息。 | 可选 | string |
 | security | 接口的安全要求。 | 可选 | SecurityScheme |
+| humanAuthorization | 接口是否需要人类手动授权 | 可选 | bool |
 
 ### 安全机制
 
@@ -320,6 +321,10 @@ AD的信息模型建立在词汇表https://agent-network-protocol.com/ad#和sche
 AD中的安全配置是必需的。必须通过智能体级别的security成员激活安全定义。此配置是与智能体交互所需的安全机制。
 
 当security出现在AD文档的顶层时，表示所有的资源在访问是必须使用此安全机制进行验证。出现在某个资源内部时，表示只有在满足此安全机制的情况下才能访问该资源。如果顶层指定的security和资源中指定的security不相同，以资源中指定的security为准。
+
+### 人类手动授权
+
+如果一个接口在调用的时候，必须经过人类的手动授权，比如购买接口。这个时候可以在接口定义中添加字段humanAuthorization。true表示接口调用需要经过人类的手动授权才能够访问。
 
 ### Proof（完整性校验）
 

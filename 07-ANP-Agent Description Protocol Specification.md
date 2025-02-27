@@ -79,18 +79,19 @@ Here is an example of an agent description document:
       "description": "A YAML file for interacting with the intelligent agent through natural language."
     },
     {
-      "@type": "ad:PurchaseInterface",
+      "@type": "ad:StructuredInterface",
       "protocol": "YAML",
+      "humanAuthorization": true,
       "url": "https://agent-network-protocol.com/api/purchase-interface.yaml",
       "description": "A YAML file for interacting with the intelligent agent through purchase."
     },
     {
-      "@type": "ad:APIInterface",
+      "@type": "ad:StructuredInterface",
       "protocol": "JSON-RPC 2.0",
       "url": "https://agent-network-protocol.com/api/api-interface.json",
-      "description": "A JSON-RPC 2.0 interface for programmatic interaction with the intelligent agent."
+      "description": "A JSON-RPC 2.0 file for interacting with the intelligent agent through APIs."
     }
-  ],  
+  ],
   "proof": {
     "type": "EcdsaSecp256r1Signature2019",
     "created": "2024-12-31T15:00:00Z",
@@ -250,9 +251,8 @@ For @context, AD instances define the following rules:
 ##### Interface
 Interfaces define ways to interact with the agent. Basic interface types include:
 
-1. APIInterface: API interface for interacting with the agent through specific API protocols
+1. StructuredInterface: Structured interface for interacting with the agent through specific API protocols
 2. NaturalLanguageInterface: Natural language interface for interacting with the agent through natural language
-3. PurchaseInterface: Purchase interface for interacting with the agent through specific purchase protocols
 
 Table 5: Interface Level Vocabulary Terms
 
@@ -266,6 +266,7 @@ Table 5: Interface Level Vocabulary Terms
 | url | URL of the interface definition document. | Required | anyURI |
 | version | Interface version information. | Optional | string |
 | security | Security requirements for the interface. | Optional | SecurityScheme |
+| humanAuthorization | Whether the interface requires human manual authorization | Optional | bool |
 
 ### Security Mechanism
 
@@ -317,6 +318,10 @@ Security configuration in AD is required. Security definitions must be activated
 
 When security appears at the top level of the AD document, it means that all resources must be accessed using this security mechanism for authentication. When it appears within a specific resource, it means that the resource can only be accessed when this security mechanism is satisfied. If the security specified at the top level differs from that specified within the resource, the security specified within the resource takes precedence.
 
+### Human Manual Authorization
+
+If an interface requires human manual authorization when being called, such as a purchase interface, the humanAuthorization field can be added to the interface definition. A value of true indicates that the interface call requires human manual authorization to access.
+
 ### Proof (Integrity Check)
 
 To prevent malicious tampering, impersonation, or reuse of AD documents, we have added verification information Proof to AD documents. The Proof definition can refer to the specification: [https://www.w3.org/TR/vc-data-integrity/#defn-domain](https://www.w3.org/TR/vc-data-integrity/#defn-domain).
@@ -337,6 +342,10 @@ Where:
 For a specific product or service, such as a cup of coffee or a toy, we can use a subset of schema.org's Product properties to define a specific type that clarifies how the product should be described. This way, all agents can use unified definitions when constructing product data, facilitating interoperability between different agents.
 
 A similar approach can be used for interfaces. For example, with product purchase interfaces, we can define a unified purchase interface specification that all agents can use, enabling interoperability between different agents.
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.
 
 ## Copyright Notice
 Copyright (c) 2024 GaoWei Chang  

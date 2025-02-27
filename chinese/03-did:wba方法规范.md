@@ -107,6 +107,15 @@ did:wba:example.com%3A3000
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
     ],
+    "humanAuthorization": [
+      "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q",
+      {
+        "id": "did:wba:example.com%3A8800:user:alice#key-3",
+        "type": "Ed25519VerificationKey2020",
+        "controller": "did:wba:example.com%3A8800:user:alice",
+        "publicKeyMultibase": "z9XK2BVwLNv6gmMNbm4uVAjZpfkcJDwDwnZn6z3wweKLo"
+      }
+    ],
     "service": [
       {
         "id": "did:wba:example.com%3A8800:user:alice#ad",
@@ -143,6 +152,13 @@ did:wba:example.com%3A3000
     - **type**: 密钥协商方法的类型。
     - **controller**: 控制该密钥协商方法的DID。
     - **publicKeyMultibase**: Multibase格式的公钥信息。
+
+- **humanAuthorization**: 可选字段，定义了用于人类授权的公钥信息，此公钥对应的私钥，只有在人类授权的情况下才会被使用，用于重要的身份认证场景。
+  - **子字段**:
+    - **id**: 人类授权方法的唯一标识符。
+    - **type**: 人类授权方法的类型。
+    - **controller**: 控制该人类授权方法的DID。
+    - **publicKeyMultibase**: Multibase格式的公钥信息
 
 - **service**: 可选字段，定义了与DID主体关联的服务列表。
   - **id**: 服务的唯一标识符。
@@ -536,7 +552,19 @@ access token的生成方法同[3.2.4 认证成功返回access_token](#323-认证
 }
 ```
 
-## 5 安全性建议
+## 5 区分人类授权与智能体自动授权
+
+对于不是很重要的请求，用户智能体可以自动授权，比如访问一个酒店的智能体并且读取酒店信息，这个时候不需要人类的手动确认，用户智能体可以自行代替人类发起请求。
+
+对于重要的请求，比如要预定酒店房间，这个时候酒店智能体可能需要人类的手动确认。用户智能体在发起预定请求的时候，需要使用humanAuthorization中定义的方法进行签名。这个时候用户智能体需要向人类发起授权请求，让人类进行手动确认，然后用户智能体再进行预定请求。
+
+签名的方法与[3.1 初始请求](#31-初始请求)相同。
+
+用户智能体的开发者需要安全的保管humanAuthorization的私钥，并且进行权限隔离，比如，只有经过生物识别（指纹、人脸识别等）验证用户后，才能使用humanAuthorization进行签名。
+
+智能体可以在智能体描述文档中，定义文档或接口的授权类型，默认情况下所有普通授权即可。如果请求需要人类手动授权，需要在文档中明确定义（定义方法参见智能体描述规范）。
+
+## 6 安全性建议
 
 实现者在实现的时候，需要考虑以下几个方面的安全性问题：
 
@@ -557,7 +585,7 @@ access token的生成方法同[3.2.4 认证成功返回access_token](#323-认证
 - 客户端和服务端**必须**对Access Token进行妥善保管，并且**必须**设置合理的过期时间。
 - **应该**在Access Token中加入额外的安全信息，如客户端IP绑定、User-Agent绑定等，防止Access Token被滥用。
 
-## 6. 用例
+## 7. 用例
 
 1. 用例 1：用户通过智能助理访问其他网站上的文件
 
@@ -569,7 +597,7 @@ Alice希望通过智能助理调用一个名为example的第三方服务API。�
 
 > 当前用例中并未列举客户端对服务端的身份认证，事实上这个流程也是可以工作的。
 
-## 7. 总结
+## 8. 总结
 
 本规范在did:web方法规范的基础上，添加了DID文档限定、跨平台身份认证流程、智能体描述服务等规范描述，提出了新的方法名did:wba(Web-Based Agent)。设计了基于did:wba方法和HTTP协议的跨平台身份认证流程，并给出了详细的实现方法。
 
