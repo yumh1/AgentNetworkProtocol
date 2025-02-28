@@ -56,6 +56,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 我们设计了一个用于描述智能体的协议，它能够让智能体之间进行数据交互：[智能体描述协议规范（Draft）](chinese/07-ANP-智能体描述协议规范.md)
 
+- 我们设计了一个用于智能体发现的协议，帮助智能体之间相互发现和交互：[智能体发现协议规范（Draft）](chinese/08-ANP-智能体发现协议规范.md)
+
 - 我们设计了一个智能体消息规范，可以用于智能体消息的代理服务，让智能体隐藏在代理服务后面，从而实现更高的安全性、降低智能体开发维护成本。[基于did的端到端加密通信](chinese/message/04-基于did的端到端加密通信技术协议.md)，[基于did的消息服务协议](chinese/message/05-基于did的消息服务协议.md)。（备注： 这两个规范基于废弃的did:all方法，后面会升级为基于did:wba方法的方案）
 
 - 还有一些规范我们正在设计和完善中。
@@ -75,6 +77,10 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 从OpenAI的Operator，谈AI与互联网交互的三种技术路线：[从OpenAI的Operator，看AI与互联网交互的三种技术路线](blogs/cn/从OpenAI的Operator，看AI与互联网交互的三种技术路线.md)
 
+- 智能体身份的三个关键问题：[智能体身份的三个关键问题：互操作性、人类授权和隐私保护](blogs/Three-Key-Issues-of-Agent-Identity:%20Interoperability,%20Human-Authorization,%20and-Privacy-Protection.md)
+
+- AI个人助手未来产品形态和主要玩家的分析与预测：[AI个人助手未来产品形态和主要玩家的分析与预测](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
+
 ### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：
@@ -83,7 +89,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 - [x] 元协议设计与元协议代码实现。当前协议设计和代码开发基本完成。
 - [x] 应用层协议设计与开发。
   - [x] 支持智能体描述。
-  - [ ] 支持智能体发现。 
+  - [x] 支持智能体发现。 
 
 为了推动Agent Network Protocol(ANP)成为行业的标准，我们将会在合适的时间组建ANP标准化委员会，致力于推动ANP成为W3C等国际标准化组织认可的行业标准。
 

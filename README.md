@@ -56,6 +56,8 @@ For further understanding, you can refer to these documents:
 
 - We have designed a protocol for describing agents that enables data exchange between agents: [Agent Description Protocol Specification](07-ANP-Agent%20Description%20Protocol%20Specification.md)
 
+- We have designed an agent discovery protocol that helps agents find and interact with each other: [Agent Discovery Protocol Specification](08-ANP-Agent-Discovery-Protocol-Specification.md)
+
 - We have designed an agent message specification that can be used for agent message proxy services, allowing agents to hide behind proxy services to achieve higher security and reduce the cost of agent development and maintenance. [End-to-End Encrypted Communication Based on did](message/04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md), [Message Service Protocol Based on did](message/05-Message%20Service%20Protocol%20Based%20on%20did.md). (Note: These two specifications are based on the deprecated did:all method and will be upgraded to the did:wba method in the future)
 
 - Additional specifications are currently under development.
@@ -74,6 +76,10 @@ Here are some of our blogs:
 
 - Three Technical Approaches to AI-Internet Interaction: [Three Technical Approaches to AI-Internet Interaction](blogs/Three_Technical_Approaches_to_AI_Internet_Interaction.md)
 
+- Three Key Issues of Agent Identity: [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](blogs/Three-Key-Issues-of-Agent-Identity:%20Interoperability,%20Human-Authorization,%20and-Privacy-Protection.md)
+
+- Analysis and Predictions of AI Personal Assistants: [Analysis and Predictions of AI Personal Assistants](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
@@ -82,7 +88,7 @@ Both protocol development and open-source implementation are progressing in the 
 - [x] Meta-protocol design and implementation. Protocol design and code development are basically complete.
 - [x] Application layer protocol design and development.
   - [x] Support for agent description.
-  - [ ] Support for agent discovery.
+  - [x] Support for agent discovery.
 
 To establish Agent Network Protocol(ANP) as an industry standard, we plan to form an ANP Standardization Committee at an appropriate time, working towards recognition by international standardization organizations like W3C.
 
