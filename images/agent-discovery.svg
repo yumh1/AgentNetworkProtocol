@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="800" height="500" fill="#f8f9fa" />
+    
+    <!-- 标题 -->
+    <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">智能体发现简化流程</text>
+    
+    <!-- 主要角色 -->
+    <rect x="100" y="100" width="150" height="70" rx="10" fill="#4285f4" />
+    <text x="175" y="145" font-family="Arial" font-size="18" text-anchor="middle" fill="white">网站/智能体服务</text>
+    
+    <rect x="550" y="100" width="150" height="70" rx="10" fill="#ea4335" />
+    <text x="625" y="145" font-family="Arial" font-size="18" text-anchor="middle" fill="white">搜索引擎</text>
+    
+    <!-- 文件图标 -->
+    <rect x="125" y="250" width="100" height="60" rx="5" fill="#fbbc05" />
+    <text x="175" y="285" font-family="Arial" font-size="14" text-anchor="middle">智能体描述汇总</text>
+    <text x="175" y="305" font-family="Arial" font-size="12" text-anchor="middle">/.well-known/anp</text>
+    
+    <rect x="125" y="380" width="100" height="60" rx="5" fill="#34a853" />
+    <text x="175" y="410" font-family="Arial" font-size="14" text-anchor="middle">智能体描述文件</text>
+    <text x="175" y="430" font-family="Arial" font-size="12" text-anchor="middle">ad.json</text>
+    
+    <!-- 流程箭头 -->
+    <!-- 1. 搜索引擎访问well-known路径 -->
+    <line x1="550" y1="135" x2="250" y2="250" stroke="#ea4335" stroke-width="3" marker-end="url(#arrow)" />
+    <text x="350" y="180" font-family="Arial" font-size="14" text-anchor="middle">1. GET /.well-known/anp</text>
+    
+    <!-- 2. 返回智能体描述汇总文件 -->
+    <line x1="250" y1="280" x2="550" y2="200" stroke="#fbbc05" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="5,5" />
+    <text x="400" y="250" font-family="Arial" font-size="14" text-anchor="middle">2. 返回JSON-LD格式的智能体URL列表</text>
+    
+    <!-- 3. 搜索引擎访问每个智能体描述文件 -->
+    <line x1="550" y1="230" x2="250" y2="380" stroke="#ea4335" stroke-width="3" marker-end="url(#arrow)" />
+    <text x="400" y="320" font-family="Arial" font-size="14" text-anchor="middle">3. GET 每个智能体描述文件</text>
+    
+    <!-- 4. 返回智能体描述 -->
+    <line x1="250" y1="410" x2="550" y2="300" stroke="#34a853" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="5,5" />
+    <text x="400" y="370" font-family="Arial" font-size="14" text-anchor="middle">4. 返回智能体详细描述</text>
+    
+    <!-- 箭头定义 -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+        </marker>
+    </defs>
+    
+    <!-- 图例 -->
+    <rect x="600" y="400" width="20" height="3" fill="#000" />
+    <text x="630" y="405" font-family="Arial" font-size="12">请求</text>
+    
+    <rect x="600" y="430" width="20" height="3" fill="#000" stroke-dasharray="5,5" />
+    <text x="630" y="435" font-family="Arial" font-size="12">响应</text>
+    
+    <text x="400" y="480" font-family="Arial" font-size="12" text-anchor="middle">© 2024 Agent Network Protocol</text>
+</svg>
