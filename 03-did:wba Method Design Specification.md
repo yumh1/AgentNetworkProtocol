@@ -475,10 +475,10 @@ The client needs to send the following information to the server:
 - **timestamp**: The time when the request is initiated, typically in ISO 8601 UTC format, accurate to seconds.
 - **verification_method**: Identifies the verification method used in the signature, which is the DID fragment of the verification method in the DID document. For example, for the verification method ID "did:wba:example.com%3A8800:user:alice#key-1", the verification method's DID fragment is "key-1".
 - **signature**: Signs the `nonce`, `timestamp`, server domain, and client DID. For ECDSA signatures, uses R|S format. Includes the following fields:
-  - `nonce`
-  - `timestamp`
-  - `service` (the server's domain name)
-  - `did` (the client's DID)
+  - `nonce`: A randomly generated string
+  - `timestamp`: The time when the request is initiated
+  - `service`: The server's domain name (note: the domain name does not include the port)
+  - `did`: The client's DID
 
 Client request example:
 

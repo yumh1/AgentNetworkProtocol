@@ -277,10 +277,10 @@ sequenceDiagram
 - **timestamp**：请求发起时的时间，通常使用 ISO 8601 格式的 UTC 时间，精确到秒。
 - **verification_method**：标识请求中签名使用的验证方法，为DID文档中验证方法的DID fragment。以验证方法id "did:wba:example.com%3A8800:user:alice#key-1"的验证方法为例，验证方法的DID fragment为"key-1"。
 - **signature**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
-  - `nonce`
-  - `timestamp`
-  - `service`（服务的域名）
-  - `did`（客户端的 DID）
+  - `nonce`: 随机生成的字符串
+  - `timestamp`: 请求发起时的时间
+  - `service`: 服务端域名(注意，域名中不包含端口)
+  - `did`: 客户端的 DID
 客户端请求示例：
 
 ```plaintext
