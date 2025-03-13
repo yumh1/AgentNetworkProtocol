@@ -73,3 +73,9 @@ There are significant differences in core concepts between ANP and MCP. In MCP, 
 ANP provides descriptions of an agent's public information, which can be basic information (like what coffee a coffee shop sells) or API interface descriptions (through which coffee can be purchased).
 
 Information is ANP's only concept and its most core concept. There are no resources, tools, or prompts—everything is determined by the model and the agent developer. 
+
+
+## Copyright Notice
+Copyright (c) 2024 GaoWei Chang  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.
+
