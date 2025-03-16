@@ -81,6 +81,22 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - AI个人助手未来产品形态和主要玩家的分析与预测：[AI个人助手未来产品形态和主要玩家的分析与预测](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
 
+- 一个提示词一个HTTP函数：让开源Manus通过ANP与其他智能体交互：[一个提示词一个HTTP函数：让开源Manus通过ANP与其他智能体交互](blogs/cn/一个提示词一个HTTP函数：让开源Manus通过ANP与其他智能体交互.md)
+
+- LangGraph负责人对MCP的挑战，ANP是怎么解决的？：[LangGraph负责人对MCP的挑战，ANP是怎么解决的？](blogs/cn/LangGraph负责人对MCP的挑战，ANP是怎么解决的？.md)
+
+- ANP协议要感谢的社区：web3、Agora、WebAgents：[ANP协议要感谢的社区：web3、Agora、WebAgents](blogs/cn/ANP协议要感谢的社区：web3、Agora、WebAgents.md)
+
+- 智能体通信协议对比：[智能体通信协议对比](blogs/cn/智能体通信协议对比.md)
+
+- 但我们设计一个协议的时候，我们在设计什么：[但我们设计一个协议的时候，我们在设计什么](blogs/cn/但我们设计一个协议的时候，我们在设计什么.md)
+
+- 关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护：[关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护](blogs/cn/关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护.md)
+
+- Anthropic MCP 2025H1 里程碑解读：[Anthropic MCP 2025H1 里程碑解读](blogs/cn/Anthropic MCP 2025H1 里程碑解读.md)
+
+- ANP在W3C-WebAgents-CG的演讲：[ANP在W3C-WebAgents-CG的演讲](blogs/cn/ANP在W3C-WebAgents-CG的演讲.md)
+
 ### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：

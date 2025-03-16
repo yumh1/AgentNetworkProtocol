@@ -78,7 +78,19 @@ Here are some of our blogs:
 
 - Three Key Issues of Agent Identity: [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](blogs/Three-Key-Issues-of-Agent-Identity:%20Interoperability,%20Human-Authorization,%20and-Privacy-Protection.md)
 
-- Analysis and Predictions of AI Personal Assistants: [Analysis and Predictions of AI Personal Assistants](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
+- Analysis and Predictions of AI Personal Assistants: [Analysis and Predictions of Future AI Personal Assistant Products and Key Players](blogs/Analysis%20and%20Predictions%20of%20Future%20AI%20Personal%20Assistant%20Products%20and%20Key%20Players.md)
+
+- One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP: [One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP](blogs/One-Prompt,One-HTTP-Function:Enabling-Open-Source-Manus-to-Interact-with-Other-Agents-via-ANP.md)
+
+- Challenges to MCP from LangGraph Lead and How ANP Addresses Them: [Challenges to MCP from LangGraph Lead and How ANP Addresses Them](blogs/Challenges-to-MCP-from-LangGraph-Lead-and-How-ANP-Addresses-Them.md)
+
+- In the Year that the ANP was Born: [In the Year that the ANP was Born](blogs/In-the-year-that-the-ANP-was-born.md)
+
+- Comparison of Agent Communication Protocols: [Comparison of Agent Communication Protocols](blogs/Comparison-of-Agent-Communication-Protocols.md)
+
+- Anthropic MCP 2025H1 Milestone Analysis: [Anthropic MCP 2025H1 Milestone Analysis](blogs/Anthropic%20MCP%202025H1%20Milestone%20Analysis.md)
+
+- ANP Presentation at W3C WebAgents CG: [ANP Presentation at W3C WebAgents CG](blogs/ANP-Presentation-at-W3C-WebAgents-CG.md)
 
 ### Milestones
 
