@@ -22,7 +22,7 @@ This specification defines two agent discovery mechanisms: active discovery and 
 
 We use [JSON-LD](https://www.w3.org/TR/json-ld11/) (JavaScript Object Notation for Linked Data) as the format for agent discovery documents, consistent with the Agent Description Protocol. By using JSON-LD, we can achieve rich semantic expression and linking relationships while maintaining simplicity and ease of use.
 
-Agent description documents are detailed expressions of agent information, as referenced in the [ANP-Agent Description Protocol Specification](07-ANP-Agent-Description-Protocol-Specification.md). The agent discovery document serves as a collection page, containing URLs of all public agent description documents under a domain, facilitating indexing and access by search engines or other agents.
+Agent description documents are detailed expressions of agent information, as referenced in the [ANP-Agent Description Protocol Specification](07-anp-agent-description-protocol-specification.md). The agent discovery document serves as a collection page, containing URLs of all public agent description documents under a domain, facilitating indexing and access by search engines or other agents.
 
 ## Protocol Details
 

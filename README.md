@@ -44,21 +44,21 @@ We are developing an open-source implementation of AgentNetworkProtocol at: [htt
 
 For further understanding, you can refer to these documents:
 
-- For our overall design philosophy and concepts, see our technical white paper: [AgentNetworkProtocol Technical White Paper](01-AgentNetworkProtocol%20Technical%20White%20Paper.md)
+- For our overall design philosophy and concepts, see our technical white paper: [AgentNetworkProtocol Technical White Paper](01-agentnetworkprotocol-technical-white-paper.md)
 
-- We've designed a decentralized authentication scheme that leverages existing web infrastructure while maintaining decentralization. We believe this is currently the optimal solution for agent authentication: [did:wba Method Specification](03-did:wba%20Method%20Design%20Specification.md)
+- We've designed a decentralized authentication scheme that leverages existing web infrastructure while maintaining decentralization. We believe this is currently the optimal solution for agent authentication: [did:wba Method Specification](03-did:wba-method-design-specification.md)
 
-  - This is our did:wba service side interface, which can be used to test your own did:wba client and service side: [did:wba service side interface](docs/did:wba%20server%20test%20interface.md)
+  - This is our did:wba service side interface, which can be used to test your own did:wba client and service side: [did:wba service side interface](docs/did:wba-server-test-interface.md)
 
-- Based on DID, we've designed an end-to-end encrypted communication protocol for agents, distinct from TLS as intermediate relay nodes cannot decrypt the content: [DID-based End-to-End Encrypted Communication](message/04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md)
+- Based on DID, we've designed an end-to-end encrypted communication protocol for agents, distinct from TLS as intermediate relay nodes cannot decrypt the content: [DID-based End-to-End Encrypted Communication](message/04-end-to-end-encrypted-communication-technology-protocol-based-on-did.md)
 
-- We've designed a meta-protocol for negotiating communication protocols between agents, enabling them to autonomously negotiate their communication protocols: [Meta-Protocol Design Specification](06-ANP-Agent%20Communication%20Meta-Protocol%20Specification.md)
+- We've designed a meta-protocol for negotiating communication protocols between agents, enabling them to autonomously negotiate their communication protocols: [Meta-Protocol Design Specification](06-anp-agent-communication-meta-protocol-specification.md)
 
-- We have designed a protocol for describing agents that enables data exchange between agents: [Agent Description Protocol Specification](07-ANP-Agent%20Description%20Protocol%20Specification.md)
+- We have designed a protocol for describing agents that enables data exchange between agents: [Agent Description Protocol Specification](07-anp-agent-description-protocol-specification.md)
 
-- We have designed an agent discovery protocol that helps agents find and interact with each other: [Agent Discovery Protocol Specification](08-ANP-Agent-Discovery-Protocol-Specification.md)
+- We have designed an agent discovery protocol that helps agents find and interact with each other: [Agent Discovery Protocol Specification](08-anp-agent-discovery-protocol-specification.md)
 
-- We have designed an agent message specification that can be used for agent message proxy services, allowing agents to hide behind proxy services to achieve higher security and reduce the cost of agent development and maintenance. [End-to-End Encrypted Communication Based on did](message/04-End-to-End%20Encrypted%20Communication%20Technology%20Protocol%20Based%20on%20did.md), [Message Service Protocol Based on did](message/05-Message%20Service%20Protocol%20Based%20on%20did.md). (Note: These two specifications are based on the deprecated did:all method and will be upgraded to the did:wba method in the future)
+- We have designed an agent message specification that can be used for agent message proxy services, allowing agents to hide behind proxy services to achieve higher security and reduce the cost of agent development and maintenance. [End-to-End Encrypted Communication Based on did](message/04-end-to-end-encrypted-communication-technology-protocol-based-on-did.md), [Message Service Protocol Based on did](message/05-message-service-protocol-based-on-did.md). (Note: These two specifications are based on the deprecated did:all method and will be upgraded to the did:wba method in the future)
 
 - Additional specifications are currently under development.
 
@@ -66,19 +66,19 @@ Here are some of our blogs:
 
 - This is our understanding of the agent network: [What's Different About the Agentic Web](blogs/What-Makes-Agentic-Web-Different.md)
 
-- A brief introduction to did:wba: [did:wba - Web-Based Decentralized Identifiers](blogs/did:wba,%20a%20Web-based%20Decentralized%20Identifier.md)
+- A brief introduction to did:wba: [did:wba - Web-Based Decentralized Identifiers](blogs/did:wba,-a-web-based-decentralized-identifier.md)
 
 - This is the difference between Anthropic MCP and our designed ANP: [Comparison of MCP and ANP: What Kind of Communication Protocol Do Agents Need](blogs/Comparison-of-MCP-and-ANP-What-Kind-of-Communication-Protocol-Do-Agents-Need.md)
 
-- We compared the differences between did:wba and technologies like OpenID Connect and API keys: [Comparison of did:wba with OpenID Connect and API keys](blogs/Comparison%20of%20did:wba%20with%20OpenID%20Connect%20and%20API%20keys.md)
+- We compared the differences between did:wba and technologies like OpenID Connect and API keys: [Comparison of did:wba with OpenID Connect and API keys](blogs/comparison-of-did:wba-with-openid-connect-and-api-keys.md)
 
 - We analyzed the security principles of did:wba: [Security Principles of did:wba](blogs/did:wba-security-principles.md)
 
 - Three Technical Approaches to AI-Internet Interaction: [Three Technical Approaches to AI-Internet Interaction](blogs/Three_Technical_Approaches_to_AI_Internet_Interaction.md)
 
-- Three Key Issues of Agent Identity: [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](blogs/Three-Key-Issues-of-Agent-Identity:%20Interoperability,%20Human-Authorization,%20and-Privacy-Protection.md)
+- Three Key Issues of Agent Identity: [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](blogs/three-key-issues-of-agent-identity:-interoperability,-human-authorization,-and-privacy-protection.md)
 
-- Analysis and Predictions of AI Personal Assistants: [Analysis and Predictions of Future AI Personal Assistant Products and Key Players](blogs/Analysis%20and%20Predictions%20of%20Future%20AI%20Personal%20Assistant%20Products%20and%20Key%20Players.md)
+- Analysis and Predictions of AI Personal Assistants: [Analysis and Predictions of Future AI Personal Assistant Products and Key Players](blogs/analysis-and-predictions-of-future-ai-personal-assistant-products-and-key-players.md)
 
 - One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP: [One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP](blogs/One-Prompt,One-HTTP-Function:Enabling-Open-Source-Manus-to-Interact-with-Other-Agents-via-ANP.md)
 
@@ -88,7 +88,7 @@ Here are some of our blogs:
 
 - Comparison of Agent Communication Protocols: [Comparison of Agent Communication Protocols](blogs/Comparison-of-Agent-Communication-Protocols.md)
 
-- Anthropic MCP 2025H1 Milestone Analysis: [Anthropic MCP 2025H1 Milestone Analysis](blogs/Anthropic%20MCP%202025H1%20Milestone%20Analysis.md)
+- Anthropic MCP 2025H1 Milestone Analysis: [Anthropic MCP 2025H1 Milestone Analysis](blogs/anthropic-mcp-2025h1-milestone-analysis.md)
 
 - ANP Presentation at W3C WebAgents CG: [ANP Presentation at W3C WebAgents CG](blogs/ANP-Presentation-at-W3C-WebAgents-CG.md)
 

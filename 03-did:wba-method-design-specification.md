@@ -163,7 +163,7 @@ Apart from the DID Core specification, most other specifications are still in dr
 - **service**: Optional field that defines a list of services associated with the DID subject.
   - **id**: Unique identifier for the service.
   - **type**: Type of service. For agent description service, use "AgentDescription".
-  - **serviceEndpoint**: URL endpoint of the service. For agent description service, this URL points to a document that follows the [ANP-Agent Description Protocol Specification](/07-ANP-Agent%20Description%20Protocol%20Specification.md).
+  - **serviceEndpoint**: URL endpoint of the service. For agent description service, this URL points to a document that follows the [ANP-Agent Description Protocol Specification](/07-anp-agent-description-protocol-specification.md).
 
 > Note:
 > 1. Public key information currently supports two formats: publicKeyJwk and publicKeyMultibase. For details, see [https://www.w3.org/TR/did-extensions-properties/#verification-method-properties](https://www.w3.org/TR/did-extensions-properties/#verification-method-properties).

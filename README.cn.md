@@ -71,13 +71,13 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 这是Anthropic MCP与我们设计的ANP之间的区别： [MCP与ANP对比：智能体需要什么样的通信协议](blogs/cn/MCP与ANP对比：智能体需要什么样的通信协议.md)
 
-- 我们对比了did:wba与OpenID Connect、API keys等技术方案的区别：[did:wba对比OpenID Connect、API keys](blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)
+- 我们对比了did:wba与OpenID Connect、API keys等技术方案的区别：[did:wba对比OpenID Connect、API keys](blogs/cn/did:wba对比openid-connect、api-keys.md)
 
 - 我们分析了did:wba的安全性原理：[did:wba安全性原理解析](blogs/cn/did:wba安全性原理解析.md)
 
 - 从OpenAI的Operator，谈AI与互联网交互的三种技术路线：[从OpenAI的Operator，看AI与互联网交互的三种技术路线](blogs/cn/从OpenAI的Operator，看AI与互联网交互的三种技术路线.md)
 
-- 智能体身份的三个关键问题：[智能体身份的三个关键问题：互操作性、人类授权和隐私保护](blogs/Three-Key-Issues-of-Agent-Identity:%20Interoperability,%20Human-Authorization,%20and-Privacy-Protection.md)
+- 智能体身份的三个关键问题：[智能体身份的三个关键问题：互操作性、人类授权和隐私保护](blogs/three-key-issues-of-agent-identity:-interoperability,-human-authorization,-and-privacy-protection.md)
 
 - AI个人助手未来产品形态和主要玩家的分析与预测：[AI个人助手未来产品形态和主要玩家的分析与预测](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
 
@@ -93,7 +93,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护：[关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护](blogs/cn/关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护.md)
 
-- Anthropic MCP 2025H1 里程碑解读：[Anthropic MCP 2025H1 里程碑解读](blogs/cn/Anthropic MCP 2025H1 里程碑解读.md)
+- Anthropic MCP 2025H1 里程碑解读：[Anthropic MCP 2025H1 里程碑解读](blogs/cn/anthropic-mcp-2025h1-里程碑解读.md)
 
 - ANP在W3C-WebAgents-CG的演讲：[ANP在W3C-WebAgents-CG的演讲](blogs/cn/ANP在W3C-WebAgents-CG的演讲.md)
 
