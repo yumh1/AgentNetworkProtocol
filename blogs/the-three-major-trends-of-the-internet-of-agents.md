@@ -4,7 +4,7 @@ I deeply appreciate a classical internet concept: **connection is power**. As lo
 
 I believe the Internet of Agents will completely restructure the current internet's connection paradigm, returning the internet from platforms back to connections.
 
-Previously, I wrote an article: [How the Internet of Agents Differs](/blogs/cn/智能体互联网有什么不同). Today, I'll delve deeper into the three major trends of the future Internet of Agents, which forms the foundational logic behind our design of ANP (Agent Network Protocol).
+Previously, I wrote an article: [How the Internet of Agents Differs](/blogs/What-Makes-Agentic-Web-Different.md). Today, I'll delve deeper into the three major trends of the future Internet of Agents, which forms the foundational logic behind our design of ANP (Agent Network Protocol).
 
 Often, a macro perspective is easier to judge than a micro one. By ignoring details and paths while grasping the essence, we can clearly see the future. Our thinking on this issue relies on two essential principles:
 - **How to lower the overall operational costs of society**
