@@ -65,7 +65,7 @@ Example:
     "ad": "https://agent-network-protocol.com/ad#"
   },
   "@type": "CollectionPage",
-  "url": "https://agent-network-protocol.com/agent-descriptions",
+  "url": "https://agent-network-protocol.com/.well-known/agent-descriptions",
   "items": [
     {
       "@type": "ad:AgentDescription",
@@ -78,7 +78,7 @@ Example:
       "@id": "https://agent-network-protocol.com/agents/customersupport/ad.json"
     }
   ],
-  "next": "https://agent-network-protocol.com/agent-descriptions/page2.json"
+  "next": "https://agent-network-protocol.com/.well-known/agent-descriptions?page=2"
 }
 ```
 
