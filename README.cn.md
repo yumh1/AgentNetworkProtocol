@@ -97,6 +97,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - ANP在W3C-WebAgents-CG的演讲：[ANP在W3C-WebAgents-CG的演讲](blogs/cn/ANP在W3C-WebAgents-CG的演讲.md)
 
+- 第一个专为AI访问而设计的WebAgent诞生了：[第一个专为AI访问而设计的WebAgent诞生了](blogs/cn/第一个专为AI访问而设计的WebAgent诞生了.md) 
+
 ### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：

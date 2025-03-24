@@ -92,6 +92,8 @@ Here are some of our blogs:
 
 - ANP Presentation at W3C WebAgents CG: [ANP Presentation at W3C WebAgents CG](blogs/ANP-Presentation-at-W3C-WebAgents-CG.md)
 
+- Introduces the concept of WebAgent, the technical implementation of the first ANP-based WebAgent, and how to build a data network specifically designed for AI based on agent discovery, agent description, and identity authentication: [The Birth of the First WebAgent Designed for AI Access](blogs/The-Birth-of-the-First-WebAgent-Designed-for-AI-Access.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
