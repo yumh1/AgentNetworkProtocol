@@ -94,6 +94,8 @@ Here are some of our blogs:
 
 - Introduces the concept of WebAgent, the technical implementation of the first ANP-based WebAgent, and how to build a data network specifically designed for AI based on agent discovery, agent description, and identity authentication: [The Birth of the First WebAgent Designed for AI Access](blogs/The-Birth-of-the-First-WebAgent-Designed-for-AI-Access.md)
 
+- Agent's Impact on Infrastructure: Challenges to Existing Connection Infrastructure: [Agent's Impact on Infrastructure: Challenges to Existing Connection Infrastructure](blogs/Agent-Impact-on-Infrastructure-Challenges-to-Existing-Connection-Infrastructure.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
