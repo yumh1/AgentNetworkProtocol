@@ -177,7 +177,7 @@ Linked Data（关联数据） 是一种用于结构化数据共享和互联的�
 - ANP是以智能体为核心（Agent-Centric），每个智能体具有同等的地位，组成一个去中心化的智能体协作网络。
 
 <p align="center">
-  <img src="/blogs/images/mcp-vs-anp.png" width="75%" alt="mcp-vs-anp"/>
+  <img src="/blogs/images/mcp-vs-anp-core.png" width="75%" alt="mcp-vs-anp-core"/>
 </p>
 
 为什么会有这种不同？
