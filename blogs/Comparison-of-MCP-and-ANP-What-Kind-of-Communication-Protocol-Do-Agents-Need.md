@@ -177,7 +177,7 @@ If we abstractly summarize, the biggest difference between MCP and ANP lies in t
 - ANP is agent-centric, where each agent has equal status, forming a decentralized agent collaboration network.
 
 <p align="center">
-  <img src="/blogs/images/mcp-vs-anp.png" width="75%" alt="mcp-vs-anp"/>
+  <img src="/blogs/images/mcp-vs-anp-core.png" width="75%" alt="mcp-vs-anp-core"/>
 </p>
 
 Why are there such differences?
