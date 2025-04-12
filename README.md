@@ -96,6 +96,8 @@ Here are some of our blogs:
 
 - Agent's Impact on Infrastructure: Challenges to Existing Connection Infrastructure: [Agent's Impact on Infrastructure: Challenges to Existing Connection Infrastructure](blogs/Agent-Impact-on-Infrastructure-Challenges-to-Existing-Connection-Infrastructure.md)
 
+- Comprehensive Comparison of Google's Latest A2A, ANP, and MCP: [Comprehensive Comparison of Google's Latest A2A, ANP, and MCP](blogs/Comprehensive-Comparison-of-Google-A2A-ANP-MCP.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:

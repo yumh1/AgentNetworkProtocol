@@ -101,6 +101,9 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - Agent对Infra的改变：对连接基础设施的改变：[Agent对Infra的改变：对连接基础设施的改变](blogs/cn/agent对infra的改变:对连接基础设施的改变.md)
 
+- 多角度全面对比Google最新的A2A、ANP、MCP: [多角度全面对比Google最新的A2A、ANP、MCP](blogs/cn/多角度全面对比Google最新的A2A、ANP、MCP.md)
+
+
 ### 里程碑
 
 无论是协议还是开源代码实现，我们整体式是按照以下的顺序逐步的推进：
