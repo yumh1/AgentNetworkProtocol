@@ -98,6 +98,8 @@ Here are some of our blogs:
 
 - Comprehensive Comparison of Google's Latest A2A, ANP, and MCP: [Comprehensive Comparison of Google's Latest A2A, ANP, and MCP](blogs/Comprehensive-Comparison-of-Google-A2A-ANP-MCP.md)
 
+- In-depth Comparison of Google A2A and ANP: Finding the Origin of Protocols: [In-depth Comparison of Google A2A and ANP: Finding the Origin of Protocols](blogs/In-depth-Comparison-of-Google-A2A-and-ANP-Finding-the-Origin-of-Protocols.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:

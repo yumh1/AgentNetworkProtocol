@@ -103,6 +103,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 多角度全面对比Google最新的A2A、ANP、MCP: [多角度全面对比Google最新的A2A、ANP、MCP](blogs/cn/多角度全面对比Google最新的A2A、ANP、MCP.md)
 
+- 深入对比谷歌A2A与ANP：找到协议的原点: [深入对比谷歌A2A与ANP：找到协议的原点](blogs/cn/深入对比谷歌A2A与ANP：找到协议的原点.md)
+
 
 ### 里程碑
 
