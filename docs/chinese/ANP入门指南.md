@@ -123,61 +123,23 @@ did:wba格式示例：
 did:wba:example.com:alice
 ```
 
-DID文档示例（`did.json`）：
+下面是一个最精简的DID文档示例（`did.json`）：
 
 ```json
 {
     "@context": [ // 定义文档中使用的词汇表和命名空间
       "https://www.w3.org/ns/did/v1", // W3C DID核心词汇
-      "https://w3id.org/security/suites/jws-2020/v1", // JWS 安全套件
-      "https://w3id.org/security/suites/secp256k1-2019/v1", // secp256k1 签名套件
       "https://w3id.org/security/suites/ed25519-2020/v1", // Ed25519 签名套件
-      "https://w3id.org/security/suites/x25519-2019/v1" // X25519 密钥协商套件
     ],
     "id": "did:wba:example.com%3A8800:user:alice", // DID标识符，唯一标识该智能体，注意端口号':'进行了URL编码 (%3A)
-    "verificationMethod": [ // 包含用于验证目的的公钥列表 (例如，验证数字签名)
-      {
-        "id": "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q", // 此验证方法在DID文档内的唯一标识符
-        "type": "EcdsaSecp256k1VerificationKey2019", // 验证方法的类型 (使用secp256k1曲线的椭圆曲线数字签名算法)
-        "controller": "did:wba:example.com%3A8800:user:alice", // 控制此验证方法的DID
-        "publicKeyJwk": { // JSON Web Key (JWK) 格式的公钥信息
-          "crv": "secp256k1", // 椭圆曲线名称
-          "x": "NtngWpJUr-rlNNbs0u-Aa8e16OwSJu6UiFf0Rdo1oJ4", // 公钥的x坐标
-          "y": "qN1jKupJlFsPFc1UkWinqljv4YE0mq_Ickwnjgasvmo", // 公钥的y坐标
-          "kty": "EC", // 密钥类型 (Elliptic Curve)
-          "kid": "WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q" // 密钥ID，通常与验证方法ID中的片段匹配
-        }
-      }
-      // 可能还有其他验证方法...
-    ],
     "authentication": [ // 指定可用于身份验证 (证明对DID的控制权) 的验证方法
-      // 通过ID引用上面定义的验证方法
-      "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q",
-      // 或者，可以直接嵌入验证方法
       {
         "id": "did:wba:example.com%3A8800:user:alice#key-1",
         "type": "Ed25519VerificationKey2020", // 另一种签名算法 (EdDSA - Edwards-curve Digital Signature Algorithm)
         "controller": "did:wba:example.com%3A8800:user:alice",
-        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV" // Multibase格式的公钥 (对于Ed25519通常使用base58btc编码)
+        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV" // Multibase格式的公钥 ，最重要的字段，用于身份验证
       }
     ],
-    "keyAgreement": [ // 可选：定义用于密钥协商以建立加密通信通道的公钥
-      {
-        "id": "did:wba:example.com%3A8800:user:alice#key-2",
-        "type": "X25519KeyAgreementKey2019", // 密钥协商算法类型 (使用Curve25519)
-        "controller": "did:wba:example.com%3A8800:user:alice",
-        "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE" // Multibase格式的公钥 (对于X25519通常使用base58btc编码)
-      }
-    ],
-    "humanAuthorization": [ // 可选：定义需要人类授权才能使用的密钥 (ANP特定扩展)，用于需要明确用户同意的操作
-      "did:wba:example.com%3A8800:user:alice#WjKgJV7VRw3hmgU6--4v15c0Aewbcvat1BsRFTIqa5Q", // 引用现有密钥
-      { // 嵌入式密钥定义
-        "id": "did:wba:example.com%3A8800:user:alice#key-3",
-        "type": "Ed25519VerificationKey2020",
-        "controller": "did:wba:example.com%3A8800:user:alice",
-        "publicKeyMultibase": "z9XK2BVwLNv6gmMNbm4uVAjZpfkcJDwDwnZn6z3wweKLo"
-      }
-    ],    
     "service": [ // 可选：定义与此DID关联的服务端点列表
       {
         "id": "did:wba:example.com%3A8800:user:alice#agent-description", // 服务端点的唯一标识符
