@@ -44,7 +44,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 如果你想进一步了解，可以查看相关的文档：
 
-- 如果你想了解ANP的基础知识和入门指南，可以查看：[ANP入门指南](docs/chinese/ANP入门指南.md) | [ANP Getting Started Guide (English)](docs/anp-getting-started-guide.md)
+- 如果你想快速了解ANP的基本概念和使用方法，可以查看我们的入门指南：[ANP入门指南](docs/chinese/ANP入门指南.md)
 
 - 如果你想了解我们整体的设计思路和理念，可以查看我们的技术白皮书：[AgentNetworkProtocol技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)
 
