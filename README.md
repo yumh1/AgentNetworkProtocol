@@ -44,6 +44,8 @@ We are developing an open-source implementation of AgentNetworkProtocol at: [htt
 
 For further understanding, you can refer to these documents:
 
+- For a beginner-friendly introduction to ANP, check out our getting started guide: [ANP Getting Started Guide](docs/anp-getting-started-guide.md)
+
 - For our overall design philosophy and concepts, see our technical white paper: [AgentNetworkProtocol Technical White Paper](01-agentnetworkprotocol-technical-white-paper.md)
 
 - We've designed a decentralized authentication scheme that leverages existing web infrastructure while maintaining decentralization. We believe this is currently the optimal solution for agent authentication: [did:wba Method Specification](03-did:wba-method-design-specification.md)
