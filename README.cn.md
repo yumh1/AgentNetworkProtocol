@@ -44,6 +44,8 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 如果你想进一步了解，可以查看相关的文档：
 
+- 如果你想快速了解ANP的基本概念和使用方法，可以查看我们的入门指南：[ANP入门指南](docs/chinese/ANP入门指南.md)
+
 - 如果你想了解我们整体的设计思路和理念，可以查看我们的技术白皮书：[AgentNetworkProtocol技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)
 
 - 我们设计了一个去中心化的身份验证方案，既可以利用当前成熟的web基础设施，又兼具去中心化特点。我们认为这是当前智能体身份认证的最佳方案：[did:wba身份证方案](chinese/03-did:wba方法规范.md)
