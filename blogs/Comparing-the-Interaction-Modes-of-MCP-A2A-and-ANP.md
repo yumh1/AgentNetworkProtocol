@@ -63,7 +63,7 @@ sequenceDiagram
     participant Remote Agent A
     participant Remote Agent B
 
-    Note over Client Agent,Remote Agent A,Remote Agent B: 1. Discovery Phase
+    Note over Client Agent: 1. Discovery Phase
     Client Agent->>Remote Agent A: Get Agent Card (/.well-known/agent.json)
     Remote Agent A-->>Client Agent: Return Agent Card (skills, authentication)
     Client Agent->>Remote Agent B: Get Agent Card (/.well-known/agent.json)
@@ -72,16 +72,16 @@ sequenceDiagram
     Note over Client Agent: 2. Task Splitting
     Client Agent-->>Client Agent: Split original task into Subtask A & Subtask B
 
-    Note over Client Agent,Remote Agent A: 3. Subtask Submission to Remote Agent A
+    Note over Client Agent: 3. Subtask Submission to Remote Agent A
     Client Agent->>Remote Agent A: Send Subtask A (tasks/send)
 
-    Note over Client Agent,Remote Agent B: 4. Subtask Submission to Remote Agent B
+    Note over Client Agent: 4. Subtask Submission to Remote Agent B
     Client Agent->>Remote Agent B: Send Subtask B (tasks/send)
 
-    Note over Client Agent,Remote Agent A: 5. Collect Result A
+    Note over Client Agent: 5. Collect Result A
     Remote Agent A-->>Client Agent: Return result A
 
-    Note over Client Agent,Remote Agent B: 6. Collect Result B
+    Note over Client Agent: 6. Collect Result B
     Remote Agent B-->>Client Agent: Return result B
 
     Note over Client Agent: 7. Task Completion & Aggregation
