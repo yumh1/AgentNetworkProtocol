@@ -102,6 +102,8 @@ Here are some of our blogs:
 
 - In-depth Comparison of Google A2A and ANP: Finding the Origin of Protocols: [In-depth Comparison of Google A2A and ANP: Finding the Origin of Protocols](blogs/In-depth-Comparison-of-Google-A2A-and-ANP-Finding-the-Origin-of-Protocols.md)
 
+- Deep Comparison of MCP, A2A, and ANP Interaction Modes: Differences in Information Organization: [Deep Comparison of MCP, A2A, and ANP Interaction Modes](blogs/Comparing-the-Interaction-Modes-of-MCP-A2A-and-ANP.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
