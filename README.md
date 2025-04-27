@@ -29,7 +29,7 @@ While current internet infrastructure is well-established, there's still a lack 
 ### Protocol Architecture
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="Protocol Layer Design"/>
 </p>
 
 - 🔒 **Identity and Encrypted Communication Layer**: Based on W3C DID (Decentralized Identifiers) specification, we build a decentralized authentication scheme and end-to-end encrypted communication solution on existing mature web infrastructure. This enables agents across any platforms to authenticate each other without relying on centralized systems.

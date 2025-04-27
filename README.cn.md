@@ -29,7 +29,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 ### 协议架构
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="协议分层图"/>
 </p>
 
 - 🔒 **身份与加密通信层**：基于W3C DID（Decentralized Identifiers，去中心化标识符）规范，在现有成熟的Web基础设施上，构建一个去中心化的身份认证方案和端到端加密通信方案。它可以让任意平台之间的智能体进行身份认证，而不依赖于任何中心化系统。

@@ -86,7 +86,7 @@ ANP在设计时充分考虑实际部署的可行性，尽量基于现有互联�
 我们设计了一个由三层组成的协议架构，如下图所示：
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="协议分层图"/>
 </p>
 
 ANP协议架构自下而上分为三层，各自承担不同的核心职能：

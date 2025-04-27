@@ -26,7 +26,7 @@ Agent Network Protocol (ANP) aims to address three major challenges in connectiv
 To address these three major challenges, Agent Network Protocol (ANP) is designed as a three-layer architecture, consisting of Identity and Encrypted Communication Layer, Meta-Protocol Layer, and Application Protocol Layer from bottom to top, as shown below:
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Design"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="Protocol Layer Design"/>
 </p>
 
 ### Identity and Encrypted Communication Layer

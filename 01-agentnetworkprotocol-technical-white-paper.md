@@ -85,7 +85,7 @@ Goal: To lower initial deployment barriers and promote rapid piloting, applicati
 We have designed a three-layer protocol architecture as shown in the following diagram:
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Architecture"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="Protocol Layer Architecture"/>
 </p>
 
 The ANP protocol architecture is divided into three layers from bottom to top, each with distinct core functions:

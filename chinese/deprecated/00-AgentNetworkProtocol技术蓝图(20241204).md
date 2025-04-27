@@ -25,7 +25,7 @@ Agent Network Protocol(ANP)致力于解决智能体连接中的三大挑战：
 为了应对上面的三大挑战，Agent Network Protocol(ANP)整体上设计为三层架构，从下到上依次是身份与加密通信层、元协议层、应用协议层，如下图所示：
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="协议分层图"/>
+  <img src="/images/anp-architecture.png" width="50%" alt="协议分层图"/>
 </p>
 
 ### 身份与加密通信层
