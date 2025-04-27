@@ -1,50 +1,130 @@
-
-# Agent Network Protocol Framework: A Protocol Framework for Agent Communication
+# Agent Network Protocol Technical White Paper:
 
 ## Abstract
 
-While current internet infrastructure is quite advanced, it lacks standardized communication and network connection solutions tailored to the specific needs of agent networks. To fully harness the potential of artificial intelligence, this paper proposes a protocol framework for agent communication—the Agent Network Protocol Framework. This framework aims to eliminate information silos, enabling seamless, decentralized identity authentication and efficient collaboration among agents. It consists of three layers: the Identity and Encrypted Communication Layer, the Meta-Protocol Layer, and the Application Protocol Layer. The Identity and Encrypted Communication Layer, based on the W3C DID standard, provides decentralized identity authentication and end-to-end encrypted communication, ensuring secure connections between agents. The Meta-Protocol Layer enhances collaboration flexibility and efficiency through natural language negotiation and AI code generation, reducing communication costs. The Application Protocol Layer simplifies agent interactions through standardized protocol descriptions and management. This paper focuses on the overall design of this protocol framework, offering an innovative solution for agent communication.
+With the development of large models and autonomous decision-making AI, agents are rapidly becoming the new entities of the internet following mobile apps. However, existing internet infrastructure is primarily designed for human interaction, creating data silos, unfriendly interfaces, and high collaboration costs among agents, making it difficult to support the needs for large-scale agent interconnection and collaboration. The internet is undergoing profound transformation, showing four core trends: agents replacing traditional software, universal agent interconnection, native protocol-based connections, and autonomous agent organization and collaboration.
+
+To align with these trends, Agent Network Protocol (ANP) proposes a new generation of communication protocols for the Agentic Web. ANP adheres to AI-native design, maintains compatibility with existing internet protocols, adopts a modular composable architecture, follows minimalist yet extensible principles, and enables rapid deployment based on existing infrastructure. Through a three-layer protocol system—identity and encrypted communication layer, meta-protocol negotiation layer, and application protocol layer—ANP systematically solves the problems of agent identity authentication, dynamic negotiation, and capability discovery interoperability.
+
+At the application layer, ANP builds an AI-friendly native data network through Agent Description Protocol (ADP) and agent discovery protocol, enabling agents to open capabilities and interconnect in a structured manner. In terms of security and privacy design, ANP introduces human authorization and agent authorization distinction mechanisms, supports multiple DID privacy protection strategies, and promotes minimum information disclosure and end-to-end encrypted communication, ensuring user and agent autonomy and data security in an open network environment.
+
+Looking to the future, ANP is committed to breaking digital silos and driving the internet's evolution from closed platform ecosystems back to a collaborative network centered on open protocols. It upholds the design philosophy that "connection is power," releasing the enormous potential of collective intelligence by promoting high-quality, low-friction agent connections and collaboration. ANP is not just a communication standard but represents an important infrastructure for reshaping openness, fairness, and innovation vitality in the era of the Agentic Web. We invite developers, researchers, and organizations worldwide to participate in building the ANP ecosystem and co-create a new internet future driven by agents.
 
 ## 1. Introduction
 
-With the rapid development of agent technology, it is gradually becoming the next significant platform following Android and iOS[^1]. However, there is still a lack of standardized solutions for communication and network connections between agents. Although internet infrastructure is quite mature, existing technologies cannot fully meet the unique needs of agent networks, primarily due to the following reasons:
+### 1.1 Background and Challenges
 
-Firstly, agents typically require comprehensive access to user information to make accurate decisions. However, the data silo effect in the current internet disperses user information across different platforms, limiting the functionality of agents. Secondly, current internet applications are primarily designed for human users, relying on graphical interfaces, whereas agents are more adept at directly processing underlying data through protocols or APIs. Graphical interfaces not only increase development costs but also reduce processing efficiency. Lastly, agents have the capability to use natural language for network connections and negotiations, enabling self-organization and self-collaboration for more personalized and efficient communication.
+With the development of large models and autonomous decision-making AI, agents are becoming the new entities of the internet following mobile apps. Agents are expected to replace existing software and become an important part of the internet. However, current internet technology foundations and connection paradigms struggle to meet the needs of agents, mainly in the following aspects:
 
-Therefore, there is an urgent need for a new protocol framework that can break down data barriers and enable seamless connections and communication between agents. This framework should have the following characteristics: eliminate information silos, allowing agents to make decisions in a complete context; provide AI-friendly data interfaces to reduce information processing costs; and support autonomous connection, negotiation, and collaboration among agents. To this end, this paper proposes a three-layer protocol framework, including the Identity and Encrypted Communication Layer, the Meta-Protocol Layer, and the Application Protocol Layer, aimed at addressing the challenges in agent communication.
+- **Data Silos and Context Limitations**: Agents need to integrate comprehensive contextual information to make decisions, but current internet platforms are disconnected, with data isolated in different applications and servers. This data silo phenomenon limits agents' access to complete information, making it difficult to leverage their intelligent decision-making advantages.
 
-## 2. Three-Layer Protocol Architecture
+- **Unfriendly Interfaces (Non-Native)**: Existing internet applications are primarily designed for humans, providing services through GUIs. If agents want to use existing human interfaces, they need to simulate human operations, which is inefficient and error-prone. Agents are better at directly using APIs or communication protocols to interact with the digital world, thus requiring native data interfaces for agents to reduce information processing intermediaries and improve interaction efficiency.
 
-To address issues such as identity authentication, protocol negotiation, and application interaction in agent networks, we have designed a three-layer protocol architecture, as illustrated below:
+- **High Collaboration Costs**: Currently, different agents are isolated from each other, lacking direct communication mechanisms. Although large language models enable agents to negotiate using natural language, without standard protocol support, self-organizing collaboration remains challenging. If any agent could communicate directly with others and autonomously negotiate, it would create a more cost-effective and efficient collaborative network than the existing internet.
+
+### 1.2 Four Trends of the Agentic Web
+
+Based on the above analysis, we believe the internet is undergoing a new round of profound transformation centered on agents. This transformation is reflected in the following four key trends.
+
+#### 1.2.1 Agents Will Completely Replace Traditional Software
+
+In the future, agents will gradually replace existing software applications and become an important infrastructure of the internet. At the individual level, AI assistants will replace the vast majority of existing apps, becoming the main entry point for users to access the internet. Compared to traditional apps, personal AI assistants can achieve order-of-magnitude improvements in information integration, decision support, and scenario interaction experiences. At the enterprise level, companies will connect and interact directly with users on the internet by deploying agents, providing precise and efficient services. Meanwhile, a new connection paradigm represented by point-to-point, de-platformized connections between personal assistants and enterprise agents is taking shape.
+
+#### 1.2.2 Universal Interconnection Between Agents
+
+The second core trend of the Agentic Web is to achieve free connections between any agents, which will completely break the current internet's data silo pattern and enable the free flow of information. A fully connected agent network allows AI to fully access cross-domain, cross-platform complete contextual information, thereby helping individuals and enterprises make more comprehensive and precise decisions. At the same time, this open connection mode allows agents to call upon all tool capabilities across the network, greatly expanding the depth and complexity of agent collaboration, making interactions between agents the most mainstream connection method in the future internet.
+
+#### 1.2.3 Protocol-Based Native Connection Mode for Agents
+
+Currently, AI's interaction with the internet is mainly through human-centered design methods such as browsers or software interfaces (Computer Use / Browser Use). However, these methods are only temporary transitional solutions and cannot fully release AI's potential. AI is essentially better at directly processing underlying structured data and semantic information rather than human interfaces and webpage HTML. Therefore, we believe that in the future, agents will connect through communication protocols (Protocol) specifically designed for AI native use, which will be widely applied like HTTP and become an industry standard. Based on this protocol, a new data network specifically designed for AI, more accessible and operable for agents, will also emerge.
+
+#### 1.2.4 Agents Can Self-Organize and Collaborate
+
+The fourth core trend of the Agentic Web is that agents have the ability to self-organize and collaborate. Through standard protocol support, agents can use natural language for flexible automatic negotiation, quickly clarify each other's needs, and dynamically form collaborative relationships to complete complex tasks together. This collaboration mode, which does not require fixed structured interfaces, greatly improves network operational efficiency and task response capabilities, and significantly reduces human intervention and communication costs. As a result, a highly flexible, efficient, and low-cost agent network will gradually form.
+
+Given these trends, we urgently need new communication protocols to support the development of the Agentic Web. Agent Network Protocol (ANP) is proposed against this background, aiming to provide agents with an open and unified connection mechanism, solving the three major challenges of interconnection, native interfaces, and efficient collaboration, thereby releasing the full potential of AI agents.
+
+## 2. Core Design Principles
+
+Agent Network Protocol (ANP) has been designed from the outset with the needs of the Agentic Web at its core, striving to build an open, flexible, and implementable agent communication standard. Its design follows these core principles:
+
+### 2.1 AI-Native Design
+
+ANP is not a protocol designed for human-machine interaction (such as HTML or GUI interfaces), but is natively designed for direct communication between AI agents. It emphasizes structured data, semantic expression, and natural language integration, allowing agents to understand, discover, and collaborate without simulating human operations.
+
+Goal: To enable agents to access the internet world in the most efficient and natural way, releasing the potential of AI decision-making and action.
+
+### 2.2 Compatibility and Reuse
+
+ANP respects and is compatible with widely used internet protocol standards such as OpenAPI, JSON-RPC, and audio-video protocols (like WebRTC). Without reinventing the wheel, ANP encapsulates these existing protocols into a semantic framework that agents can understand and negotiate through lightweight meta-protocols and description standards.
+
+Goal: While ensuring innovation, minimize learning costs and migration thresholds to promote rapid integration of existing ecosystems into the Agentic Web.
+
+### 2.3 Composability
+
+ANP adopts a modular design, with core components such as agent identity (DID), agent description (ADP), and agent discovery that can be used independently or freely combined. Developers can flexibly choose to use a single protocol component or fully integrate based on actual needs.
+
+Goal: Support application scenarios of different complexities and stages, adaptable to everything from minimum viable units to large-scale systems as needed.
+
+### 2.4 Simplicity and Extensibility
+
+ANP follows minimalist principles (Keep It Simple), striving for a concise and intuitive protocol that lowers the barriers to understanding and implementation. Simultaneously, it maintains ample extension interfaces and flexible Schema mechanisms to support the natural addition of new functionalities as the agent ecosystem evolves.
+
+Goal: To maintain a small and stable core protocol while reserving growth space for diverse application requirements.
+
+### 2.5 Pragmatic Deployability
+
+ANP's design fully considers practical deployment feasibility, operating primarily on existing internet infrastructure (such as DNS, HTTPS, Web servers, DID systems) without relying on complex or difficult-to-popularize new technologies or proprietary components. Any developer or enterprise can quickly build agent services supporting ANP.
+
+Goal: To lower initial deployment barriers and promote rapid piloting, application, and adoption of the protocol in the real world.
+
+## 3. Core Protocol Design
+
+### 3.1 Protocol Layer Architecture
+
+We have designed a three-layer protocol architecture as shown in the following diagram:
 
 <p align="center">
-  <img src="/images/protocol-layer-design.png" width="50%" alt="Three-Layer Protocol Architecture"/>
+  <img src="/images/protocol-layer-design.png" width="50%" alt="Protocol Layer Architecture"/>
 </p>
 
-- **Identity and Encrypted Communication Layer**: This layer defines a set of standards aimed at solving identity authentication issues between agents, particularly cross-platform authentication. We have designed a decentralized identity authentication scheme based on the W3C DID[^3], providing end-to-end encrypted communication to ensure secure identity authentication between agents on any platform.
+The ANP protocol architecture is divided into three layers from bottom to top, each with distinct core functions:
 
-- **Meta-Protocol Layer**: This layer defines how agents negotiate using natural language, including the negotiation and debugging of communication protocols. Through the flexibility of natural language, agents can dynamically adjust communication protocols to meet different interaction needs.
+1. Identity and Secure Communication Layer
 
-- **Application Protocol Layer**: This layer defines how agents describe their capabilities and supported protocols, as well as how to load and process protocol code. Through standardized protocol descriptions, agents can interact and collaborate more efficiently.
-### 2.1 Identity and Encrypted Communication Layer
+This layer defines the basic standards for identity authentication and encrypted communication between agents, addressing cross-platform identity mutual recognition and end-to-end encrypted communication issues.
 
-To achieve seamless connectivity among all agents, the primary task is to address the issue of identity authentication between agents. Currently, most internet applications use centralized identity technologies, making it difficult for systems to authenticate accounts across different implementations. Although OAuth2.0 technology has alleviated this issue to some extent[^2], it is not specifically designed for cross-system identity authentication, resulting in a relatively complex process and limitations in decentralization. Therefore, there is an urgent need for a convenient, cross-platform, and decentralized identity authentication technology.
+ANP, based on the W3C DID standard, has designed a lightweight, extensible decentralized identity authentication mechanism (such as the did:wba method), ensuring that any two agents can securely verify each other's identity and establish private, reliable encrypted communication channels without central authority intervention.
 
-While blockchain-based decentralized identity authentication schemes offer a potential solution, they face scalability challenges in large-scale applications and have not yet become the optimal solution.
+2. Meta-Protocol Layer
 
-To address these issues, we introduce the W3C Decentralized Identifier (DID) standard[^3]. DID is a new identifier standard designed to solve the dependency on traditional centralized identity management systems. It allows users to control their own identities and authenticate each other without relying on centralized systems. The core specification of DID does not mandate the use of specific computing infrastructure to construct decentralized identifiers, enabling us to leverage existing mature technologies and well-established web infrastructure to build DIDs. Additionally, various types of identifier systems can add support for DIDs, creating an interoperable bridge between centralized, federated, and decentralized identifier systems. This means that existing centralized identifier systems do not need to be completely restructured; they can achieve cross-system interoperability by creating DIDs on top of their existing infrastructure, significantly reducing the technical implementation difficulty.
+This layer defines how agents negotiate communication protocols dynamically and adaptively based on natural language.
+
+Through natural language exchange of requirements, capabilities, and collaborative intentions, agents can flexibly negotiate communication details (such as request formats, interface calling methods, session management strategies) suitable for the current scenario, achieving highly adaptive protocol coordination and runtime optimization.
+
+3. Application Protocol Layer
+
+This layer has two core modules: agent description and agent discovery. Agents publish their functionalities and interfaces through structured description documents (such as the ADP Agent Description Protocol) and expose service entry points actively or passively based on discovery protocols.
+
+### 3.2 Identity and Secure Communication Layer
+
+To achieve interconnection and interoperability among all agents, the primary task is to solve the identity authentication problem between agents. Currently, most internet applications use centralized identity technologies, making cross-system account authentication difficult due to different technical implementations. Although OAuth2.0 technology alleviates this problem to some extent[^2], it was not specifically designed for cross-system identity authentication, making its process relatively complex and limited in decentralization. Therefore, there is an urgent need for a convenient, cross-platform, and decentralized identity authentication technology.
+
+While blockchain-based decentralized identity authentication solutions offer potential approaches, they have not yet become optimal solutions due to scalability challenges in large-scale applications.
+
+To address these issues, we introduce the W3C Decentralized Identifier (DID) standard[^3]. DID is a new identifier standard designed to solve the dependencies of traditional centralized identity management systems. It enables users to control their identities and authenticate each other without relying on centralized systems. The DID core specification does not mandate specific computational infrastructure for building decentralized identifiers, allowing us to fully leverage existing mature technologies and well-established Web infrastructure. Additionally, various types of identifier systems can add DID support, building interoperability bridges between centralized, federated, and decentralized identifier systems. This means existing centralized identifier systems don't need complete restructuring; they only need to create DIDs on their foundation to achieve cross-system interoperability, significantly reducing technical implementation difficulties.
 
 <p align="center">
-  <img src="/images/did-as-identity-bridge.png" width="50%" alt="DID 作为不同系统间的身份认证桥梁"/>
+  <img src="/images/did-as-identity-bridge.png" width="50%" alt="DID as an identity authentication bridge between different systems"/>
 </p>
 
-The core component of DID is the DID document, which contains key information related to a specific DID, used to verify the identity of the DID owner and manage operations, permissions, and access control related to the DID.
+The core component of DID is the DID document, which contains key information related to a specific DID, used to verify the identity of the DID owner and support the management of operations, permissions, and access controls related to the DID.
 
 <p align="center">
-  <img src="/images/did-architecture.png" width="50%" alt="Overview of DID Architecture and Basic Component Relationships"/>
+  <img src="/images/did-architecture.png" width="50%" alt="DID architecture overview and basic component relationships"/>
 </p>
 
-During the authentication process, the DID document contains methods and corresponding public keys for verifying user identity (private keys are kept by users). The client can include DID and signature in HTTP headers during the initial HTTP request. Without increasing the number of interactions, the server can quickly verify the client's identity using the public key from the DID document. After initial verification, the server returns a token, which the client carries in subsequent requests. The server then only needs to verify the token instead of authenticating the client's identity each time. The core of this process lies in the verifier using trusted public keys to validate user signatures, enabling identity authentication, permission verification, and data exchange to be completed in a single request, making the process both concise and efficient.
+In the authentication process, the DID document contains methods and corresponding public keys for verifying user identity (private keys are kept by users). Clients can include DID and signatures in HTTP headers during the first HTTP request. Without increasing interaction frequency, servers can quickly verify client identity using public keys from the DID document. After initial verification, the server can return a token, which clients include in subsequent requests, allowing servers to verify the token rather than client identity each time. The core of this process is that verifiers use trusted public keys to verify user signature information, completing identity authentication, permission verification, and data exchange in a single request, making the process concise and efficient.
 
 ```mermaid
 sequenceDiagram
@@ -68,111 +148,171 @@ sequenceDiagram
     Agent B Server->>Agent A Client: HTTP Response
 ```
 
+DID methods define how to create, resolve, update and deactivate DIDs and DID documents, as well as how to perform authentication and authorization. Among existing DID method drafts, the `did:web` method[^5] is built on mature Web technologies, allowing systems to create, update, and deactivate DIDs and DID documents using centralized technologies (such as cloud computing). Different systems achieve interoperability through the HTTP protocol, similar to email services on the internet, where each platform implements its own account system in a centralized way while enabling interconnection between platforms.
 
-The DID method defines how to create, resolve, update, and deactivate DIDs and DID documents, as well as how to perform authentication and authorization. Among the existing DID method drafts, the `did:web` method[^5] is built on mature web technologies, allowing systems to use centralized technologies (such as cloud computing) to create, update, and deactivate DIDs and DID documents. Different systems achieve interoperability through the HTTP protocol, similar to how email services work on the internet, enabling large-scale deployment and convenient cross-platform identity authentication.
+Based on the `did:web` method, we have proposed a new DID method—`did:wba` (Web-Based Agent)—specifically designed for agent communication scenarios, adding cross-platform identity authentication processes and agent description services. The `did:wba` method inherits the advantages of `did:web` while further optimizing identity authentication mechanisms between agents, enhancing its applicability in agent networks.
 
-Based on the `did:web` method, we have added cross-platform identity authentication processes and agent description services for agent communication scenarios, proposing a new DID method—`did:wba` (Web-Based Agent). The `did:wba` method inherits the advantages of `did:web`, further optimizing the identity authentication mechanism between agents and enhancing its applicability in agent networks.
+Additionally, users typically create one or more public-private key pairs for DIDs, which are used not only for identity verification but also for end-to-end encrypted communication. Based on these DID key pairs, we have designed an end-to-end encryption scheme using the Elliptic Curve Diffie-Hellman Ephemeral (ECDHE) protocol[^6], enabling secure communication between two DIDs and ensuring that intermediate nodes cannot decrypt the communication content. End-to-end encryption can be used for agent reverse proxies; for example, an agent may rent ports from third-party platforms to reduce operational costs, where the third-party platform forwards messages but cannot decrypt their contents.
 
-Additionally, users typically create one or more public-private key pairs for their DIDs, which are used not only for identity authentication but also for end-to-end encrypted communication. Based on the public-private key pairs of DIDs, we have designed an end-to-end encrypted communication scheme using the Elliptic Curve Diffie-Hellman Ephemeral (ECDHE) protocol[^6], achieving secure communication between two DIDs and ensuring that intermediate nodes cannot decrypt the communication content.
+### 3.3 Meta-Protocol Layer
 
-In the DID document, we introduced a specialized verification method `humanAuthorization` to distinguish between human authorization and agent automatic authorization. For low-risk, routine requests (such as querying public information), user agents can automatically authorize on behalf of the user; however, for high-risk, privacy-involved, or property-related important requests (such as payment transactions), explicit human authorization is required. When a user agent initiates an important request, it must use the `humanAuthorization` method for signing, which requires the agent to first request authorization from the human user and proceed only after confirmation. Agent developers must securely store the associated private keys and implement strict permission isolation measures, such as using biometric identification to verify the user's identity before using the private key for signing.
-
-To protect user privacy, we recommend adopting a multi-DID strategy. This includes generating a relatively stable primary DID for the user, used for long-term social relationships, while generating multiple sub-DIDs for different application scenarios (such as shopping, ordering food, etc.). Each DID has different roles and permissions and uses different key pairs, achieving fine-grained permission control. Additionally, regularly deactivating expired sub-DIDs and applying for new DIDs can effectively enhance privacy security protection, preventing cross-platform tracking and analysis of users. Agents should follow the principle of minimal information disclosure during communication, transmitting only the information necessary to complete the task.
-
-### 2.2 Meta-Protocol Layer
-
-The Meta-Protocol is a high-level protocol that defines the rules for operating, parsing, composing, and interacting with communication protocols. Essentially, it is a protocol for negotiating communication protocols, not directly handling specific data transmission but providing a flexible, general, and extensible communication framework.
+A meta-protocol is a protocol that defines rules for operating, parsing, combining, and interacting with communication protocols. Essentially, it is a protocol for negotiating communication protocols, not directly handling specific data transmission, but providing a flexible, general, and extensible communication framework.
 
 Currently, there are two main methods for communication between agents:
 
-1. **Human Engineers Design Communication Protocols**: For example, common industry standards. Human engineers design communication protocols for agents, develop protocol code, and perform debugging, testing, and deployment. However, this method often faces high development costs, slow protocol updates, and difficulty adapting to new scenarios.
+1. **Human engineers designing communication protocols**: Such as common industry standards. Human engineers design communication protocols for agents, develop protocol code, and perform debugging, testing, and deployment. However, this approach often faces challenges such as high development costs, slow protocol updates, and difficulty adapting to new scenarios.
 
-2. **Agents Directly Use Natural Language Communication**: Agents use natural language for communication, internally utilizing large language models (LLMs) to process natural language data. However, this method has high data processing costs and low processing accuracy.
+2. **Agents directly using natural language for communication**: Agents communicate using natural language and process this data internally using large language models (LLMs). However, this method has issues with high data processing costs and low processing accuracy.
 
-To solve these problems, we can use a combination of Meta-Protocol and AI code generation. By using Meta-Protocol and leveraging AI code generation technology, we can significantly improve communication efficiency between agents, reduce communication costs, and maintain flexibility and personalization in communication[^7].
+To address these problems, meta-protocols combined with AI code generation can be used. By using meta-protocols and leveraging AI code generation technology, communication efficiency between agents can be significantly improved, costs reduced, while maintaining flexibility and personalization[^7].
 
-The basic process of using Meta-Protocol for communication is as follows:
+The basic process of communication using meta-protocols is as follows:
 
-1. **Meta-Protocol Request**: Agent A first sends a Meta-Protocol request to Agent B. The request body uses natural language to describe its needs, inputs, expected outputs, and proposes candidate communication protocols. Candidate communication protocols generally include transport layer protocols, data formats, and data processing methods.
+1. **Meta-protocol request**: Agent A first sends a meta-protocol request to Agent B. The request body uses natural language to describe its needs, inputs, expected outputs, and proposes candidate communication protocols. Candidate protocols generally include transport layer protocols, data formats, data processing methods, etc.
 
-2. **Protocol Negotiation**: After receiving the Meta-Protocol request, Agent B uses AI to process the natural language description in the request and, based on its own capabilities, determines whether to accept A's request and candidate protocol. If B's capabilities cannot meet A's request, it directly rejects it; if B does not accept A's candidate protocol, it can propose its own candidate protocol, entering the next round of negotiation. The negotiation process continues until both parties reach an agreement or the negotiation fails.
+2. **Protocol negotiation**: After receiving the meta-protocol request, Agent B uses AI to process the natural language description and, combined with its own capabilities, determines whether to accept A's request and candidate protocols. If B's capabilities cannot meet A's request, it directly refuses; if B does not accept A's candidate protocols, it can propose its own, entering the next round of negotiation. This process continues until both parties reach an agreement or negotiation fails.
 
-3. **Code Generation and Deployment**: Once an agreement is reached, both parties generate protocol handling code based on the negotiated protocol and deploy it.
+3. **Code generation and deployment**: After reaching an agreement, each party generates and deploys protocol processing code based on the negotiated protocol.
 
-4. **Joint Debugging and Testing**: After code deployment, both parties conduct joint debugging and testing with test data to ensure the protocol and AI-generated protocol handling code work correctly.
+4. **Joint testing**: After code deployment, both parties negotiate test data to jointly debug and test the protocol and the AI-generated protocol processing code.
 
-5. **Formal Communication**: After joint debugging is completed, the protocol goes live. Agent A and Agent B then start communicating using the final negotiated protocol and process data with the AI-generated code.
+5. **Formal communication**: After testing is complete, the protocol goes live. Thereafter, Agents A and B begin communicating using the finally negotiated protocol and process data using AI-generated code.
 
-6. **Handling Requirement Changes**: If requirements change, the above process is repeated until both parties reach a new agreement.
+6. **Handling requirement changes**: If requirements change, the above process is repeated until both parties reach a new agreement.
 
 <p align="center">
   <img src="/images/meta-protocol-communication.png" width="50%" alt="Basic Process of Meta-Protocol Communication"/>
 </p>
 
-However, the Meta-Protocol negotiation process is time-consuming and relies on AI code generation capabilities. If every communication involves Meta-Protocol negotiation, it will result in significant cost consumption and poor interaction experience. Given that there are many similar communication processes between agents, agents can save the results of Meta-Protocol negotiations. When encountering similar needs in the future, they can directly use the previous negotiation results as the formal protocol for communication or as candidate protocols for negotiation. Additionally, agents can share negotiation results for other agents to query and use.
+However, meta-protocol negotiation is time-consuming and depends on AI code generation capabilities. If meta-protocol negotiation is performed for each communication, it will result in enormous cost consumption and poor interaction experience. Given that there are many identical or similar communication processes between agents, agents can save the results of meta-protocol negotiations. When similar needs arise later, they can directly use previous negotiation results as formal protocols for communication or as candidate protocols for negotiation. At the same time, agents can also share negotiation results for other agents to query and use.
 
-How to economically incentivize agents to actively upload negotiation results and select consensus protocols among agents is an issue that still requires in-depth research in the Meta-Protocol layer.
+How to economically incentivize agents to actively upload negotiation results and select consensus protocols between agents is an issue that still requires in-depth research at the meta-protocol layer.
 
-[^1]: https://arxiv.org/pdf/2410.11905
+### 3.4 Application Protocol Layer
 
-### 2.3 Application Protocol Layer
+The application protocol layer has two core modules: agent description and agent discovery.
 
-To reduce communication costs and improve interaction experience, agents should avoid negotiating communication protocols through meta-protocols in most communication scenarios. Therefore, at the application protocol layer, we will design a series of specifications based on semantic web standards, including **Agent Capability and Supported Protocol Description** and **Application Protocol Management Specification**, making communication between agents more convenient, efficient and cost-effective.
+#### 3.4.1 Agent Description Protocol (ADP)
 
-The **Agent Capability and Supported Protocol Description Specification** clarifies how agents describe their capabilities and supported protocols, as well as the protocol information required to invoke these capabilities. Agents can publish these description documents on the internet or specialized agent search services for other agents to query and invoke.
+The Agent Description Protocol (ADP) provides a standardized self-description method for each agent. ADP documents are written in JSON-LD (a linked data format based on JSON), using general vocabulary provided by schema.org with extensions, combined with ANP custom vocabulary, to define a unified metadata format for agents. An Agent Description (AD) document is equivalent to the agent's business card or profile in the network world, allowing other agents to understand how to interact with it by reading this document.
 
-In the design of agent description specifications, we have used many semantic web standards, including RDF (Resource Description Framework), JSON-LD (JSON Linked Data), schema.org, etc. Repeatedly utilizing these technologies can enhance the consistency of data understanding between two agents.
+An agent description document typically contains the following key information:
 
-The **Application Protocol Management Specification** defines the document format, metadata (such as protocol version, release date, creator, etc.), and methods for querying and downloading application protocol documents. Application protocols should include the following content:
+- **Basic Information**: Agent name, unique identifier, affiliated entity (individual, organization, or other agent), and other identifying metadata.
+- **Capability Description**: A list of functions, products, or services provided by the agent, along with corresponding descriptions. For example, whether it is a chat assistant, data analysis service, or possesses robot execution capabilities.
+- **Interfaces and Protocols**: Methods for interacting with the agent, including callable API endpoints and supported communication protocol versions or specifications. Other agents use this information to know how to send requests or messages to it.
+- **Security and Authorization**: The agent's authentication method and permission requirements. For example, which DID identifier and public key are used to verify its identity. The ADP specification recommends using the did:wba method as a unified security mechanism to meet cross-platform identity authentication requirements.
+- **Contact Information**: Optional technical support or contact channels (such as service endpoint URLs, maintainer contact emails, etc.) to facilitate human intervention or debugging outside of automatic interactions.
 
-- **Protocol Version**: Indicates the iteration and update information of the protocol, ensuring both parties use compatible protocol versions.
-- **Function Description**: Details the protocol's functions, applicable scenarios, and expected outcomes.
-- **Input and Output Data Formats**: Defines the format, type, and constraints of data during interaction.
-- **Protocol Handling Process**: Describes the steps, sequence, and logical relationships of communication.
-- **Protocol Code Signed by Trusted DID**: Includes the code for the requester to initiate requests and the responder to handle requests, ensuring the security and trustworthiness of the code.
+The above information is presented in a structured form as a JSON-LD document, making agent descriptions both machine-parsable and semantically rich. Through JSON-LD contexts, vocabularies in AD documents can link to publicly defined ontologies, achieving semantic consistency across different systems. For example, ADP defines core vocabularies such as "Agent," "Service," "Interface," etc., whose meanings are unified for all agents following this specification. This provides a foundation for agents to understand each other's capabilities.
 
-The sources of application protocols can be diverse:
+It is worth mentioning that ADP incorporates decentralized identity into the security architecture of description documents. Each agent description can be bound to a DID, with built-in verification methods and public key information for authenticating agent identity. When other agents read the description and communicate with it, they can verify the DID signature to confirm the other party's identity is trustworthy, thereby establishing secure connections in an open network. This design ensures mutual trust between agents, laying the foundation for further collaboration.
 
-1. **Human-Defined Standard Protocols**: Developed by domain experts or industry organizations, with broad applicability and consistency.
-2. **Consensus Protocols Negotiated Between Agents**: Reached through Meta-Protocol negotiation, suitable for specific collaborative tasks.
-3. **Personalized Protocols Between Agents**: Customized protocols for specific needs or scenarios by agents.
+Finally, the agent description document serves as an entry point for an agent in the agent network, similar to a website's homepage, allowing other agents to understand how to interact with it by reading the agent description document.
 
-To facilitate the sharing and reuse of application protocols, a protocol service platform similar to PyPI can be established in the future to centrally manage application layer protocols. Agents can search, download, and use existing protocols and their code on this platform to provide services. When invoking other agents' services, they can load the corresponding protocol code based on the supported protocols and communicate accordingly.
+#### 3.4.2 Agent Discovery Protocol
 
-The following is an example process of **Agent A Invoking Agent B's Service**:
+With agent descriptions in place, a mechanism is needed for agents to discover each other and establish connections. The Agent Discovery Protocol is designed as a standard protocol for this purpose. It specifies how to publish and retrieve agent description documents in the network, allowing any agent or search service to easily find the entry points of other agents. Essentially, the Agent Discovery Protocol serves as a "search engine protocol" for agents, ensuring that nodes in the agent internet are visible and accessible.
 
-1. **Capability Discovery**: Agent A discovers that Agent B has the capability to meet its needs through search or query services.
-2. **Protocol Matching**: A reviews B's capability description document to determine the available communication protocols.
-3. **Protocol Loading**: A loads the corresponding protocol handling code through the protocol service platform.
-4. **Communication Execution**: A uses the loaded protocol code to communicate with B according to the specified process.
+The Agent Discovery Protocol provides two complementary discovery methods:
 
-<p align="center">
-  <img src="/images/agent-a-call-agent-b.png" width="50%" alt="Agent A Invoking Agent B's Service"/>
-</p>
+1. **Active Discovery**: Based on the common Web .well-known path convention, this allows querying all publicly available agent descriptions under a known domain. Specifically, a unified directory entry is reserved under an internet domain (default path: /.well-known/agent-descriptions), and accessing this URL returns a JSON-LD manifest containing URLs of all agent AD documents on that domain. The manifest document type is CollectionPage, which lists the link addresses of each agent description document and can be paginated to support massive numbers of agents. With the active discovery mechanism, any agent only needs to know another's domain name to obtain its agent directory, thereby traversing the entire agent network level by level.
 
-In specific data exchanges, the data format of the protocol is not limited and can be chosen based on needs, such as JSON, OpenAPI, Protocol Buffers, etc., to meet the requirements of different application scenarios.
+2. **Passive Discovery**: Similar to how search engines index web pages, agents can proactively submit their information to specialized search service agents. The specific approach involves search services providing a registration API interface (publicly documented in their agent description), which other agents can call to register their AD document URLs. After receiving a registration request, the search service periodically crawls the URL to obtain the latest agent description and indexes it in its database. When an agent or user queries related services, the search service can return information about registered agents. Through passive discovery, new agents can announce their existence, get indexed by indexing services, and thus be found by more nodes.
 
-## 3. Future Prospects
+These two mechanisms complement each other: active discovery focuses on using distributed domain directories to publish agent lists, while passive discovery introduces centralized search agents for index aggregation. All discovery information is represented in JSON-LD format, consistent with the ADP specification. Regardless of the acquisition path, the discovery results ultimately point to the description documents of various agents.
 
-While our proposed three-layer protocol architecture addresses key issues in agent network communication, several areas require further exploration.
+Through the Agent Discovery Protocol, ANP ensures the openness of the agent network: newly joined agents won't silently become information islands. As long as they follow the protocol to publish or register their description documents, they can be retrieved in the network. This provides foundational support for the formation of a large-scale agent ecosystem.
 
-Firstly, the optimization of **cross-platform identity authentication technology** is a pressing issue. Although the W3C DID standard offers potential for decentralized identity authentication, its infrastructure remains underdeveloped as a newly recommended standard.
+Notably, the Agent Discovery Protocol also specifies standard methods for result pagination and linking to efficiently manage massive agent information. When a domain has many agents, the .well-known/agent-descriptions document can link to subsequent pages through the next field, enabling incremental loading. Search services can adopt similar pagination mechanisms when returning query results. These details ensure the scalability and robustness of the discovery process.
 
-Secondly, the **suitability of underlying communication protocols** needs reevaluation. Our approach relies on existing web infrastructure, which simplifies technical implementation but may overlook the specific needs of agent communication. Is the current HTTP protocol still the best choice for agents? Are there alternative protocols better suited for agent data exchange and communication efficiency? These questions warrant further investigation.
+Through the combination of the Agent Description Protocol and Discovery Protocol, ANP achieves a closed loop at the application layer: agents use ADP to describe themselves and the Agent Discovery Protocol to expose themselves and discover others. This mechanism addresses the challenge of "how to recognize each other" in the agent internet, meeting the requirements for agent interconnection mentioned earlier. Combined with the secure identity layer and flexible meta-protocol layer, ANP provides a complete solution for establishing open, efficient, and trustworthy connections between agents.
 
-Lastly, the **application prospects of blockchain technology in agent networks** are promising. As blockchain technology matures, its inherent decentralization and emphasis on personal data sovereignty could provide an ideal foundation for building agent networks. Blockchain not only facilitates easier AI access to user data but also offers financial attributes that could address economic incentive challenges faced by agents during protocol negotiations.
+### 3.5 AI-Native Data Network
 
-Our research provides a foundational framework for agent network communication, yet significant work remains in areas such as identity authentication, communication protocols, and technology selection. Future research should focus on these critical issues to propose more innovative and practical solutions.
+Existing internet infrastructure is designed for human access. Webpages are connected through hyperlinks (HTML+HTTP), with information presented in the form of pages, forms, images, and other visual interfaces, primarily serving human browsing and operation. However, this human-centered connection mode is not suitable for efficient access and processing by AI agents. For AI to use the existing internet, it needs to simulate human behavior (clicking, browsing, parsing webpages), which greatly limits the capabilities of agents.
 
-## 4. Conclusion
+To address this issue, Agent Network Protocol (ANP) proposes an AI-native data network structure. Through the Agent Description Protocol (ADP) and Agent Discovery Protocol, each agent can publicize its service interfaces, capability information, and data resources in a structured, standardized way, and automatically expose itself to the entire agent network through open discovery mechanisms.
 
-This paper presents a three-layer protocol architecture for agent network communication, aiming to address the lack of standardized communication and network connection solutions among agents. Firstly, by introducing a decentralized identity authentication scheme based on W3C DID, we provide agents with cross-platform identity authentication capabilities and design an end-to-end encrypted communication mechanism to ensure communication security and trustworthiness. Secondly, at the meta-protocol layer, we leverage natural language negotiation and AI code generation capabilities to enhance communication efficiency and flexibility among agents, reducing the complexity and cost of protocol negotiation. Finally, the application protocol layer, through standardized protocol description and management, simplifies the interaction process between agents, reduces communication costs, and enhances interaction experience.
+![ai-native-network](/images/ai-native-network.png)
 
-Despite significant progress in addressing agent communication issues, challenges remain. For instance, further optimization of cross-platform identity authentication technology to improve scalability and practicality; exploring more suitable underlying protocols for agent communication to enhance data exchange efficiency and reliability. Additionally, the potential application of blockchain technology in agent networks deserves in-depth research, particularly in decentralized identity management and economic incentive mechanisms.
+Under this framework, all agents and their carried data resources (such as text, APIs, audio/video, images, etc.) form an open network that is machine-friendly:
 
-In summary, this study provides an innovative solution for agent network communication, laying a solid foundation. Future work will focus on refining this architecture, addressing existing issues, and advancing the development of agent technology.
+- Each node is a describable, discoverable, and callable agent or data unit.
+- Each link is a semantically clear, structurally uniform protocol connection, rather than just hypertext for human reading.
+- Agents can quickly retrieve, understand, and call resources and services provided by other agents based on unified standards.
 
-## 5. References
+This AI-native data network enables agents to directly, efficiently, and batch-access widely distributed capabilities and knowledge on the internet without relying on webpage crawling or interface simulation, greatly liberating the potential of AI for autonomous learning, reasoning, and collaboration.
+
+As more personal agents, service agents, and search agents connect through ANP, this network with agents as nodes and structured data as connections will continue to grow, eventually forming a global, dynamically evolving agent internet.
+
+## 4. Security and Privacy
+
+In the agent internet, security and privacy protection are fundamental and non-negotiable requirements. Agent Network Protocol (ANP) incorporates **identity authentication security, operation authorization distinction, privacy protection, and fine-grained permission control** as core mechanisms from its initial design, ensuring trusted communication and secure data sharing among agents in an open network environment.
+
+This section systematically explains ANP's security and privacy design from three aspects: identity and authorization management, privacy protection mechanisms, and communication security.
+
+### 4.1 Distinction Between Human Authorization and Agent Authorization
+
+To ensure human control over sensitive operations, ANP introduces a dedicated verification method called `humanAuthorization` in DID documents.  
+- **Low-risk operations** (such as querying public information, browsing data) allow agents to authorize automatically using their autonomous keys without human intervention.  
+- **High-risk operations** (such as fund transfers, important data submissions, privacy information disclosure) must be explicitly authorized by human users.
+
+When executing high-risk requests, user agents must sign using the `humanAuthorization` method. This process requires agents to first initiate an authorization request to the human user, and only after explicit confirmation by the user (for example, through biometric verification, password verification, or hardware security module confirmation) can they call the private key bound to that method for signing and submission.
+
+This mechanism effectively ensures that **the final step of important decision operations must be driven by human will**, preventing agents from being misused or executing high-risk instructions without awareness.
+
+### 4.2 Private Key Management and Permission Isolation
+
+Agent developers need to implement strict permission isolation and security management for various keys, especially the `humanAuthorization` key, including but not limited to:
+
+- **Hierarchical management**: Separate ordinary request keys from highly sensitive keys, managing and using them separately.
+- **Local encrypted storage**: Private keys should be stored in securely encrypted local devices (such as TEE, HSM) or protected key management systems.
+- **Dynamic verification**: Accessing highly sensitive private keys requires additional dynamic verification (such as fingerprint, facial recognition, one-time passwords).
+- **Operation logging**: Complete operation logs should be recorded for each sensitive signing operation to facilitate post-event auditing and tracking.
+
+These mechanisms maximize protection against risks of key leakage, theft, or misuse.
+
+### 4.3 Multi-DID Strategy and Fine-grained Privacy Protection
+
+To enhance privacy protection and anonymity, ANP recommends users and agents adopt a **multi-DID management strategy**. Specific approaches include:
+
+- **Separation of primary DID and sub-DIDs**: The primary DID is used to maintain long-term social relationships (such as friends, business partners), while independent sub-DIDs are generated for different application scenarios (such as e-commerce shopping, food delivery, online services).
+- **Principle of least privilege**: Each sub-DID is granted only the minimum necessary permissions and roles to complete specific tasks.
+- **Regular rotation and expiration**: Sub-DIDs should have defined lifecycles, being discarded and reapplied for after use to prevent cross-scenario tracking and identity correlation attacks.
+
+Through the multi-DID system, effective isolation of identity and behavior can be achieved, reducing the risk of privacy exposure under large-scale data analysis while improving overall identity security.
+
+### 4.4 Minimal Information Disclosure and Communication Privacy
+
+In communication between agents, ANP emphasizes adherence to the **Minimal Disclosure Principle**:
+
+- Agents should only transmit necessary information fields when completing requests, avoiding unrelated data leakage.
+- Sensitive fields should be transmitted using end-to-end encryption, ensuring that data content remains protected even if communication links are intercepted.
+- All communication sessions should be bound to corresponding identity verification information to prevent man-in-the-middle attacks and communication forgery.
+
+Additionally, ANP encourages the further adoption of anonymous communication technologies at the application layer (such as verifiable encryption, selective disclosure credentials) to strengthen the protection and access control of private data.
+## 5. Future Prospects: Reshaping the Open Network Through Connection
+
+The evolution of the internet profoundly validates a core concept: "Connection is Power." In a truly open, interconnected network, free interaction between nodes maximizes innovation potential and creates enormous value. However, today's internet ecosystem is increasingly dominated by a few large platforms, with vast amounts of data and services confined within closed "digital silos," concentrating connection power in the hands of a few tech giants.
+
+The advent of the Agentic Web provides a historic opportunity to reshape this imbalance. Our goal is to drive the internet from its current closed, fragmented state back to its open, freely connected origins. In the future agent network, every agent will simultaneously play the dual roles of information consumer and service provider. More importantly, each node should be able to discover, connect, and interact with any other node in the network without barriers. This vision of universal interconnection will greatly reduce the barriers to information flow and collaboration, returning the power of connection to every user and individual agent.
+
+This marks an important shift: from platform-centered closed ecosystems to protocol-centered open ecosystems. In the latter, value acquisition depends more on the unique capabilities and contributions that participants bring to the network by following open protocols, rather than depending on control over a closed platform. This transformation will stimulate more intense application-layer innovation and competition, as the key to success is no longer "locking in" users but providing superior agent services, similar to the innovation patterns historically promoted by open protocols such as TCP/IP and SMTP.
+
+The future envisioned by ANP is a dynamic and globally interconnected network of countless agents. In this network, agents can seamlessly discover, connect, negotiate, and collaborate to accomplish complex tasks beyond individual capabilities. Imagine a world where personalized agent assistants can proactively anticipate user needs and collaborate with other service agents to seamlessly complete reservations, shopping, information integration, and other tasks; industrial agents can coordinate in real-time across supply chains to optimize production and logistics; research agents can share data, models, and computing power to accelerate scientific discovery. This represents a shift from the current network model based on static information retrieval and passive interaction to a new paradigm centered on dynamic, proactive, goal-driven agent collaboration and problem-solving.
+
+## 6. Conclusion: Building the Future of Agent Collaboration Together
+
+The Agentic Web represents the next important stage in internet evolution, harboring enormous opportunities alongside serious challenges. Existing network infrastructure can hardly support the requirements for large-scale agent collaboration. The Agent Network Protocol (ANP) has emerged to provide a layered, open, standardized protocol framework that lays a solid foundation for the agent internet network.
+
+ANP's core advantage lies in its standardization of key aspects of agent interaction, particularly in enabling clear expression of capabilities through agent description specifications and breaking down barriers to finding collaborators through agent discovery specifications. Combined with its DID-based decentralized identity and secure communication mechanisms, ANP provides the necessary components for building a trustworthy, efficient, and interoperable agent ecosystem.
+
+ANP's design philosophy—"Connection is Power"—emphasizes the importance of facilitating high-quality, meaningful connections to unleash network effects and collective intelligence. It is dedicated to breaking down digital silos and driving the internet from closed platform ecosystems back to open protocol ecosystems. More importantly, ANP consciously returns to the original intent of the network, making openness a core principle and striving to build a fairer network space that empowers users in the intelligent era.
+
+Building the agent internet network is a grand undertaking that requires extensive collaboration and collective effort. As a foundational protocol framework, ANP's success depends on adoption, implementation, and continuous contribution from the developer community. We invite all researchers, developers, enterprises, and organizations interested in agent technology and the future of the open internet to participate in the development, testing, and application promotion of ANP, working together to build a better future of efficient agent collaboration.
+
+## References
 
 [^1]: Bill Gates, AI is about to completely change how you use computers, [https://www.gatesnotes.com/AI-agents](https://www.gatesnotes.com/AI-agents)
 
@@ -189,6 +329,6 @@ In summary, this study provides an innovative solution for agent network communi
 [^7]: A Scalable Communication Protocol for Networks of Large Language Models, [https://arxiv.org/pdf/2410.11905](https://arxiv.org/pdf/2410.11905)
 
 
-## Copyright Notice
+## 版权声明  
 Copyright (c) 2024 GaoWei Chang  
-This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.
+本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  
