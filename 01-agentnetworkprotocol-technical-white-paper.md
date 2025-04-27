@@ -328,7 +328,6 @@ Building the agent internet network is a grand undertaking that requires extensi
 
 [^7]: A Scalable Communication Protocol for Networks of Large Language Models, [https://arxiv.org/pdf/2410.11905](https://arxiv.org/pdf/2410.11905)
 
-
-## 版权声明  
+## Copyright Notice  
 Copyright (c) 2024 GaoWei Chang  
-本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  
+This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but you must retain this copyright notice.  
