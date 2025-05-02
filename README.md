@@ -104,6 +104,8 @@ Here are some of our blogs:
 
 - Deep Comparison of MCP, A2A, and ANP Interaction Modes: Differences in Information Organization: [Deep Comparison of MCP, A2A, and ANP Interaction Modes](blogs/Comparing-the-Interaction-Modes-of-MCP-A2A-and-ANP.md)
 
+- ANP Community First Meeting: A Milestone for the Agentic Web: [ANP Community First Meeting: A Milestone for the Agentic Web](blogs/ANP-Community-First-Meeting-A-Milestone-for-the-Agentic-Web.md)
+
 ### Milestones
 
 Both protocol development and open-source implementation are progressing in the following order:
