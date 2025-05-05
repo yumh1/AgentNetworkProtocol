@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="960" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="960" height="1200" fill="#f8f9fa" />
+  
+  <!-- 标题 -->
+  <text x="480" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="bold">ANP 智能体点对点交易理想流程图</text>
+  
+  <!-- 图例 -->
+  <rect x="50" y="60" width="860" height="80" rx="5" ry="5" fill="#f5f5f5" stroke="#666666" stroke-width="1" />
+  <!-- 用户智能体 -->
+  <rect x="100" y="80" width="20" height="20" fill="#d5e8d4" stroke="#82b366" stroke-width="1" />
+  <text x="130" y="95" font-family="Arial, sans-serif" font-size="12">用户智能体</text>
+  <!-- 酒店智能体 -->
+  <rect x="250" y="80" width="20" height="20" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1" />
+  <text x="280" y="95" font-family="Arial, sans-serif" font-size="12">酒店智能体</text>
+  <!-- 支付智能体 -->
+  <rect x="400" y="80" width="20" height="20" fill="#ffe6cc" stroke="#d79b00" stroke-width="1" />
+  <text x="430" y="95" font-family="Arial, sans-serif" font-size="12">支付智能体</text>
+  <!-- 凭证传递 -->
+  <line x1="550" y1="90" x2="600" y2="90" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="650" y="95" font-family="Arial, sans-serif" font-size="12">凭证传递(VC)</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="100" y="110" width="20" height="20" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="10" ry="10" />
+  <text x="130" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold">凭证生成</text>
+  
+  <!-- 流程图主体 -->
+  <!-- 纵轴标签 -->
+  <text x="60" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤1</text>
+  <text x="60" y="320" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤2</text>
+  <text x="60" y="450" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤3</text>
+  <text x="60" y="580" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤4</text>
+  <text x="60" y="710" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤5</text>
+  <text x="60" y="840" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤6</text>
+  <text x="60" y="970" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤7</text>
+  <text x="60" y="1100" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">步骤8</text>
+  
+  <!-- 横轴标签 -->
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">用户智能体</text>
+  <text x="480" y="160" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">酒店智能体</text>
+  <text x="760" y="160" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">支付智能体</text>
+  
+  <!-- 纵轴线 -->
+  <line x1="200" y1="170" x2="200" y2="1170" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="480" y1="170" x2="480" y2="1170" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,5" />
+  <line x1="760" y1="170" x2="760" y2="1170" stroke="#aaaaaa" stroke-width="1" stroke-dasharray="5,5" />
+  
+  <!-- 步骤1: 用户搜索与选择 -->
+  <rect x="150" y="190" width="100" height="50" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">搜索酒店服务</text>
+  
+  <line x1="250" y1="215" x2="430" y2="215" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="200" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">服务发现请求</text>
+  
+  <rect x="430" y="190" width="100" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" />
+  <text x="480" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">提供服务信息</text>
+  
+  <line x1="430" y1="240" x2="250" y2="240" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="255" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">服务信息响应</text>
+  
+  <!-- 步骤2: 用户请求预订 -->
+  <rect x="150" y="320" width="100" height="50" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">用户请求预订</text>
+  <text x="200" y="355" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">BookingRequest</text>
+  
+  <line x1="250" y1="345" x2="430" y2="345" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="330" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送预订请求</text>
+  
+  <!-- 步骤3: 酒店智能体生成订单提议 -->
+  <rect x="430" y="420" width="100" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" />
+  <text x="480" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">生成订单提议</text>
+  <text x="480" y="455" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">OrderProposal</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="490" y="400" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="502.5" y="417" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="430" y1="445" x2="250" y2="445" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="430" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送订单提议凭证</text>
+  
+  <!-- 步骤4: 用户确认订单 -->
+  <rect x="150" y="550" width="100" height="50" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="200" y="570" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">用户确认订单</text>
+  <text x="200" y="585" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">BookingConfirm</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="210" y="530" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="222.5" y="547" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="250" y1="575" x2="430" y2="575" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="560" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送订单确认凭证</text>
+  
+  <!-- 步骤4.5: 酒店请求付款 -->
+  <rect x="430" y="610" width="100" height="40" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" />
+  <text x="480" y="635" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">请求付款</text>
+  
+  <line x1="530" y1="630" x2="710" y2="630" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="620" y="615" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送付款请求</text>
+  
+  <!-- 步骤4.6: 支付智能体生成支付指令 -->
+  <rect x="710" y="660" width="100" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2" />
+  <text x="760" y="680" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">生成支付指令</text>
+  <text x="760" y="695" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">PaymentInstruction</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="770" y="640" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="782.5" y="657" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="710" y1="685" x2="530" y2="685" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="620" y="670" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送支付指令凭证</text>
+  
+  <line x1="430" y1="685" x2="250" y2="685" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="340" y="670" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">转发支付指令凭证</text>
+  
+  <!-- 步骤5: 用户付款与资金托管 -->
+  <rect x="150" y="710" width="100" height="50" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="200" y="730" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">用户付款</text>
+  <text x="200" y="745" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">UserPayment</text>
+  
+  <line x1="250" y1="735" x2="710" y2="735" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="480" y="720" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">支付操作</text>
+  
+  <rect x="710" y="765" width="100" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2" />
+  <text x="760" y="785" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">资金托管</text>
+  <text x="760" y="800" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">FundsEscrowed</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="770" y="745" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="782.5" y="762" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="710" y1="790" x2="250" y2="790" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="480" y="775" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送资金托管凭证</text>
+  
+  <line x1="760" y1="815" x2="760" y2="825" stroke="#000000" stroke-width="2" />
+  <line x1="760" y1="825" x2="530" y2="825" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="645" y="810" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送资金托管凭证</text>
+  
+  <!-- 步骤6: 酒店确认与服务履约 -->
+  <rect x="430" y="840" width="100" height="50" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" />
+  <text x="480" y="860" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">确认预订并履约</text>
+  <text x="480" y="875" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">BookingFinalized</text>
+  
+  <!-- 凭证生成标记 (可选) -->
+  <rect x="490" y="820" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" stroke-dasharray="5,2" />
+  <text x="502.5" y="837" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="430" y1="865" x2="250" y2="865" stroke="#000000" stroke-width="2" stroke-dasharray="5,2" marker-end="url(#arrowhead)" />
+  <text x="340" y="850" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送预订完成凭证(可选)</text>
+  
+  <line x1="480" y1="890" x2="480" y2="915" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="520" y="905" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">提供服务</text>
+  
+  <!-- 步骤7: 用户确认放款 -->
+  <rect x="150" y="970" width="100" height="50" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="200" y="990" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">确认服务完成</text>
+  <text x="200" y="1005" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">ServiceCompletion</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="210" y="950" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="222.5" y="967" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="250" y1="995" x2="710" y2="995" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="480" y="980" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送服务完成确认凭证</text>
+  
+  <!-- 步骤8: 结算结束 -->
+  <rect x="710" y="1080" width="100" height="50" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2" />
+  <text x="760" y="1100" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">结算资金</text>
+  <text x="760" y="1115" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">FundsReleased</text>
+  
+  <!-- 凭证生成标记 -->
+  <rect x="770" y="1060" width="25" height="25" fill="#ffff99" stroke="#d6b656" stroke-width="2" rx="12" ry="12" />
+  <text x="782.5" y="1077" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">VC</text>
+  
+  <line x1="710" y1="1105" x2="250" y2="1105" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="480" y="1090" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送资金释放凭证</text>
+  
+  <line x1="760" y1="1130" x2="760" y2="1140" stroke="#000000" stroke-width="2" />
+  <line x1="760" y1="1140" x2="530" y2="1140" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="645" y="1155" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">发送资金释放凭证</text>
+  
+  <line x1="480" y1="1140" x2="480" y2="1155" stroke="#000000" stroke-width="2" />
+  <line x1="480" y1="1155" x2="570" y2="1155" stroke="#000000" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="520" y="1170" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">资金到账</text>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000000" />
+    </marker>
+  </defs>
+</svg>
