@@ -78,6 +78,12 @@ ANP's design fully considers practical deployment feasibility, operating primari
 
 Goal: To lower initial deployment barriers and promote rapid piloting, application, and adoption of the protocol in the real world.
 
+### 2.6 Principle of Least Trust
+
+No participant in the network (agents, nodes, etc.) should be fully trusted by default. All interactions must be authenticated and authorized, granting only the minimum permissions necessary to complete a specific task. This necessitates robust identity verification, access control, and data validation mechanisms within the protocol design to mitigate potential security risks and abuse.
+
+Goal: To establish an agent network that can operate securely even in untrusted environments.
+
 ## 3. Core Protocol Design
 
 ### 3.1 Protocol Layer Architecture
