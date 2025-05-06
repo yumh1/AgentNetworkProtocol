@@ -67,7 +67,9 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 如果你想快速了解ANP的基本概念和使用方法，可以查看我们的入门指南：[ANP入门指南](docs/chinese/ANP入门指南.md)
 
-## 代码实现
+如果你想快速的运行ANP相关demo，可以查看我们的示例程序说明文档：[ANP示例程序](docs/chinese/ANP示例程序.md)
+
+## 协议SDK
 
 我们正在开发一个开源的 AgentNetworkProtocol 实现，仓库地址：[https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
 
@@ -86,12 +88,12 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 - [x] 应用层协议设计与开发。
   - [x] 支持智能体描述。
   - [x] 支持智能体发现。 
-
-为了推动Agent Network Protocol(ANP)成为行业的标准，我们将会在合适的时间组建ANP标准化委员会，致力于推动ANP成为W3C等国际标准化组织认可的行业标准。
+  - [ ] 特定领域使用的应用协议设计
 
 ## 联系我们
 
-作者：常高伟  
+我们已经成立了一个ANP开源技术社区，以开源社区的方式推进ANP的建设。诚挚的邀请您加入我们的开源技术社区，我们的创始委员会、社区顾问、技术委员会、发展委员会、企业观察员等团队持续招募中。
+
 邮箱：chgaowei@gmail.com  
 - Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
 - 官网：[https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
