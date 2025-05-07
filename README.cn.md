@@ -77,7 +77,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 - 完整资料见 [拓展阅读](docs/links.md)  
 - 查看详细设计请阅读 [ANP 技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)  
-- 参考开源实现 [AgentConnect 示例](https://github.com/agent-network-protocol/AgentConnect)
+- 协议开源实现 [AgentConnect 示例](https://github.com/agent-network-protocol/AgentConnect)
 
 ## 里程碑
 

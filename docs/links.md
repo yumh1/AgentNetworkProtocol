@@ -1,46 +1,46 @@
-# 扩展阅读
+# Further Reading
 
-为方便检索，这里按照 **规范 / 白皮书 / 博客 / 生态** 划分了所有 ANP 相关资料。
+For ease of reference, all ANP-related materials are organized by **Specifications / Whitepaper / Blogs / Ecosystem**.
 
-## 规范 (Specifications)
+## Specifications
 
-- [ANP 入门指南](docs/chinese/ANP入门指南.md)
-- [did:wba 身份方案](chinese/03-did:wba方法规范.md)
-- [did:wba 服务端接口](chinese/docs/did:wba服务端测试接口.md)
-- [基于 DID 的端到端加密通信](chinese/message/04-基于did的端到端加密通信技术协议.md)
-- [基于 DID 的消息服务协议](chinese/message/05-基于did的消息服务协议.md)
-- [元协议设计规范](chinese/06-ANP-智能体通信元协议规范.md)
-- [智能体描述协议规范（Draft）](chinese/07-ANP-智能体描述协议规范.md)
-- [智能体发现协议规范（Draft）](chinese/08-ANP-智能体发现协议规范.md)
+- [ANP Getting Started Guide](anp-getting-started-guide.md)
+- [did:wba Method Specification](/03-did:wba-method-design-specification.md)
+- [DID-based End-to-End Encrypted Communication](/message/04-end-to-end-encrypted-communication-technology-protocol-based-on-did.md)
+- [Message Service Protocol Based on DID](/message/05-message-service-protocol-based-on-did.md)
+- [Meta-Protocol Design Specification](/06-anp-agent-communication-meta-protocol-specification.md)
+- [Agent Description Protocol Specification (Draft)](/07-anp-agent-description-protocol-specification.md)
+- [Agent Discovery Protocol Specification (Draft)](/08-anp-agent-discovery-protocol-specification.md)
 
-## 白皮书 (Whitepaper)
+## Whitepaper
 
-- [AgentNetworkProtocol 技术白皮书](chinese/01-AgentNetworkProtocol技术白皮书.md)
+- [AgentNetworkProtocol Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)
 
-## 博客 (Blogs)
 
-- [智能体互联网有什么不同](blogs/cn/智能体互联网有什么不同.md)
-- [did:wba-基于web的去中心化身份标识符](blogs/did:wba-基于web的去中心化身份标识符.md)
-- [MCP 与 ANP 对比：智能体需要什么样的通信协议](blogs/cn/MCP与ANP对比：智能体需要什么样的通信协议.md)
-- [did:wba 对比 OpenID Connect、API keys](blogs/cn/did:wba对比openid-connect、api-keys.md)
-- [did:wba 安全性原理解析](blogs/cn/did:wba安全性原理解析.md)
-- [从 OpenAI 的 Operator，看 AI 与互联网交互的三种技术路线](blogs/cn/从OpenAI的Operator，看AI与互联网交互的三种技术路线.md)
-- [智能体身份的三个关键问题：互操作性、人类授权和隐私保护](blogs/three-key-issues-of-agent-identity:-interoperability,-human-authorization,-and-privacy-protection.md)
-- [AI 个人助手未来产品形态和主要玩家的分析与预测](blogs/cn/AI个人助手未来产品形态和主要玩家的分析与预测.md)
-- [一个提示词一个 HTTP 函数：让开源 Manus 通过 ANP 与其他智能体交互](blogs/cn/一个提示词一个HTTP函数：让开源Manus通过ANP与其他智能体交互.md)
-- [LangGraph 负责人对 MCP 的挑战，ANP 是怎么解决的？](blogs/cn/LangGraph负责人对MCP的挑战，ANP是怎么解决的？.md)
-- [ANP 协议要感谢的社区：web3、Agora、WebAgents](blogs/cn/ANP协议要感谢的社区：web3、Agora、WebAgents.md)
-- [智能体通信协议对比](blogs/cn/智能体通信协议对比.md)
-- [但我们设计一个协议的时候，我们在设计什么](blogs/cn/但我们设计一个协议的时候，我们在设计什么.md)
-- [关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护](blogs/cn/关于智能体身份的三个关键问题：互联互通、人类授权、隐私保护.md)
-- [Anthropic MCP 2025H1 里程碑解读](blogs/cn/anthropic-mcp-2025h1-里程碑解读.md)
-- [ANP 在 W3C-WebAgents-CG 的演讲](blogs/cn/ANP在W3C-WebAgents-CG的演讲.md)
-- [第一个专为 AI 访问而设计的 WebAgent 诞生了](blogs/cn/第一个专为AI访问而设计的WebAgent诞生了.md)
-- [Agent 对 Infra 的改变：对连接基础设施的改变](blogs/cn/agent对infra的改变:对连接基础设施的改变.md)
-- [多角度全面对比 Google 最新的 A2A、ANP、MCP](blogs/cn/多角度全面对比Google最新的A2A、ANP、MCP.md)
-- [深入对比谷歌 A2A 与 ANP：找到协议的原点](blogs/cn/深入对比谷歌A2A与ANP：找到协议的原点.md)
-- [深入对比 MCP、A2A、ANP 的交互模式：信息组织方式的差异](blogs/cn/深入对比MCP、A2A、ANP的交互模式.md)
+## Blogs
 
-## 生态 (Ecosystem)
+- [What's Different About the Agentic Web](/blogs/What-Makes-Agentic-Web-Different.md)
+- [did:wba - Web-Based Decentralized Identifiers](/blogs/did:wba,-a-web-based-decentralized-identifier.md)
+- [Comparison of MCP and ANP: What Kind of Communication Protocol Do Agents Need](/blogs/Comparison-of-MCP-and-ANP-What-Kind-of-Communication-Protocol-Do-Agents-Need.md)
+- [Comparison of did:wba with OpenID Connect and API keys](/blogs/comparison-of-did:wba-with-openid-connect-and-api-keys.md)
+- [Security Principles of did:wba](/blogs/did:wba-security-principles.md)
+- [Three Technical Approaches to AI-Internet Interaction](/blogs/Three_Technical_Approaches_to_AI_Internet_Interaction.md)
+- [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](/blogs/three-key-issues-of-agent-identity:-interoperability,-human-authorization,-and-privacy-protection.md)
+- [Analysis and Predictions of Future AI Personal Assistant Products and Key Players](/blogs/analysis-and-predictions-of-future-ai-personal-assistant-products-and-key-players.md)
+- [One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP](/blogs/One-Prompt,One-HTTP-Function:Enabling-Open-Source-Manus-to-Interact-with-Other-Agents-via-ANP.md)
+- [Challenges to MCP from LangGraph Lead and How ANP Addresses Them](/blogs/Challenges-to-MCP-from-LangGraph-Lead-and-How-ANP-Addresses-Them.md)
+- [In the Year that the ANP was Born](/blogs/In-the-year-that-the-ANP-was-born.md)
+- [Comparison of Agent Communication Protocols](/blogs/Comparison-of-Agent-Communication-Protocols.md)
+- [When We Design a Protocol, What Are We Designing](/blogs/When-We-Design-a-Protocol-What-Are-We-Designing.md)
+- [Anthropic MCP 2025H1 Milestone Analysis](/blogs/anthropic-mcp-2025h1-milestone-analysis.md)
+- [ANP Presentation at W3C WebAgents CG](/blogs/ANP-Presentation-at-W3C-WebAgents-CG.md)
+- [The Birth of the First WebAgent Designed for AI Access](/blogs/The-Birth-of-the-First-WebAgent-Designed-for-AI-Access.md)
+- [Agent's Impact on Infrastructure: Challenges to Existing Connection Infrastructure](/blogs/Agent-Impact-on-Infrastructure-Challenges-to-Existing-Connection-Infrastructure.md)
+- [Comprehensive Comparison of Google's Latest A2A, ANP, and MCP](/blogs/Comprehensive-Comparison-of-Google-A2A-ANP-MCP.md)
+- [In-depth Comparison of Google A2A and ANP: Finding the Origin of Protocols](/blogs/In-depth-Comparison-of-Google-A2A-and-ANP-Finding-the-Origin-of-Protocols.md)
+- [Deep Comparison of MCP, A2A, and ANP Interaction Modes: Differences in Information Organization](/blogs/Comparing-the-Interaction-Modes-of-MCP-A2A-and-ANP.md)
+- [ANP Community First Meeting: A Milestone for the Agentic Web](/blogs/ANP-Community-First-Meeting-A-Milestone-for-the-Agentic-Web.md)
 
-- [AgentConnect 开源实现](https://github.com/agent-network-protocol/AgentConnect)
+## Ecosystem
+
+- [AgentConnect Open-Source Implementation](https://github.com/agent-network-protocol/AgentConnect)
