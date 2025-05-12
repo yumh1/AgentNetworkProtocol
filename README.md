@@ -4,9 +4,9 @@
 
 </div>
 
-## AgentNetworkProtocol(ANP)
+## Agent Network Protocol (ANP)
 
-> TL;DR: ANP aims to become the HTTP of the agent internet era.
+> TL;DR: ANP aims to become the HTTP of the Agentic Web era.
 
 <!-- TOC -->
 ### Table of Contents
@@ -23,9 +23,9 @@
 
 ## Vision and Positioning
 
-AgentNetworkProtocol(ANP) is an open-source communication protocol for intelligent agents.
+Agent Network Protocol (ANP) is an open-source communication protocol for intelligent agents.
 
-AgentNetworkProtocol(ANP) aims to become **the HTTP of the agent internet era**.
+Agent Network Protocol (ANP) aims to become **the HTTP of the Agentic Web era**.
 
 Our vision is to **define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of agents**.
 
@@ -33,7 +33,7 @@ Our vision is to **define how agents connect with each other, building an open, 
   <img src="/images/agentic-web3.png" width="50%" alt="Agentic Web"/>
 </p>
 
-We believe that the agent internet represents the next generation of information infrastructure following the human internet, which will fundamentally transform how the digital world connects and collaborates. In this vision:
+We believe that the agent internet represents the next generation of information infrastructure succeeding the human-centric internet, which will fundamentally transform how the digital world connects and collaborates. In this vision:
 
 - **From Platform-Centric to Protocol-Centric**: The current internet ecosystem is built around platforms, where data and services are locked in "digital silos." The agent internet will reshape this imbalance, returning the internet from a closed, fragmented state to its open, freely connected origins.
 
@@ -59,7 +59,7 @@ While current internet infrastructure is quite comprehensive, there remains a la
   <img src="/images/anp-architecture.png" width="50%" alt="Protocol Layer Diagram"/>
 </p>
 
-- 🔒 **Identity and Secure Communication Layer**: Based on the W3C DID (Decentralized Identifiers) specification, built on existing mature web infrastructure to create a decentralized identity authentication scheme and end-to-end encrypted communication solution. It allows agents from any platform to authenticate each other without relying on any centralized system.
+- 🔒 **Identity and Secure Communication Layer**: Based on the W3C DID (Decentralized Identifiers) specification, this layer leverages existing mature web infrastructure to create a decentralized identity authentication scheme and an end-to-end encrypted communication solution. It allows agents from any platform to authenticate each other without relying on any centralized system.
 - 🌍 **Meta-Protocol Layer**: A protocol for negotiating communication protocols between agents. It is key to evolving the agent network into a self-organizing, self-negotiating, efficient collaboration network.
 - 📡 **Application Protocol Layer**: Based on semantic web specifications, enabling agents to describe their capabilities and supported application protocols, and efficiently manage these protocols.
 
@@ -71,20 +71,20 @@ If you want to quickly run ANP-related demos, you can check our sample program d
 
 ## Protocol SDK
 
-We are developing an open-source implementation of AgentNetworkProtocol, repository at: [https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
+We are developing an open-source implementation of AgentNetworkProtocol, and its repository can be found at: [https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
 
 ## Further Reading
 
-- Complete materials at [Extended Reading](docs/links.md)  
+- Complete materials are available at [Extended Reading](docs/links.md)  
 - For detailed design, please read the [ANP Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)  
-- Reference open-source implementation [AgentConnect Examples](https://github.com/agent-network-protocol/AgentConnect)
+- Refer to the open-source implementation [AgentConnect Examples](https://github.com/agent-network-protocol/AgentConnect)
 
 ## Milestones
 
 For both the protocol and open-source code implementation, we are gradually advancing in the following order:
 
-- [x] Build identity authentication and end-to-end encrypted communication protocol and implementation. This is the foundation and core of our entire project, with protocol design and code basically completed.
-- [x] Meta-protocol design and meta-protocol code implementation. Current protocol design and code development basically completed.
+- [x] Build identity authentication and end-to-end encrypted communication protocol and implementation. This is the foundation and core of our entire project, with protocol design and foundational code are substantially complete.
+- [x] Meta-protocol design and meta-protocol code implementation. Current protocol design and code development are substantially complete.
 - [x] Application layer protocol design and development.
   - [x] Support for agent description.
   - [x] Support for agent discovery.
@@ -106,8 +106,9 @@ We welcome contributions in any form. Please refer to the [CONTRIBUTING.md](CONT
 
 ## License
 
-This project is open-sourced under the MIT License. For details, please refer to the [LICENSE](LICENSE) file. However, copyright belongs to GaoWei Chang. Any user of this project must retain the original copyright notice and license file.
+This project is open-sourced under the MIT License. For details, please refer to the [LICENSE](LICENSE) file. However, the copyright is held by GaoWei Chang. Any user of this project must retain the original copyright notice and license file.
 
-## Copyright Notice  
+## Copyright Notice
+
 Copyright (c) 2024 GaoWei Chang  
 This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but must retain this copyright notice.
