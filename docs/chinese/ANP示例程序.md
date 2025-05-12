@@ -1,4 +1,8 @@
-# 示例程序清单
+# 示例程序清单 / Demo list
+
+[English](#english) | [中文](#chinese)
+
+<a name = "chinese"></a>
 ## [目录]
 
   - [X] 示例程序 1：[ANP网络探索工具](#demo1)
@@ -27,3 +31,31 @@
 
 # 更多DEMO敬请期待...
 
+<a name = "english"></a>
+## [Catalog]
+
+  - [X] DEMO 1：[ANP Network Exploration Tool](#demo1)
+  - [ ] DEMO 2：
+  - [ ] DEMO 3：
+
+<a name = "demo1"></a>
+## DEMO 1：ANP Network Exploration Tool
+### Overview
+
+    This example program demonstrates the application of ANP protocol in weather query scenarios. Through natural language driven agents, users can easily query weather information and experience the convenient interaction brought by future technology.
+
+### Feature
+
+    Natural language interaction: Users can communicate with agents using natural language without the need for complex command inputs.
+  
+    Transparent query process: The program transparently displays the query process and Agent access records, allowing users to clearly understand the ways to obtain information.
+  
+    Convenient access method: Provides two ways to access web pages directly and run local code to meet the needs of different users.
+
+### Link address
+
+    Web page access address : https://service.agent-network-protocol.com/anp-demo/
+
+    Github address : https://github.com/agent-network-protocol/anp-examples
+
+# Stay tuned for more demos...
