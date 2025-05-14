@@ -6,13 +6,13 @@ did:wba方法是W3C去中心化标识符(DIDs)标准下的一个草案方法规�
 
 DID 的核心组件是 DID 文档，其中包含与特定 DID 相关的关键信息，比如用于验证 DID 所有者身份的公钥。DID方法定义了如何创建、存储、更新、撤销 DID 文档。
 
-我们设计了一个[did:wba方法](/chinese/03-did:wba方法规范.md)。did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不需要彻底重构现有系统的情况下，轻松实现去中心化身份认证。各平台可以使用中心化方式管理自己的账户体系，同时为每个用户创建did:wba DID，以此实现平台之间的互联互通。
+我们设计了一个[did:wba方法](/chinese/03-did-wba方法规范.md)。did:wba 方法能够充分利用现有的成熟技术和Web基础设施，在不需要彻底重构现有系统的情况下，轻松实现去中心化身份认证。各平台可以使用中心化方式管理自己的账户体系，同时为每个用户创建did:wba DID，以此实现平台之间的互联互通。
 
 使用did:wba方法的身份系统，可以实现类似email的业务特点，各个平台以中心化的方式实现自己的账户体系，同时，各个平台之间可以互联互通。
 
 相对API keys，did:wba方法在安全性上更胜一筹；相对OpenID Connect，did:wba方法交互更加简单，更加的去中心化。他们之间的详细对比可以参考[did:wba对比OpenID Connect、API keys](/blogs/cn/did:wba对比OpenID%20Connect、API%20keys.md)。
 
-did:wba方法也具有与OpenID Connect同等的安全性，可以参考[did:wba安全性原理解析](/blogs/cn/did:wba安全性原理解析.md)。
+did:wba方法也具有与OpenID Connect同等的安全性，可以参考[did:wba安全性原理解析](/blogs/cn/did-wba安全性原理解析.md)。
 
 ## 2. DID文档
 
