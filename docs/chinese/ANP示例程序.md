@@ -6,7 +6,7 @@
 ## [目录]
 
   - [X] 示例程序 1：[ANP网络探索工具](#demo1)
-  - [ ] 示例程序 2：
+  - [X] 示例程序 2：[ANP天气智能体服务-服务端](#demo2)
   - [ ] 示例程序 3：
 
 <a name = "demo1"></a>
@@ -29,16 +29,38 @@
 
     代码仓库地址‌：https://github.com/agent-network-protocol/anp-examples
 
+<a name = "demo2"></a>
+## 示例程序 2：ANP天气智能体服务-服务端
+### 简介
+
+    本示例程序展示了 ANP天气智能体服务中的服务端应用。通过集成第三方天气查询API接口，能够被demo1中的ANP网络探索工具发现，并为其提供查询天气信息服务。DEMO1与DEMO2的关系参见下图所示。
+  
+![demo关系](/images/relationship.png)
+
+### 展示要点
+
+    集成第三方API‌ ：服务端集成了第三方天气查询API接口，能够提供实时的天气信息查询服务。
+  
+    与客户端协同工作‌ ：服务端能够被 ANP网络探索工具 （客户端）发现，并为其提供查询天气信息服务。
+  
+    灵活部署方式 ：服务端支持多种部署方式，包括本地运行和云服务器部署，满足不同场景的需求。
+
+### 链接地址
+
+    网页访问地址‌：https://agent-weather.xyz/ad.json
+
+    代码仓库地址‌：https://github.com/agent-network-protocol/anp-weather-agent
+
 # 更多DEMO敬请期待...
 
 <a name = "english"></a>
 ## [Catalog]
 
-  - [X] DEMO 1：[ANP Network Exploration Tool](#demo1)
-  - [ ] DEMO 2：
+  - [X] DEMO 1：[ANP Network Exploration Tool](#demo1-en)
+  - [X] DEMO 2：[ANP Weather Agent Service - Server](#demo2-en)
   - [ ] DEMO 3：
 
-<a name = "demo1"></a>
+<a name = "demo1-en"></a>
 ## DEMO 1：ANP Network Exploration Tool
 ### Overview
 
@@ -57,5 +79,31 @@
     Web page access address : https://service.agent-network-protocol.com/anp-demo/
 
     Github address : https://github.com/agent-network-protocol/anp-examples
+
+<a name = "demo2-en"></a>
+## DEMO 2：ANP Weather Agent Service - Server
+### Overview
+
+    This example program demonstrates the server-side application of ANP weather intelligent agent service.
+
+    By integrating a third-party weather query API interface, it can be discovered by the ANP network exploration tool in demo1 and provided with weather information query services. 
+
+    The relationship between DEMO1 and DEMO2 is shown in the following figure.
+
+![relationship of demo](/images/relationship.png)
+
+### Feature
+
+    Integrated third-party API: The server integrates a third-party weather query API interface, which can provide real-time weather information query services.
+    
+    Collaborate with the client: The server can be discovered by the ANP network exploration tool (client) and provide weather information query services for it.
+    
+    Flexible deployment method: The server supports multiple deployment methods, including local operation and cloud server deployment, to meet the needs of different scenarios.
+
+### Link address
+
+    Web page access address : https://agent-weather.xyz/ad.json
+
+    Github address : https://github.com/agent-network-protocol/anp-weather-agent
 
 # Stay tuned for more demos...
