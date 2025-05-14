@@ -105,7 +105,7 @@ did:wba是[AgentNetworkProtocol（ANP）](https://github.com/agent-network-proto
 假设智能体A要订阅并调用智能体B的服务，身份验证以及请求流程如下：
 
 <p align="center">
-  <img src="/blogs/images/did:wba-flow.png" width="75%" alt="did:wba-flow"/>
+  <img src="/blogs/images/did-wba-flow.png" width="75%" alt="did:wba-flow"/>
 </p>
 
 - 前置流程

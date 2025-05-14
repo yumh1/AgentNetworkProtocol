@@ -115,7 +115,7 @@ ANP身份认证整体流程如下：
 
 关于ANP DID身份认证的相关文章：
 - [did:wba对比OpenID Connect、API keys](./did:wba对比OpenID%20Connect、API%20keys.md)
-- [did:wba方法规范](/chinese/03-did:wba方法规范.md)
+- [did:wba方法规范](/chinese/03-did-wba方法规范.md)
 
 对比MCP和ANP的身份认证，我们能够发现几点区别：
 - MCP的身份认证方案是AI连接到原有互联网的一个不错的选择，当前很多大的应用基本都支持Oauth。
