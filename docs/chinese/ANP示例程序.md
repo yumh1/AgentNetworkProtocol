@@ -34,7 +34,8 @@
 ### 简介
 
     本示例程序展示了 ANP天气智能体服务中的服务端应用。通过集成第三方天气查询API接口，能够被demo1中的ANP网络探索工具发现，并为其提供查询天气信息服务。DEMO1与DEMO2的关系参见下图所示。
-    ![demo1与demo2关系图](../../images/relationship-of-DEMO1-and-DEMO2.jpg)
+  
+![demo关系](/images/relationship.png)
 
 ### 展示要点
 
@@ -89,7 +90,7 @@
 
     The relationship between DEMO1 and DEMO2 is shown in the following figure.
 
-    ![Relationship diagram between Demo1 and Demo2](../../images/relationship-of-DEMO1-and-DEMO2.jpg)
+![relationship of demo](/images/relationship.png)
 
 ### Feature
 
