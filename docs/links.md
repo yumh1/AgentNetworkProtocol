@@ -5,7 +5,7 @@ For ease of reference, all ANP-related materials are organized by **Specificatio
 ## Specifications
 
 - [ANP Getting Started Guide](anp-getting-started-guide.md)
-- [did:wba Method Specification](/03-did:wba-method-design-specification.md)
+- [did:wba Method Specification](03-did-wba-method-design-specification.md)
 - [DID-based End-to-End Encrypted Communication](/message/04-end-to-end-encrypted-communication-technology-protocol-based-on-did.md)
 - [Message Service Protocol Based on DID](/message/05-message-service-protocol-based-on-did.md)
 - [Meta-Protocol Design Specification](/06-anp-agent-communication-meta-protocol-specification.md)
@@ -20,14 +20,14 @@ For ease of reference, all ANP-related materials are organized by **Specificatio
 ## Blogs
 
 - [What's Different About the Agentic Web](/blogs/What-Makes-Agentic-Web-Different.md)
-- [did:wba - Web-Based Decentralized Identifiers](/blogs/did:wba,-a-web-based-decentralized-identifier.md)
+- [did:wba - Web-Based Decentralized Identifiers](/blogs/did-wba-a-web-based-decentralized-identifier.md)
 - [Comparison of MCP and ANP: What Kind of Communication Protocol Do Agents Need](/blogs/Comparison-of-MCP-and-ANP-What-Kind-of-Communication-Protocol-Do-Agents-Need.md)
-- [Comparison of did:wba with OpenID Connect and API keys](/blogs/comparison-of-did:wba-with-openid-connect-and-api-keys.md)
-- [Security Principles of did:wba](/blogs/did:wba-security-principles.md)
+- [Comparison of did:wba with OpenID Connect and API keys](/blogs/comparison-of-did-wba-with-openid-connect-and-api-keys.md)
+- [Security Principles of did:wba](/blogs/did-wba-security-principles.md)
 - [Three Technical Approaches to AI-Internet Interaction](/blogs/Three_Technical_Approaches_to_AI_Internet_Interaction.md)
-- [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](/blogs/three-key-issues-of-agent-identity:-interoperability,-human-authorization,-and-privacy-protection.md)
+- [Three Key Issues of Agent Identity: Interoperability, Human-Authorization, and Privacy Protection](/blogs/three-key-issues-of-agent-identity-interoperability-human-authorization-and-privacy-protection.md)
 - [Analysis and Predictions of Future AI Personal Assistant Products and Key Players](/blogs/analysis-and-predictions-of-future-ai-personal-assistant-products-and-key-players.md)
-- [One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP](/blogs/One-Prompt,One-HTTP-Function:Enabling-Open-Source-Manus-to-Interact-with-Other-Agents-via-ANP.md)
+- [One Prompt, One HTTP Function: Enabling Open-Source Manus to Interact with Other Agents via ANP](/blogs/One-Prompt-One-HTTP-Function-Enabling-Open-Source-Manus-to-Interact-with-Other-Agents-via-ANP.md)
 - [Challenges to MCP from LangGraph Lead and How ANP Addresses Them](/blogs/Challenges-to-MCP-from-LangGraph-Lead-and-How-ANP-Addresses-Them.md)
 - [In the Year that the ANP was Born](/blogs/In-the-year-that-the-ANP-was-born.md)
 - [Comparison of Agent Communication Protocols](/blogs/Comparison-of-Agent-Communication-Protocols.md)

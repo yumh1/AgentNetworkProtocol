@@ -104,7 +104,7 @@ did:wba is very similar to email in functionality: different platforms have thei
 Suppose Agent A wants to subscribe to and call Agent B's services, the authentication and request process is as follows:
 
 <p align="center">
-  <img src="/blogs/images/did:wba-flow.png" width="75%" alt="did:wba-flow"/>
+  <img src="/blogs/images/did-wba-flow.png" width="75%" alt="did:wba-flow"/>
 </p>
 
 - Preliminary Process

@@ -12,7 +12,7 @@ Identity systems using the did:wba method can achieve business characteristics s
 
 Compared to API keys, the did:wba method offers superior security; compared to OpenID Connect, the did:wba method features simpler interactions and greater decentralization. For a detailed comparison, please refer to [did:wba vs OpenID Connect and API keys](/blogs/Comparison%20of%20did:wba%20with%20OpenID%20Connect%20and%20API%20keys.md).
 
-The did:wba method also provides security equivalent to OpenID Connect, as explained in [did:wba Security Principle Analysis](/blogs/did:wba-security-principles.md).
+The did:wba method also provides security equivalent to OpenID Connect, as explained in [did:wba Security Principle Analysis](/blogs/did-wba-security-principles.md).
 
 ## 2. DID Document
 
