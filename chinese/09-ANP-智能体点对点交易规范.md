@@ -1,7 +1,4 @@
-# 修改说明
-使用VC Hash Chain替代Proof Chains。Proof Chains属于一个多签的方案，灵活性不是很好，并且也不好表达状态，所以使用了VC Hash Chain的方案代替。
-
-# 基于ANP的智能体交易方案：需求与技术设计文档 (v3)
+# 基于ANP的智能体点对点交易规范（草案）
 
 ## 1. 引言
 
