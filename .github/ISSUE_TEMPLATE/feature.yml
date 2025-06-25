@@ -1,0 +1,54 @@
+name: Feature Request | 功能请求
+description: Use this template to submit feature requests | 使用此模板提交功能请求
+title: "[Feature]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🙏 Thank you for submitting a feature request! | 感谢你提交功能请求！
+
+        Please help us by filling out the following fields as completely as possible. | 请尽可能完整地填写以下字段。
+
+        ⚠️ Incomplete feature requests may be **closed** if we cannot understand or implement them clearly. | 如果功能请求描述不清楚，可能会被直接 **关闭**。
+
+  - type: textarea
+    id: describe
+    attributes:
+      label: Feature Description | 功能描述
+      description: Describe the feature you are requesting | 描述你希望实现的功能
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation | 动机
+      description: Why do you need this feature? What problem does it solve or what value does it add? | 为什么你需要这个功能？它解决了什么问题或带来了什么价值？
+    validations:
+      required: false
+
+  - type: textarea
+    id: expect
+    attributes:
+      label: Expected Outcome | 期望结果
+      description: What is the desired effect or behavior of the feature? | 你期望这个功能达到什么效果？
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Supporting Materials | 辅助材料
+      description: Optional screenshots, sketches, or code snippets that help explain your request | 可选：截图、草图或代码片段，帮助说明你的请求
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: revision
+    attributes:
+      label: Final Check | 最后检查
+      description: Review your answers before submission | 提交前请检查你的回答
+      options:
+        - label: I believe the above description is detailed enough to allow developers to implement the feature. If not, I understand it may be **closed**. | 我相信以上描述足够详细，能让开发者理解并实现该功能。如不满足要求，我理解该请求可能会被**关闭**。
+          required: true

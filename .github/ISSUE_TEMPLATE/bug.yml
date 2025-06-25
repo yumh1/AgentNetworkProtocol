@@ -1,0 +1,88 @@
+name: Bug Report | 错误报告
+description: Report a bug you encountered during use | 报告使用过程中遇到的问题
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🐞 Thank you for reporting a bug! | 感谢你提交 Bug 报告！
+
+        Please help us by filling out the following fields as completely as possible. Incomplete bug reports may be **closed** if we cannot reproduce the problem. | 请尽量完整地填写以下内容，否则我们可能无法复现该问题，导致该 issue 被 **关闭**。
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧩 Bug Details | Bug 详情
+
+        Describe the bug you encountered. You may attach screenshots, relevant code, stack traces, etc., to help developers track down the issue. | 描述你遇到的 Bug，可以附上截图、相关代码或堆栈信息以帮助定位问题。
+
+  - type: textarea
+    id: error_info
+    attributes:
+      label: Error Information | 错误信息
+      description: Error messages you encountered | 你遇到的报错信息
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce_steps
+    attributes:
+      label: Steps to Reproduce | 重现步骤
+      description: Please list the steps to reproduce the bug | 请列出重现该问题的步骤
+    validations:
+      required: true
+
+  - type: textarea
+    id: about_code
+    attributes:
+      label: Related Code | 相关代码
+      description: The relevant code where the error occurred (please hide any sensitive info) | 出现错误的代码片段（请确保去除敏感信息）
+      render: python
+    validations:
+      required: false
+
+  - type: textarea
+    id: stacktrace
+    attributes:
+      label: Stack Trace | 堆栈信息
+      description: Paste the stack trace here if available | 如果有，请粘贴完整堆栈信息
+      render: shell
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Python Version | Python 版本
+      description: The version of Python you are currently using | 当前使用的 Python 版本
+      placeholder: e.g., 3.11.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime_environment
+    attributes:
+      label: Runtime Environment | 运行环境
+      description: The operating system where the issue occurred | 出现问题的运行系统
+      options:
+        - Windows
+        - MacOS
+        - Linux
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information | 其他补充信息
+      description: Any other context, screenshots, logs or suggestions | 其他上下文信息、截图、日志或建议
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: revision
+    attributes:
+      label: Final Check | 最后检查
+      description: Please review your answers before submitting | 提交前请确认以下事项
+      options:
+        - label: I believe the above description is detailed enough to allow developers to reproduce the issue. If not, I understand it may be **closed**. | 我相信以上描述足够详细，能够帮助开发者复现问题。如不满足要求，我理解该问题可能会被 **关闭**。
+          required: true
