@@ -398,17 +398,18 @@ Authorization: Bearer <access_token>
 
 ##### 3.2.4.1 401响应
 
-当服务端验证签名失败，需要客户端重新发起请求时，可以返回401响应。
+当服务端验证签名失败，或者需要用户携带身份鉴权消息，需要客户端重新发起请求时，可以返回401响应。
 
 同时，如果服务端不支持记录客户端请求的Nonce，或者要求客户端每次必须使用服务端生成的Nonce进行签名，则可以在客户端每次首次请求时，均返回401响应，并附加挑战信息，挑战信息中包含Nonce。但是这样会增加客户端的请求次数，实现者可以自行选择是否使用。
 
 错误信息通过 `WWW-Authenticate` 头字段返回，示例如下：
 
 ```plaintext
-WWW-Authenticate: Bearer error="invalid_nonce", error_description="Nonce has already been used. Please provide a new nonce.", nonce="xyz987"
+WWW-Authenticate: Bearer method="DIDWba,DIDWeb", error="invalid_nonce", error_description="Nonce has already been used. Please provide a new nonce.", nonce="xyz987"
 ```
 
 包含以下字段：
+- **method**：可选字段，表示服务端支持的身份认证方法
 - **error**：必须字段，错误类型，包含以下字符串值：
   - **invalid_request**：请求格式错误，缺少必需字段，或者包含不支持的参数。
   - **invalid_nonce**：Nonce已使用或不存在。
