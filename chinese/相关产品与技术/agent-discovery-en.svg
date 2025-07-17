@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1600" height="900" xmlns="http://www.w3.org/2000/svg">
+    <!-- Define gradients and styles -->
+    <defs>
+        <!-- Active discovery background gradient -->
+        <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#e0f7fa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b2ebf2;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Passive discovery background gradient -->
+        <linearGradient id="passiveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Component gradient -->
+        <linearGradient id="componentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f5f5;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Arrow definitions -->
+        <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#0288d1" />
+        </marker>
+        
+        <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2" />
+        </marker>
+        
+        <!-- Icon definitions -->
+        <symbol id="search-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#333"/>
+        </symbol>
+        
+        <symbol id="server-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M4 22h16a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm0-9h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm0-9h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1z" fill="#333"/>
+        </symbol>
+        
+        <symbol id="agent-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#333"/>
+        </symbol>
+        
+        <symbol id="document-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#333"/>
+        </symbol>
+        
+        <!-- Shadow effect -->
+        <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="2" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.2"/>
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="1600" height="900" fill="#f8f9fa" />
+    
+    <!-- Main title -->
+    <g>
+        <text x="800" y="70" font-family="Arial, sans-serif" font-size="40" text-anchor="middle" fill="#212121" font-weight="bold">ANP Agent Discovery Protocol Architecture</text>
+        <line x1="500" y1="85" x2="1100" y2="85" stroke="#009688" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Left side - Active discovery section -->
+    <g transform="translate(50, 130)">
+        <!-- Active discovery title -->
+        <text x="350" y="40" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#00796b" font-weight="bold">Active Discovery Mechanism</text>
+        
+        <!-- Active discovery background -->
+        <rect x="0" y="60" width="700" height="480" rx="20" ry="20" fill="url(#activeGradient)" stroke="#00838f" stroke-width="2" filter="url(#drop-shadow)" />
+        
+        <!-- Search engine/agent component -->
+        <g transform="translate(100, 140)">
+            <rect width="200" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#00838f" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#search-icon" x="100" y="40" width="30" height="30" />
+            <text x="100" y="85" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#00695c" font-weight="bold">Search Engine/Agent</text>
+        </g>
+        
+        <!-- Agent server component -->
+        <g transform="translate(400, 140)">
+            <rect width="200" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#00838f" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#server-icon" x="100" y="40" width="30" height="30" />
+            <text x="100" y="85" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#00695c" font-weight="bold">Agent Server</text>
+        </g>
+        
+        <!-- .well-known path component -->
+        <g transform="translate(400, 340)">
+            <rect width="200" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#00838f" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#document-icon" x="100" y="35" width="30" height="30" />
+            <text x="100" y="80" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#00695c">/.well-known/</text>
+            <text x="100" y="105" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#00695c">agent-descriptions</text>
+        </g>
+        
+        <!-- Arrows and descriptions -->
+        <line x1="300" y1="200" x2="400" y2="200" stroke="#0288d1" stroke-width="3" stroke-dasharray="0" marker-end="url(#arrowBlue)" />
+        <rect x="310" y="170" width="100" height="30" rx="15" ry="15" fill="#e1f5fe" stroke="#0288d1" stroke-width="1" />
+        <text x="360" y="190" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#01579b">HTTP GET</text>
+        
+        <line x1="500" y1="260" x2="500" y2="340" stroke="#0288d1" stroke-width="3" stroke-dasharray="0" marker-end="url(#arrowBlue)" />
+        <rect x="520" y="290" width="70" height="30" rx="15" ry="15" fill="#e1f5fe" stroke="#0288d1" stroke-width="1" />
+        <text x="555" y="310" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#01579b">Provides</text>
+        
+        <!-- Active discovery text description -->
+        <g transform="translate(30, 500)">
+            <rect x="0" y="0" width="640" height="70" rx="10" ry="10" fill="#e0f2f1" stroke="#00838f" stroke-width="1" opacity="0.8" />
+            <text x="15" y="25" font-family="Arial, sans-serif" font-size="15" fill="#00695c">
+                • Active Discovery: Search engines or other agents discover all public agents via .well-known URI paths
+            </text>
+            <text x="15" y="55" font-family="Arial, sans-serif" font-size="15" fill="#00695c">
+                • Return Format: JSON-LD collection document containing URL list of agent description documents
+            </text>
+        </g>
+    </g>
+    
+    <!-- Right side - Passive discovery section -->
+    <g transform="translate(850, 130)">
+        <!-- Passive discovery title -->
+        <text x="350" y="40" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#6a1b9a" font-weight="bold">Passive Discovery Mechanism</text>
+        
+        <!-- Passive discovery background -->
+        <rect x="0" y="60" width="700" height="480" rx="20" ry="20" fill="url(#passiveGradient)" stroke="#6a1b9a" stroke-width="2" filter="url(#drop-shadow)" />
+        
+        <!-- Agent component -->
+        <g transform="translate(100, 140)">
+            <rect width="200" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#7b1fa2" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#agent-icon" x="100" y="40" width="30" height="30" />
+            <text x="100" y="85" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#4a148c" font-weight="bold">Agent</text>
+        </g>
+        
+        <!-- Search service agent component -->
+        <g transform="translate(400, 140)">
+            <rect width="200" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#7b1fa2" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#search-icon" x="100" y="40" width="30" height="30" />
+            <text x="100" y="80" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#4a148c" font-weight="bold">Search Service</text>
+            <text x="100" y="105" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#4a148c" font-weight="bold">Agent</text>
+        </g>
+        
+        <!-- Agent description document component -->
+        <g transform="translate(70, 340)">
+            <rect width="260" height="120" rx="10" ry="10" fill="url(#componentGradient)" stroke="#7b1fa2" stroke-width="2" filter="url(#drop-shadow)" />
+            <use href="#document-icon" x="130" y="35" width="30" height="30" />
+            <text x="130" y="75" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a148c">Agent Description</text>
+            <text x="130" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a148c">Document (JSON-LD)</text>
+        </g>
+        
+        <!-- Arrows and descriptions -->
+        <line x1="300" y1="180" x2="400" y2="180" stroke="#7b1fa2" stroke-width="3" stroke-dasharray="0" marker-end="url(#arrowPurple)" />
+        <rect x="280" y="135" width="240" height="50" rx="15" ry="15" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1" />
+        <text x="400" y="155" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a148c">Registration Request</text>
+        <text x="400" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a148c">(with description URL)</text>
+        
+        <path d="M400,250 C300,300 280,300 230,340" stroke="#7b1fa2" stroke-width="3" fill="none" stroke-dasharray="0" marker-end="url(#arrowPurple)" />
+        <rect x="260" y="280" width="130" height="30" rx="15" ry="15" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1" />
+        <text x="325" y="300" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a148c">Crawl and Index</text>
+        <!-- Passive discovery text description -->
+        <g transform="translate(30, 500)">
+            <rect x="0" y="0" width="640" height="100" rx="10" ry="10" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="1" opacity="0.8" />
+            <text x="15" y="20" font-family="Arial, sans-serif" font-size="15" fill="#4a148c">
+                • Passive Discovery: Agents proactively register their description URLs to search services for
+            </text>
+            <text x="25" y="40" font-family="Arial, sans-serif" font-size="15" fill="#4a148c">
+                 crawling and indexing
+            </text>
+            <text x="15" y="65" font-family="Arial, sans-serif" font-size="15" fill="#4a148c">
+                • Validation & Crawling: Search service validates requests then crawls agent description 
+            </text>
+            <text x="25" y="85" font-family="Arial, sans-serif" font-size="15" fill="#4a148c">
+                documents for indexing
+            </text>
+        </g>
+    </g>
+    
+    <!-- Bottom copyright notice -->
+    <text x="800" y="870" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#757575">Based on ANP-Agent Discovery Protocol Specification (Draft)</text>
+</svg>
