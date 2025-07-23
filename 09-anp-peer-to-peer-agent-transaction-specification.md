@@ -101,7 +101,7 @@ The ANP protocol stack provides underlying secure communication (encryption) and
 
 The following diagram shows an architectural overview of the various roles and their relationships in the system:
 
-![ANP Agent Peer-to-Peer Transaction System Architecture](./ANP-system-architecture-diagram.svg)
+![ANP Agent Peer-to-Peer Transaction System Architecture](/images/anp-trading-sysytem-arch.svg)
 
 *Figure 1: ANP Agent Peer-to-Peer Transaction System Architecture - Shows the interaction relationships between users, hotels, payment systems, and optional arbitration and notary services. All communication between agents is based on the ANP protocol, with information transmission and verification through verifiable credentials (VCs).*
 
@@ -316,7 +316,7 @@ sequenceDiagram
 
 The following diagram illustrates the hash linking relationships between various credentials (VCs) in the ANP protocol under ideal conditions. Each credential forms an immutable chain structure by including the hash of the previous credential, ensuring the integrity and verifiability of the entire transaction process. Different colors in the diagram represent credentials issued by different agents, and arrows indicate hash reference relationships.
 
-![VC Hash Chain Relationships in ANP Protocol](./ANP-VC-Hash-Chain-Diagram.svg)
+![VC Hash Chain Relationships in ANP Protocol](/images/anp-trading-hash.svg)
 
 *Figure 4: VC Hash Chain in ANP Protocol - Shows the complete credential chain from order proposal to final settlement, where each credential forms an immutable chain structure by including the hash of the previous credential, ensuring the integrity and verifiability of the transaction.*
 
