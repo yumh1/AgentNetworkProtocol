@@ -102,7 +102,7 @@ did:wba:example.com%3A3000
     "keyAgreement": [
       {
         "id": "did:wba:example.com%3A8800:user:alice#key-2",
-        "type": "X25519KeyAgreementKey2019", 
+        "type": "X25519KeyAgreementKey2019",
         "controller": "did:wba:example.com%3A8800:user:alice",
         "publicKeyMultibase": "z9hFgmPVfmBZwRvFEyniQDBkz9LmV7gDEqytWyGZLmDXE"
       }
@@ -245,7 +245,7 @@ did:wba:example.com%3A3000:user:alice
 ```mermaid
 sequenceDiagram
     participant Agent A Client
-    participant Agent B Server 
+    participant Agent B Server
     participant Agent A DID Sever
 
     Note over Agent A Client,Agent B Server: First Request
@@ -279,7 +279,7 @@ sequenceDiagram
 - **signature**：对 `nonce`、`timestamp` 、服务端域名、客户端DID进行签名。对于ECDSA签名，使用R|S格式。包括以下字段：
   - `nonce`: 随机生成的字符串
   - `timestamp`: 请求发起时的时间
-  - `service`: 服务端域名(注意，域名中不包含端口)
+  - `service`: 服务端域名(注意，域名中不包含端口，示例：example.com，如果服务端是ip，则使用ip地址)
   - `did`: 客户端的 DID
 客户端请求示例：
 
@@ -292,13 +292,13 @@ Authorization: DIDWba did="did:wba:example.com%3A8800:user:alice", nonce="abc123
 1. 客户端生成包含以下信息的字符串：
 
 ```json
-{ 
-  "nonce": "abc123", 
-  "timestamp": "2024-12-05T12:34:56Z", 
-  "service": "example.com", 
-  "did": "did:wba:example.com:user:alice" 
+{
+  "nonce": "abc123",
+  "timestamp": "2024-12-05T12:34:56Z",
+  "service": "example.com",
+  "did": "did:wba:example.com:user:alice"
 }
-``` 
+```
 
 2. 使用[JCS(JSON Canonicalization Scheme)](https://www.rfc-editor.org/rfc/rfc8785)对上面的json字符串进行规范化，生成规范化字符串。
 
@@ -336,11 +336,11 @@ Authorization: DIDWba did="did:wba:example.com%3A8800:user:alice", nonce="abc123
 2. **构建验证字符串**：使用提取的信息构建与客户端相同的JSON字符串：
 
 ```json
-{ 
-    "nonce": "abc123", 
-    "timestamp": "2024-12-05T12:34:56Z", 
-    "service": "example.com", 
-    "did": "did:wba:example.com:user:alice" 
+{
+    "nonce": "abc123",
+    "timestamp": "2024-12-05T12:34:56Z",
+    "service": "example.com",
+    "did": "did:wba:example.com:user:alice"
 }
 ```
 
@@ -369,7 +369,7 @@ JWT生成方法参考[RFC7519](https://www.rfc-editor.org/rfc/rfc7519)。
 payload中可以包含以下字段（其他字段根据需要添加）：
 ```json
 {
-  "sub": "did:wba:example.com:user:alice",  // 用户 DID 
+  "sub": "did:wba:example.com:user:alice",  // 用户 DID
   "iat": "2024-12-05T12:34:56Z",            // 签发时间
   "exp": "2024-12-06T12:34:56Z",            // 过期时间
 }
@@ -441,7 +441,7 @@ WWW-Authenticate: Bearer method="DIDWba,DIDWeb", error="invalid_nonce", error_de
 ```mermaid
 sequenceDiagram
     participant Agent A Client
-    participant Agent B Server 
+    participant Agent B Server
     participant Agent A DID Sever
 
     Note over Agent A Client,Agent B Server: Initial Request
@@ -644,6 +644,6 @@ Alice希望通过智能助理调用一个名为example的第三方服务API。�
 
 15. **Controller Document**. Controller Document. Manu Sporny; Markus Sabadello. W3C. 24 June 2021. W3C Note. Retrieved from [https://www.w3.org/TR/controller-document/](https://www.w3.org/TR/controller-document/)
 
-## 版权声明  
-Copyright (c) 2024 GaoWei Chang  
-本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。  
+## 版权声明
+Copyright (c) 2024 GaoWei Chang
+本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。
