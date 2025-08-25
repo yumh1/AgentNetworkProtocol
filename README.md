@@ -81,8 +81,8 @@ We are developing an open-source implementation of AgentNetworkProtocol, and its
 
 ## Further Reading
 
-- Complete materials are available at [Extended Reading](docs/links.md)
-- For detailed design, please read the [ANP Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)
+- Complete materials are available at [Extended Reading](docs/links.md)  
+- For detailed design, please read the [ANP Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)  
 - Refer to the open-source implementation [AgentConnect Examples](https://github.com/agent-network-protocol/AgentConnect)
 
 ## Milestones
@@ -100,10 +100,9 @@ For both the protocol and open-source code implementation, we are gradually adva
 
 We have established an ANP open-source technical community to advance ANP development through an open-source community approach. We sincerely invite you to join our open-source technical community. Our founding committee, community advisors, technical committee, development committee, enterprise observers, and other teams are continuously recruiting.
 
-Email: chgaowei@gmail.com
-
-- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)
-- Official website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)
+Email: chgaowei@gmail.com  
+- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
+- Official website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
 - GitHub: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 - WeChat: flow10240
 
