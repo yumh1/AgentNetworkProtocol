@@ -15,7 +15,7 @@
 - [为什么需要 ANP](#为什么需要-anp)
 - [协议三层架构](#协议三层架构)
 - [快速上手](#快速上手)
-- [协议 SDK](#协议-sdk)
+- [协议SDK](#协议-sdk)
 - [深入阅读](#深入阅读)
 - [里程碑](#里程碑)
 - [联系我们](#联系我们)
@@ -72,7 +72,7 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 
 如果你想快速的运行ANP相关demo，可以查看我们的示例程序说明文档：[ANP示例程序](docs/chinese/ANP示例程序.md)
 
-## 协议 SDK
+## 协议SDK
 
 我们正在开发一个开源的 AgentNetworkProtocol 实现，仓库地址：[https://github.com/agent-network-protocol/AgentConnect](https://github.com/agent-network-protocol/AgentConnect)
 
