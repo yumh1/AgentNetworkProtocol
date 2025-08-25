@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 [English](README.md) | [中文](README.cn.md)
 
 </div>
@@ -9,17 +9,23 @@
 > TL;DR: ANP aims to become the HTTP of the Agentic Web era.
 
 <!-- TOC -->
+
 ### Table of Contents
+
+- [Agent Network Protocol (ANP)](#agent-network-protocol-anp)
+  - [Table of Contents](#table-of-contents)
 - [Vision and Positioning](#vision-and-positioning)
 - [Why We Need ANP](#why-we-need-anp)
 - [Three-Layer Protocol Architecture](#three-layer-protocol-architecture)
 - [Quick Start](#quick-start)
-- [Protocol Implementation](#protocol-implementation)
+- [Protocol SDK](#protocol-sdk)
 - [Further Reading](#further-reading)
 - [Milestones](#milestones)
 - [Contact Us](#contact-us)
 - [Contributing](#contributing)
+  - [Contributors](#contributors)
 - [License](#license)
+- [Copyright Notice](#copyright-notice)
 
 ## Vision and Positioning
 
@@ -75,8 +81,8 @@ We are developing an open-source implementation of AgentNetworkProtocol, and its
 
 ## Further Reading
 
-- Complete materials are available at [Extended Reading](docs/links.md)  
-- For detailed design, please read the [ANP Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)  
+- Complete materials are available at [Extended Reading](docs/links.md)
+- For detailed design, please read the [ANP Technical White Paper](/01-agentnetworkprotocol-technical-white-paper.md)
 - Refer to the open-source implementation [AgentConnect Examples](https://github.com/agent-network-protocol/AgentConnect)
 
 ## Milestones
@@ -94,9 +100,10 @@ For both the protocol and open-source code implementation, we are gradually adva
 
 We have established an ANP open-source technical community to advance ANP development through an open-source community approach. We sincerely invite you to join our open-source technical community. Our founding committee, community advisors, technical committee, development committee, enterprise observers, and other teams are continuously recruiting.
 
-Email: chgaowei@gmail.com  
-- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)  
-- Official website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)  
+Email: chgaowei@gmail.com
+
+- Discord: [https://discord.gg/sFjBKTY7sB](https://discord.gg/sFjBKTY7sB)
+- Official website: [https://agent-network-protocol.com/](https://agent-network-protocol.com/)
 - GitHub: [https://github.com/agent-network-protocol/AgentNetworkProtocol](https://github.com/agent-network-protocol/AgentNetworkProtocol)
 - WeChat: flow10240
 
@@ -104,11 +111,18 @@ Email: chgaowei@gmail.com
 
 We welcome contributions in any form. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+### Contributors
+
+We extend our sincere gratitude to all contributors for their outstanding work and dedication. You can view the complete list of contributors here:
+
+- [Contributors (English)](docs/contributors.md)
+- [贡献者名单 (Chinese)](docs/chinese/contributors.md)
+
 ## License
 
 This project is open-sourced under the MIT License. For details, please refer to the [LICENSE](LICENSE) file. However, the copyright is held by GaoWei Chang. Any user of this project must retain the original copyright notice and license file.
 
 ## Copyright Notice
 
-Copyright (c) 2024 GaoWei Chang  
+Copyright (c) 2024 GaoWei Chang
 This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but must retain this copyright notice.
