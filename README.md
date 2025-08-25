@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 [English](README.md) | [中文](README.cn.md)
 
 </div>
@@ -9,17 +9,23 @@
 > TL;DR: ANP aims to become the HTTP of the Agentic Web era.
 
 <!-- TOC -->
+
 ### Table of Contents
+
+- [Agent Network Protocol (ANP)](#agent-network-protocol-anp)
+  - [Table of Contents](#table-of-contents)
 - [Vision and Positioning](#vision-and-positioning)
 - [Why We Need ANP](#why-we-need-anp)
 - [Three-Layer Protocol Architecture](#three-layer-protocol-architecture)
 - [Quick Start](#quick-start)
-- [Protocol Implementation](#protocol-implementation)
+- [Protocol SDK](#protocol-sdk)
 - [Further Reading](#further-reading)
 - [Milestones](#milestones)
 - [Contact Us](#contact-us)
 - [Contributing](#contributing)
+  - [Contributors](#contributors)
 - [License](#license)
+- [Copyright Notice](#copyright-notice)
 
 ## Vision and Positioning
 
@@ -104,11 +110,17 @@ Email: chgaowei@gmail.com
 
 We welcome contributions in any form. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+### Contributors
+
+We extend our sincere gratitude to all contributors for their outstanding work and dedication to the Agent Network Protocol project. You can view the complete list of contributors here:
+
+- [Contributors (English)](CONTRIBUTORS.md)
+
 ## License
 
 This project is open-sourced under the MIT License. For details, please refer to the [LICENSE](LICENSE) file. However, the copyright is held by GaoWei Chang. Any user of this project must retain the original copyright notice and license file.
 
 ## Copyright Notice
 
-Copyright (c) 2024 GaoWei Chang  
+Copyright (c) 2024 GaoWei Chang
 This file is released under the [MIT License](./LICENSE). You are free to use and modify it, but must retain this copyright notice.
