@@ -1,5 +1,5 @@
 <div align="center">
-
+  
 [English](README.md) | [中文](README.cn.md)
 
 </div>
@@ -117,5 +117,5 @@ AgentNetworkProtocol(ANP)的目标是成为**智能体互联网时代的HTTP**�
 本项目基于 MIT 许可证开源，详情请参考 [LICENSE](LICENSE) 文件。但版权归属于常高伟（GaoWei Chang）。任何使用本项目的用户必须保留原始版权声明和许可证文件。
 
 ## 版权声明  
-Copyright (c) 2024 GaoWei Chang  
+Copyright (c) 2024 GaoWei Chang
 本文件依据 [MIT 许可证](./LICENSE) 发布，您可以自由使用和修改，但必须保留本版权声明。
