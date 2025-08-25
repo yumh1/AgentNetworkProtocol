@@ -113,10 +113,9 @@ We welcome contributions in any form. Please refer to the [CONTRIBUTING.md](CONT
 
 ### Contributors
 
-We extend our sincere gratitude to all contributors for their outstanding work and dedication. You can view the complete list of contributors here:
+We extend our sincere gratitude to all contributors for their outstanding work and dedication to the Agent Network Protocol project. You can view the complete list of contributors here:
 
-- [Contributors (English)](docs/contributors.md)
-- [贡献者名单 (Chinese)](docs/chinese/contributors.md)
+- [Contributors (English)](CONTRIBUTORS.md)
 
 ## License
 

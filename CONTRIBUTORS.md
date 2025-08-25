@@ -4,7 +4,7 @@ This file lists all contributors to the Agent Network Protocol (ANP) project. We
 
 ## How to Contribute
 
-We welcome contributions from the community! Please see our [Contributing Guide](../CONTRIBUTING.md) for details on how to get involved.
+We welcome contributions from the community! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on how to get involved.
 
 ## Contributors
 
