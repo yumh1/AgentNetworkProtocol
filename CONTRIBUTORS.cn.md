@@ -11,6 +11,7 @@
 - [常高伟 (Gaowei Chang)](https://mp.weixin.qq.com/s/qpLUIslexjPytzIew65TEw) - 协议, 代码, 文档, 推广, 视频
 - [詹姆斯·沃 (James Waugh)](https://github.com/orgs/agent-network-protocol/people/jlwaugh) - 代码, 推广
 - [张盛毅 (Sean Zhang)](https://github.com/seanzhang9999) - 代码, 文档, 推广
+- [周晔（yagi）](https://github.com/yagi2018)）- 代码, 文档, 推广
 - [吴鹤意 (Heyi Wu)](https://github.com/whyseu) - 代码, 推广
 - [谢轩 (Xuan Xie)](https://github.com/xuan-lab) - 代码, 文档
 - [陈育舟 (Yuzhou Chen)](https://b23.tv/TsBF3wN) - 推广, 视频
