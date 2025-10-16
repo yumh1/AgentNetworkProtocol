@@ -1,7 +1,9 @@
+# Title: Framework for AI Agent Communication in Trust Domain
 
-# < Framework for AI Agent Communication in Trust Domain> 
-draft-<ietf-wgname-docname>-00.txt
-Status of this Memo
+filename : draft-<ietf-wgname-docname>-00.txt
+
+## Status of this Memo
+
 This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79. 
 This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79. This document may not be modified, and derivative works of it may not be created, and it may not be published except as an Internet-Draft.
 This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79. This document may not be modified, and derivative works of it may not be created, except to publish it as an RFC and to translate it into languages other than English.
