@@ -80,28 +80,7 @@ The server enables Agents to register their capabilities, and discover each othe
 The server enables Agents to communicate and collaborate with each other, which provides session management and routing function.
 ### 2.2. Protocol Flow  
 
-+------+                           +-------------+                            +------+
-|      |                           |             |<-(A)—Capability Register---|      |
-|      |                           |             |                            |      |
-|      |                           |    Agent    |-(B)-------Response-------->|      |
-|      |-(C)-Capability Discover-->| Registration|                            |      |
-|      |                           |    Server   |                            |      |
-|      |<-(D)----Matched Agents----|             |                            |      |
-|  AI  |                           |             |                            |  AI  |
-| Agent|                           +-------------+                            | Agent|
-|   A    |                                                                      |   B  |
-|      |                           +-------------+                            |      |
-|      |-(E)Communication Request->|             |                            |      |
-|      |                           |    Agent    |-(F)Communication Request-->|      |
-|      |                           |Communication|                            |      |
-|      |                           |   Server    |<-(G)Communication Response-|      |
-|      |<-(H)Communication Response|             |                            |      |
-|      |                           +-------------+                            |      |
-|      |                                                                      |      |
-|      |-----------------------(E’)Communication Request--------------------->|      |
-|      |                                                                      |      |
-|      |>----------------------(F’)Communication Response---------------------|      |
-+------+                                                                      +------+
+![Protocol Flow](./pic/pic.jpg)
 
 Figure 1: Abstract Protocol Flow   
 
