@@ -180,6 +180,8 @@ The definition of Proof shall comply with the specification: [https://www.w3.org
 应用层协议栈
 ### 12.2. Transmission layer——联通
 传输层协议栈（支持QoS差异化、支持多模数据分流或者流复用，移动性保证）
+Transport layer protocols such as QUIC, TCP, and UDP should be designed or enhanced to support agent session management and routing mechanisms.
+
 QoS Guarantee: A multi-level QoS system should be established based on the differences in data types and service requirements within agent sessions. The transport layer should convert QoS priorities assigned to agent services into transport layer scheduling priorities while implementing resource isolation. Additionally, in mobile scenarios, it should dynamically optimize and update QoS parameters according to revised QoS rules.
 
 Multimodal Data Offloading/Data Stream Multiplexing: Multi-path transmission capabilities (i.e., MPTCP, MPQUIC) should be adopted to support flexible transmission management of multi-source data from agents. Multimodal data can be allocated to appropriate transmission paths based on data types and network link conditions to prevent congestion on a single link. Meanwhile, data stream multiplexing can be employed, where data from multiple sessions is encapsulated into transmission units. Data identifiers are introduced to distinguish data ownership, and isolation mechanisms ensure no mutual interference occurs during data stream multiplexing.
