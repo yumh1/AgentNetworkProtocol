@@ -168,7 +168,28 @@ The definition of Proof shall comply with the specification: [https://www.w3.org
 能力注册流程和关键消息、参数
 
 ## 9. Capability Discovery——移动
-能力发现流程和关键消息、参数
+
+In the previous chapter, the registration mechanism of AI agents was introduced, which relies on the Agent Registration Server to complete the registration of AI agents in the trusted domain, including their own capabilities, identity information, and other details. The discovery of AI agents also depends on the Agent Registration Server, and the discovery process consists of two phases: "query matching" and "result feedback".
+
+** Query Matching
+The initiating AI Agent A send queries to the registration server, and the server screens and matches the target agents based on the capability database.The query request can be sent via the MQTT Publish protocol, and the request parameters should be structured (to avoid ambiguous descriptions). Examples are as follows:
+
+    Requirement type: "Medical image analysis"
+    Location range: "Within 1 kilometer of base station BS-001"
+    Real-time requirement: "Latency ≤ 100ms"
+    Security level: "Medical qualification VC is required"
+
+The registration server conducts screening according to the following priority order:
+    First priority: Identity validity (whether there is a valid VC)
+    Second priority: Location and real-time performance (whether it is within the specified area and meets the latency requirement)
+    Third priority: Resource redundancy (e.g., agents with a computing power idle rate ≥ 50% are given priority)
+
+After the matching is completed, a "target agent list" is generated, which includes the DID, communication address, and capability matching degree of each agent.
+
+** Result Feedback
+The registration server feeds back the matched results to the initiator AI agent A, and the initiator starts the session establishment based on the results. During this process, the registration server pushes the "target agent list". After receiving the list, the initiator gives priority to select the target agent with the highest matching priority, and makes choices based on the "communication address" and "protocol preference" in the list. For instance, if the target agent has preferences for real-time interaction or non-real-time data synchronization, the sender can select appropriate communication protocols as needed.
+
+
 ## 10. Session  management——移动
 建立会话、会话状态、上下文管理
 After discovering the peer Agent (e.g., Agent D), the local Agent (e.g., Agent S) needs to establish a session with it to communicate. After the task is completed. the relevant session resources can be released.
