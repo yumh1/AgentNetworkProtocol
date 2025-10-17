@@ -63,6 +63,7 @@ A.2.1.1.1.1. <H5>	10
 
 
 ## 1. Overview  ——华为、移动
+
 With the development of AI agent technology, its application scenarios have been continuously expanding. From initial simple task execution to complex collaborative tasks among multiple agents, agents have demonstrated great potential in various fields. This multi-agent collaboration model can fully leverage the strengths of individual agents, improving the quality and efficiency of task execution. However, as the demand for multi-agent collaboration grows, defining standardized communication protocols among agents to achieve wide-area interconnection, cross-domain interoperability, and secure collaboration has become an urgent issue to address.
 To meet the communication needs of AI agents and promote the widespread services of multi-agent collaboration, it is imperative to define standardized agent communication protocols that support interconnection, interoperability, and secure scalability between agents in trust domain.
 ### 1.1. Objectives
