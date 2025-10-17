@@ -62,12 +62,25 @@ A.2.1.1.1. <H4>	10
 A.2.1.1.1.1. <H5>	10
 
 
-## 1. Overview  ——华为云核、移动
-整体介绍智能体通信协议Framework包含的内容。
-### 1.1. Document Structure
-介绍整体文档章节结构
-### 1.2. Terms and Definitions
-术语和定义
+## 1. Overview  ——华为、移动
+
+With the development of AI agent technology, its application scenarios have been continuously expanding. From initial simple task execution to complex collaborative tasks among multiple agents, agents have demonstrated great potential in various fields. This multi-agent collaboration model can fully leverage the strengths of individual agents, improving the quality and efficiency of task execution. However, as the demand for multi-agent collaboration grows, defining standardized communication protocols among agents to achieve wide-area interconnection, cross-domain interoperability, and secure collaboration has become an urgent issue to address.
+To meet the communication needs of AI agents and promote the widespread services of multi-agent collaboration, it is imperative to define standardized agent communication protocols that support interconnection, interoperability, and secure scalability between agents in trust domain.
+### 1.1. Objectives
+- Standardization: Establish a unified communication protocol standard to enable seamless communication and interoperability among agents.
+- Wide-area interconnection: Support stable and efficient connections for agents across wide areas, ensuring that information exchange between agents is not restricted by geographical boundaries, and meeting the communication needs of agents in various scenarios.
+- Security and scalability: Build a comprehensive security mechanism to ensure data security, privacy protection, and identity authentication during agent communication, preventing attacks and data leakage. In addition, the protocol should have good scalability to adapt to the continuous development of agent technologies and emerging new requirements, facilitating functional upgrades and optimizations of the protocol.
+### 1.2. Scope
+From the perspective of network service domain division, future agents can be simply categorized into 3 types based on their deployment locations: terminal-side agents, network-side agents, and agents outside the network. This draft mainly focuses on the communication between agents directly managed within the operator's network, i.e. the communication between the first two types of agents:
+1. Communication between different terminal-side agents registered in the same network service domain.
+2. Communication between terminal-side agents and network-side agents registered in the same network service domain.
+3. Communication between network-side agents registered in the same network service domain.
+Furthermore, the communication between agents registered in different network domains is not within the scope of this discussion.
+### 1.3. Terms and Definitions
+- Task: Task is actions required to achieve a specific goal. These actions can be physical or cognitive.
+- Task chain: A Task chain defines an ordered set of tasks and ordering constraints that is to be applied to, e.g., packets, frames, or flows. The implied order may not be a linear progression as the architecture allows for task chain of more than one branch, and also allows for cases where there is flexibility in the order in which tasks need to be applied.
+- Coordinator Agent: An agent that receives tasks and decomposes or distributes tasks to other agents.
+- Execution Agent:	An agent responsible for executing tasks distributed by the Coordinator Agent.
 
 ## 2. Overview of the operation
 ### 2.1. Roles
@@ -182,10 +195,37 @@ Then the Agent Registration Server locally sores the registration information of
 
 
 ## 9. Capability Discovery——移动
-能力发现流程和关键消息、参数
+
+In the previous chapter, the registration mechanism of AI agents was introduced, which relies on the Agent Registration Server to complete the registration of AI agents in the trusted domain, including their own capabilities, identity information, and other details. The discovery of AI agents also depends on the Agent Registration Server, and the discovery process consists of two phases: "query matching" and "result feedback".
+
+** Query Matching
+The initiating AI Agent A send queries to the registration server, and the server screens and matches the target agents based on the capability database.The query request can be sent via the MQTT Publish protocol, and the request parameters should be structured (to avoid ambiguous descriptions). Examples are as follows:
+
+    Requirement type: "Medical image analysis"
+    Location range: "Within 1 kilometer of base station BS-001"
+    Real-time requirement: "Latency ≤ 100ms"
+    Security level: "Medical qualification VC is required"
+
+The registration server conducts screening according to the following priority order:
+    First priority: Identity validity (whether there is a valid VC)
+    Second priority: Location and real-time performance (whether it is within the specified area and meets the latency requirement)
+    Third priority: Resource redundancy (e.g., agents with a computing power idle rate ≥ 50% are given priority)
+
+After the matching is completed, a "target agent list" is generated, which includes the DID, communication address, and capability matching degree of each agent.
+
+** Result Feedback
+The registration server feeds back the matched results to the initiator AI agent A, and the initiator starts the session establishment based on the results. During this process, the registration server pushes the "target agent list". After receiving the list, the initiator gives priority to select the target agent with the highest matching priority, and makes choices based on the "communication address" and "protocol preference" in the list. For instance, if the target agent has preferences for real-time interaction or non-real-time data synchronization, the sender can select appropriate communication protocols as needed.
+
+
 ## 10. Session  management——移动
 建立会话、会话状态、上下文管理
-
+After discovering the peer Agent (e.g., Agent D), the local Agent (e.g., Agent S) needs to establish a session with it to communicate. After the task is completed. the relevant session resources can be released.
+### 10.1 Session Establishment and Control
+Before communicating with Agent D, Agent S should first establish a secure connection with the Agent Communication Server. Prior to this, Agent S must undergo authentication by the Agent Communication Server. Similarly, Agent D also needs to be authenticated by the Agent Communication Server to establish a secure connection.
+Therefore, the Agent Communication Server needs to support the status maintenance of the attached Agents, such as the status of Agent S and Agent D. In other words, there should be an Agent status table on the Agent Communication Server, and the table should include information about Agent ID, Agent IP, etc.
+In order to communicate with Agent D, Agent S initiates a session establishment request to the Agent Communication Server. After verifying its permissions, the Agent Communication Server proceeds to establish the session, for example, by assigning a globally unique Session ID to the new session. This ID will be used throughout the entire session lifecycle to correlate all activities and data. Correspondingly, the Agent Communication Server needs to maintain a session table, which includes information about all Agents involved in the session, especially information about the session initiator.
+### 10.2 Differentiated QoS Guarantees
+During the session establishment, Agent S can provide the relevant QoS requirements for the session. Consequently, the Agent Communication Server can prioritize the processing and forwarding of messages according to these requirements to ensure the session's QoS.
 ## 11. Routing  ----数通
 会话路由机制 
 
@@ -194,6 +234,13 @@ Then the Agent Registration Server locally sores the registration information of
 应用层协议栈
 ### 12.2. Transmission layer——联通
 传输层协议栈（支持QoS差异化、支持多模数据分流或者流复用，移动性保证）
+Transport layer protocols such as QUIC, TCP, and UDP should be designed or enhanced to support agent session management and routing mechanisms.
+
+QoS Guarantee: A multi-level QoS system should be established based on the differences in data types and service requirements within agent sessions. The transport layer should convert QoS priorities assigned to agent services into transport layer scheduling priorities while implementing resource isolation. Additionally, in mobile scenarios, it should dynamically optimize and update QoS parameters according to revised QoS rules.
+
+Multimodal Data Offloading/Data Stream Multiplexing: Multi-path transmission capabilities (i.e., MPTCP, MPQUIC) should be adopted to support flexible transmission management of multi-source data from agents. Multimodal data can be allocated to appropriate transmission paths based on data types and network link conditions to prevent congestion on a single link. Meanwhile, data stream multiplexing can be employed, where data from multiple sessions is encapsulated into transmission units. Data identifiers are introduced to distinguish data ownership, and isolation mechanisms ensure no mutual interference occurs during data stream multiplexing.
+
+Mobility Management: It should support service continuity and session persistence for agent users in mobile scenarios. For instance, QUIC's Connection ID can be leveraged to support mobility. During an agent's movement, multi-path transmission and fast handover should be supported. Upon receiving a handover notification, the transport layer should either transmit unfinished data packets to the new link or switch data to a backup link, thereby enabling mobility management for agent communication.
 
 ## 13. Formal Syntax
 The following syntax specification uses the augmented Backus-Naur Form (BNF) as described in RFC-2234 [RFC2234].
