@@ -62,12 +62,24 @@ A.2.1.1.1. <H4>	10
 A.2.1.1.1.1. <H5>	10
 
 
-## 1. Overview  ——华为云核、移动
-整体介绍智能体通信协议Framework包含的内容。
-### 1.1. Document Structure
-介绍整体文档章节结构
-### 1.2. Terms and Definitions
-术语和定义
+## 1. Overview  ——华为、移动
+With the development of AI agent technology, its application scenarios have been continuously expanding. From initial simple task execution to complex collaborative tasks among multiple agents, agents have demonstrated great potential in various fields. This multi-agent collaboration model can fully leverage the strengths of individual agents, improving the quality and efficiency of task execution. However, as the demand for multi-agent collaboration grows, defining standardized communication protocols among agents to achieve wide-area interconnection, cross-domain interoperability, and secure collaboration has become an urgent issue to address.
+To meet the communication needs of AI agents and promote the widespread services of multi-agent collaboration, it is imperative to define standardized agent communication protocols that support interconnection, interoperability, and secure scalability between agents in trust domain.
+### 1.1. Objectives
+- Standardization: Establish a unified communication protocol standard to enable seamless communication and interoperability among agents.
+- Wide-area interconnection: Support stable and efficient connections for agents across wide areas, ensuring that information exchange between agents is not restricted by geographical boundaries, and meeting the communication needs of agents in various scenarios.
+- Security and scalability: Build a comprehensive security mechanism to ensure data security, privacy protection, and identity authentication during agent communication, preventing attacks and data leakage. In addition, the protocol should have good scalability to adapt to the continuous development of agent technologies and emerging new requirements, facilitating functional upgrades and optimizations of the protocol.
+### 1.2. Scope
+From the perspective of network service domain division, future agents can be simply categorized into 3 types based on their deployment locations: terminal-side agents, network-side agents, and agents outside the network. This draft mainly focuses on the communication between agents directly managed within the operator's network, i.e. the communication between the first two types of agents:
+1. Communication between different terminal-side agents registered in the same network service domain.
+2. Communication between terminal-side agents and network-side agents registered in the same network service domain.
+3. Communication between network-side agents registered in the same network service domain.
+Furthermore, the communication between agents registered in different network domains is not within the scope of this discussion.
+### 1.3. Terms and Definitions
+- Task: Task is actions required to achieve a specific goal. These actions can be physical or cognitive.
+- Task chain: A Task chain defines an ordered set of tasks and ordering constraints that is to be applied to, e.g., packets, frames, or flows. The implied order may not be a linear progression as the architecture allows for task chain of more than one branch, and also allows for cases where there is flexibility in the order in which tasks need to be applied.
+- Coordinator Agent: An agent that receives tasks and decomposes or distributes tasks to other agents.
+- Execution Agent:	An agent responsible for executing tasks distributed by the Coordinator Agent.
 
 ## 2. Overview of the operation
 ### 2.1. Roles
